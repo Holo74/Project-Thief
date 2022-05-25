@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/Island.map-8b4b9a374f576d6109ef4a7a90a16a79.tres"
+
+[deps]
+
+source_file="res://Maps/Grapple Hook Intro/Island.map"
+dest_files=[ "res://.import/Island.map-8b4b9a374f576d6109ef4a7a90a16a79.tres" ]
+
+[params]
+

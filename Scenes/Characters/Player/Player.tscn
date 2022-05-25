@@ -1,0 +1,346 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/Player/BodyMods/SideWallDetection.cs" type="Script" id=3]
+[ext_resource path="res://Textures/Player/GUI/Crosshair.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Player/Interactions/Interaction.cs" type="Script" id=5]
+[ext_resource path="res://Scripts/Player/GUI/InteractionTexture.cs" type="Script" id=6]
+[ext_resource path="res://Scripts/Debug/VariablesModPanel.cs" type="Script" id=7]
+[ext_resource path="res://Scripts/Debug/VariableContainers/SetFloatVariable.cs" type="Script" id=8]
+[ext_resource path="res://Scripts/Debug/Level Controls/Restart.cs" type="Script" id=9]
+[ext_resource path="res://Music/In Game/Hidden/mp208.mp3" type="AudioStream" id=10]
+[ext_resource path="res://Scripts/Management/Sound/MusicManager.cs" type="Script" id=11]
+[ext_resource path="res://Scripts/Management/Sound/PlayerSoundManager.cs" type="Script" id=12]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.49
+height = 0.9
+
+[sub_resource type="CylinderShape" id=2]
+radius = 0.5
+height = 1.0
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.0627451, 0.427451, 0.407843, 1 )
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+expand_margin_top = 6.0
+expand_margin_bottom = 6.0
+shadow_size = 10
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="UpperBody" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="BodyNode" type="Spatial" parent="."]
+
+[node name="Camera" type="Camera" parent="BodyNode"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+current = true
+near = 0.01
+
+[node name="Pickup Ray" type="RayCast" parent="BodyNode/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276 )
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+script = ExtResource( 5 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Health" type="Control" parent="CanvasLayer/GUI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -22.0
+margin_right = 22.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+
+[node name="Health Bar" type="ProgressBar" parent="CanvasLayer/GUI/Health"]
+anchor_left = -2.22773
+anchor_top = 0.6
+anchor_right = 3.22773
+anchor_bottom = 1.5
+margin_left = 0.0200043
+margin_right = -0.0200043
+step = 1.0
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Health Number" type="Label" parent="CanvasLayer/GUI/Health"]
+anchor_left = -0.045
+anchor_top = 1.6
+anchor_right = 1.045
+anchor_bottom = 2.0
+margin_left = -0.02
+margin_right = 0.0199966
+text = "99"
+align = 1
+valign = 1
+
+[node name="Interaction Texture" type="TextureRect" parent="CanvasLayer/GUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture = ExtResource( 4 )
+expand = true
+script = ExtResource( 6 )
+
+[node name="Wall Detection" type="Spatial" parent="."]
+script = ExtResource( 3 )
+
+[node name="Right Ray" type="RayCast" parent="Wall Detection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0 )
+enabled = true
+cast_to = Vector3( 0.8, 0, 0 )
+
+[node name="Left Ray" type="RayCast" parent="Wall Detection"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0 )
+enabled = true
+cast_to = Vector3( -0.8, 0, 0 )
+
+[node name="LowerBody" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+shape = SubResource( 2 )
+
+[node name="Upper Body Detection" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Upper Body Detection"]
+shape = SubResource( 1 )
+
+[node name="Floor Cast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.933548, 0 )
+enabled = true
+
+[node name="Debug" type="CanvasLayer" parent="."]
+
+[node name="DebugPanel" type="Panel" parent="Debug"]
+anchor_left = 0.140156
+anchor_top = 0.213667
+anchor_right = 0.859844
+anchor_bottom = 0.786333
+margin_left = 0.47998
+margin_top = -0.200012
+margin_right = -0.480042
+margin_bottom = 0.199982
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+Enabled = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Debug/DebugPanel"]
+anchor_left = 0.34
+anchor_top = 0.034
+anchor_right = 0.66
+anchor_bottom = 0.034
+margin_top = 0.112
+margin_bottom = 17.112
+grow_horizontal = 2
+size_flags_horizontal = 3
+bbcode_enabled = true
+bbcode_text = "[center]Debug Panel[/center]"
+text = "Debug Panel"
+
+[node name="Gravity" type="Panel" parent="Debug/DebugPanel"]
+anchor_left = 0.0326087
+anchor_top = 0.139698
+anchor_right = 0.32337
+anchor_bottom = 0.308256
+margin_left = -9.53674e-07
+margin_top = -0.0559998
+margin_right = -1.52588e-05
+margin_bottom = -0.0400085
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="HSlider" type="HSlider" parent="Debug/DebugPanel/Gravity"]
+anchor_top = 0.418182
+anchor_right = 0.692308
+anchor_bottom = 0.854545
+max_value = 50.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Debug/DebugPanel/Gravity"]
+anchor_top = 0.138
+anchor_right = 0.962
+anchor_bottom = 0.382
+margin_top = -0.590001
+margin_right = -0.0960083
+margin_bottom = -0.0100021
+text = "Gravity Strength"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Debug/DebugPanel/Gravity"]
+anchor_left = 0.692
+anchor_top = 0.418
+anchor_right = 0.971
+anchor_bottom = 0.855
+margin_left = 0.0639954
+margin_top = 0.0100002
+margin_right = 0.0319824
+margin_bottom = -0.0250015
+text = "Test"
+
+[node name="Jump Str" type="Panel" parent="Debug/DebugPanel"]
+anchor_left = 0.0326087
+anchor_top = 0.395512
+anchor_right = 0.32337
+anchor_bottom = 0.561163
+margin_left = -9.53674e-07
+margin_top = -0.0559998
+margin_right = -1.52588e-05
+margin_bottom = -0.0400085
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+SelectedVariable = 1
+
+[node name="HSlider" type="HSlider" parent="Debug/DebugPanel/Jump Str"]
+anchor_top = 0.418182
+anchor_right = 0.692308
+anchor_bottom = 0.854545
+max_value = 50.0
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Debug/DebugPanel/Jump Str"]
+anchor_top = 0.138
+anchor_right = 0.962
+anchor_bottom = 0.382
+margin_top = -0.590001
+margin_right = -0.0960083
+margin_bottom = -0.0100021
+text = "Jump Strength"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Debug/DebugPanel/Jump Str"]
+anchor_left = 0.692
+anchor_top = 0.418
+anchor_right = 0.971
+anchor_bottom = 0.855
+margin_left = 0.0639954
+margin_top = 0.0100002
+margin_right = 0.0319824
+margin_bottom = -0.0250015
+text = "Test"
+
+[node name="Speed Str" type="Panel" parent="Debug/DebugPanel"]
+anchor_left = 0.0326087
+anchor_top = 0.651326
+anchor_right = 0.32337
+anchor_bottom = 0.816977
+margin_left = -9.53674e-07
+margin_top = -0.0559998
+margin_right = -1.52588e-05
+margin_bottom = -0.0400085
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": true
+}
+SelectedVariable = 2
+
+[node name="HSlider" type="HSlider" parent="Debug/DebugPanel/Speed Str"]
+anchor_top = 0.418182
+anchor_right = 0.692308
+anchor_bottom = 0.854545
+tick_count = 10
+ticks_on_borders = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Debug/DebugPanel/Speed Str"]
+anchor_top = 0.138
+anchor_right = 0.962
+anchor_bottom = 0.382
+margin_top = -0.590001
+margin_right = -0.0960083
+margin_bottom = -0.0100021
+text = "Walking Speed"
+align = 1
+
+[node name="LineEdit" type="LineEdit" parent="Debug/DebugPanel/Speed Str"]
+anchor_left = 0.692
+anchor_top = 0.418
+anchor_right = 0.971
+anchor_bottom = 0.855
+margin_left = 0.0639954
+margin_top = 0.0100002
+margin_right = 0.0319824
+margin_bottom = -0.0250015
+text = "Test"
+
+[node name="Button" type="Button" parent="Debug/DebugPanel"]
+anchor_left = 0.380435
+anchor_top = 0.883722
+anchor_right = 0.619565
+anchor_bottom = 0.965117
+margin_right = 3.05176e-05
+text = "Restart"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+ScenePath = "res://Scenes/Levels/Testing.tscn"
+
+[node name="PlayerSound" type="Node" parent="."]
+script = ExtResource( 12 )
+
+[node name="Legs" type="AudioStreamPlayer" parent="PlayerSound"]
+bus = "Effects"
+
+[node name="Arms" type="AudioStreamPlayer" parent="PlayerSound"]
+bus = "Effects"
+
+[node name="Music" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="Ambient Sound" type="AudioStreamPlayer" parent="Music"]
+bus = "Ambient"
+
+[node name="Music" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 10 )
+autoplay = true
+bus = "Music"
+
+[connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]

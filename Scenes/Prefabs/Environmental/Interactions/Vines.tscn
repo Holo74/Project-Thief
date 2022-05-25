@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Environment/Interactables/ClimbableVines.cs" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=132]
+extents = Vector3( 1.55577, 3.69382, 0.308535 )
+
+[sub_resource type="CubeMesh" id=133]
+size = Vector3( 3, 8, 0.441 )
+
+[sub_resource type="BoxShape" id=134]
+extents = Vector3( 1, 4.08686, 1 )
+
+[node name="Vines" type="StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.60767, 11.7682, -33.6003 )
+script = ExtResource( 1 )
+WorldRight = Vector3( -1, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.100214, 0.868027 )
+shape = SubResource( 132 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32886, 0.90152 )
+mesh = SubResource( 133 )
+material/0 = null
+
+[node name="Area" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 134 )

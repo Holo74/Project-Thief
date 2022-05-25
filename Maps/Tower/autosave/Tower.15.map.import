@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/Tower.15.map-7fe2332095f5e7922d2412b420cf272e.tres"
+
+[deps]
+
+source_file="res://Maps/Tower/autosave/Tower.15.map"
+dest_files=[ "res://.import/Tower.15.map-7fe2332095f5e7922d2412b420cf272e.tres" ]
+
+[params]
+

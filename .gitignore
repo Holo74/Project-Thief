@@ -1,0 +1,10 @@
+# Import cache
+.import/
+*.translation
+export_presents.cfg
+.mono/
+
+# Binaries
+bin/
+build/
+lib/
