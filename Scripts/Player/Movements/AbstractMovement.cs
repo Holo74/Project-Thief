@@ -10,6 +10,7 @@ namespace Player.Movement
         private bool FallingLock { get; set; } = false;
         protected bool currentFloorState = false;
         public abstract void Movement(float delta);
+        public Rotation.BasicRotation Rotation { get; set; }
 
         public virtual void FallingMovement(float delta)
         {

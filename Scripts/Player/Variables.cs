@@ -5,6 +5,12 @@ namespace Player
 {
     public static class Variables
     {
+        public static void INIT()
+        {
+            DEFAULT_MOVEMENT = new Movement.BasicMovement();
+            RESET_MOVEMENT();
+            RESET_ROTATION();
+        }
         public static float GRAVITY_STRENGTH { get; set; } = 10f;
         public static float JUMP_STRENGTH { get; set; } = 5f;
         public static Vector3 GRAVITY_MOVEMENT { get; set; } = new Vector3();
@@ -25,18 +31,29 @@ namespace Player
         public delegate void StateChange(bool newState);
         public static event StateChange PlayingChange;
         public static event StateChange OnFloorChange;
+        private static Rotation.BasicRotation rotation;
+        public static Rotation.BasicRotation ROTATION
+        {
+            get { return rotation; }
+            set { rotation = value; }
+        }
 
-        private static Player.Movement.AbstractMovement movement;
-        public static Player.Movement.AbstractMovement MOVEMENT
+        private static Movement.AbstractMovement movement;
+        public static Movement.AbstractMovement MOVEMENT
         {
             get { return movement; }
             set { movement = value; movement.Starting(); }
         }
-        private static Player.Movement.AbstractMovement defaultMovement;
-        public static Player.Movement.AbstractMovement DEFAULT_MOVEMENT
+        private static Movement.AbstractMovement defaultMovement;
+        public static Movement.AbstractMovement DEFAULT_MOVEMENT
         {
             get { return defaultMovement; }
             set { defaultMovement = value; RESET_MOVEMENT(); }
+        }
+
+        public static void RESET_ROTATION()
+        {
+            ROTATION = new Rotation.BasicRotation();
         }
 
         public static void RESET_MOVEMENT()

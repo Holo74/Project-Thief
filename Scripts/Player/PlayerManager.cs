@@ -7,20 +7,17 @@ namespace Player
 {
     public class PlayerManager : KinematicBody, Interfaces.Interactions.IHealth
     {
-        private delegate void MouseMovement(InputEventMouseMotion e);
         private delegate void FallDamage(float force);
-        private MouseMovement mouseInput;
         private FallDamage fallDamage;
         private bool onFloor = true;
 
         public override void _Ready()
         {
             PlayerQuickAccess.SyncVariables(this);
-            mouseInput = BasicRotation.BaseRotate;
             fallDamage = StandardFallDamage;
             Input.SetMouseMode(Input.MouseMode.Captured);
+            Variables.INIT();
             Variables.OnFloorChange += StandardFloorChange;
-            Variables.DEFAULT_MOVEMENT = new BasicMovement();
             //Variables.ADD_UPGRADE(Upgrades.AbstractUpgrade.GetUpgrade(Upgrades.AbstractUpgrade.ITEM_UPGRADE_LIST.DoubleJump));
             //Variables.ADD_UPGRADE(Upgrades.AbstractUpgrade.GetUpgrade(Upgrades.AbstractUpgrade.ITEM_UPGRADE_LIST.WallRun));
         }
@@ -38,6 +35,7 @@ namespace Player
                 {
                     Input.SetMouseMode(Input.MouseMode.Captured);
                     Variables.PLAYING = true;
+                    Variables.RESET_ROTATION();
                 }
             }
             PlayerQuickAccess.INTERACTION.Interact();
@@ -70,7 +68,7 @@ namespace Player
             {
                 if (Variables.PLAYING)
                 {
-                    mouseInput(mouse);
+                    Variables.ROTATION.BaseRotate(mouse);
                 }
             }
         }

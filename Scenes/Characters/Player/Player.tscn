@@ -343,4 +343,9 @@ stream = ExtResource( 10 )
 autoplay = true
 bus = "Music"
 
+[node name="MantleCasting" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5 )
+enabled = true
+cast_to = Vector3( 0, 0, -1 )
+
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]
