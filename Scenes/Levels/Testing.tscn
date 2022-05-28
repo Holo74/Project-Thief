@@ -1430,3 +1430,7 @@ shape = SubResource( 357 )
 [node name="MeshInstance" type="MeshInstance" parent="Water Enterance2"]
 mesh = SubResource( 372 )
 material/0 = null
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.191, 2.48578, -60.0377 )
+use_collision = true

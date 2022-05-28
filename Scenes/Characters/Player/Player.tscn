@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -12,10 +12,17 @@
 [ext_resource path="res://Music/In Game/Hidden/mp208.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/Management/Sound/MusicManager.cs" type="Script" id=11]
 [ext_resource path="res://Scripts/Management/Sound/PlayerSoundManager.cs" type="Script" id=12]
+[ext_resource path="res://Scripts/Player/BodyMods/Mantle.cs" type="Script" id=13]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.49
 height = 0.9
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.316381, 0.374232, 0.0574478 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.55, 0.55, 0.580447 )
 
 [sub_resource type="CylinderShape" id=2]
 radius = 0.5
@@ -55,6 +62,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276 )
 enabled = true
 cast_to = Vector3( 0, 0, -3 )
 script = ExtResource( 5 )
+
+[node name="RemoteTransform" type="RemoteTransform" parent="BodyNode/Camera"]
+remote_path = NodePath("../../Mantling")
+update_rotation = false
+update_scale = false
+
+[node name="Mantling" type="Spatial" parent="BodyNode"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+script = ExtResource( 13 )
+
+[node name="LedgeDetection" type="Area" parent="BodyNode/Mantling"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/LedgeDetection"]
+shape = SubResource( 4 )
+
+[node name="Spacer" type="Area" parent="BodyNode/Mantling"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677429, -0.0981175 )
+
+[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/Spacer"]
+shape = SubResource( 5 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -342,10 +370,5 @@ bus = "Ambient"
 stream = ExtResource( 10 )
 autoplay = true
 bus = "Music"
-
-[node name="MantleCasting" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.5 )
-enabled = true
-cast_to = Vector3( 0, 0, -1 )
 
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]

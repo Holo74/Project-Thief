@@ -10,19 +10,47 @@ namespace Player.Movement
         private bool FallingLock { get; set; } = false;
         protected bool currentFloorState = false;
         public abstract void Movement(float delta);
-        public Rotation.BasicRotation Rotation { get; set; }
 
         public virtual void FallingMovement(float delta)
         {
-            if (PlayerQuickAccess.KINEMATIC_BODY.IsOnWall() && Input.IsActionPressed("ui_select") && Variables.WALKING_MOVEMENT.LengthSquared() > .1f)
+            if (Mantled(delta))
             {
-                Variables.GRAVITY_MOVEMENT += Vector3.Up * Variables.BOOST_WALL_JUMP;
-                Variables.WALKING_MOVEMENT = Vector3.Zero;
+                return;
+            }
+            if (Input.IsActionJustPressed("ui_select"))
+            {
+                if (PlayerQuickAccess.KINEMATIC_BODY.IsOnWall() && Variables.WALKING_MOVEMENT.LengthSquared() > .1f)
+                {
+                    Variables.GRAVITY_MOVEMENT += Vector3.Up * Variables.BOOST_WALL_JUMP;
+                    Variables.WALKING_MOVEMENT = Vector3.Zero;
+                }
             }
             Vector3 move = DirectionalInput() * MovementSpeed();
             Variables.MOVEMENT.Crouch();
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(move + Variables.GRAVITY_MOVEMENT, Vector3.Up);
             Variables.GRAVITY_MOVEMENT += delta * Vector3.Down * Variables.GRAVITY_STRENGTH * Variables.GRAVITY_MOD;
+        }
+
+        private float MantleTimer { get; set; }
+        private bool Mantled(float delta)
+        {
+            if (Input.IsActionJustPressed("ui_select"))
+            {
+                MantleTimer = 0f;
+            }
+            if (Input.IsActionPressed("ui_select"))
+            {
+                if (PlayerQuickAccess.MANTLE.CanMantle())
+                {
+                    MantleTimer += delta;
+                    if (MantleTimer > 0.1f)
+                    {
+                        Variables.MOVEMENT = new Movement.Mantle();
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         public virtual void FloorDetection()
@@ -74,14 +102,19 @@ namespace Player.Movement
         {
             if (Input.IsActionJustPressed("crouch"))
             {
-                if (Variables.ON_FLOOR)
-                {
-                    GroundCrouch();
-                }
-                else
-                {
-                    AirCrouch();
-                }
+                CrouchWithoutInput();
+            }
+        }
+
+        public void CrouchWithoutInput()
+        {
+            if (Variables.ON_FLOOR)
+            {
+                GroundCrouch();
+            }
+            else
+            {
+                AirCrouch();
             }
         }
 
@@ -126,7 +159,7 @@ namespace Player.Movement
 
         private async void DelayedCrouching()
         {
-            await Task.Delay(100);
+            await Task.Delay(50);
             standOnLand = false;
             GroundCrouch();
         }
@@ -195,9 +228,22 @@ namespace Player.Movement
 
         }
 
+        protected virtual void FloorStateChange(bool state)
+        {
+            if (state)
+            {
+
+            }
+            else
+            {
+
+            }
+        }
+
         public virtual void Starting()
         {
-            //Variables.OnFloorChange += DebugLanding;
+            Variables.RESET_ROTATION();
+            Variables.OnFloorChange += FloorStateChange;
         }
     }
 

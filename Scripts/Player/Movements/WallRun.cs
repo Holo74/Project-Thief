@@ -36,7 +36,6 @@ namespace Player.Movement
                 snap = Vector3.Down;
             }
             Variables.WALKING_MOVEMENT *= MovementSpeed();
-            Variables.MOVEMENT.Crouch();
             if (Input.IsActionJustPressed("ui_select"))
             {
                 Jump(jumpFactor * Variables.JUMP_STRENGTH);

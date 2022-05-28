@@ -68,7 +68,7 @@ namespace Player
             {
                 if (Variables.PLAYING)
                 {
-                    Variables.ROTATION.BaseRotate(mouse);
+                    Variables.ROTATION?.BaseRotate(mouse);
                 }
             }
         }
