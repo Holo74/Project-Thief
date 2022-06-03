@@ -20,8 +20,37 @@ namespace Player
         public static float SPRINT_SPEED { get; set; } = 7f;
         public static float CROUCH_SPEED { get; set; } = 1f;
         public static float CROUCHING_SPEED { get; set; } = 5f;
-        public static bool IS_CROUCHED { get; set; } = false;
-        public static bool IS_SPRINTING { get; set; } = false;
+        public static float MANTLE_FORWARD_SPEED { get; set; } = 6f;
+        public static float MANTLE_UPWARD_SPEED { get; set; } = 7.5f;
+        public static float MANTLE_UPWARD_TIME { get; set; } = 1f;
+        public static float MANTLE_FORWARD_TIME { get; set; } = 0.1f;
+        public static float MANTLE_BUFFER_TIMER { get; set; } = 0.1f;
+        private static bool isCrouching = false;
+        public static bool IS_CROUCHED
+        {
+            get
+            {
+                return isCrouching;
+            }
+            set
+            {
+                isCrouching = value;
+                CrouchChange?.Invoke(value);
+            }
+        }
+        private static bool isSprinting = false;
+        public static bool IS_SPRINTING
+        {
+            get
+            {
+                return isSprinting;
+            }
+            set
+            {
+                isSprinting = value;
+                SprintingChanged?.Invoke(isSprinting);
+            }
+        }
 
 
         public static float JUMP_MOD { get; set; } = 1f;
@@ -29,8 +58,10 @@ namespace Player
         public static float GRAVITY_MOD { get; set; } = 1f;
 
         public delegate void StateChange(bool newState);
+        public static event StateChange SprintingChanged;
         public static event StateChange PlayingChange;
         public static event StateChange OnFloorChange;
+        public static event StateChange CrouchChange;
         private static Rotation.BasicRotation rotation;
         public static Rotation.BasicRotation ROTATION
         {

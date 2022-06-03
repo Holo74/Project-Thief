@@ -108,5 +108,10 @@ namespace Player
             base.Dispose(disposing);
             Variables.DELETE_VARIABLES();
         }
+
+        private void Testing(bool changed)
+        {
+            GD.Print(changed);
+        }
     }
 }

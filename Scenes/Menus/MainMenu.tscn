@@ -51,4 +51,23 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="Settings" type="Panel" parent="Container"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_editor_description_": "List of settings
+ -Ambient Light
+ -Toggle crouch
+ -Toggle Lean
+ -Toggle sprint
+ -Sensitivity
+ -Sound
+	-Music
+	-Ambient
+	-Sound effects
+	-Dialogue
+ -FOV
+ -"
+}
+
 [connection signal="pressed" from="Container/Debug Menu/Load Game" to="Container/Debug Menu/Possible Scenes" method="popup_centered"]

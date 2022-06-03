@@ -40,10 +40,10 @@ namespace Player.Movement
             }
             if (Input.IsActionPressed("ui_select"))
             {
+                MantleTimer += delta;
                 if (PlayerQuickAccess.MANTLE.CanMantle())
                 {
-                    MantleTimer += delta;
-                    if (MantleTimer > 0.1f)
+                    if (MantleTimer > Variables.MANTLE_BUFFER_TIMER)
                     {
                         Variables.MOVEMENT = new Movement.Mantle();
                         return true;
@@ -121,6 +121,7 @@ namespace Player.Movement
         private bool standOnLand = false;
         private void AirCrouch()
         {
+            GD.Print("Air Crouch");
             if (Variables.IS_CROUCHED)
             {
                 if (PlayerQuickAccess.LOWER_BODY.Disabled)
@@ -166,6 +167,7 @@ namespace Player.Movement
 
         private void GroundCrouch()
         {
+            GD.Print("Ground Crouch");
             if (Variables.IS_CROUCHED)
             {
                 if (PlayerQuickAccess.UPPER_BODY_AREA.GetOverlappingBodies().Count == 0)
