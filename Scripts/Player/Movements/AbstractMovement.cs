@@ -91,7 +91,7 @@ namespace Player.Movement
             {
                 current = Variables.SPRINT_SPEED;
             }
-            if (Variables.IS_CROUCHED)
+            if (Variables.IS_CROUCHED && Variables.ON_FLOOR)
             {
                 current = Variables.CROUCH_SPEED;
             }
@@ -121,7 +121,6 @@ namespace Player.Movement
         private bool standOnLand = false;
         private void AirCrouch()
         {
-            GD.Print("Air Crouch");
             if (Variables.IS_CROUCHED)
             {
                 if (PlayerQuickAccess.LOWER_BODY.Disabled)
@@ -167,7 +166,6 @@ namespace Player.Movement
 
         private void GroundCrouch()
         {
-            GD.Print("Ground Crouch");
             if (Variables.IS_CROUCHED)
             {
                 if (PlayerQuickAccess.UPPER_BODY_AREA.GetOverlappingBodies().Count == 0)

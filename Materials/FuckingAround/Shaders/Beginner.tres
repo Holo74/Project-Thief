@@ -1,0 +1,33 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+
+uniform float Scale = 0;
+uniform float StartColorRange : hint_range(0, 1);
+uniform float EndColorRange : hint_range(0, 1);
+uniform vec4 StartColor : hint_color;
+uniform vec4 EndColor : hint_color;
+const float TAO = 6.28318;
+
+void vertex()
+{
+//	COLOR.rgb = vec3(UV, 0) * Scale;
+	UV.x = UV.x * TIME;
+}
+
+float InverseLerp(float a, float b, float v)
+{
+	return (v-a)/(b-a);
+}
+
+void fragment()
+{
+//	float lerp = clamp(0, 1, InverseLerp(StartColorRange, EndColorRange, UV.x));
+//	vec4 outputing = mix(StartColor, EndColor, lerp);
+//	ALBEDO = outputing.rgb;
+//	ALBEDO = vec3(fract(lerp));
+//	ALBEDO = vec3(abs(fract(UV.x * 5.0) * 2.0 - 1.0));
+	
+	ALBEDO = vec3(cos(UV.x * TAO * 2.0) * 0.5 + 0.5);
+}"

@@ -1,0 +1,133 @@
+// Game: Qodot
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures;textures/Testing"
+// brush 0
+{
+( -64 -64 -32 ) ( -64 -63 -32 ) ( -64 -64 -31 ) Testing/BlueTestingBox 0 0 0 1 1
+( -64 -64 -32 ) ( -64 -64 -31 ) ( -63 -64 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -64 -64 -32 ) ( -63 -64 -32 ) ( -64 -63 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 64 64 0 ) ( 64 65 0 ) ( 65 64 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 64 64 0 ) ( 65 64 0 ) ( 64 64 1 ) Testing/BlueTestingBox 0 0 0 1 1
+( 64 64 0 ) ( 64 64 1 ) ( 64 65 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 1
+{
+( -64 480 -32 ) ( -64 481 -32 ) ( -64 480 -31 ) Testing/BlueTestingBox 0 0 0 1 1
+( -64 480 -32 ) ( -64 480 -31 ) ( -63 480 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -64 480 -32 ) ( -63 480 -32 ) ( -64 481 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 64 608 0 ) ( 64 609 0 ) ( 65 608 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 64 608 0 ) ( 65 608 0 ) ( 64 608 1 ) Testing/BlueTestingBox 0 0 0 1 1
+( 64 608 0 ) ( 64 608 1 ) ( 64 609 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 2
+{
+( -32 448 0 ) ( -32 449 0 ) ( -32 448 1 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 448 0 ) ( -32 448 1 ) ( -31 448 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 448 0 ) ( -31 448 0 ) ( -32 449 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 480 32 ) ( 32 481 32 ) ( 33 480 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 480 32 ) ( 33 480 32 ) ( 32 480 33 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 480 32 ) ( 32 480 33 ) ( 32 481 32 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 3
+{
+( -144 64 0 ) ( -144 480 -32 ) ( -144 480 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 64 0 ) ( -144 64 -32 ) ( -144 64 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 480 -32 ) ( -144 64 -32 ) ( 144 64 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 480 0 ) ( -144 64 0 ) ( -144 480 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 480 0 ) ( -144 480 -32 ) ( 144 480 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 480 0 ) ( 144 64 -32 ) ( 144 64 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 4
+{
+( -32 256 32 ) ( -32 224 32 ) ( -32 224 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 256 32 ) ( 32 256 48 ) ( 32 224 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 224 32 ) ( 32 224 48 ) ( 32 224 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 224 0 ) ( 32 256 0 ) ( -32 256 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 256 0 ) ( 32 256 48 ) ( -32 256 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 224 48 ) ( 32 256 48 ) ( 32 256 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 5
+{
+( -112 128 0 ) ( -112 272 0 ) ( -112 128 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -112 128 32 ) ( -80 128 32 ) ( -112 128 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -80 128 0 ) ( -80 272 0 ) ( -112 128 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -112 128 32 ) ( -112 272 32 ) ( -80 128 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -112 272 32 ) ( -112 272 0 ) ( -80 272 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -80 128 32 ) ( -80 272 32 ) ( -80 128 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 6
+{
+( -144 304 0 ) ( -144 400 0 ) ( -144 304 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -144 304 32 ) ( -128 304 32 ) ( -144 304 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -144 304 0 ) ( -128 304 0 ) ( -144 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -144 400 32 ) ( -128 400 32 ) ( -144 304 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -144 400 0 ) ( -128 400 0 ) ( -144 400 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -128 400 32 ) ( -128 400 0 ) ( -128 304 32 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 7
+{
+( -80 128 32 ) ( -80 176 0 ) ( -80 176 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 128 32 ) ( -80 128 0 ) ( -80 128 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 176 0 ) ( -80 128 0 ) ( -32 128 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 176 32 ) ( -80 128 32 ) ( -80 176 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 176 32 ) ( -80 176 0 ) ( -32 176 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 176 32 ) ( -32 128 0 ) ( -32 128 32 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 8
+{
+( -112 64 32 ) ( -112 80 0 ) ( -112 80 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 64 32 ) ( -112 64 0 ) ( -112 64 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 80 0 ) ( -112 64 0 ) ( -32 64 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 80 32 ) ( -112 64 32 ) ( -112 80 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 80 32 ) ( -112 80 0 ) ( -32 80 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 80 32 ) ( -32 64 0 ) ( -32 64 32 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 9
+{
+( -80 304 32 ) ( -80 400 0 ) ( -80 400 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 304 32 ) ( -80 304 0 ) ( -80 304 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 400 0 ) ( -80 304 0 ) ( -32 304 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 400 32 ) ( -80 304 32 ) ( -80 400 32 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 400 32 ) ( -80 400 0 ) ( -32 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( -32 400 32 ) ( -32 304 0 ) ( -32 304 32 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 10
+{
+( 112 400 48 ) ( 112 96 48 ) ( 112 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 96 0 ) ( 112 96 0 ) ( 144 96 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 400 0 ) ( 112 400 0 ) ( 144 96 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 96 48 ) ( 112 96 48 ) ( 144 400 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 400 48 ) ( 112 400 48 ) ( 144 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 144 96 48 ) ( 144 400 48 ) ( 144 96 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 11
+{
+( 32 96 0 ) ( 32 400 0 ) ( 32 96 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 96 48 ) ( 80 96 48 ) ( 32 96 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 96 0 ) ( 80 96 0 ) ( 32 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 400 48 ) ( 80 400 48 ) ( 32 96 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 32 400 0 ) ( 80 400 0 ) ( 32 400 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 80 96 0 ) ( 80 96 48 ) ( 80 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 12
+{
+( 80 400 48 ) ( 80 176 48 ) ( 80 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 112 176 48 ) ( 112 176 0 ) ( 80 176 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 80 400 0 ) ( 80 176 0 ) ( 112 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 112 400 48 ) ( 112 176 48 ) ( 80 400 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 112 400 48 ) ( 80 400 48 ) ( 112 400 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 112 400 0 ) ( 112 176 0 ) ( 112 400 48 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+// brush 13
+{
+( 80 96 48 ) ( 80 96 16 ) ( 80 176 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 112 96 48 ) ( 112 96 16 ) ( 80 96 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 80 176 16 ) ( 80 96 16 ) ( 112 176 16 ) Testing/BlueTestingBox 0 0 0 1 1
+( 80 96 48 ) ( 80 176 48 ) ( 112 96 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 80 176 48 ) ( 80 176 16 ) ( 112 176 48 ) Testing/BlueTestingBox 0 0 0 1 1
+( 112 176 48 ) ( 112 176 16 ) ( 112 96 48 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+}

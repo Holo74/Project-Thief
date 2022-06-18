@@ -22,7 +22,7 @@ height = 0.9
 extents = Vector3( 0.316381, 0.522355, 0.0574478 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.55, 0.55, 0.580447 )
+extents = Vector3( 0.456778, 0.55, 0.516855 )
 
 [sub_resource type="CylinderShape" id=2]
 radius = 0.5
@@ -51,7 +51,6 @@ cast_to = Vector3( 0, 0, -3 )
 script = ExtResource( 5 )
 
 [node name="RemoteTransform" type="RemoteTransform" parent="BodyNode/Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.921919, 0 )
 remote_path = NodePath("../../Mantling/Spacer")
 update_rotation = false
 update_scale = false
@@ -78,10 +77,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0 )
 shape = SubResource( 4 )
 
 [node name="Spacer" type="Area" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.921919, 0 )
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/Spacer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.922, -0.0500859 )
 shape = SubResource( 5 )
 
 [node name="BottomFloor" type="RayCast" parent="BodyNode/Mantling"]

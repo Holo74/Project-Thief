@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Materials/FuckingAround/Shaders/Beginner.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/Scale = 1.0
+shader_param/StartColorRange = 1.0
+shader_param/EndColorRange = 0.448
+shader_param/StartColor = Color( 0, 0.0392157, 1, 1 )
+shader_param/EndColor = Color( 0.803922, 0, 1, 1 )

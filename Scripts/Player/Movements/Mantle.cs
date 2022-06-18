@@ -43,7 +43,7 @@ namespace Player.Movement
             KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.GRAVITY_MOVEMENT * delta);
             if ((PlayerQuickAccess.MANTLE.CanMoveForwardUpper() && LedgeAboveWaist) || PlayerQuickAccess.MANTLE.CanMoveForwardLower())
             {
-                GD.Print(String.Format("Above waist Ledge: {0}\nUpper forward:{1}\nLower forward:{2}\n", LedgeAboveWaist, PlayerQuickAccess.MANTLE.CanMoveForwardUpper(), PlayerQuickAccess.MANTLE.CanMoveForwardLower()));
+                //GD.Print(String.Format("Above waist Ledge: {0}\nUpper forward:{1}\nLower forward:{2}\n", LedgeAboveWaist, PlayerQuickAccess.MANTLE.CanMoveForwardUpper(), PlayerQuickAccess.MANTLE.CanMoveForwardLower()));
                 TransitionToForward();
             }
             if (k != null)
@@ -53,7 +53,7 @@ namespace Player.Movement
                     if (!Variables.IS_CROUCHED)
                     {
                         CrouchWithoutInput();
-                        GD.Print("Crouched when going up");
+                        //GD.Print("Crouched when going up");
                     }
                     else
                     {
@@ -64,7 +64,7 @@ namespace Player.Movement
             Timer -= delta;
             if (Timer < 0)
             {
-                GD.Print("Upper timer ran out");
+                //GD.Print("Upper timer ran out");
                 TransitionToForward();
             }
         }
@@ -87,7 +87,7 @@ namespace Player.Movement
                 {
                     if (!Variables.IS_CROUCHED)
                     {
-                        GD.Print("Crouched when moving forward");
+                        //GD.Print("Crouched when moving forward");
                         CrouchWithoutInput();
                     }
                     else

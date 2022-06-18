@@ -870,7 +870,7 @@ points = PoolVector3Array( -17.5625, 2, 19.375, -17.5625, -2, 19.375, 21.4375, -
 points = PoolVector3Array( -18.0625, 2, -20.125, -18.0625, -2, -20.125, -17.5625, -2, -20.125, -17.5625, 2, -20.125, -18.0625, 2, 19.875, -18.0625, -2, 19.875, -17.5625, -2, 19.875, -17.5625, 2, 19.875 )
 
 [sub_resource type="Environment" id=152]
-ambient_light_color = Color( 0.164706, 0.164706, 0.164706, 1 )
+ambient_light_color = Color( 0.768627, 0.768627, 0.768627, 1 )
 
 [node name="Nobles House" type="Spatial"]
 

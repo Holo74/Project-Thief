@@ -10,7 +10,8 @@ namespace Debug.Menus
         {
             LevelList = new System.Collections.Generic.List<string>();
             Directory filePath = new Directory();
-            GD.Print(filePath.Open("res://Scenes/Levels/"));
+            //GD.Print();
+            filePath.Open("res://Scenes/Levels/");
             filePath.ListDirBegin();
             string currentName = "";
             do

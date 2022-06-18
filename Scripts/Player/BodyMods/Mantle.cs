@@ -49,7 +49,7 @@ namespace Player.BodyMods
             }
             else
             {
-                GD.Print("Enabled lower ledge");
+                //GD.Print("Enabled lower ledge");
                 LowerLedge.Enabled = true;
                 UpperLedge.Enabled = true;
                 UpperLedgeSpace.Monitoring = true;
@@ -91,26 +91,21 @@ namespace Player.BodyMods
         private void EnterUpperLedgeSpace(Node body)
         {
             InUpperLedgeSpace += 1;
-            GD.Print(InUpperLedgeSpace + " Added one to upper");
         }
 
         private void ExitUpperLedgeSpace(Node body)
         {
             InUpperLedgeSpace -= 1;
-            GD.Print(InUpperLedgeSpace + " Subtract one to upper");
         }
 
         private void EnterLowerLedgeSpace(Node body)
         {
             InLowerLedgeSpace += 1;
-            GD.Print(body.Name);
-            GD.Print(InLowerLedgeSpace + " Added one to lower");
         }
 
         private void ExitLowerLedgeSpace(Node body)
         {
             InLowerLedgeSpace -= 1;
-            GD.Print(InLowerLedgeSpace + " Subtract one to lower");
         }
     }
 
