@@ -5,6 +5,14 @@ namespace Player
 {
     public static class Variables
     {
+        public enum PlayerStandingState
+        {
+            Standing,
+            Crouching,
+            Crawling
+        }
+        public static PlayerStandingState CurrentStandingState { get; set; }
+
         public static void INIT()
         {
             DEFAULT_MOVEMENT = new Movement.BasicMovement();
