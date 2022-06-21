@@ -15,6 +15,7 @@ namespace Player.Movement
             }
             Variables.WALKING_MOVEMENT = DirectionalInput() * MovementSpeed();
             Variables.MOVEMENT.Crouch();
+            Variables.MOVEMENT.Crawl();
             Vector3 floorConnect = PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor() ? Vector3.Zero : Vector3.Down * 0.1f;
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlideWithSnap(TotalMovement() + floorConnect, Vector3.Down, Vector3.Up, true, 1);
         }

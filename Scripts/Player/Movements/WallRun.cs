@@ -6,6 +6,7 @@ namespace Player.Movement
     public class WallRun : AbstractMovement
     {
         private float Buffer = 0;
+        protected bool currentFloorState = false;
         public override void Movement(float delta)
         {
 

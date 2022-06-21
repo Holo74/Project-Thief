@@ -3,15 +3,18 @@ using System;
 
 namespace Player
 {
+    //We must reset some values to their default states!!!
     public static class Variables
     {
         public enum PlayerStandingState
         {
-            Standing,
-            Crouching,
-            Crawling
+            Standing = 0,
+            Crouching = 1,
+            Crawling = 2
         }
-        public static PlayerStandingState CurrentStandingState { get; set; }
+        public static PlayerStandingState CURRENT_STANDING_STATE { get; set; }
+        // Maps the current state to a speed
+        private static float[] SPEED_MAPPING = { SPEED, CROUCH_SPEED, CRAWLING_SPEED };
 
         public static void INIT()
         {
@@ -27,6 +30,7 @@ namespace Player
         public static float BOOST_WALL_JUMP { get; set; } = .2f;
         public static float SPRINT_SPEED { get; set; } = 7f;
         public static float CROUCH_SPEED { get; set; } = 1f;
+        public static float CRAWLING_SPEED { get; set; } = 1f;
         public static float CROUCHING_SPEED { get; set; } = 5f;
         public static float MANTLE_FORWARD_SPEED { get; set; } = 6f;
         public static float MANTLE_UPWARD_SPEED { get; set; } = 7.5f;
@@ -38,12 +42,7 @@ namespace Player
         {
             get
             {
-                return isCrouching;
-            }
-            set
-            {
-                isCrouching = value;
-                CrouchChange?.Invoke(value);
+                return CURRENT_STANDING_STATE == PlayerStandingState.Crouching;
             }
         }
         private static bool isSprinting = false;
@@ -60,6 +59,10 @@ namespace Player
             }
         }
 
+        public static float GET_SPEED()
+        {
+            return SPEED_MAPPING[(int)CURRENT_STANDING_STATE] * (IS_SPRINTING ? SPRINT_SPEED : 1) * SPEED_MOD;
+        }
 
         public static float JUMP_MOD { get; set; } = 1f;
         public static float SPEED_MOD { get; set; } = 1f;

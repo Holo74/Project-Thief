@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -26,7 +26,11 @@ extents = Vector3( 0.456778, 0.55, 0.516855 )
 
 [sub_resource type="CylinderShape" id=2]
 radius = 0.5
-height = 1.0
+height = 0.5
+
+[sub_resource type="CylinderShape" id=6]
+radius = 0.49
+height = 0.49
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -159,7 +163,11 @@ enabled = true
 cast_to = Vector3( -0.8, 0, 0 )
 
 [node name="LowerBody" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
+shape = SubResource( 2 )
+
+[node name="Feet" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0 )
 shape = SubResource( 2 )
 
 [node name="Upper Body Detection" type="Area" parent="."]
@@ -167,6 +175,12 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Upper Body Detection"]
 shape = SubResource( 1 )
+
+[node name="Lower Body Detection" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.219881, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Lower Body Detection"]
+shape = SubResource( 6 )
 
 [node name="Floor Cast" type="RayCast" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.933548, 0 )

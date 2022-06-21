@@ -8,7 +8,7 @@ namespace Player.Movement
     {
         private Vector3 DebugStartingPos { get; set; }
         private bool FallingLock { get; set; } = false;
-        protected bool currentFloorState = false;
+
         public abstract void Movement(float delta);
 
         public virtual void FallingMovement(float delta)
@@ -110,7 +110,7 @@ namespace Player.Movement
         {
             if (Variables.ON_FLOOR)
             {
-                GroundCrouch();
+                StateChangeTo(Variables.PlayerStandingState.Crouching);
             }
             else
             {
@@ -123,19 +123,19 @@ namespace Player.Movement
         {
             if (Variables.IS_CROUCHED)
             {
-                if (PlayerQuickAccess.LOWER_BODY.Disabled)
+                if (PlayerQuickAccess.FEET.Disabled)
                 {
                     standOnLand = !standOnLand;
                 }
                 else
                 {
-                    GroundCrouch();
+                    StateChangeTo(Variables.PlayerStandingState.Crouching);
                 }
             }
             else
             {
-                PlayerQuickAccess.LOWER_BODY.Disabled = true;
-                Variables.IS_CROUCHED = true;
+                PlayerQuickAccess.DisableLowerBody(true);
+                Variables.CURRENT_STANDING_STATE = Variables.PlayerStandingState.Crouching;
                 Variables.OnFloorChange += CrouchGroundCorrection;
             }
         }
@@ -147,7 +147,7 @@ namespace Player.Movement
                 PlayerQuickAccess.UPPER_BODY.Disabled = true;
                 PlayerQuickAccess.CAMERA.Translation = Vector3.Down * .1f;
                 PlayerQuickAccess.KINEMATIC_BODY.Translate(Vector3.Up);
-                PlayerQuickAccess.LOWER_BODY.Disabled = false;
+                PlayerQuickAccess.DisableLowerBody(false);
                 Variables.OnFloorChange -= CrouchGroundCorrection;
 
                 if (standOnLand)
@@ -161,26 +161,14 @@ namespace Player.Movement
         {
             await Task.Delay(50);
             standOnLand = false;
-            GroundCrouch();
+            StateChangeTo(Variables.PlayerStandingState.Crouching);
         }
 
-        private void GroundCrouch()
+        private void SetStandingState(Variables.PlayerStandingState state)
         {
-            if (Variables.IS_CROUCHED)
-            {
-                if (PlayerQuickAccess.UPPER_BODY_AREA.GetOverlappingBodies().Count == 0)
-                {
-                    Variables.IS_CROUCHED = false;
-                    PlayerQuickAccess.UPPER_BODY.Disabled = false;
-                    CrouchCamera();
-                }
-            }
-            else
-            {
-                Variables.IS_CROUCHED = true;
-                PlayerQuickAccess.UPPER_BODY.Disabled = true;
-                CrouchCamera();
-            }
+            Variables.CURRENT_STANDING_STATE = state;
+            UpdateCollision();
+            CrouchCamera();
         }
 
         private Vector3 FloorCorrection()
@@ -195,16 +183,71 @@ namespace Player.Movement
             return totalMove;
         }
 
+        private void UpdateCollision()
+        {
+            switch (Variables.CURRENT_STANDING_STATE)
+            {
+                case Variables.PlayerStandingState.Standing:
+                    PlayerQuickAccess.UPPER_BODY.Disabled = false;
+                    PlayerQuickAccess.LOWER_BODY.Disabled = false;
+                    PlayerQuickAccess.FEET.Disabled = false;
+                    break;
+                case Variables.PlayerStandingState.Crouching:
+                    if (Variables.ON_FLOOR)
+                    {
+                        PlayerQuickAccess.UPPER_BODY.Disabled = true;
+                        PlayerQuickAccess.LOWER_BODY.Disabled = false;
+                        PlayerQuickAccess.FEET.Disabled = false;
+                    }
+                    else
+                    {
+                        PlayerQuickAccess.UPPER_BODY.Disabled = false;
+                        PlayerQuickAccess.LOWER_BODY.Disabled = true;
+                        PlayerQuickAccess.FEET.Disabled = true;
+                    }
+                    break;
+                case Variables.PlayerStandingState.Crawling:
+                    PlayerQuickAccess.UPPER_BODY.Disabled = true;
+                    PlayerQuickAccess.LOWER_BODY.Disabled = true;
+                    PlayerQuickAccess.FEET.Disabled = false;
+                    break;
+            }
+        }
+
+        public void Crawl()
+        {
+            if (Input.IsActionJustPressed("crawl"))
+            {
+                StateChangeTo(Variables.PlayerStandingState.Crawling);
+            }
+        }
+
+        public void StateChangeTo(Variables.PlayerStandingState state)
+        {
+            state = (Variables.CURRENT_STANDING_STATE == state) ? Variables.PlayerStandingState.Standing : state;
+            if (Helper.StateChangeChecker.TransferToState(state))
+            {
+                SetStandingState(state);
+            }
+        }
+
         private void CrouchCamera()
         {
             PlayerQuickAccess.TWEEN.Stop(PlayerQuickAccess.CAMERA, "translation.y");
-            if (Variables.IS_CROUCHED)
+            switch (Variables.CURRENT_STANDING_STATE)
             {
-                PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.1f, (PlayerQuickAccess.CAMERA.Translation.y + .1f) / Variables.CROUCHING_SPEED);
-            }
-            else
-            {
-                PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, .9, (.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                case Variables.PlayerStandingState.Standing:
+                    PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                    break;
+                case Variables.PlayerStandingState.Crouching:
+                    if (Variables.ON_FLOOR)
+                    {
+                        PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                    }
+                    break;
+                case Variables.PlayerStandingState.Crawling:
+                    PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                    break;
             }
             PlayerQuickAccess.TWEEN.Start();
         }
