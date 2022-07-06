@@ -20,6 +20,7 @@ namespace Player.Rotation
             HeadRotation = angle;
         }
 
+        // Use this to pass the amount of rotation and call horizontal and vertical rotations
         public void BaseRotate(InputEventMouseMotion e)
         {
             float yRotation = Mathf.Deg2Rad(-e.Relative.x) * Management.Game.Settings.MOUSE_ROTATION;

@@ -12,7 +12,7 @@ namespace Debug
             Visible = false;
             if (Enabled)
             {
-                Player.Variables.PlayingChange += (playing) => { Visible = !playing; };
+                Management.Game.GameManager.PlayingChange += (playing) => { Visible = !playing; };
             }
         }
     }

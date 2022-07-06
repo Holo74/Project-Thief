@@ -3,6 +3,7 @@ using System;
 
 namespace Player.Upgrades
 {
+    // Applies the upgrade wall run and then resets the movement so that the player uses it from the moment they get it
     public class WallRun : AbstractUpgrade
     {
         public override void Applied()

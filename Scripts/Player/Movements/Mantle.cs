@@ -16,7 +16,7 @@ namespace Player.Movement
             Variables.ON_FLOOR = false;
             Variables.WALKING_MOVEMENT = -PlayerQuickAccess.BODY_DIRECTION.z * Variables.MANTLE_FORWARD_SPEED;
             Variables.GRAVITY_MOVEMENT = Vector3.Up * Variables.MANTLE_UPWARD_SPEED;
-            WasCrouched = Variables.IS_CROUCHED;
+            WasCrouched = Helper.CommonComparisions.IS_CROUCHED;
             Timer = Variables.MANTLE_UPWARD_TIME;
             CurrentMoving = UpwardMoving;
             Variables.ROTATION = null;
@@ -50,7 +50,7 @@ namespace Player.Movement
             {
                 if (k.Position.y > PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y + 1f)
                 {
-                    if (!Variables.IS_CROUCHED)
+                    if (!Helper.CommonComparisions.IS_CROUCHED)
                     {
                         CrouchWithoutInput();
                         //GD.Print("Crouched when going up");
@@ -85,7 +85,7 @@ namespace Player.Movement
                 holder.y = PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y;
                 if (holder.DistanceTo(PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin) > .5f)
                 {
-                    if (!Variables.IS_CROUCHED)
+                    if (!Helper.CommonComparisions.IS_CROUCHED)
                     {
                         //GD.Print("Crouched when moving forward");
                         CrouchWithoutInput();
@@ -106,7 +106,7 @@ namespace Player.Movement
         private void FinishMantle()
         {
             Variables.WALKING_MOVEMENT = Vector3.Zero;
-            if (!WasCrouched && WasCrouched != Variables.IS_CROUCHED)
+            if (!WasCrouched && WasCrouched != Helper.CommonComparisions.IS_CROUCHED)
             {
                 CrouchWithoutInput();
             }

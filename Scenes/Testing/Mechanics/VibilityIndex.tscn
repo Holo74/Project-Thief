@@ -1,0 +1,584 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Debug/VisibilityIndex/Camo Testing/SelectCamo.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/Debug/VisibilityIndex/Camo Testing/SetCamo.cs" type="Script" id=2]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -168.0
+margin_top = 56.0
+margin_right = -56.0
+margin_bottom = 72.0
+rect_scale = Vector2( 3, 3 )
+bbcode_enabled = true
+bbcode_text = "[center]Visibility Demo[/center]"
+text = "Visibility Demo"
+
+[node name="Camo Index" type="Control" parent="."]
+anchor_bottom = 1.0
+margin_right = 423.0
+
+[node name="Current Camo" type="Control" parent="Camo Index"]
+anchor_left = 0.057
+anchor_top = 0.267
+anchor_right = 0.057
+anchor_bottom = 0.267
+margin_left = -0.111002
+margin_top = -0.200012
+margin_right = 191.889
+margin_bottom = 424.8
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+SetCamoPath = NodePath("../Current Camo2")
+ResultsText = NodePath("../PanelContainer/Output/Results")
+
+[node name="PanelContainer" type="PanelContainer" parent="Camo Index/Current Camo"]
+self_modulate = Color( 0, 0.976471, 1, 1 )
+margin_right = 192.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camo Index/Current Camo/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 185.0
+margin_bottom = 25.0
+bbcode_enabled = true
+bbcode_text = "[center]Current Camo[/center]"
+text = "Current Camo"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="Camo Index/Current Camo"]
+margin_top = 32.0
+margin_right = 192.0
+margin_bottom = 64.0
+text = "Select Texture"
+
+[node name="TextureRect" type="TextureRect" parent="Camo Index/Current Camo"]
+margin_top = 64.0
+margin_right = 192.0
+margin_bottom = 233.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="GridContainer" type="GridContainer" parent="Camo Index/Current Camo"]
+margin_top = 233.0
+margin_right = 192.0
+margin_bottom = 425.0
+columns = 5
+
+[node name="ColorRect1" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_right = 35.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect3" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 78.0
+margin_right = 113.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect4" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 117.0
+margin_right = 152.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect5" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 156.0
+margin_right = 191.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect6" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_top = 39.0
+margin_right = 35.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect7" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 39.0
+margin_top = 39.0
+margin_right = 74.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect8" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 78.0
+margin_top = 39.0
+margin_right = 113.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect9" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 117.0
+margin_top = 39.0
+margin_right = 152.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect10" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 156.0
+margin_top = 39.0
+margin_right = 191.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect11" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_top = 78.0
+margin_right = 35.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect12" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 39.0
+margin_top = 78.0
+margin_right = 74.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect13" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 78.0
+margin_top = 78.0
+margin_right = 113.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect14" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 117.0
+margin_top = 78.0
+margin_right = 152.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect15" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 156.0
+margin_top = 78.0
+margin_right = 191.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect16" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_top = 117.0
+margin_right = 35.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect17" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 39.0
+margin_top = 117.0
+margin_right = 74.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect18" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 78.0
+margin_top = 117.0
+margin_right = 113.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect19" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 117.0
+margin_top = 117.0
+margin_right = 152.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect20" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 156.0
+margin_top = 117.0
+margin_right = 191.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect21" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_top = 156.0
+margin_right = 35.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect22" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 39.0
+margin_top = 156.0
+margin_right = 74.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect23" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 78.0
+margin_top = 156.0
+margin_right = 113.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect24" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 117.0
+margin_top = 156.0
+margin_right = 152.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect25" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
+margin_left = 156.0
+margin_top = 156.0
+margin_right = 191.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Current Camo2" type="Control" parent="Camo Index"]
+anchor_left = 0.605
+anchor_top = 0.267
+anchor_right = 0.605
+anchor_bottom = 0.267
+margin_left = 0.0849915
+margin_top = -0.200012
+margin_right = 192.085
+margin_bottom = 424.8
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+SetCamoPath = NodePath("../Current Camo")
+ResultsText = NodePath("../PanelContainer/Output/Results")
+
+[node name="PanelContainer" type="PanelContainer" parent="Camo Index/Current Camo2"]
+self_modulate = Color( 0, 0.976471, 1, 1 )
+margin_right = 192.0
+margin_bottom = 32.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Camo Index/Current Camo2/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 185.0
+margin_bottom = 25.0
+bbcode_enabled = true
+bbcode_text = "[center]Current Camo[/center]"
+text = "Ground Camo"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button" type="Button" parent="Camo Index/Current Camo2"]
+margin_top = 32.0
+margin_right = 192.0
+margin_bottom = 64.0
+text = "Select Texture"
+
+[node name="TextureRect" type="TextureRect" parent="Camo Index/Current Camo2"]
+margin_top = 64.0
+margin_right = 192.0
+margin_bottom = 233.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="GridContainer" type="GridContainer" parent="Camo Index/Current Camo2"]
+margin_top = 233.0
+margin_right = 192.0
+margin_bottom = 425.0
+columns = 5
+
+[node name="ColorRect1" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_right = 35.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect2" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 39.0
+margin_right = 74.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect3" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 78.0
+margin_right = 113.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect4" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 117.0
+margin_right = 152.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect5" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 156.0
+margin_right = 191.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect6" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_top = 39.0
+margin_right = 35.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect7" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 39.0
+margin_top = 39.0
+margin_right = 74.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect8" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 78.0
+margin_top = 39.0
+margin_right = 113.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect9" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 117.0
+margin_top = 39.0
+margin_right = 152.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect10" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 156.0
+margin_top = 39.0
+margin_right = 191.0
+margin_bottom = 74.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect11" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_top = 78.0
+margin_right = 35.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect12" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 39.0
+margin_top = 78.0
+margin_right = 74.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect13" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 78.0
+margin_top = 78.0
+margin_right = 113.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect14" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 117.0
+margin_top = 78.0
+margin_right = 152.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect15" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 156.0
+margin_top = 78.0
+margin_right = 191.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect16" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_top = 117.0
+margin_right = 35.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect17" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 39.0
+margin_top = 117.0
+margin_right = 74.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect18" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 78.0
+margin_top = 117.0
+margin_right = 113.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect19" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 117.0
+margin_top = 117.0
+margin_right = 152.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect20" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 156.0
+margin_top = 117.0
+margin_right = 191.0
+margin_bottom = 152.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect21" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_top = 156.0
+margin_right = 35.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect22" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 39.0
+margin_top = 156.0
+margin_right = 74.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect23" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 78.0
+margin_top = 156.0
+margin_right = 113.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect24" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 117.0
+margin_top = 156.0
+margin_right = 152.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect25" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
+margin_left = 156.0
+margin_top = 156.0
+margin_right = 191.0
+margin_bottom = 191.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="Camo Index"]
+margin_left = 24.0
+margin_top = 88.0
+margin_right = 368.0
+margin_bottom = 128.0
+
+[node name="Output" type="HBoxContainer" parent="Camo Index/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 337.0
+margin_bottom = 33.0
+
+[node name="Label" type="RichTextLabel" parent="Camo Index/PanelContainer/Output"]
+margin_right = 163.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+text = "Match Rate:"
+
+[node name="Results" type="RichTextLabel" parent="Camo Index/PanelContainer/Output"]
+margin_left = 167.0
+margin_right = 330.0
+margin_bottom = 26.0
+size_flags_horizontal = 7
+text = "Result"
+
+[node name="Rate" type="HSlider" parent="Camo Index"]
+margin_left = 24.0
+margin_top = 136.0
+margin_right = 448.0
+margin_bottom = 152.0
+max_value = 1.0
+step = 0.001
+value = 0.05
+tick_count = 100
+ticks_on_borders = true
+
+[node name="Light Index" type="Control" parent="."]
+anchor_left = 0.687
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.511963
+
+[node name="Select Texture" type="FileDialog" parent="."]
+margin_left = 343.0
+margin_top = 178.0
+margin_right = 658.0
+margin_bottom = 480.0
+window_title = "Select Texture"
+dialog_text = "Please select the texture to use"
+show_hidden_files = true
+current_dir = "res://Textures/Camo Patterns Test"
+current_file = "camo.jpg"
+current_path = "res://Textures/Camo Patterns Test/camo.jpg"
+script = ExtResource( 1 )
+CamoSelectors = [ NodePath("../Camo Index/Current Camo"), NodePath("../Camo Index/Current Camo2") ]
+
+[connection signal="pressed" from="Camo Index/Current Camo/Button" to="Select Texture" method="TextureSelect" binds= [ 0 ]]
+[connection signal="pressed" from="Camo Index/Current Camo2/Button" to="Select Texture" method="TextureSelect" binds= [ 1 ]]
+[connection signal="value_changed" from="Camo Index/Rate" to="Camo Index/Current Camo" method="CompareTextures"]
+[connection signal="file_selected" from="Select Texture" to="Camo Index/Current Camo" method="SetCamoTexture"]

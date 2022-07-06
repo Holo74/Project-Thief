@@ -47,10 +47,10 @@ namespace Player.Movement
         private void Move()
         {
             Variables.WALKING_MOVEMENT = Movement() + Forward;
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.WALKING_MOVEMENT * Variables.SPEED);
+            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.WALKING_MOVEMENT * Variables.STANDING_SPEED);
             if (Input.IsActionJustPressed("ui_select"))
             {
-                Jump(Vector3.Down.Cross(Right) * Variables.SPEED);
+                Jump(Vector3.Down.Cross(Right) * Variables.STANDING_SPEED);
                 Variables.RESET_MOVEMENT();
             }
         }

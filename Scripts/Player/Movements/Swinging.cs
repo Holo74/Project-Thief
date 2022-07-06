@@ -3,6 +3,7 @@ using System;
 
 namespace Player.Movement
 {
+    // This needs a lot of work.  I wouldn't recommeend using it for now
     public class Swinging : AbstractMovement
     {
         private Vector3 AnchorPoint { get; set; }

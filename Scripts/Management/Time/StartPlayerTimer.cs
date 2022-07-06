@@ -12,7 +12,7 @@ namespace Management.Time
 
         private void StartPlayer()
         {
-            Player.Variables.Start();
+            Management.Game.GameManager.Start();
         }
     }
 

@@ -6,45 +6,64 @@ namespace Player
     //We must reset some values to their default states!!!
     public static class Variables
     {
+        // These are the states that the player can be in
         public enum PlayerStandingState
         {
             Standing = 0,
             Crouching = 1,
             Crawling = 2
         }
+        // Current state the player is in
         public static PlayerStandingState CURRENT_STANDING_STATE { get; set; }
         // Maps the current state to a speed
-        private static float[] SPEED_MAPPING = { SPEED, CROUCH_SPEED, CRAWLING_SPEED };
+        public static Func<float>[] SPEED_MAPPING = { () => { return STANDING_SPEED; }, () => { return CROUCH_SPEED; }, () => { return CRAWLING_SPEED; } };
 
+        // Resetting the variables that would be transfer when loading a save otherwise
         public static void INIT()
         {
             DEFAULT_MOVEMENT = new Movement.BasicMovement();
+            CURRENT_STANDING_STATE = PlayerStandingState.Standing;
+            OnFloorChange += (onFloor) => { if (onFloor) GRAVITY_MOVEMENT = Vector3.Zero; };
+            isSprinting = false;
             RESET_MOVEMENT();
             RESET_ROTATION();
+            #region default floats
+            SPEED_MOD = 1f;
+            GRAVITY_MOD = 1f;
+            JUMP_MOD = 1f;
+            #endregion
         }
+
+        // The vectors that decide the movement of the player.  Should always be used as the final movement
+        public static Vector3 WALKING_MOVEMENT { get; set; } = new Vector3();
+        public static Vector3 GRAVITY_MOVEMENT { get; set; } = new Vector3();
+
+        // In game, none of these should be modified by the upgrades or anything else.  For all intense and purposes they should have a private setter
+        #region Static floats
         public static float GRAVITY_STRENGTH { get; set; } = 10f;
         public static float JUMP_STRENGTH { get; set; } = 5f;
-        public static Vector3 GRAVITY_MOVEMENT { get; set; } = new Vector3();
-        public static float SPEED { get; set; } = 3.5f;
-        public static Vector3 WALKING_MOVEMENT { get; set; } = new Vector3();
+        public static float STANDING_SPEED { get; set; } = 3.5f;
         public static float BOOST_WALL_JUMP { get; set; } = .2f;
         public static float SPRINT_SPEED { get; set; } = 7f;
         public static float CROUCH_SPEED { get; set; } = 1f;
         public static float CRAWLING_SPEED { get; set; } = 1f;
-        public static float CROUCHING_SPEED { get; set; } = 5f;
+        public static float MOVE_TO_CROUCH { get; set; } = 5f;
         public static float MANTLE_FORWARD_SPEED { get; set; } = 6f;
         public static float MANTLE_UPWARD_SPEED { get; set; } = 7.5f;
         public static float MANTLE_UPWARD_TIME { get; set; } = 1f;
         public static float MANTLE_FORWARD_TIME { get; set; } = 0.1f;
         public static float MANTLE_BUFFER_TIMER { get; set; } = 0.1f;
-        private static bool isCrouching = false;
-        public static bool IS_CROUCHED
-        {
-            get
-            {
-                return CURRENT_STANDING_STATE == PlayerStandingState.Crouching;
-            }
-        }
+        public static float ACCELERATION { get; set; } = 10f;
+        public static float DECCELERATION { get; set; } = 10f;
+        #endregion
+
+        #region Modifiable floats
+        public static float JUMP_MOD { get; set; } = 1f;
+        public static float SPEED_MOD { get; set; } = 1f;
+        public static float GRAVITY_MOD { get; set; } = 1f;
+        public static float CURRENT_SPEED { get; set; } = 0f;
+        #endregion
+
         private static bool isSprinting = false;
         public static bool IS_SPRINTING
         {
@@ -54,25 +73,24 @@ namespace Player
             }
             set
             {
-                isSprinting = value;
-                SprintingChanged?.Invoke(isSprinting);
+                if (value != isSprinting)
+                {
+                    isSprinting = value;
+                    SprintingChanged?.Invoke(isSprinting);
+                }
             }
         }
 
-        public static float GET_SPEED()
-        {
-            return SPEED_MAPPING[(int)CURRENT_STANDING_STATE] * (IS_SPRINTING ? SPRINT_SPEED : 1) * SPEED_MOD;
-        }
-
-        public static float JUMP_MOD { get; set; } = 1f;
-        public static float SPEED_MOD { get; set; } = 1f;
-        public static float GRAVITY_MOD { get; set; } = 1f;
-
+        // A boolean value has changed states and needs to send a signal
         public delegate void StateChange(bool newState);
+
+        #region bool signals
         public static event StateChange SprintingChanged;
-        public static event StateChange PlayingChange;
         public static event StateChange OnFloorChange;
         public static event StateChange CrouchChange;
+        #endregion
+
+        #region Rotation
         private static Rotation.BasicRotation rotation;
         public static Rotation.BasicRotation ROTATION
         {
@@ -80,6 +98,13 @@ namespace Player
             set { rotation = value; }
         }
 
+        public static void RESET_ROTATION()
+        {
+            ROTATION = new Rotation.BasicRotation();
+        }
+        #endregion
+
+        #region Movement
         private static Movement.AbstractMovement movement;
         public static Movement.AbstractMovement MOVEMENT
         {
@@ -93,15 +118,13 @@ namespace Player
             set { defaultMovement = value; RESET_MOVEMENT(); }
         }
 
-        public static void RESET_ROTATION()
-        {
-            ROTATION = new Rotation.BasicRotation();
-        }
-
         public static void RESET_MOVEMENT()
         {
             MOVEMENT = DEFAULT_MOVEMENT;
         }
+        #endregion
+
+        #region Reset 
         public static void RESET_JUMP_MOD()
         {
             JUMP_MOD = 1f;
@@ -114,13 +137,8 @@ namespace Player
         {
             GRAVITY_MOD = 1f;
         }
+        #endregion
 
-        private static bool playing = false;
-        public static bool PLAYING
-        {
-            get { return playing; }
-            set { playing = value; PlayingChange?.Invoke(value); }
-        }
         private static bool onFloor = true;
         public static bool ON_FLOOR
         {
@@ -128,54 +146,11 @@ namespace Player
             set { onFloor = value; OnFloorChange?.Invoke(value); }
         }
 
-        public static void Start()
-        {
-            PLAYING = true;
-        }
-
-        public static void Pause()
-        {
-            PLAYING = false;
-        }
-
-        public static System.Collections.Generic.List<Upgrades.AbstractUpgrade> UPGRADES { get; private set; } = new System.Collections.Generic.List<Upgrades.AbstractUpgrade>();
-
-        public static void ADD_UPGRADE(Upgrades.AbstractUpgrade upgrade)
-        {
-            upgrade.Applied();
-            UPGRADES.Add(upgrade);
-        }
-
-        public static void REMOVE_UPGRADE(Upgrades.AbstractUpgrade upgrade)
-        {
-            if (UPGRADES.Contains(upgrade))
-            {
-                UPGRADES.Remove(upgrade);
-                upgrade.Removed();
-            }
-        }
-
-
-        public delegate void HealthChanged(int value);
-        public static HealthChanged OnHealthChange;
-
-        public static int MAX_HEALTH { get; private set; } = 100;
-        public static void INCREASE_MAX_HEALTH()
-        {
-            MAX_HEALTH += 100;
-        }
-        public static int HEALTH { get; private set; } = 100;
-        public static void MODIFY_HEALTH(int mod)
-        {
-            HEALTH = Mathf.Clamp(HEALTH + mod, -1, MAX_HEALTH);
-            OnHealthChange(HEALTH);
-        }
-
         public static void DELETE_VARIABLES()
         {
-            PlayingChange = null;
             OnFloorChange = null;
-            OnHealthChange = null;
+            CrouchChange = null;
+            SprintingChanged = null;
         }
     }
 

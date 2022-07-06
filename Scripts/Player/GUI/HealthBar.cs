@@ -7,11 +7,13 @@ namespace Player.GUI
     {
         private Label HealthNumber { get; set; }
         private ProgressBar Health { get; set; }
+        [Export]
+        private NodePath ToPlayer { get; set; }
         public override void _Ready()
         {
             Health = GetNode<ProgressBar>("Health Bar");
             HealthNumber = GetNode<Label>("Health Number");
-            Variables.OnHealthChange += UpdateHealth;
+            GetNode<PlayerManager>(ToPlayer).PlayerHealth.OnHealthChange += UpdateHealth;
         }
 
         public void UpdateHealth(int value)

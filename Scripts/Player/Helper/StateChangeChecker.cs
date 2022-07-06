@@ -14,15 +14,6 @@ namespace Player.Helper
         };
         public static bool TransferToState(Variables.PlayerStandingState toState)
         {
-            for (int j = 0; j < 3; j++)
-            {
-                for (int i = 0; i < 3; i++)
-                {
-                    GD.Print(StateMatix[j, i] + " ");
-                }
-                GD.Print("\n");
-            }
-
             return StateMatix[(int)(Variables.CURRENT_STANDING_STATE), (int)toState]();
         }
     }

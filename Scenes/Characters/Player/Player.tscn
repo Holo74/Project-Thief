@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -7,12 +7,22 @@
 [ext_resource path="res://Scripts/Player/Interactions/Interaction.cs" type="Script" id=5]
 [ext_resource path="res://Scripts/Player/GUI/InteractionTexture.cs" type="Script" id=6]
 [ext_resource path="res://Scripts/Debug/VariablesModPanel.cs" type="Script" id=7]
+[ext_resource path="res://Scripts/Player/Handlers/UpgradeHandler.cs" type="Script" id=8]
 [ext_resource path="res://Scripts/Debug/Level Controls/Restart.cs" type="Script" id=9]
 [ext_resource path="res://Music/In Game/Hidden/mp208.mp3" type="AudioStream" id=10]
 [ext_resource path="res://Scripts/Management/Sound/MusicManager.cs" type="Script" id=11]
 [ext_resource path="res://Scripts/Management/Sound/PlayerSoundManager.cs" type="Script" id=12]
 [ext_resource path="res://Scripts/Player/BodyMods/Mantle.cs" type="Script" id=13]
 [ext_resource path="res://Scripts/Debug/Menus/VariablesFiller.cs" type="Script" id=14]
+[ext_resource path="res://Scripts/Player/Handlers/Health.cs" type="Script" id=15]
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 15 )
+ResistanceList = [  ]
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 8 )
+UpgradeList = [  ]
 
 [sub_resource type="CylinderShape" id=1]
 radius = 0.49
@@ -34,6 +44,8 @@ height = 0.49
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+PlayerHealth = SubResource( 7 )
+Upgrades = SubResource( 9 )
 
 [node name="UpperBody" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
@@ -97,21 +109,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.876423, -0.362932 )
 enabled = true
 cast_to = Vector3( 0, 0, -0.3 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GUI" type="CanvasLayer" parent="."]
 
-[node name="GUI" type="Control" parent="CanvasLayer"]
+[node name="GUI" type="Control" parent="GUI"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Health" type="Control" parent="CanvasLayer/GUI"]
+[node name="Health" type="Control" parent="GUI/GUI"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -22.0
 margin_right = 22.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
+ToPlayer = NodePath("../../..")
 
-[node name="Health Bar" type="ProgressBar" parent="CanvasLayer/GUI/Health"]
+[node name="Health Bar" type="ProgressBar" parent="GUI/GUI/Health"]
 anchor_left = -2.22773
 anchor_top = 0.6
 anchor_right = 3.22773
@@ -125,7 +138,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Health Number" type="Label" parent="CanvasLayer/GUI/Health"]
+[node name="Health Number" type="Label" parent="GUI/GUI/Health"]
 anchor_left = -0.045
 anchor_top = 1.6
 anchor_right = 1.045
@@ -136,7 +149,7 @@ text = "99"
 align = 1
 valign = 1
 
-[node name="Interaction Texture" type="TextureRect" parent="CanvasLayer/GUI"]
+[node name="Interaction Texture" type="TextureRect" parent="GUI/GUI"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

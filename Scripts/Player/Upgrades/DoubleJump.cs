@@ -16,9 +16,11 @@ namespace Player.Upgrades
         {
             if (!Player.Variables.ON_FLOOR)
             {
+                // This way you don't jump again when you first jump
                 if (frameBuffer == 1)
                 {
                     frameBuffer = 0;
+                    // Skips the first frame
                     return;
                 }
                 if (Input.IsActionJustPressed("ui_select") && JumpAmount < 1)
@@ -37,6 +39,7 @@ namespace Player.Upgrades
 
         private void FloorChange(bool floor)
         {
+            // Resets time buffer when you land
             if (floor)
             {
                 JumpAmount = 0;

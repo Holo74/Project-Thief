@@ -4,6 +4,7 @@ using Player.BodyMods;
 
 namespace Player
 {
+    // These are all Nodes or references that shouldn't every be reassigned 
     public static class PlayerQuickAccess
     {
         public static Tween TWEEN { get; private set; }

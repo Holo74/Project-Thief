@@ -3,11 +3,12 @@ using System;
 
 namespace Player.Movement
 {
+    // This needs a lot of work.  I wouldn't recommeend using it for now
     public class Swimming : AbstractMovement
     {
         public override void FallingMovement(float delta)
         {
-            Variables.WALKING_MOVEMENT = DirectionMovement() * Variables.SPEED;
+            Variables.WALKING_MOVEMENT = DirectionMovement() * Variables.STANDING_SPEED;
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.WALKING_MOVEMENT + Variables.GRAVITY_MOVEMENT);
             float gravitySqr = Variables.GRAVITY_MOVEMENT.LengthSquared();
             if (gravitySqr > 1f)

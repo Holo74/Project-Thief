@@ -31,8 +31,8 @@ namespace Debug.VariablesContainers
             //         SliderChanged(Player.Variables.JUMP_STRENGTH);
             //         break;
             //     case Variables.Walking:
-            //         Slider.Value = Player.Variables.SPEED;
-            //         SliderChanged(Player.Variables.SPEED);
+            //         Slider.Value = Player.Variables.STANDING_SPEED;
+            //         SliderChanged(Player.Variables.STANDING_SPEED);
             //         break;
             // }
         }

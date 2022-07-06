@@ -6,9 +6,7 @@ namespace Player.Movement
 {
     public abstract class AbstractMovement
     {
-        private Vector3 DebugStartingPos { get; set; }
-        private bool FallingLock { get; set; } = false;
-
+        #region Basic Movement
         public abstract void Movement(float delta);
 
         public virtual void FallingMovement(float delta)
@@ -30,9 +28,10 @@ namespace Player.Movement
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(move + Variables.GRAVITY_MOVEMENT, Vector3.Up);
             Variables.GRAVITY_MOVEMENT += delta * Vector3.Down * Variables.GRAVITY_STRENGTH * Variables.GRAVITY_MOD;
         }
+        #endregion
 
         private float MantleTimer { get; set; }
-        private bool Mantled(float delta)
+        protected bool Mantled(float delta)
         {
             if (Input.IsActionJustPressed("ui_select"))
             {
@@ -71,7 +70,6 @@ namespace Player.Movement
 
         public void Jump(Vector3 modifier)
         {
-            DebugStartingPos = PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin;
             Vector3 holder = Variables.GRAVITY_MOVEMENT;
             holder.y = Variables.JUMP_STRENGTH;
             holder += modifier;
@@ -86,16 +84,7 @@ namespace Player.Movement
         protected float MovementSpeed()
         {
             Variables.IS_SPRINTING = Input.IsActionPressed("Run");
-            float current = Variables.SPEED;
-            if (Variables.IS_SPRINTING)
-            {
-                current = Variables.SPRINT_SPEED;
-            }
-            if (Variables.IS_CROUCHED && Variables.ON_FLOOR)
-            {
-                current = Variables.CROUCH_SPEED;
-            }
-            return current * Variables.SPEED_MOD;
+            return Helper.MathEquations.GET_SPEED();
         }
 
         public void Crouch()
@@ -121,7 +110,7 @@ namespace Player.Movement
         private bool standOnLand = false;
         private void AirCrouch()
         {
-            if (Variables.IS_CROUCHED)
+            if (Helper.CommonComparisions.IS_CROUCHED)
             {
                 if (PlayerQuickAccess.FEET.Disabled)
                 {
@@ -237,16 +226,16 @@ namespace Player.Movement
             switch (Variables.CURRENT_STANDING_STATE)
             {
                 case Variables.PlayerStandingState.Standing:
-                    PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                    PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
                     break;
                 case Variables.PlayerStandingState.Crouching:
                     if (Variables.ON_FLOOR)
                     {
-                        PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                        PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
                     }
                     break;
                 case Variables.PlayerStandingState.Crawling:
-                    PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.CROUCHING_SPEED);
+                    PlayerQuickAccess.TWEEN.InterpolateProperty(PlayerQuickAccess.CAMERA, "translation:y", PlayerQuickAccess.CAMERA.Translation.y, -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
                     break;
             }
             PlayerQuickAccess.TWEEN.Start();
@@ -259,16 +248,6 @@ namespace Player.Movement
                 return FloorCorrection() + Variables.GRAVITY_MOVEMENT;
             }
             return Variables.WALKING_MOVEMENT + Variables.GRAVITY_MOVEMENT;
-        }
-
-        private void DebugLanding(bool onFloor)
-        {
-            if (onFloor)
-            {
-                FallingLock = false;
-                GD.Print(PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.DistanceTo(DebugStartingPos) + " Length");
-            }
-
         }
 
         protected virtual void FloorStateChange(bool state)

@@ -5,8 +5,7 @@ namespace Interfaces.Interactions
 {
     public interface IHealth
     {
-        void Damage(int damage);
-        void Heal(int healing);
+        void ReceiveHealthUpdate(Player.Handlers.Health.InteractionTypes type, int amount);
     }
 
 }
