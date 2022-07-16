@@ -99,6 +99,15 @@ namespace Player.Movement
             Timer -= delta;
             if (Timer < 0)
             {
+                CurrentMoving = MoveToGround;
+            }
+        }
+
+        private void MoveToGround(float delta)
+        {
+            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Vector3.Down * 10 * delta);
+            if (k != null)
+            {
                 FinishMantle();
             }
         }

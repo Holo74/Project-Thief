@@ -227,6 +227,10 @@ config/name="Project Thief"
 run/main_scene="res://Scenes/Menus/MainMenu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GameManager="*res://Scenes/GameManager.tscn"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/CustomResourceRegister/plugin.cfg", "res://addons/qodot/plugin.cfg" )
@@ -292,6 +296,7 @@ crawl={
 
 [layer_names]
 
+3d_render/layer_20="Light Instance Layer"
 3d_physics/layer_16="PickedUp"
 
 [physics]

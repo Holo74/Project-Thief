@@ -70,6 +70,10 @@ namespace Player.Movement
 
         public void Jump(Vector3 modifier)
         {
+            if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crawling)
+            {
+                return;
+            }
             Vector3 holder = Variables.GRAVITY_MOVEMENT;
             holder.y = Variables.JUMP_STRENGTH;
             holder += modifier;
@@ -123,9 +127,11 @@ namespace Player.Movement
             }
             else
             {
-                PlayerQuickAccess.DisableLowerBody(true);
-                Variables.CURRENT_STANDING_STATE = Variables.PlayerStandingState.Crouching;
+                StateChangeTo(Variables.PlayerStandingState.Crouching);
+                // PlayerQuickAccess.DisableLowerBody(true);
+                // Variables.CURRENT_STANDING_STATE = Variables.PlayerStandingState.Crouching;
                 Variables.OnFloorChange += CrouchGroundCorrection;
+
             }
         }
 
@@ -133,10 +139,9 @@ namespace Player.Movement
         {
             if (onFloor)
             {
-                PlayerQuickAccess.UPPER_BODY.Disabled = true;
                 PlayerQuickAccess.CAMERA.Translation = Vector3.Down * .1f;
                 PlayerQuickAccess.KINEMATIC_BODY.Translate(Vector3.Up);
-                PlayerQuickAccess.DisableLowerBody(false);
+                UpdateCollision();
                 Variables.OnFloorChange -= CrouchGroundCorrection;
 
                 if (standOnLand)
@@ -254,11 +259,15 @@ namespace Player.Movement
         {
             if (state)
             {
-
+                // Variables.GRAVITY_MOVEMENT = Vector3.Zero;
             }
             else
             {
-
+                if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crawling)
+                {
+                    // This doesn't work for some reason.  I clip through the ground
+                    //CrouchWithoutInput();
+                }
             }
         }
 

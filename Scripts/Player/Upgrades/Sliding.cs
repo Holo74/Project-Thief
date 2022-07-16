@@ -11,9 +11,9 @@ namespace Player.Upgrades
         public override void Applied()
         {
             // Hidden function to monitor crouch state.  This may or many not work
-            Variables.CrouchChange += (state) =>
+            Variables.StandingChangedTo += (state) =>
             {
-                if (!state)
+                if (state == Variables.PlayerStandingState.Crouching)
                 {
                     CrouchChanged = false;
                 }

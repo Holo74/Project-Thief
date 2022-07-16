@@ -33,7 +33,7 @@ namespace Debug.Menus
 
         private void LoadLevel(int id)
         {
-            GetTree().ChangeScene("res://Scenes/Levels/" + LevelList[id]);
+            Management.Game.GameManager.Instance.LoadScene("res://Scenes/Levels/" + LevelList[id]);
         }
     }
 }

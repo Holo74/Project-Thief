@@ -23,6 +23,7 @@ namespace Player
         public static Area UPPER_BODY_AREA { get; private set; }
         public static RayCast FLOOR_CAST { get; private set; }
         public static BodyMods.Mantle MANTLE { get; private set; }
+        public static Handlers.LightHandler LIGHT { get; private set; }
 
         public static void DisableLowerBody(bool disabled)
         {
@@ -47,6 +48,7 @@ namespace Player
             LOWER_BODY_AREA = p.GetNode<Area>("Lower Body Detection");
             FLOOR_CAST = p.GetNode<RayCast>("Floor Cast");
             MANTLE = p.GetNode<BodyMods.Mantle>("BodyNode/Mantling");
+            LIGHT = p.GetNode<Handlers.LightHandler>("Gem");
         }
     }
 

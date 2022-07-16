@@ -308,7 +308,7 @@ margin_right = 185.0
 margin_bottom = 25.0
 bbcode_enabled = true
 bbcode_text = "[center]Current Camo[/center]"
-text = "Ground Camo"
+text = "Current Camo"
 __meta__ = {
 "_edit_use_anchors_": true
 }

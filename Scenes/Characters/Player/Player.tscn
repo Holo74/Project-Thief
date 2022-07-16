@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -15,6 +15,10 @@
 [ext_resource path="res://Scripts/Player/BodyMods/Mantle.cs" type="Script" id=13]
 [ext_resource path="res://Scripts/Debug/Menus/VariablesFiller.cs" type="Script" id=14]
 [ext_resource path="res://Scripts/Player/Handlers/Health.cs" type="Script" id=15]
+[ext_resource path="res://Scenes/Characters/Player/Gem.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scripts/Player/Handlers/GUI.cs" type="Script" id=17]
+[ext_resource path="res://Scripts/Debug/VisibilityIndex/Display.cs" type="Script" id=18]
+[ext_resource path="res://Sounds/PlayerSounds/Land.wav" type="AudioStream" id=19]
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 15 )
@@ -57,6 +61,7 @@ shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="BodyNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+cull_mask = 524287
 current = true
 near = 0.01
 
@@ -72,6 +77,7 @@ update_rotation = false
 update_scale = false
 
 [node name="SpotLight" type="SpotLight" parent="BodyNode/Camera"]
+editor_only = true
 
 [node name="Mantling" type="Spatial" parent="BodyNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
@@ -110,6 +116,8 @@ enabled = true
 cast_to = Vector3( 0, 0, -0.3 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
+pause_mode = 2
+script = ExtResource( 17 )
 
 [node name="GUI" type="Control" parent="GUI"]
 anchor_right = 1.0
@@ -259,10 +267,25 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
+[node name="PanelContainer" type="PanelContainer" parent="Debug"]
+margin_left = 63.0
+margin_top = 52.0
+margin_right = 350.0
+margin_bottom = 201.0
+
+[node name="Visibility Index" type="RichTextLabel" parent="Debug/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 280.0
+margin_bottom = 142.0
+script = ExtResource( 18 )
+
 [node name="PlayerSound" type="Node" parent="."]
 script = ExtResource( 12 )
 
 [node name="Legs" type="AudioStreamPlayer" parent="PlayerSound"]
+stream = ExtResource( 19 )
+volume_db = 24.0
 bus = "Effects"
 
 [node name="Arms" type="AudioStreamPlayer" parent="PlayerSound"]
@@ -278,5 +301,8 @@ bus = "Ambient"
 stream = ExtResource( 10 )
 autoplay = true
 bus = "Music"
+
+[node name="Gem" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.91027, 0 )
 
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]

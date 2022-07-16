@@ -26,22 +26,46 @@ namespace Player.BodyMods
             UpperLedgeSpace.Connect("body_exited", this, nameof(ExitUpperLedgeSpace));
             LowerLedgeSpace.Connect("body_entered", this, nameof(EnterLowerLedgeSpace));
             LowerLedgeSpace.Connect("body_exited", this, nameof(ExitLowerLedgeSpace));
-            Variables.CrouchChange += CrouchChange;
+            Variables.StandingChangedTo += CrouchChange;
+            Variables.OnFloorChange += ChangeMonitors;
         }
 
-        private void CrouchChange(bool current)
+        private void ChangeMonitors(bool state)
         {
-            if (current)
+            if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching)
             {
+                if (state)
+                {
+                    if (UpperLedge.Enabled)
+                    {
+                        LowerLedge.Enabled = true;
+                        LowerLedgeSpace.Monitoring = true;
+                        UpperLedge.Enabled = false;
+                        UpperLedgeSpace.Monitoring = false;
+                        InUpperLedgeSpace = 0;
+                    }
+                }
+            }
+
+        }
+
+        private void CrouchChange(Variables.PlayerStandingState current)
+        {
+            if (current == Variables.PlayerStandingState.Crouching)
+            {
+                // GD.Print("ON the floor: " + Variables.ON_FLOOR);
                 if (Variables.ON_FLOOR)
                 {
+                    LowerLedge.Enabled = true;
+                    LowerLedgeSpace.Monitoring = true;
                     UpperLedge.Enabled = false;
                     UpperLedgeSpace.Monitoring = false;
                     InUpperLedgeSpace = 0;
                 }
                 else
                 {
-
+                    UpperLedge.Enabled = true;
+                    UpperLedgeSpace.Monitoring = true;
                     LowerLedge.Enabled = false;
                     LowerLedgeSpace.Monitoring = false;
                     InLowerLedgeSpace = 0;
@@ -70,11 +94,12 @@ namespace Player.BodyMods
         public override void _ExitTree()
         {
             base._ExitTree();
-            Variables.CrouchChange -= CrouchChange;
+            Variables.StandingChangedTo -= CrouchChange;
         }
 
         public bool CanMantle()
         {
+            //GD.Print("Upper ledge space: " + InUpperLedgeSpace + "\nLower Ledge Space: " + InLowerLedgeSpace);
             return InHeadSpace == 0 && (InUpperLedgeSpace > 0 || InLowerLedgeSpace > 0);
         }
 

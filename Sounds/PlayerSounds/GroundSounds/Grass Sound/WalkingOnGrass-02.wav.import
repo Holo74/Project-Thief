@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WalkingOnGrass-02.wav-0397329eceb7a0f2472d23fa910e956c.sample"
+
+[deps]
+
+source_file="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-02.wav"
+dest_files=[ "res://.import/WalkingOnGrass-02.wav-0397329eceb7a0f2472d23fa910e956c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

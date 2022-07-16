@@ -13,6 +13,7 @@ namespace Management.Time
         private void StartPlayer()
         {
             Management.Game.GameManager.Start();
+            // GD.Print("Game Start");
         }
     }
 

@@ -17,54 +17,20 @@ namespace Player
         public override void _Ready()
         {
             PlayerQuickAccess.SyncVariables(this);
-            Input.SetMouseMode(Input.MouseMode.Captured);
-            Variables.INIT();
+            //Input.SetMouseMode(Input.MouseMode.Captured);
             Instance = this;
-            //Variables.ADD_UPGRADE(Upgrades.AbstractUpgrade.GetUpgrade(Upgrades.AbstractUpgrade.ITEM_UPGRADE_LIST.DoubleJump));
-            //Variables.ADD_UPGRADE(Upgrades.AbstractUpgrade.GetUpgrade(Upgrades.AbstractUpgrade.ITEM_UPGRADE_LIST.WallRun));
+            Variables.DEFAULT_MOVEMENT = new BasicMovement();
+            Variables.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y) - 10, 0, Mathf.Inf), 3)); };
+            // GD.Print(GetViewport().ShadowAtlasSize);
         }
 
         public override void _Process(float delta)
         {
-            // Move this to a UI manager
-            // if (Input.IsActionJustPressed("ui_cancel"))
-            // {
-            //     if (Input.GetMouseMode() == Input.MouseMode.Captured)
-            //     {
-            //         Input.SetMouseMode(Input.MouseMode.Visible);
-            //         Variables.PLAYING = false;
-            //     }
-            //     else
-            //     {
-            //         Input.SetMouseMode(Input.MouseMode.Captured);
-            //         Variables.PLAYING = true;
-            //         Variables.RESET_ROTATION();
-            //     }
-            // }
-            PlayerQuickAccess.INTERACTION.Interact();
+            if (Management.Game.GameManager.PLAYING)
+            {
+                PlayerQuickAccess.INTERACTION.Interact();
+            }
         }
-
-        //Move this into health
-        // private void StandardFloorChange(bool onFloor)
-        // {
-        //     if (onFloor)
-        //     {
-        //         fallDamage(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y));
-        //         Variables.GRAVITY_MOVEMENT = Vector3.Zero;
-        //     }
-        //     else
-        //     {
-
-        //     }
-        // }
-
-        // private void StandardFallDamage(float force)
-        // {
-        //     if (force > 15f)
-        //     {
-        //         Damage(((int)(force)));
-        //     }
-        // }
 
         public override void _Input(InputEvent @event)
         {
@@ -103,6 +69,11 @@ namespace Player
         {
             base.Dispose(disposing);
             Variables.DELETE_VARIABLES();
+        }
+
+        public float GetStealthValue()
+        {
+            return Helper.MathEquations.GET_STEALTH_VALUE(PlayerQuickAccess.LIGHT.CurrentLight, Variables.CAMO.BaseVisibility);
         }
     }
 }

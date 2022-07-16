@@ -6,6 +6,7 @@ namespace Player
     //We must reset some values to their default states!!!
     public static class Variables
     {
+        public static Handlers.CamoHandler CAMO { get; set; }
         // These are the states that the player can be in
         public enum PlayerStandingState
         {
@@ -14,19 +15,30 @@ namespace Player
             Crawling = 2
         }
         // Current state the player is in
-        public static PlayerStandingState CURRENT_STANDING_STATE { get; set; }
+        public static PlayerStandingState CURRENT_STANDING_STATE
+        {
+            get { return CurrentStandingState; }
+            set
+            {
+                CurrentStandingState = value;
+                StandingChangedTo?.Invoke(value);
+            }
+        }
+        private static PlayerStandingState CurrentStandingState { get; set; }
+        public delegate void StandingStateChanged(PlayerStandingState state);
+        public static event StandingStateChanged StandingChangedTo;
         // Maps the current state to a speed
         public static Func<float>[] SPEED_MAPPING = { () => { return STANDING_SPEED; }, () => { return CROUCH_SPEED; }, () => { return CRAWLING_SPEED; } };
 
         // Resetting the variables that would be transfer when loading a save otherwise
         public static void INIT()
         {
-            DEFAULT_MOVEMENT = new Movement.BasicMovement();
-            CURRENT_STANDING_STATE = PlayerStandingState.Standing;
-            OnFloorChange += (onFloor) => { if (onFloor) GRAVITY_MOVEMENT = Vector3.Zero; };
+            defaultMovement = new Movement.BasicMovement();
+            CAMO = new Handlers.CamoHandler();
+            CurrentStandingState = PlayerStandingState.Standing;
+            // OnFloorChange += (onFloor) => { if (onFloor) GRAVITY_MOVEMENT = Vector3.Zero; };
             isSprinting = false;
-            RESET_MOVEMENT();
-            RESET_ROTATION();
+            CAMO.Init();
             #region default floats
             SPEED_MOD = 1f;
             GRAVITY_MOD = 1f;
@@ -44,8 +56,8 @@ namespace Player
         public static float JUMP_STRENGTH { get; set; } = 5f;
         public static float STANDING_SPEED { get; set; } = 3.5f;
         public static float BOOST_WALL_JUMP { get; set; } = .2f;
-        public static float SPRINT_SPEED { get; set; } = 7f;
-        public static float CROUCH_SPEED { get; set; } = 1f;
+        public static float SPRINT_SPEED { get; set; } = 1.5f;
+        public static float CROUCH_SPEED { get; set; } = 2.2f;
         public static float CRAWLING_SPEED { get; set; } = 1f;
         public static float MOVE_TO_CROUCH { get; set; } = 5f;
         public static float MANTLE_FORWARD_SPEED { get; set; } = 6f;
@@ -81,12 +93,17 @@ namespace Player
             }
         }
 
+        public delegate void SimpleEventTrigger();
+        public static event SimpleEventTrigger Jump;
+
+
         // A boolean value has changed states and needs to send a signal
         public delegate void StateChange(bool newState);
 
         #region bool signals
         public static event StateChange SprintingChanged;
         public static event StateChange OnFloorChange;
+        [Obsolete]
         public static event StateChange CrouchChange;
         #endregion
 
@@ -120,7 +137,7 @@ namespace Player
 
         public static void RESET_MOVEMENT()
         {
-            MOVEMENT = DEFAULT_MOVEMENT;
+            MOVEMENT = defaultMovement;
         }
         #endregion
 
@@ -143,7 +160,7 @@ namespace Player
         public static bool ON_FLOOR
         {
             get { return onFloor; }
-            set { onFloor = value; OnFloorChange?.Invoke(value); }
+            set { onFloor = value; OnFloorChange?.Invoke(value); if (value) GRAVITY_MOVEMENT = Vector3.Zero; }
         }
 
         public static void DELETE_VARIABLES()

@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Player/Handlers/LightHandler.cs" type="Script" id=2]
+
+[sub_resource type="Environment" id=4]
+background_mode = 1
+
+[sub_resource type="Environment" id=2]
+background_mode = 1
+
+[sub_resource type="SphereMesh" id=3]
+
+[node name="Gem" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Capture Light" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Bottom" type="Viewport" parent="."]
+size = Vector2( 100, 100 )
+size_override_stretch = true
+transparent_bg = true
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+
+[node name="Camera" type="Camera" parent="Bottom"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
+cull_mask = 524288
+environment = SubResource( 4 )
+projection = 1
+current = true
+size = 0.2
+
+[node name="Top" type="Viewport" parent="."]
+size = Vector2( 100, 100 )
+size_override_stretch = true
+transparent_bg = true
+render_target_update_mode = 3
+shadow_atlas_size = 4096
+
+[node name="Camera" type="Camera" parent="Top"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
+cull_mask = 524288
+environment = SubResource( 2 )
+projection = 1
+current = true
+size = 0.2
+
+[node name="Top Remote" type="RemoteTransform" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
+remote_path = NodePath("../Top/Camera")
+
+[node name="Bottom Remote" type="RemoteTransform" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
+remote_path = NodePath("../Bottom/Camera")
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+layers = 524288
+cast_shadow = 0
+mesh = SubResource( 3 )
+material/0 = null
+
+[connection signal="timeout" from="Capture Light" to="." method="UpdateLight"]

@@ -1,0 +1,16 @@
+// Game: Qodot
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures;textures/Testing"
+// brush 0
+{
+( -288 -112 0 ) ( -288 304 -32 ) ( -288 304 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 176 -288 0 ) ( -112 -288 -32 ) ( -112 -288 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 176 304 -32 ) ( -112 -112 -32 ) ( 176 -112 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 176 304 0 ) ( -112 -112 0 ) ( -112 304 0 ) Testing/BlueTestingBox 0 0 0 1 1
+( 176 304 0 ) ( -112 304 -32 ) ( 176 304 -32 ) Testing/BlueTestingBox 0 0 0 1 1
+( 304 304 0 ) ( 304 -112 -32 ) ( 304 -112 0 ) Testing/BlueTestingBox 0 0 0 1 1
+}
+}
