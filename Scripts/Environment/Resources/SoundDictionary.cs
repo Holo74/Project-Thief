@@ -10,6 +10,8 @@ namespace Environment.Resources
         // From 0 to 1
         [Export(PropertyHint.Range, "0, 1")]
         public float Loudness { get; private set; }
+        [Export]
+        public AudioStream LandingSound { get; private set; }
 
         public AudioStream GetRandomSound()
         {

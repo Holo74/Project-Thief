@@ -94,7 +94,7 @@ namespace Player
         }
 
         public delegate void SimpleEventTrigger();
-        public static event SimpleEventTrigger Jump;
+        public static SimpleEventTrigger Jump;
 
 
         // A boolean value has changed states and needs to send a signal

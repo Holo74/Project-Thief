@@ -91,6 +91,15 @@ namespace Player.Handlers
             return SurroundingTexture[CurrentCamoIndex].Sound.GetRandomSound();
         }
 
+        public Environment.Resources.SoundDictionary GetSoundDictionary()
+        {
+            if (CurrentCamoIndex >= SurroundingTexture.Count || CurrentCamoIndex < 0)
+            {
+                return null;
+            }
+            return SurroundingTexture[CurrentCamoIndex].Sound;
+        }
+
         public float GetSoundVolume()
         {
             // GD.Print(CurrentCamoIndex + " Current Camo Index\n" + SurroundingTexture.Count + " Count of the surrounding texture");

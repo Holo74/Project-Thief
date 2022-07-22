@@ -16,14 +16,14 @@ namespace Player.Handlers
             if (Input.IsActionJustPressed("ui_cancel"))
             {
                 // GD.Print("Captured");
-                if (Input.GetMouseMode() == Input.MouseMode.Captured)
+                if (Input.MouseMode == Input.MouseModeEnum.Captured)
                 {
-                    Input.SetMouseMode(Input.MouseMode.Visible);
+                    Input.MouseMode = Input.MouseModeEnum.Visible;
                     Management.Game.GameManager.PLAYING = false;
                 }
                 else
                 {
-                    Input.SetMouseMode(Input.MouseMode.Captured);
+                    Input.MouseMode = Input.MouseModeEnum.Captured;
                     Management.Game.GameManager.PLAYING = true;
                 }
             }

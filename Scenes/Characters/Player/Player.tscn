@@ -18,7 +18,7 @@
 [ext_resource path="res://Scenes/Characters/Player/Gem.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scripts/Player/Handlers/GUI.cs" type="Script" id=17]
 [ext_resource path="res://Scripts/Debug/VisibilityIndex/Display.cs" type="Script" id=18]
-[ext_resource path="res://Sounds/PlayerSounds/Land.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/PlayerSounds/Jumping.wav" type="AudioStream" id=19]
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 15 )
@@ -282,9 +282,9 @@ script = ExtResource( 18 )
 
 [node name="PlayerSound" type="Node" parent="."]
 script = ExtResource( 12 )
+Jump = ExtResource( 19 )
 
 [node name="Legs" type="AudioStreamPlayer" parent="PlayerSound"]
-stream = ExtResource( 19 )
 volume_db = 24.0
 bus = "Effects"
 

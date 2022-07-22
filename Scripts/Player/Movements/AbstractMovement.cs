@@ -78,6 +78,7 @@ namespace Player.Movement
             holder.y = Variables.JUMP_STRENGTH;
             holder += modifier;
             Variables.GRAVITY_MOVEMENT = holder * Variables.JUMP_MOD;
+            Variables.Jump?.Invoke();
         }
 
         protected int InputToInt(string input)
