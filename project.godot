@@ -231,13 +231,18 @@ config/icon="res://icon.png"
 
 GameManager="*res://Scenes/GameManager.tscn"
 
+[editor]
+
+version_control_autoload_on_startup=true
+version_control_plugin_name="GitAPI"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/CustomResourceRegister/plugin.cfg", "res://addons/qodot/plugin.cfg" )
 
 [gdnative]
 
-singletons=[ "res://addons/godot-git-plugin/git_api.gdnlib" ]
+singletons=[  ]
 
 [global]
 
@@ -301,10 +306,19 @@ crawl={
 
 [physics]
 
+3d/smooth_trimesh_collision=true
 common/enable_pause_aware_picking=true
 3d/physics_engine="Bullet"
+common/physics_interpolation=true
 
 [rendering]
 
+quality/shadows/filter_mode=2
 quality/shading/use_physical_light_attenuation=true
+quality/filters/use_nearest_mipmap_filter=true
+gles3/shaders/shader_compilation_mode=1
+quality/subsurface_scattering/quality=2
+quality/filters/msaa=4
+quality/filters/use_fxaa=true
+quality/filters/use_debanding=true
 environment/default_environment="res://default_env.tres"

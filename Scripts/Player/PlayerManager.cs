@@ -22,6 +22,7 @@ namespace Player
             Variables.DEFAULT_MOVEMENT = new BasicMovement();
             Variables.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y) - 10, 0, Mathf.Inf), 3)); };
             // GD.Print(GetViewport().ShadowAtlasSize);
+            GetTree().CreateTween().
         }
 
         public override void _Process(float delta)

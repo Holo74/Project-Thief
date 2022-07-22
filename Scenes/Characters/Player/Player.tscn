@@ -29,8 +29,8 @@ script = ExtResource( 8 )
 UpgradeList = [  ]
 
 [sub_resource type="CylinderShape" id=1]
-radius = 0.49
 height = 0.9
+radius = 0.49
 
 [sub_resource type="BoxShape" id=4]
 extents = Vector3( 0.316381, 0.522355, 0.0574478 )
@@ -39,12 +39,12 @@ extents = Vector3( 0.316381, 0.522355, 0.0574478 )
 extents = Vector3( 0.456778, 0.55, 0.516855 )
 
 [sub_resource type="CylinderShape" id=2]
-radius = 0.5
 height = 0.5
+radius = 0.5
 
 [sub_resource type="CylinderShape" id=6]
-radius = 0.49
 height = 0.49
+radius = 0.49
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -303,6 +303,6 @@ autoplay = true
 bus = "Music"
 
 [node name="Gem" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.91027, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.698862, 0 )
 
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]
