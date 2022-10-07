@@ -88,192 +88,192 @@ margin_bottom = 425.0
 columns = 5
 
 [node name="ColorRect1" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_right = 35.0
-margin_bottom = 35.0
+margin_right = 36.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect2" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 39.0
-margin_right = 74.0
-margin_bottom = 35.0
+margin_left = 40.0
+margin_right = 75.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect3" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 78.0
-margin_right = 113.0
-margin_bottom = 35.0
+margin_left = 79.0
+margin_right = 114.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect4" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 117.0
-margin_right = 152.0
-margin_bottom = 35.0
+margin_left = 118.0
+margin_right = 153.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect5" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 156.0
-margin_right = 191.0
-margin_bottom = 35.0
+margin_left = 157.0
+margin_right = 192.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect6" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_top = 39.0
-margin_right = 35.0
-margin_bottom = 74.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect7" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 39.0
-margin_top = 39.0
-margin_right = 74.0
-margin_bottom = 74.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 75.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect8" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 78.0
-margin_top = 39.0
-margin_right = 113.0
-margin_bottom = 74.0
+margin_left = 79.0
+margin_top = 40.0
+margin_right = 114.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect9" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 117.0
-margin_top = 39.0
-margin_right = 152.0
-margin_bottom = 74.0
+margin_left = 118.0
+margin_top = 40.0
+margin_right = 153.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect10" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 156.0
-margin_top = 39.0
-margin_right = 191.0
-margin_bottom = 74.0
+margin_left = 157.0
+margin_top = 40.0
+margin_right = 192.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect11" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_top = 78.0
-margin_right = 35.0
-margin_bottom = 113.0
+margin_top = 79.0
+margin_right = 36.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect12" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 39.0
-margin_top = 78.0
-margin_right = 74.0
-margin_bottom = 113.0
+margin_left = 40.0
+margin_top = 79.0
+margin_right = 75.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect13" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 78.0
-margin_top = 78.0
-margin_right = 113.0
-margin_bottom = 113.0
+margin_left = 79.0
+margin_top = 79.0
+margin_right = 114.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect14" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 117.0
-margin_top = 78.0
-margin_right = 152.0
-margin_bottom = 113.0
+margin_left = 118.0
+margin_top = 79.0
+margin_right = 153.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect15" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 156.0
-margin_top = 78.0
-margin_right = 191.0
-margin_bottom = 113.0
+margin_left = 157.0
+margin_top = 79.0
+margin_right = 192.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect16" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_top = 117.0
-margin_right = 35.0
-margin_bottom = 152.0
+margin_top = 118.0
+margin_right = 36.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect17" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 39.0
-margin_top = 117.0
-margin_right = 74.0
-margin_bottom = 152.0
+margin_left = 40.0
+margin_top = 118.0
+margin_right = 75.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect18" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 78.0
-margin_top = 117.0
-margin_right = 113.0
-margin_bottom = 152.0
+margin_left = 79.0
+margin_top = 118.0
+margin_right = 114.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect19" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 117.0
-margin_top = 117.0
-margin_right = 152.0
-margin_bottom = 152.0
+margin_left = 118.0
+margin_top = 118.0
+margin_right = 153.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect20" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 156.0
-margin_top = 117.0
-margin_right = 191.0
-margin_bottom = 152.0
+margin_left = 157.0
+margin_top = 118.0
+margin_right = 192.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect21" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_top = 156.0
-margin_right = 35.0
-margin_bottom = 191.0
+margin_top = 157.0
+margin_right = 36.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect22" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 39.0
-margin_top = 156.0
-margin_right = 74.0
-margin_bottom = 191.0
+margin_left = 40.0
+margin_top = 157.0
+margin_right = 75.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect23" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 78.0
-margin_top = 156.0
-margin_right = 113.0
-margin_bottom = 191.0
+margin_left = 79.0
+margin_top = 157.0
+margin_right = 114.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect24" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 117.0
-margin_top = 156.0
-margin_right = 152.0
-margin_bottom = 191.0
+margin_left = 118.0
+margin_top = 157.0
+margin_right = 153.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect25" type="ColorRect" parent="Camo Index/Current Camo/GridContainer"]
-margin_left = 156.0
-margin_top = 156.0
-margin_right = 191.0
-margin_bottom = 191.0
+margin_left = 157.0
+margin_top = 157.0
+margin_right = 192.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -333,192 +333,192 @@ margin_bottom = 425.0
 columns = 5
 
 [node name="ColorRect1" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_right = 35.0
-margin_bottom = 35.0
+margin_right = 36.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect2" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 39.0
-margin_right = 74.0
-margin_bottom = 35.0
+margin_left = 40.0
+margin_right = 75.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect3" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 78.0
-margin_right = 113.0
-margin_bottom = 35.0
+margin_left = 79.0
+margin_right = 114.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect4" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 117.0
-margin_right = 152.0
-margin_bottom = 35.0
+margin_left = 118.0
+margin_right = 153.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect5" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 156.0
-margin_right = 191.0
-margin_bottom = 35.0
+margin_left = 157.0
+margin_right = 192.0
+margin_bottom = 36.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect6" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_top = 39.0
-margin_right = 35.0
-margin_bottom = 74.0
+margin_top = 40.0
+margin_right = 36.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect7" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 39.0
-margin_top = 39.0
-margin_right = 74.0
-margin_bottom = 74.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 75.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect8" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 78.0
-margin_top = 39.0
-margin_right = 113.0
-margin_bottom = 74.0
+margin_left = 79.0
+margin_top = 40.0
+margin_right = 114.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect9" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 117.0
-margin_top = 39.0
-margin_right = 152.0
-margin_bottom = 74.0
+margin_left = 118.0
+margin_top = 40.0
+margin_right = 153.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect10" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 156.0
-margin_top = 39.0
-margin_right = 191.0
-margin_bottom = 74.0
+margin_left = 157.0
+margin_top = 40.0
+margin_right = 192.0
+margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect11" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_top = 78.0
-margin_right = 35.0
-margin_bottom = 113.0
+margin_top = 79.0
+margin_right = 36.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect12" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 39.0
-margin_top = 78.0
-margin_right = 74.0
-margin_bottom = 113.0
+margin_left = 40.0
+margin_top = 79.0
+margin_right = 75.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect13" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 78.0
-margin_top = 78.0
-margin_right = 113.0
-margin_bottom = 113.0
+margin_left = 79.0
+margin_top = 79.0
+margin_right = 114.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect14" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 117.0
-margin_top = 78.0
-margin_right = 152.0
-margin_bottom = 113.0
+margin_left = 118.0
+margin_top = 79.0
+margin_right = 153.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect15" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 156.0
-margin_top = 78.0
-margin_right = 191.0
-margin_bottom = 113.0
+margin_left = 157.0
+margin_top = 79.0
+margin_right = 192.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect16" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_top = 117.0
-margin_right = 35.0
-margin_bottom = 152.0
+margin_top = 118.0
+margin_right = 36.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect17" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 39.0
-margin_top = 117.0
-margin_right = 74.0
-margin_bottom = 152.0
+margin_left = 40.0
+margin_top = 118.0
+margin_right = 75.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect18" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 78.0
-margin_top = 117.0
-margin_right = 113.0
-margin_bottom = 152.0
+margin_left = 79.0
+margin_top = 118.0
+margin_right = 114.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect19" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 117.0
-margin_top = 117.0
-margin_right = 152.0
-margin_bottom = 152.0
+margin_left = 118.0
+margin_top = 118.0
+margin_right = 153.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect20" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 156.0
-margin_top = 117.0
-margin_right = 191.0
-margin_bottom = 152.0
+margin_left = 157.0
+margin_top = 118.0
+margin_right = 192.0
+margin_bottom = 153.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect21" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_top = 156.0
-margin_right = 35.0
-margin_bottom = 191.0
+margin_top = 157.0
+margin_right = 36.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect22" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 39.0
-margin_top = 156.0
-margin_right = 74.0
-margin_bottom = 191.0
+margin_left = 40.0
+margin_top = 157.0
+margin_right = 75.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect23" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 78.0
-margin_top = 156.0
-margin_right = 113.0
-margin_bottom = 191.0
+margin_left = 79.0
+margin_top = 157.0
+margin_right = 114.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect24" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 117.0
-margin_top = 156.0
-margin_right = 152.0
-margin_bottom = 191.0
+margin_left = 118.0
+margin_top = 157.0
+margin_right = 153.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ColorRect25" type="ColorRect" parent="Camo Index/Current Camo2/GridContainer"]
-margin_left = 156.0
-margin_top = 156.0
-margin_right = 191.0
-margin_bottom = 191.0
+margin_left = 157.0
+margin_top = 157.0
+margin_right = 192.0
+margin_bottom = 192.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -572,9 +572,6 @@ margin_bottom = 480.0
 window_title = "Select Texture"
 dialog_text = "Please select the texture to use"
 show_hidden_files = true
-current_dir = "res://Textures/Camo Patterns Test"
-current_file = "camo.jpg"
-current_path = "res://Textures/Camo Patterns Test/camo.jpg"
 script = ExtResource( 1 )
 CamoSelectors = [ NodePath("../Camo Index/Current Camo"), NodePath("../Camo Index/Current Camo2") ]
 

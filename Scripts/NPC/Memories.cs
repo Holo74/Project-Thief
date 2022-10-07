@@ -5,6 +5,11 @@ namespace NPC
 {
     public class Memories
     {
+        public Memories()
+        {
+            MemoryStorage = new System.Collections.Generic.Queue<Memory>();
+        }
+
         private System.Collections.Generic.Queue<Memory> MemoryStorage { get; set; }
         public Memory CurrentMemory { get; private set; }
 
@@ -29,13 +34,31 @@ namespace NPC
             return true;
         }
 
-        public void CreateMemory(MemoryType type, Vector3 position)
+        public void CreateMemory(MemoryType type, Vector3 position, Node source)
         {
-            Memory holder = new Memory(position, type);
-            MemoryStorage.Enqueue(holder);
+            Memory holder = new Memory(position, type, source);
+            bool hasMemory = false;
+            if (CurrentMemory is null)
+            {
+                CurrentMemory = holder;
+            }
+            foreach (Memory m in MemoryStorage)
+            {
+                if (m.SimilarMemory(holder))
+                {
+                    hasMemory = true;
+                    m.UpdateMemory(position);
+                    break;
+                }
+            }
+            if (!hasMemory)
+            {
+                MemoryStorage.Enqueue(holder);
+            }
+
             if (MemoryStorage.Count > 4)
             {
-                MemoryStorage.Dequeue();
+                CurrentMemory = MemoryStorage.Dequeue();
             }
         }
     }

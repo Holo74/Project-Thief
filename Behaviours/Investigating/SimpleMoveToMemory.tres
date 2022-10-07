@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/NPC/Behaviour/Investigating/MoveTowardsMemory.cs" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+Speed = 2.0
+InvestigateLimit = 10.0

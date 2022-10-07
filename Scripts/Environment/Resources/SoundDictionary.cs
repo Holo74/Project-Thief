@@ -15,9 +15,7 @@ namespace Environment.Resources
 
         public AudioStream GetRandomSound()
         {
-            RandomNumberGenerator random = new RandomNumberGenerator();
-            random.Seed = (ulong)System.DateTime.Now.Ticks;
-            int range = random.RandiRange(0, Sounds.Length - 1);
+            int range = Management.Game.GameManager.Instance.Generator.RandiRange(0, Sounds.Length - 1);
             // GD.Print(range + " Range of sounds");
             return Sounds[range];
         }

@@ -24,7 +24,7 @@ namespace Debug.VisibilityIndex.CamoTesting
 
         public void SetCamoTexture(string path)
         {
-            // GD.Print(path);
+            // // GD.Print(path);
             // Camo.Texture = ResourceLoader.Load<Texture>(path);
 
 

@@ -31,9 +31,14 @@ namespace Player
             FEET.Disabled = disabled;
         }
 
+        public static SceneTreeTween CreateCameraTween()
+        {
+            return CAMERA.CreateTween();
+        }
+
         public static void SyncVariables(PlayerManager p)
         {
-            TWEEN = p.GetNode<Tween>("Tween");
+            TWEEN = p.CreateTween();
             UPPER_BODY = p.GetNode<CollisionShape>("UpperBody");
             LOWER_BODY = p.GetNode<CollisionShape>("LowerBody");
             FEET = p.GetNode<CollisionShape>("Feet");

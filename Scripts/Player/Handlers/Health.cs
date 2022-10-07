@@ -29,7 +29,7 @@ namespace Player.Handlers
                     mod += types.amount;
                 }
             }
-            GD.Print(mod + " Damage taken");
+            //GD.Print(mod + " Damage taken");
             CurrentHealth = Mathf.Clamp(CurrentHealth + mod, -1, MaxHealth);
             OnHealthChange(CurrentHealth);
         }

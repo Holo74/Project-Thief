@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scripts/Player/Handlers/GUI.cs" type="Script" id=17]
 [ext_resource path="res://Scripts/Debug/VisibilityIndex/Display.cs" type="Script" id=18]
 [ext_resource path="res://Sounds/PlayerSounds/Jumping.wav" type="AudioStream" id=19]
+[ext_resource path="res://Scripts/Player/BodyMods/DetectionPoints.cs" type="Script" id=20]
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 15 )
@@ -36,7 +37,7 @@ radius = 0.49
 extents = Vector3( 0.316381, 0.522355, 0.0574478 )
 
 [sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.456778, 0.55, 0.516855 )
+extents = Vector3( 0.456778, 0.74014, 0.434635 )
 
 [sub_resource type="CylinderShape" id=2]
 height = 0.5
@@ -45,6 +46,12 @@ radius = 0.5
 [sub_resource type="CylinderShape" id=6]
 height = 0.49
 radius = 0.49
+
+[sub_resource type="SphereShape" id=10]
+radius = 0.1
+
+[sub_resource type="SphereShape" id=11]
+radius = 0.1
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -102,7 +109,7 @@ shape = SubResource( 4 )
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/Spacer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.922, -0.0500859 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84427, -0.0389853 )
 shape = SubResource( 5 )
 
 [node name="BottomFloor" type="RayCast" parent="BodyNode/Mantling"]
@@ -304,5 +311,22 @@ bus = "Music"
 
 [node name="Gem" parent="." instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.698862, 0 )
+
+[node name="PlayerDetectionPoints" type="KinematicBody" parent="."]
+collision_layer = 65536
+collision_mask = 65536
+script = ExtResource( 20 )
+
+[node name="Head" type="CollisionShape" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
+shape = SubResource( 10 )
+
+[node name="Body" type="CollisionShape" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
+shape = SubResource( 11 )
+
+[node name="Legs" type="CollisionShape" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0 )
+shape = SubResource( 11 )
 
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]

@@ -228,23 +228,22 @@ namespace Player.Movement
 
         private void CrouchCamera()
         {
-            PlayerQuickAccess.TWEEN.Stop();
+            PlayerQuickAccess.TWEEN.Kill();
             switch (Variables.CURRENT_STANDING_STATE)
             {
                 case Variables.PlayerStandingState.Standing:
-                    PlayerQuickAccess.TWEEN.TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
+                    PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
                     break;
                 case Variables.PlayerStandingState.Crouching:
                     if (Variables.ON_FLOOR)
                     {
-                        PlayerQuickAccess.TWEEN.TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
+                        PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
                     }
                     break;
                 case Variables.PlayerStandingState.Crawling:
-                    PlayerQuickAccess.TWEEN.TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
+                    PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.MOVE_TO_CROUCH);
                     break;
             }
-            PlayerQuickAccess.TWEEN.;
         }
 
         protected Vector3 TotalMovement()

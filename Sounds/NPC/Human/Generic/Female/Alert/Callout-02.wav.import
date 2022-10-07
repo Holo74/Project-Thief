@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Callout-02.wav-66e90bcd5ef921a4a02407c2f838b76d.sample"
+
+[deps]
+
+source_file="res://Sounds/NPC/Human/Generic/Female/Alert/Callout-02.wav"
+dest_files=[ "res://.import/Callout-02.wav-66e90bcd5ef921a4a02407c2f838b76d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -11,6 +11,8 @@ namespace Management.Game
         private ResourceInteractiveLoader Loader { get; set; }
         private bool LoadingScene { get; set; } = false;
         private ProgressBar LoadingBar { get; set; }
+        public RandomNumberGenerator Generator { get; set; }
+        public string FavoriteGame { get; set; }
         public static void Start()
         {
             PLAYING = true;
@@ -31,6 +33,9 @@ namespace Management.Game
         public override void _Ready()
         {
             base._Ready();
+            FavoriteGame = "Metroid";
+            Generator = new RandomNumberGenerator();
+            Generator.Seed = FavoriteGame.Hash();
             Instance = this;
             LoadingBar = GetNode<ProgressBar>("LoadingScreen/CenterContainer/VBoxContainer/ProgressBar");
             GetNode<Control>("LoadingScreen").Visible = false;
