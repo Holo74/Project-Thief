@@ -1,29 +1,7 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=34 format=2]
 
-[ext_resource path="res://Scripts/NPC/Inputters/SoundListener.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/NPC/NPCManager.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/BehaviorTree/BehaviorController.cs" type="Script" id=1]
 [ext_resource path="res://CollisionShapes/SightShapes/BasicCone.tres" type="Shape" id=4]
-[ext_resource path="res://Scripts/NPC/Inputters/VisualDetector.cs" type="Script" id=5]
-[ext_resource path="res://Behaviours/Passive/SimpleObserver.tres" type="Resource" id=6]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Investigating/Callout-03.wav" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Investigating/Callout-01.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Investigating/Callout-04.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-02.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-03.wav" type="AudioStream" id=11]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-04.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-01.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Alert/Callout-01.wav" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-02.wav" type="AudioStream" id=15]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Investigating/Callout-02.wav" type="AudioStream" id=16]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-01.wav" type="AudioStream" id=17]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-04.wav" type="AudioStream" id=18]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Alert/Callout-03.wav" type="AudioStream" id=19]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-03.wav" type="AudioStream" id=20]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Alert/Callout-02.wav" type="AudioStream" id=21]
-[ext_resource path="res://Sounds/NPC/Human/Generic/Female/Alert/Callout-04.wav" type="AudioStream" id=22]
-[ext_resource path="res://Behaviours/Curious/RotatingObserver.tres" type="Resource" id=23]
-[ext_resource path="res://Behaviours/Alert/SimpleMeleeAndMove.tres" type="Resource" id=24]
-[ext_resource path="res://Behaviours/Investigating/SimpleMoveToMemory.tres" type="Resource" id=25]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -353,20 +331,9 @@ tracks/3/keys = {
 
 [node name="Human" type="RigidBody"]
 mode = 2
-script = ExtResource( 2 )
-Passive = ExtResource( 6 )
-Curious = ExtResource( 23 )
-Investigating = ExtResource( 25 )
-Alert = ExtResource( 24 )
-PassiveSounds = [ ExtResource( 17 ), ExtResource( 15 ), ExtResource( 20 ), ExtResource( 18 ) ]
-CuriousSounds = [ ExtResource( 13 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
-InvestigationSounds = [ ExtResource( 8 ), ExtResource( 16 ), ExtResource( 7 ), ExtResource( 9 ) ]
-AlertSounds = [ ExtResource( 14 ), ExtResource( 21 ), ExtResource( 19 ), ExtResource( 22 ) ]
+script = ExtResource( 1 )
 
 [node name="Ears" type="Spatial" parent="."]
-script = ExtResource( 1 )
-CuriousLimit = 10.0
-InvesitigatingLimit = 20.0
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
@@ -381,12 +348,6 @@ skeleton = NodePath("../..")
 avoidance_enabled = true
 
 [node name="Eyes" type="Spatial" parent="."]
-script = ExtResource( 5 )
-CuriousDetectionLimit = 10.0
-InvestigatingDetectionLimit = 50.0
-SeenDetectionLimit = 100.0
-InDirectSight = 2.0
-InSideSight = 1.0
 
 [node name="Direct" type="Area" parent="Eyes"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33841, 0 )
@@ -448,15 +409,7 @@ anims/Idle = SubResource( 25 )
 anims/Investigate = SubResource( 26 )
 anims/RESET = SubResource( 27 )
 
-[connection signal="BehaviourChanged" from="." to="Eyes" method="BehaviourSetTo"]
-[connection signal="CreateMemory" from="Ears" to="." method="CreateMemory"]
-[connection signal="SwitchState" from="Ears" to="." method="SetBehaviour"]
-[connection signal="target_reached" from="NavigationAgent" to="." method="ReachedTarget"]
-[connection signal="velocity_computed" from="NavigationAgent" to="." method="SafeVelocityCalc"]
-[connection signal="CreateMemory" from="Eyes" to="." method="CreateMemory"]
-[connection signal="SeenCounter" from="Eyes" to="." method="ChangeSeenCounter"]
-[connection signal="SwitchState" from="Eyes" to="." method="SetBehaviour"]
-[connection signal="body_entered" from="Eyes/Direct" to="Eyes" method="BodyEnterDirectSight"]
-[connection signal="body_exited" from="Eyes/Direct" to="Eyes" method="BodyExitDirectSight"]
-[connection signal="body_entered" from="Eyes/Indirect" to="Eyes" method="BodyEnterIndirectSight"]
-[connection signal="body_exited" from="Eyes/Indirect" to="Eyes" method="BodyExitIndirectSight"]
+[connection signal="body_entered" from="Eyes/Direct" to="." method="InArea" binds= [ true, "DirectVision" ]]
+[connection signal="body_exited" from="Eyes/Direct" to="." method="InArea" binds= [ false, "DirectVision" ]]
+[connection signal="body_entered" from="Eyes/Indirect" to="." method="InArea" binds= [ true, "InDirectVision" ]]
+[connection signal="body_exited" from="Eyes/Indirect" to="." method="InArea" binds= [ false, "InDirectVision" ]]

@@ -56,7 +56,9 @@ namespace Player.Movement
         {
             if (PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor() != Variables.ON_FLOOR)
             {
+                // GD.Print("Changing floor too: " + PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor());
                 Variables.ON_FLOOR = PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor();
+                GD.Print("Gravity: " + Variables.GRAVITY_MOVEMENT);
             }
         }
 
@@ -169,12 +171,13 @@ namespace Player.Movement
         private Vector3 FloorCorrection()
         {
             Vector3 totalMove = Variables.WALKING_MOVEMENT;
-            if (!PlayerQuickAccess.FLOOR_CAST.IsColliding())
+            Vector3 normal = PlayerQuickAccess.FLOOR_CAST.GetCollisionNormal();
+            if (!PlayerQuickAccess.FLOOR_CAST.IsColliding() || normal.Dot(Vector3.Down) < 0.2f)
             {
                 return totalMove;
             }
             totalMove = totalMove.Cross(Vector3.Down);
-            totalMove = totalMove.Cross(PlayerQuickAccess.FLOOR_CAST.GetCollisionNormal());
+            totalMove = totalMove.Cross(normal);
             return totalMove;
         }
 

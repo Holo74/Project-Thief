@@ -1,0 +1,93 @@
+[gd_scene format=2]
+
+[node name="Root" type="Node"]
+
+[node name="Selector" type="Node" parent="."]
+
+[node name="Hostile\nSequencere" type="Node" parent="Selector"]
+
+[node name="Sensing meter > x" type="Node" parent="Selector/Hostile\nSequencere"]
+
+[node name="Can see player" type="Node" parent="Selector/Hostile\nSequencere"]
+
+[node name="Selector" type="Node" parent="Selector/Hostile\nSequencere"]
+
+[node name="Hit player\nSequencer" type="Node" parent="Selector/Hostile\nSequencere/Selector"]
+
+[node name="Selector" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer"]
+
+[node name="Player in distance" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/Selector"]
+
+[node name="Is in attack" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/Selector"]
+
+[node name="@Selector@952" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer"]
+
+[node name="Hitting player\nSequencer" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+
+[node name="Timer runs out" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+
+[node name="Reset timer" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+
+[node name="Play attack animation" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+
+[node name="Is playing attack animation" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+
+[node name="Play Idle animation" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+
+[node name="Move to player\nSequencer" type="Node" parent="Selector/Hostile\nSequencere/Selector"]
+
+[node name="Is attacking" type="Node" parent="Selector/Hostile\nSequencere/Selector/Move to player\nSequencer"]
+
+[node name="Investigate\nSequencer" type="Node" parent="Selector"]
+
+[node name="Sensing meter > x" type="Node" parent="Selector/Investigate\nSequencer"]
+
+[node name="Selector" type="Node" parent="Selector/Investigate\nSequencer"]
+
+[node name="Make sound tree\nSequencer" type="Node" parent="Selector/Investigate\nSequencer/Selector"]
+
+[node name="Wait 10 sec after succeed" type="Node" parent="Selector/Investigate\nSequencer/Selector/Make sound tree\nSequencer"]
+
+[node name="Play alert sound" type="Node" parent="Selector/Investigate\nSequencer/Selector/Make sound tree\nSequencer"]
+
+[node name="Walk to point\nSequencer" type="Node" parent="Selector/Investigate\nSequencer/Selector"]
+
+[node name="Sensing meter > x" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+
+[node name="Found disturbances" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+
+[node name="Get position tree\nSequence" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+
+[node name="Has disturbance in memory" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer/Get position tree\nSequence"]
+
+[node name="Set move to position" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer/Get position tree\nSequence"]
+
+[node name="Move to position" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+
+[node name="Idle\nSelector" type="Node" parent="Selector"]
+
+[node name="Sequence" type="Node" parent="Selector/Idle\nSelector"]
+
+[node name="Flipper" type="Node" parent="Selector/Idle\nSelector/Sequence"]
+
+[node name="Is in position" type="Node" parent="Selector/Idle\nSelector/Sequence/Flipper"]
+
+[node name="Move back to default position\nSequence" type="Node" parent="Selector/Idle\nSelector/Sequence"]
+
+[node name="Return success" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence"]
+
+[node name="Has no position" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence/Return success"]
+
+[node name="Get Position" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence/Return success"]
+
+[node name="Is position reachable" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence"]
+
+[node name="Move to position" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence"]
+
+[node name="Sequencer" type="Node" parent="Selector/Idle\nSelector"]
+
+[node name="Wait 10 seconds" type="Node" parent="Selector/Idle\nSelector/Sequencer"]
+
+[node name="Produce random idle noise" type="Node" parent="Selector/Idle\nSelector/Sequencer"]
+
+[node name="Play random idle animation" type="Node" parent="Selector/Idle\nSelector/Sequencer"]

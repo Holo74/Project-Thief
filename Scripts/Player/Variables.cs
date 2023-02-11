@@ -67,6 +67,7 @@ namespace Player
         public static float MANTLE_BUFFER_TIMER { get; set; } = 0.1f;
         public static float ACCELERATION { get; set; } = 10f;
         public static float DECCELERATION { get; set; } = 10f;
+        public static float MAX_CAMERA_SHAKE { get; set; } = 0.4f;
         #endregion
 
         #region Modifiable floats

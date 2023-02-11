@@ -13,6 +13,8 @@ namespace Player.Movement
 
         public override void Starting()
         {
+            // PlayerQuickAccess.CAMERA_SHAKE.Shake(0, 0, Mathf.Clamp(Variables.WALKING_MOVEMENT.Length(), 0f, 0.5f), .1f, 1, 1, -1);
+
             Variables.ON_FLOOR = false;
             Variables.WALKING_MOVEMENT = -PlayerQuickAccess.BODY_DIRECTION.z * Variables.MANTLE_FORWARD_SPEED;
             Variables.GRAVITY_MOVEMENT = Vector3.Up * Variables.MANTLE_UPWARD_SPEED;
@@ -115,6 +117,7 @@ namespace Player.Movement
         private void FinishMantle()
         {
             Variables.WALKING_MOVEMENT = Vector3.Zero;
+            Variables.GRAVITY_MOVEMENT = Vector3.Zero;
             if (!WasCrouched && WasCrouched != Helper.CommonComparisions.IS_CROUCHED)
             {
                 CrouchWithoutInput();
