@@ -65,7 +65,10 @@ namespace Management.Game
             Player.PlayerManager player = (Player.PlayerManager)ResourceLoader.Load<PackedScene>("res://Scenes/Characters/Player/Player.tscn").Instance();
             GetTree().Root.AddChild(player);
             Godot.Collections.Array group = GetTree().GetNodesInGroup("Start");
-            player.Transform = ((Spatial)group[0]).Transform;
+            if (group.Count > 0)
+            {
+                player.Transform = ((Spatial)group[0]).Transform;
+            }
             // Temp assign camo
             Player.Variables.CAMO.UpdateCurrentBodyCamo(ResourceLoader.Load<Texture>("res://Textures/Camo Patterns Test/AnotherCamo.jpg"));
             GetNode<Control>("LoadingScreen").Visible = false;

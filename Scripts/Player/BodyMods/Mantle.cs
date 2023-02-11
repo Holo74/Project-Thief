@@ -99,37 +99,50 @@ namespace Player.BodyMods
 
         public bool CanMantle()
         {
-            //GD.Print("Upper ledge space: " + InUpperLedgeSpace + "\nLower Ledge Space: " + InLowerLedgeSpace);
+            // GD.Print((InHeadSpace == 0 && (InUpperLedgeSpace > 0 || InLowerLedgeSpace > 0)) + " Can Mantle");
             return InHeadSpace == 0 && (InUpperLedgeSpace > 0 || InLowerLedgeSpace > 0);
         }
 
         private void EnterHeadSpace(Node body)
         {
+            if ((body is PlayerManager))
+                return;
+            GD.Print(body.Name);
             InHeadSpace += 1;
         }
 
         private void ExitHeadSpace(Node body)
         {
+            if ((body is PlayerManager))
+                return;
             InHeadSpace -= 1;
         }
 
         private void EnterUpperLedgeSpace(Node body)
         {
+            if ((body is PlayerManager))
+                return;
             InUpperLedgeSpace += 1;
         }
 
         private void ExitUpperLedgeSpace(Node body)
         {
+            if ((body is PlayerManager))
+                return;
             InUpperLedgeSpace -= 1;
         }
 
         private void EnterLowerLedgeSpace(Node body)
         {
+            if ((body is PlayerManager))
+                return;
             InLowerLedgeSpace += 1;
         }
 
         private void ExitLowerLedgeSpace(Node body)
         {
+            if ((body is PlayerManager))
+                return;
             InLowerLedgeSpace -= 1;
         }
     }

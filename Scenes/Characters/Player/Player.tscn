@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Scripts/Debug/VisibilityIndex/Display.cs" type="Script" id=18]
 [ext_resource path="res://Sounds/PlayerSounds/Jumping.wav" type="AudioStream" id=19]
 [ext_resource path="res://Scripts/Player/BodyMods/DetectionPoints.cs" type="Script" id=20]
+[ext_resource path="res://Scripts/Player/Handlers/CameraShaker.cs" type="Script" id=21]
+[ext_resource path="res://Scripts/Debug/Menus/PlayerVariableDisplay.cs" type="Script" id=22]
 
 [sub_resource type="Resource" id=7]
 script = ExtResource( 15 )
@@ -62,29 +64,7 @@ Upgrades = SubResource( 9 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 1 )
 
-[node name="Tween" type="Tween" parent="."]
-
 [node name="BodyNode" type="Spatial" parent="."]
-
-[node name="Camera" type="Camera" parent="BodyNode"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-cull_mask = 524287
-current = true
-near = 0.01
-
-[node name="Pickup Ray" type="RayCast" parent="BodyNode/Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276 )
-enabled = true
-cast_to = Vector3( 0, 0, -3 )
-script = ExtResource( 5 )
-
-[node name="RemoteTransform" type="RemoteTransform" parent="BodyNode/Camera"]
-remote_path = NodePath("../../Mantling/Spacer")
-update_rotation = false
-update_scale = false
-
-[node name="SpotLight" type="SpotLight" parent="BodyNode/Camera"]
-editor_only = true
 
 [node name="Mantling" type="Spatial" parent="BodyNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
@@ -121,6 +101,29 @@ cast_to = Vector3( 0, 0, -0.3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.876423, -0.362932 )
 enabled = true
 cast_to = Vector3( 0, 0, -0.3 )
+
+[node name="CameraShaker" type="Spatial" parent="BodyNode"]
+script = ExtResource( 21 )
+
+[node name="Camera" type="Camera" parent="BodyNode/CameraShaker"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
+cull_mask = 524287
+current = true
+near = 0.01
+
+[node name="Pickup Ray" type="RayCast" parent="BodyNode/CameraShaker/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276 )
+enabled = true
+cast_to = Vector3( 0, 0, -3 )
+script = ExtResource( 5 )
+
+[node name="RemoteTransform" type="RemoteTransform" parent="BodyNode/CameraShaker/Camera"]
+remote_path = NodePath("../../../Mantling/Spacer")
+update_rotation = false
+update_scale = false
+
+[node name="SpotLight" type="SpotLight" parent="BodyNode/CameraShaker/Camera"]
+light_cull_mask = 4293918721
 
 [node name="GUI" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -286,6 +289,13 @@ margin_top = 7.0
 margin_right = 280.0
 margin_bottom = 142.0
 script = ExtResource( 18 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Debug"]
+margin_left = 720.0
+margin_top = 512.0
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 22 )
 
 [node name="PlayerSound" type="Node" parent="."]
 script = ExtResource( 12 )

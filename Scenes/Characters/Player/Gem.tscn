@@ -59,6 +59,5 @@ transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 layers = 524288
 cast_shadow = 0
 mesh = SubResource( 3 )
-material/0 = null
 
 [connection signal="timeout" from="Capture Light" to="." method="UpdateLight"]
