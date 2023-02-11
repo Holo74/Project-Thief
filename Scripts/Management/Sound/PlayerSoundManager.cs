@@ -40,7 +40,7 @@ namespace Management.Sound
             {
                 Track = PlayGroundWalkingSound;
                 float loudness = Player.Variables.CAMO.GetSoundVolume() / LandingMods[(int)Player.Variables.CURRENT_STANDING_STATE] * Player.Variables.GRAVITY_MOVEMENT.y;
-                PlayLegSound(Player.Variables.CAMO?.GetSoundDictionary()?.LandingSound, true, Mathf.Clamp(loudness, 0f, 1f));
+                PlayLegSound(Player.Variables.CAMO.GetSoundDictionary().LandingSound, true, Mathf.Clamp(loudness, 0f, 1f));
             }
             else
             {

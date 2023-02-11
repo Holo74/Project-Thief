@@ -238,7 +238,7 @@ version_control_plugin_name="GitAPI"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/CustomResourceRegister/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg", "res://addons/qodot/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/CustomResourceRegister/plugin.cfg", "res://addons/qodot/plugin.cfg" )
 
 [gdnative]
 
@@ -248,7 +248,6 @@ singletons=[  ]
 
 gravity=true
 MSAA=false
-code=false
 
 [input]
 
