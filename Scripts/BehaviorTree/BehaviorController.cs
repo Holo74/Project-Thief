@@ -3,13 +3,17 @@ using System;
 
 namespace BehaviorTree
 {
-    public class BehaviorController : Node
+    public class BehaviorController : KinematicBody
     {
         private Nodes.Base Root { get; set; }
         public Godot.Collections.Dictionary<KeyList, object> BlackBoard { get; private set; }
+        public NavigationAgent NavAgent { get; private set; }
+        public AnimationTree AnimTree { get; private set; }
         public override void _Ready()
         {
             BlackBoard = new Godot.Collections.Dictionary<KeyList, object>();
+            NavAgent = GetNode<NavigationAgent>("NavigationAgent");
+            AnimTree = GetNode<AnimationTree>("AnimationTree");
         }
 
         public override void _Process(float delta)

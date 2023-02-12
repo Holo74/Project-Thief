@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/BehaviorTree/BehaviorController.cs" type="Script" id=1]
+[ext_resource path="res://Models/Private use only/Weapons/Sword/Sword.fbx" type="PackedScene" id=2]
 [ext_resource path="res://CollisionShapes/SightShapes/BasicCone.tres" type="Shape" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
@@ -231,6 +232,7 @@ states/Investigate/node = SubResource( 29 )
 states/Investigate/position = Vector2( 541, 44 )
 transitions = [ "Idle", "Investigate", SubResource( 30 ), "Investigate", "Idle", SubResource( 31 ) ]
 start_node = "Idle"
+graph_offset = Vector2( -127, -122 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=24]
 
@@ -329,8 +331,8 @@ tracks/3/keys = {
 "values": [ false ]
 }
 
-[node name="Human" type="RigidBody"]
-mode = 2
+[node name="Human" type="KinematicBody"]
+moving_platform_apply_velocity_on_leave = 1
 script = ExtResource( 1 )
 
 [node name="Ears" type="Spatial" parent="."]
@@ -408,6 +410,9 @@ parameters/conditions/Investigate = false
 anims/Idle = SubResource( 25 )
 anims/Investigate = SubResource( 26 )
 anims/RESET = SubResource( 27 )
+
+[node name="Sword" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1.74846e-07, -4, 0, 4, -1.74846e-07, 0, 0, 0, 4, -0.266761, 0.5346, -0.781987 )
 
 [connection signal="body_entered" from="Eyes/Direct" to="." method="InArea" binds= [ true, "DirectVision" ]]
 [connection signal="body_exited" from="Eyes/Direct" to="." method="InArea" binds= [ false, "DirectVision" ]]

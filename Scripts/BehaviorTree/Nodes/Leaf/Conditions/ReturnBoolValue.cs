@@ -1,21 +1,31 @@
 using Godot;
 using System;
 
-public class ReturnBoolValue : Node
+namespace BehaviorTree.Nodes.Leaf.Conditions
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
-
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
+    public class ReturnBoolValue : Base
     {
-        
+        [Export]
+        private KeyList Key { get; set; }
+        [Export]
+        private bool ExpectedVal { get; set; }
+        public override Results Tick(float delta, BehaviorController BC)
+        {
+            if (BC.BlackBoard.ContainsKey(Key))
+            {
+                return BoolToResult((bool)(BC.BlackBoard[Key]) == ExpectedVal);
+            }
+            return Results.Failure;
+        }
+
+        public static Results BoolToResult(bool b)
+        {
+            if (b)
+            {
+                return Results.Success;
+            }
+            return Results.Failure;
+        }
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 }

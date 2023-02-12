@@ -26,6 +26,20 @@ namespace Player
 
         public override void _Process(float delta)
         {
+            if (Input.IsActionJustPressed("ToggleThirdPerson"))
+            {
+                if (PlayerQuickAccess.CAMERA.Current)
+                {
+                    PlayerQuickAccess.CAMERA.Current = false;
+                    GetNode<Camera>("ClippedCamera").Current = true;
+                }
+                else
+                {
+                    PlayerQuickAccess.CAMERA.Current = true;
+                    GetNode<Camera>("ClippedCamera").Current = false;
+
+                }
+            }
             if (Management.Game.GameManager.PLAYING)
             {
                 PlayerQuickAccess.INTERACTION.Interact();

@@ -1,93 +1,133 @@
-[gd_scene format=2]
+[gd_scene load_steps=9 format=2]
 
-[node name="Root" type="Node"]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Flow/Selector.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Flow/Sequencer.cs" type="Script" id=2]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/FloatValueAboveThreshold.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/ReturnBoolValue.cs" type="Script" id=4]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/CurrentTargetIsInRange.cs" type="Script" id=5]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetTimer.cs" type="Script" id=6]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/TimerReader.cs" type="Script" id=7]
+[ext_resource path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetAnimCondition.cs" type="Script" id=8]
 
-[node name="Selector" type="Node" parent="."]
+[node name="Selector" type="Node"]
+script = ExtResource( 2 )
 
-[node name="Hostile\nSequencere" type="Node" parent="Selector"]
+[node name="Hostile\nSequencere" type="Node" parent="."]
+script = ExtResource( 2 )
 
-[node name="Sensing meter > x" type="Node" parent="Selector/Hostile\nSequencere"]
+[node name="Sensing meter > x" type="Node" parent="Hostile\nSequencere"]
+script = ExtResource( 3 )
 
-[node name="Can see player" type="Node" parent="Selector/Hostile\nSequencere"]
+[node name="Can see player" type="Node" parent="Hostile\nSequencere"]
+script = ExtResource( 4 )
+Key = 1
+ExpectedVal = true
 
-[node name="Selector" type="Node" parent="Selector/Hostile\nSequencere"]
+[node name="Selector" type="Node" parent="Hostile\nSequencere"]
+script = ExtResource( 1 )
 
-[node name="Hit player\nSequencer" type="Node" parent="Selector/Hostile\nSequencere/Selector"]
+[node name="Hit player\nSequencer" type="Node" parent="Hostile\nSequencere/Selector"]
+script = ExtResource( 2 )
 
-[node name="Selector" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer"]
+[node name="Selector" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer"]
+script = ExtResource( 1 )
 
-[node name="Player in distance" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/Selector"]
+[node name="Player in distance" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/Selector"]
+script = ExtResource( 5 )
 
-[node name="Is in attack" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/Selector"]
+[node name="Is in attack" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/Selector"]
+script = ExtResource( 4 )
+Key = 3
 
-[node name="@Selector@952" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer"]
+[node name="@Selector@952" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer"]
+script = ExtResource( 1 )
 
-[node name="Hitting player\nSequencer" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+[node name="Hitting player\nSequencer" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+script = ExtResource( 2 )
 
-[node name="Timer runs out" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+[node name="Timer runs out" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+script = ExtResource( 7 )
 
-[node name="Reset timer" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+[node name="Reset timer" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+script = ExtResource( 6 )
 
-[node name="Play attack animation" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+[node name="Timer" type="Timer" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer/Reset timer"]
+one_shot = true
 
-[node name="Is playing attack animation" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+[node name="Play attack animation" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
+script = ExtResource( 8 )
 
-[node name="Play Idle animation" type="Node" parent="Selector/Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
+[node name="Is playing attack animation" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
 
-[node name="Move to player\nSequencer" type="Node" parent="Selector/Hostile\nSequencere/Selector"]
+[node name="Play Idle animation" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
 
-[node name="Is attacking" type="Node" parent="Selector/Hostile\nSequencere/Selector/Move to player\nSequencer"]
+[node name="Move to player\nSequencer" type="Node" parent="Hostile\nSequencere/Selector"]
+script = ExtResource( 2 )
 
-[node name="Investigate\nSequencer" type="Node" parent="Selector"]
+[node name="Is attacking" type="Node" parent="Hostile\nSequencere/Selector/Move to player\nSequencer"]
 
-[node name="Sensing meter > x" type="Node" parent="Selector/Investigate\nSequencer"]
+[node name="Investigate\nSequencer" type="Node" parent="."]
+script = ExtResource( 2 )
 
-[node name="Selector" type="Node" parent="Selector/Investigate\nSequencer"]
+[node name="Sensing meter > x" type="Node" parent="Investigate\nSequencer"]
 
-[node name="Make sound tree\nSequencer" type="Node" parent="Selector/Investigate\nSequencer/Selector"]
+[node name="Selector" type="Node" parent="Investigate\nSequencer"]
 
-[node name="Wait 10 sec after succeed" type="Node" parent="Selector/Investigate\nSequencer/Selector/Make sound tree\nSequencer"]
+[node name="Make sound tree\nSequencer" type="Node" parent="Investigate\nSequencer/Selector"]
 
-[node name="Play alert sound" type="Node" parent="Selector/Investigate\nSequencer/Selector/Make sound tree\nSequencer"]
+[node name="Wait 10 sec after succeed" type="Node" parent="Investigate\nSequencer/Selector/Make sound tree\nSequencer"]
 
-[node name="Walk to point\nSequencer" type="Node" parent="Selector/Investigate\nSequencer/Selector"]
+[node name="Play alert sound" type="Node" parent="Investigate\nSequencer/Selector/Make sound tree\nSequencer"]
 
-[node name="Sensing meter > x" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+[node name="Walk to point\nSequencer" type="Node" parent="Investigate\nSequencer/Selector"]
 
-[node name="Found disturbances" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+[node name="Sensing meter > x" type="Node" parent="Investigate\nSequencer/Selector/Walk to point\nSequencer"]
 
-[node name="Get position tree\nSequence" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+[node name="Found disturbances" type="Node" parent="Investigate\nSequencer/Selector/Walk to point\nSequencer"]
 
-[node name="Has disturbance in memory" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer/Get position tree\nSequence"]
+[node name="Get position tree\nSequence" type="Node" parent="Investigate\nSequencer/Selector/Walk to point\nSequencer"]
 
-[node name="Set move to position" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer/Get position tree\nSequence"]
+[node name="Has disturbance in memory" type="Node" parent="Investigate\nSequencer/Selector/Walk to point\nSequencer/Get position tree\nSequence"]
 
-[node name="Move to position" type="Node" parent="Selector/Investigate\nSequencer/Selector/Walk to point\nSequencer"]
+[node name="Set move to position" type="Node" parent="Investigate\nSequencer/Selector/Walk to point\nSequencer/Get position tree\nSequence"]
 
-[node name="Idle\nSelector" type="Node" parent="Selector"]
+[node name="Move to position" type="Node" parent="Investigate\nSequencer/Selector/Walk to point\nSequencer"]
 
-[node name="Sequence" type="Node" parent="Selector/Idle\nSelector"]
+[node name="Idle\nSelector" type="Node" parent="."]
+script = ExtResource( 1 )
 
-[node name="Flipper" type="Node" parent="Selector/Idle\nSelector/Sequence"]
+[node name="Sequence" type="Node" parent="Idle\nSelector"]
+script = ExtResource( 2 )
 
-[node name="Is in position" type="Node" parent="Selector/Idle\nSelector/Sequence/Flipper"]
+[node name="Flipper" type="Node" parent="Idle\nSelector/Sequence"]
 
-[node name="Move back to default position\nSequence" type="Node" parent="Selector/Idle\nSelector/Sequence"]
+[node name="Is in position" type="Node" parent="Idle\nSelector/Sequence/Flipper"]
 
-[node name="Return success" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence"]
+[node name="Move back to default position\nSequence" type="Node" parent="Idle\nSelector/Sequence"]
 
-[node name="Has no position" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence/Return success"]
+[node name="Return success" type="Node" parent="Idle\nSelector/Sequence/Move back to default position\nSequence"]
 
-[node name="Get Position" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence/Return success"]
+[node name="Has no position" type="Node" parent="Idle\nSelector/Sequence/Move back to default position\nSequence/Return success"]
 
-[node name="Is position reachable" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence"]
+[node name="Get Position" type="Node" parent="Idle\nSelector/Sequence/Move back to default position\nSequence/Return success"]
 
-[node name="Move to position" type="Node" parent="Selector/Idle\nSelector/Sequence/Move back to default position\nSequence"]
+[node name="Is position reachable" type="Node" parent="Idle\nSelector/Sequence/Move back to default position\nSequence"]
 
-[node name="Sequencer" type="Node" parent="Selector/Idle\nSelector"]
+[node name="Move to position" type="Node" parent="Idle\nSelector/Sequence/Move back to default position\nSequence"]
 
-[node name="Wait 10 seconds" type="Node" parent="Selector/Idle\nSelector/Sequencer"]
+[node name="Sequencer" type="Node" parent="Idle\nSelector"]
+script = ExtResource( 2 )
 
-[node name="Produce random idle noise" type="Node" parent="Selector/Idle\nSelector/Sequencer"]
+[node name="Wait 10 seconds" type="Node" parent="Idle\nSelector/Sequencer"]
 
-[node name="Play random idle animation" type="Node" parent="Selector/Idle\nSelector/Sequencer"]
+[node name="Produce random idle noise" type="Node" parent="Idle\nSelector/Sequencer"]
+
+[node name="Play random idle animation" type="Node" parent="Idle\nSelector/Sequencer"]
+
+[connection signal="timeout" from="Hostile
+Sequencere/Selector/Hit player
+Sequencer/@Selector@952/Hitting player
+Sequencer/Reset timer/Timer" to="Hostile
+Sequencere/Selector/Hit player
+Sequencer/@Selector@952/Hitting player
+Sequencer/Timer runs out" method="TimedOut"]

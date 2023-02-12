@@ -13,6 +13,14 @@ namespace Player.BodyMods
         private int InHeadSpace { get; set; }
         private int InUpperLedgeSpace { get; set; }
         private int InLowerLedgeSpace { get; set; }
+
+        [Signal]
+        private delegate void SetHeadNumber(string output);
+        [Signal]
+        private delegate void SetBodyNumber(string output);
+        [Signal]
+        private delegate void SetFootNumber(string output);
+
         public override void _Ready()
         {
             HeadSpace = GetNode<Area>("Spacer");
@@ -107,8 +115,8 @@ namespace Player.BodyMods
         {
             if ((body is PlayerManager))
                 return;
-            GD.Print(body.Name);
             InHeadSpace += 1;
+            EmitSignal(nameof(SetHeadNumber), "Head: " + InHeadSpace);
         }
 
         private void ExitHeadSpace(Node body)
@@ -116,6 +124,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InHeadSpace -= 1;
+            EmitSignal(nameof(SetHeadNumber), "Head: " + InHeadSpace);
         }
 
         private void EnterUpperLedgeSpace(Node body)
@@ -123,6 +132,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InUpperLedgeSpace += 1;
+            EmitSignal(nameof(SetBodyNumber), "Body: " + InUpperLedgeSpace);
         }
 
         private void ExitUpperLedgeSpace(Node body)
@@ -130,6 +140,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InUpperLedgeSpace -= 1;
+            EmitSignal(nameof(SetBodyNumber), "Body: " + InUpperLedgeSpace);
         }
 
         private void EnterLowerLedgeSpace(Node body)
@@ -137,6 +148,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InLowerLedgeSpace += 1;
+            EmitSignal(nameof(SetFootNumber), "Foot: " + InLowerLedgeSpace);
         }
 
         private void ExitLowerLedgeSpace(Node body)
@@ -144,6 +156,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InLowerLedgeSpace -= 1;
+            EmitSignal(nameof(SetFootNumber), "Foot: " + InLowerLedgeSpace);
         }
     }
 

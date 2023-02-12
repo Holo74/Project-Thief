@@ -6,6 +6,38 @@
     {
       "title": "Task",
       "color": "6495ed"
+    },
+    {
+      "title": "Coding",
+      "color": "22aaec"
+    },
+    {
+      "title": "Animations",
+      "color": "4b19bc"
+    },
+    {
+      "title": "Models",
+      "color": "572ffc"
+    },
+    {
+      "title": "Story",
+      "color": "f94c26"
+    },
+    {
+      "title": "Level Design",
+      "color": "1bd54d"
+    },
+    {
+      "title": "NPC Behavior Design",
+      "color": "c4115b"
+    },
+    {
+      "title": "Sound",
+      "color": "0cabe0"
+    },
+    {
+      "title": "Textures",
+      "color": "8c0dc9"
     }
   ],
   "columns": [
@@ -29,31 +61,48 @@
     {
       "title": "Todo",
       "tasks": [
-        0
+        3,
+        4
       ]
     },
     {
       "title": "Doing",
       "tasks": [
-        1
+        2
       ]
     },
     {
       "title": "Done",
       "tasks": [
-
+        1,
+        0
       ]
     }
   ],
   "tasks": [
     {
-      "category": 0,
+      "category": 1,
       "title": "Implement a Behavior Tree in C#",
       "details": "Using this https://github.com/bitbrain/beehave as an example for how to set up a behavior tre that will work inside of the editor"
     },
     {
-      "category": 0,
+      "category": 3,
       "title": "Create a generic standing still guard",
+      "details": ""
+    },
+    {
+      "category": 6,
+      "title": "Fill out a standing guard behavior Tree",
+      "details": "Fill out the behavior tree and have every node have a script attached to it."
+    },
+    {
+      "category": 3,
+      "title": "Change npc model to default",
+      "details": ""
+    },
+    {
+      "category": 2,
+      "title": "Add walk animations",
       "details": ""
     }
   ]
