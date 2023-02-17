@@ -57,14 +57,12 @@ one_shot = true
 [node name="Play attack animation" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952/Hitting player\nSequencer"]
 script = ExtResource( 8 )
 
-[node name="Is playing attack animation" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
-
-[node name="Play Idle animation" type="Node" parent="Hostile\nSequencere/Selector/Hit player\nSequencer/@Selector@952"]
-
 [node name="Move to player\nSequencer" type="Node" parent="Hostile\nSequencere/Selector"]
 script = ExtResource( 2 )
 
 [node name="Is attacking" type="Node" parent="Hostile\nSequencere/Selector/Move to player\nSequencer"]
+script = ExtResource( 4 )
+Key = 3
 
 [node name="Investigate\nSequencer" type="Node" parent="."]
 script = ExtResource( 2 )

@@ -7,13 +7,4 @@ namespace BehaviorTree
     {
 
     }
-
-    public enum KeyList
-    {
-        Sensor,
-        SeePlayer,
-        CurrentTarget,
-        IsAttacking
-    }
-
 }

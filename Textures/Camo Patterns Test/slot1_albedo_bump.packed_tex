@@ -1,0 +1,8 @@
+{
+	"contains_albedo": true,
+	"resolution": 512,
+	"src": {
+		"a": "#ff888888",
+		"rgb": "res://Textures/Camo Patterns Test/Seamless long green grass ground texture.jpg"
+	}
+}

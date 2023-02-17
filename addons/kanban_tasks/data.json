@@ -68,7 +68,8 @@
     {
       "title": "Doing",
       "tasks": [
-        2
+        2,
+        5
       ]
     },
     {
@@ -103,6 +104,11 @@
     {
       "category": 2,
       "title": "Add walk animations",
+      "details": ""
+    },
+    {
+      "category": 5,
+      "title": "Create a simple playground",
       "details": ""
     }
   ]

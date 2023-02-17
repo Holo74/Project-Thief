@@ -28,7 +28,7 @@ namespace Player.Handlers
         public override void _Ready()
         {
             // Tweening = CreateTween();
-            Variables.Jump += () => { if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing) MoveToPositionAndBack(new Vector3(0, -.5f, 0), .625f * 2); };
+            //Variables.Jump += () => { if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing) MoveToPositionAndBack(new Vector3(0, -.5f, 0), .625f * 2); };
             Variables.OnFloorChange += (onFloor) =>
             {
                 if (onFloor && Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing)

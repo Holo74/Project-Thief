@@ -19,7 +19,7 @@ namespace Debug.Menus
                 currentName = filePath.GetNext();
                 if (!filePath.CurrentIsDir())
                 {
-                    if (!currentName.Empty())
+                    if (!currentName.Empty() && currentName.Contains(".tscn"))
                     {
                         LevelList.Add(currentName);
                         AddItem(currentName);

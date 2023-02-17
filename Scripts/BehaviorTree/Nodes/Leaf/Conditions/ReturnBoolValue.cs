@@ -6,7 +6,7 @@ namespace BehaviorTree.Nodes.Leaf.Conditions
     public class ReturnBoolValue : Base
     {
         [Export]
-        private KeyList Key { get; set; }
+        private BehaviorTree.Enums.KeyList Key { get; set; }
         [Export]
         private bool ExpectedVal { get; set; }
         public override Results Tick(float delta, BehaviorController BC)

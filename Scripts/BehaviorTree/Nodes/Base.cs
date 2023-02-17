@@ -32,7 +32,8 @@ namespace BehaviorTree.Nodes
     {
         Failure,
         Success,
-        Runnings
+        Runnings,
+        Error
     }
 
 }

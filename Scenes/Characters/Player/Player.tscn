@@ -109,6 +109,7 @@ script = ExtResource( 21 )
 [node name="Camera" type="Camera" parent="BodyNode/CameraShaker"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 cull_mask = 524287
+current = true
 near = 0.01
 
 [node name="Pickup Ray" type="RayCast" parent="BodyNode/CameraShaker/Camera"]
@@ -374,7 +375,6 @@ shape = SubResource( 11 )
 
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564 )
-current = true
 
 [connection signal="SetBodyNumber" from="BodyNode/Mantling" to="Debug/Panel/Body" method="SetTextTo"]
 [connection signal="SetFootNumber" from="BodyNode/Mantling" to="Debug/Panel/Feet" method="SetTextTo"]

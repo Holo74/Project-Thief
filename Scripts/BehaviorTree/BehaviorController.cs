@@ -6,14 +6,19 @@ namespace BehaviorTree
     public class BehaviorController : KinematicBody
     {
         private Nodes.Base Root { get; set; }
-        public Godot.Collections.Dictionary<KeyList, object> BlackBoard { get; private set; }
+        public Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, object> BlackBoard { get; private set; }
         public NavigationAgent NavAgent { get; private set; }
         public AnimationTree AnimTree { get; private set; }
+
+        // If the dot product between the safe velocity and the current facing direction are beyond this then turn
+        [Export(PropertyHint.Range, ("0,360,1"))]
+        private float StartBeyondXDegrees { get; set; }
         public override void _Ready()
         {
-            BlackBoard = new Godot.Collections.Dictionary<KeyList, object>();
+            BlackBoard = new Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, object>();
             NavAgent = GetNode<NavigationAgent>("NavigationAgent");
             AnimTree = GetNode<AnimationTree>("AnimationTree");
+            StartBeyondXDegrees = (180 - StartBeyondXDegrees) / 180;
         }
 
         public override void _Process(float delta)
@@ -33,9 +38,17 @@ namespace BehaviorTree
             Root = root;
         }
 
-        public void InArea(Node body, bool entered, KeyList name)
+        public void InArea(Node body, bool entered, BehaviorTree.Enums.KeyList name)
         {
             BlackBoard[name] = entered;
+        }
+
+        public void SafeVelocityComputed(Vector3 velocity)
+        {
+            if (velocity.Dot(-GlobalTransform.basis.z) < StartBeyondXDegrees)
+            {
+
+            }
         }
     }
 
