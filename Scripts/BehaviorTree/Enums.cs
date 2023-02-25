@@ -10,7 +10,10 @@ namespace BehaviorTree
             Sensor,
             SeePlayer,
             CurrentTarget,
-            IsAttacking
+            IsAttacking,
+            HasDisturbance,
+            DisturbanceLocation,
+            MoveToPosition
         }
     }
 
