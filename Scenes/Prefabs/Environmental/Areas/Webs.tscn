@@ -2,10 +2,10 @@
 
 [ext_resource path="res://Scripts/Environment/Areas/WebTrap.cs" type="Script" id=1]
 
-[sub_resource type="BoxShape" id=175]
-extents = Vector3( 4.28804, 1.94485, 3.25864 )
+[sub_resource type="BoxShape3D" id=175]
+size = Vector3( 4.28804, 1.94485, 3.25864 )
 
-[sub_resource type="ParticlesMaterial" id=176]
+[sub_resource type="ParticleProcessMaterial" id=176]
 emission_shape = 2
 emission_box_extents = Vector3( 5, 2, 4 )
 gravity = Vector3( 0, 0, 0 )
@@ -14,13 +14,13 @@ gravity = Vector3( 0, 0, 0 )
 radius = 0.1
 height = 0.2
 
-[node name="Webs" type="Area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107998, 3.24729, -51.957 )
+[node name="Webs" type="Area3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.107998, 3.24729, -51.957 )
 script = ExtResource( 1 )
 WalkSpeed = 0.5
 JumpStr = 0.5
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource( 175 )
 
 [node name="Particles" type="Particles" parent="."]

@@ -3,7 +3,7 @@ using System;
 
 namespace BehaviorTree
 {
-    public class Enums
+    public partial class Enums
     {
         public enum KeyList
         {

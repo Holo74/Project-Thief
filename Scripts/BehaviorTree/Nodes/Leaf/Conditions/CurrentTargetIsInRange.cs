@@ -3,11 +3,11 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Conditions
 {
-    public class CurrentTargetIsInRange : Base
+    public partial class CurrentTargetIsInRange : Base
     {
         [Export]
         private float Range { get; set; }
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             return ReturnBoolValue.BoolToResult(BC.NavAgent.DistanceToTarget() <= Range);
         }

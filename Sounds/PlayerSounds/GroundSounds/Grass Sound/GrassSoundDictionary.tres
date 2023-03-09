@@ -1,23 +1,23 @@
-[gd_resource type="Resource" load_steps=16 format=2]
+[gd_resource type="Resource" load_steps=16 format=3 uid="uid://dlhtyqfsqb1jn"]
 
-[ext_resource path="res://Scripts/Environment/Resources/SoundDictionary.cs" type="Script" id=1]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-12.wav" type="AudioStream" id=2]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-03.wav" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-10.wav" type="AudioStream" id=4]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-07.wav" type="AudioStream" id=5]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-09.wav" type="AudioStream" id=6]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-05.wav" type="AudioStream" id=7]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-04.wav" type="AudioStream" id=8]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-06.wav" type="AudioStream" id=9]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-11.wav" type="AudioStream" id=10]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-02.wav" type="AudioStream" id=11]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-01.wav" type="AudioStream" id=12]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-13.wav" type="AudioStream" id=13]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-08.wav" type="AudioStream" id=14]
-[ext_resource path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/GrassLanding.wav" type="AudioStream" id=15]
+[ext_resource type="Script" path="res://Scripts/Environment/Resources/SoundDictionary.cs" id="1"]
+[ext_resource type="AudioStream" uid="uid://jqrefvww23cv" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-12.wav" id="2"]
+[ext_resource type="AudioStream" uid="uid://cyaufttjpn46t" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-03.wav" id="3"]
+[ext_resource type="AudioStream" uid="uid://8mw8161mio4" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-10.wav" id="4"]
+[ext_resource type="AudioStream" uid="uid://bvlkt57oltixs" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-07.wav" id="5"]
+[ext_resource type="AudioStream" uid="uid://dry1knav13475" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-09.wav" id="6"]
+[ext_resource type="AudioStream" uid="uid://c08lgmv3utinj" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-05.wav" id="7"]
+[ext_resource type="AudioStream" uid="uid://cm1fqopy6j7h5" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-04.wav" id="8"]
+[ext_resource type="AudioStream" uid="uid://35iq8mbuvyq3" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-06.wav" id="9"]
+[ext_resource type="AudioStream" uid="uid://6dtygo0jpcwf" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-11.wav" id="10"]
+[ext_resource type="AudioStream" uid="uid://bh05vwt6u81e2" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-02.wav" id="11"]
+[ext_resource type="AudioStream" uid="uid://2dj5316u82l0" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-01.wav" id="12"]
+[ext_resource type="AudioStream" uid="uid://7jdcu6kbmyjn" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-13.wav" id="13"]
+[ext_resource type="AudioStream" uid="uid://cbravkadryqg6" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-08.wav" id="14"]
+[ext_resource type="AudioStream" uid="uid://dt3qk18pdg1qm" path="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/GrassLanding.wav" id="15"]
 
 [resource]
-script = ExtResource( 1 )
-Sounds = [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 13 ) ]
+script = ExtResource("1")
+Sounds = [ExtResource("12"), ExtResource("11"), ExtResource("3"), ExtResource("8"), ExtResource("7"), ExtResource("9"), ExtResource("5"), ExtResource("14"), ExtResource("6"), ExtResource("4"), ExtResource("10"), ExtResource("2"), ExtResource("13")]
 Loudness = 0.2
-LandingSound = ExtResource( 15 )
+LandingSound = ExtResource("15")

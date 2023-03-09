@@ -1,382 +1,401 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=3 uid="uid://cyf0i84sb4tre"]
 
-[ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
-[ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
-[ext_resource path="res://Scripts/Player/BodyMods/SideWallDetection.cs" type="Script" id=3]
-[ext_resource path="res://Textures/Player/GUI/Crosshair.png" type="Texture" id=4]
-[ext_resource path="res://Scripts/Player/Interactions/Interaction.cs" type="Script" id=5]
-[ext_resource path="res://Scripts/Player/GUI/InteractionTexture.cs" type="Script" id=6]
-[ext_resource path="res://Scripts/Debug/VariablesModPanel.cs" type="Script" id=7]
-[ext_resource path="res://Scripts/Player/Handlers/UpgradeHandler.cs" type="Script" id=8]
-[ext_resource path="res://Scripts/Debug/Level Controls/Restart.cs" type="Script" id=9]
-[ext_resource path="res://Music/In Game/Hidden/mp208.mp3" type="AudioStream" id=10]
-[ext_resource path="res://Scripts/Management/Sound/MusicManager.cs" type="Script" id=11]
-[ext_resource path="res://Scripts/Management/Sound/PlayerSoundManager.cs" type="Script" id=12]
-[ext_resource path="res://Scripts/Player/BodyMods/Mantle.cs" type="Script" id=13]
-[ext_resource path="res://Scripts/Debug/Menus/VariablesFiller.cs" type="Script" id=14]
-[ext_resource path="res://Scripts/Player/Handlers/Health.cs" type="Script" id=15]
-[ext_resource path="res://Scenes/Characters/Player/Gem.tscn" type="PackedScene" id=16]
-[ext_resource path="res://Scripts/Player/Handlers/GUI.cs" type="Script" id=17]
-[ext_resource path="res://Scripts/Debug/VisibilityIndex/Display.cs" type="Script" id=18]
-[ext_resource path="res://Sounds/PlayerSounds/Jumping.wav" type="AudioStream" id=19]
-[ext_resource path="res://Scripts/Player/BodyMods/DetectionPoints.cs" type="Script" id=20]
-[ext_resource path="res://Scripts/Player/Handlers/CameraShaker.cs" type="Script" id=21]
-[ext_resource path="res://Scripts/Debug/Menus/PlayerVariableDisplay.cs" type="Script" id=22]
-[ext_resource path="res://Scripts/Debug/Menus/SetRichText.cs" type="Script" id=23]
+[ext_resource type="Script" path="res://Scripts/Player/PlayerManager.cs" id="1"]
+[ext_resource type="Script" path="res://Scripts/Player/GUI/HealthBar.cs" id="2"]
+[ext_resource type="Script" path="res://Scripts/Player/BodyMods/SideWallDetection.cs" id="3"]
+[ext_resource type="Texture2D" uid="uid://ckprmabba2ivj" path="res://Textures/Player/GUI/Crosshair.png" id="4"]
+[ext_resource type="Script" path="res://Scripts/Player/Interactions/Interaction.cs" id="5"]
+[ext_resource type="Script" path="res://Scripts/Player/GUI/InteractionTexture.cs" id="6"]
+[ext_resource type="Script" path="res://Scripts/Debug/VariablesModPanel.cs" id="7"]
+[ext_resource type="Script" path="res://Scripts/Player/Handlers/UpgradeHandler.cs" id="8"]
+[ext_resource type="Script" path="res://Scripts/Debug/Level Controls/Restart.cs" id="9"]
+[ext_resource type="AudioStream" uid="uid://hyv2mt4ha8k0" path="res://Music/In Game/Hidden/mp208.mp3" id="10"]
+[ext_resource type="Script" path="res://Scripts/Management/Sound/MusicManager.cs" id="11"]
+[ext_resource type="Script" path="res://Scripts/Management/Sound/PlayerSoundManager.cs" id="12"]
+[ext_resource type="Script" path="res://Scripts/Player/BodyMods/Mantle.cs" id="13"]
+[ext_resource type="Script" path="res://Scripts/Debug/Menus/VariablesFiller.cs" id="14"]
+[ext_resource type="Script" path="res://Scripts/Player/Handlers/Health.cs" id="15"]
+[ext_resource type="PackedScene" path="res://Scenes/Characters/Player/Gem.tscn" id="16"]
+[ext_resource type="Script" path="res://Scripts/Player/Handlers/GUI.cs" id="17"]
+[ext_resource type="Script" path="res://Scripts/Debug/VisibilityIndex/Display.cs" id="18"]
+[ext_resource type="AudioStream" uid="uid://duw8qxfeiypfk" path="res://Sounds/PlayerSounds/Jumping.wav" id="19"]
+[ext_resource type="Script" path="res://Scripts/Player/BodyMods/DetectionPoints.cs" id="20"]
+[ext_resource type="Script" path="res://Scripts/Player/Handlers/CameraShaker.cs" id="21"]
+[ext_resource type="Script" path="res://Scripts/Debug/Menus/PlayerVariableDisplay.cs" id="22"]
+[ext_resource type="Script" path="res://Scripts/Debug/Menus/SetRichText.cs" id="23"]
 
-[sub_resource type="Resource" id=7]
-script = ExtResource( 15 )
-ResistanceList = [  ]
+[sub_resource type="Resource" id="7"]
+resource_local_to_scene = true
+script = ExtResource("15")
+ResistanceList = []
 
-[sub_resource type="Resource" id=9]
-script = ExtResource( 8 )
-UpgradeList = [  ]
+[sub_resource type="Resource" id="9"]
+resource_local_to_scene = true
+script = ExtResource("8")
+UpgradeList = []
 
-[sub_resource type="CylinderShape" id=1]
+[sub_resource type="CylinderShape3D" id="1"]
 height = 0.9
 radius = 0.49
 
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.316381, 0.522355, 0.0574478 )
+[sub_resource type="BoxShape3D" id="4"]
+size = Vector3(0.316381, 0.522355, 0.0574478)
 
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.456778, 0.74014, 0.495552 )
+[sub_resource type="BoxShape3D" id="5"]
+size = Vector3(0.456778, 0.74014, 0.495552)
 
-[sub_resource type="CylinderShape" id=2]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xahh"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="CylinderShape3D" id="2"]
 height = 0.5
-radius = 0.5
 
-[sub_resource type="CylinderShape" id=6]
+[sub_resource type="CylinderShape3D" id="6"]
 height = 0.49
 radius = 0.49
 
-[sub_resource type="SphereShape" id=10]
+[sub_resource type="SphereShape3D" id="10"]
 radius = 0.1
 
-[sub_resource type="SphereShape" id=11]
+[sub_resource type="SphereShape3D" id="11"]
 radius = 0.1
 
-[node name="Player" type="KinematicBody"]
-script = ExtResource( 1 )
-PlayerHealth = SubResource( 7 )
-Upgrades = SubResource( 9 )
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1")
+PlayerHealth = SubResource("7")
+Upgrades = SubResource("9")
 
-[node name="UpperBody" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-shape = SubResource( 1 )
+[node name="UpperBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("1")
 
-[node name="BodyNode" type="Spatial" parent="."]
+[node name="BodyNode" type="Node3D" parent="."]
 
-[node name="Mantling" type="Spatial" parent="BodyNode"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-script = ExtResource( 13 )
+[node name="Mantling" type="Node3D" parent="BodyNode"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+script = ExtResource("13")
 
-[node name="UpperBodyLedge" type="Area" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546 )
+[node name="UpperBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546)
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/UpperBodyLedge"]
-shape = SubResource( 4 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/UpperBodyLedge"]
+shape = SubResource("4")
 
-[node name="LowerBodyLedge" type="Area" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31094, -0.570546 )
+[node name="LowerBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31094, -0.570546)
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/LowerBodyLedge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0 )
-shape = SubResource( 4 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/LowerBodyLedge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0)
+shape = SubResource("4")
 
-[node name="Spacer" type="Area" parent="BodyNode/Mantling"]
+[node name="Spacer" type="Area3D" parent="BodyNode/Mantling"]
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/Spacer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.227216 )
-shape = SubResource( 5 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/Spacer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.227216)
+shape = SubResource("5")
 
-[node name="BottomFloor" type="RayCast" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.92504, -0.362932 )
-enabled = true
-cast_to = Vector3( 0, 0, -0.3 )
+[node name="BottomFloor" type="RayCast3D" parent="BodyNode/Mantling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.92504, -0.362932)
+target_position = Vector3(0, 0, -0.3)
 
-[node name="MiddleFloor" type="RayCast" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.876423, -0.362932 )
-enabled = true
-cast_to = Vector3( 0, 0, -0.3 )
+[node name="MiddleFloor" type="RayCast3D" parent="BodyNode/Mantling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.876423, -0.362932)
+target_position = Vector3(0, 0, -0.3)
 
-[node name="CameraShaker" type="Spatial" parent="BodyNode"]
-script = ExtResource( 21 )
+[node name="CameraShaker" type="Node3D" parent="BodyNode"]
+script = ExtResource("21")
 
-[node name="Camera" type="Camera" parent="BodyNode/CameraShaker"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-cull_mask = 524287
+[node name="Camera3D" type="Camera3D" parent="BodyNode/CameraShaker"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+cull_mask = 262143
 current = true
 near = 0.01
 
-[node name="Pickup Ray" type="RayCast" parent="BodyNode/CameraShaker/Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276 )
-enabled = true
-cast_to = Vector3( 0, 0, -3 )
-script = ExtResource( 5 )
+[node name="Pickup Ray" type="RayCast3D" parent="BodyNode/CameraShaker/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276)
+target_position = Vector3(0, 0, -3)
+script = ExtResource("5")
 
-[node name="RemoteTransform" type="RemoteTransform" parent="BodyNode/CameraShaker/Camera"]
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="BodyNode/CameraShaker/Camera3D"]
 remote_path = NodePath("../../../Mantling/Spacer")
 update_rotation = false
 update_scale = false
 
-[node name="SpotLight" type="SpotLight" parent="BodyNode/CameraShaker/Camera"]
+[node name="SpotLight3D" type="SpotLight3D" parent="BodyNode/CameraShaker/Camera3D"]
 light_cull_mask = 4293918721
 
 [node name="GUI" type="CanvasLayer" parent="."]
-pause_mode = 2
-script = ExtResource( 17 )
+script = ExtResource("17")
 
 [node name="GUI" type="Control" parent="GUI"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+mouse_default_cursor_shape = 16
 
 [node name="Health" type="Control" parent="GUI/GUI"]
+anchors_preset = 0
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -22.0
-margin_right = 22.0
-margin_bottom = 40.0
-script = ExtResource( 2 )
+offset_left = -22.0
+offset_right = 22.0
+offset_bottom = 40.0
+script = ExtResource("2")
 ToPlayer = NodePath("../../..")
 
 [node name="Health Bar" type="ProgressBar" parent="GUI/GUI/Health"]
+layout_mode = 0
 anchor_left = -2.22773
 anchor_top = 0.6
 anchor_right = 3.22773
 anchor_bottom = 1.5
-margin_left = 0.0200043
-margin_right = -0.0200043
+offset_left = 0.0200043
+offset_right = -0.0200043
 step = 1.0
 value = 100.0
-percent_visible = false
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Health Number" type="Label" parent="GUI/GUI/Health"]
+layout_mode = 0
 anchor_left = -0.045
 anchor_top = 1.6
 anchor_right = 1.045
 anchor_bottom = 2.0
-margin_left = -0.02
-margin_right = 0.0199966
+offset_left = -0.02
+offset_right = 0.0199966
 text = "99"
-align = 1
-valign = 1
 
-[node name="Interaction Texture" type="TextureRect" parent="GUI/GUI"]
+[node name="Interaction Texture2D" type="TextureRect" parent="GUI/GUI"]
+layout_mode = 0
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -20.0
-margin_top = -20.0
-margin_right = 20.0
-margin_bottom = 20.0
-texture = ExtResource( 4 )
-expand = true
-script = ExtResource( 6 )
-
-[node name="Wall Detection" type="Spatial" parent="."]
-script = ExtResource( 3 )
-
-[node name="Right Ray" type="RayCast" parent="Wall Detection"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0 )
-enabled = true
-cast_to = Vector3( 0.8, 0, 0 )
-
-[node name="Left Ray" type="RayCast" parent="Wall Detection"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0 )
-enabled = true
-cast_to = Vector3( -0.8, 0, 0 )
-
-[node name="LowerBody" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0 )
-shape = SubResource( 2 )
-
-[node name="Feet" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0 )
-shape = SubResource( 2 )
-
-[node name="Upper Body Detection" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Upper Body Detection"]
-shape = SubResource( 1 )
-
-[node name="Lower Body Detection" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.219881, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Lower Body Detection"]
-shape = SubResource( 6 )
-
-[node name="Floor Cast" type="RayCast" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.933548, 0 )
-enabled = true
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+texture = ExtResource("4")
+expand_mode = 1
+script = ExtResource("6")
 
 [node name="Debug" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="DebugPanel" type="Panel" parent="Debug"]
+anchors_preset = -1
 anchor_left = 0.140156
 anchor_top = 0.213667
 anchor_right = 0.859844
 anchor_bottom = 0.786333
-margin_left = 0.47998
-margin_top = -0.200012
-margin_right = -0.480042
-margin_bottom = 0.199982
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+offset_left = 0.47998
+offset_top = -0.200012
+offset_right = -0.480042
+offset_bottom = 0.199982
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0xahh")
+script = ExtResource("7")
 Enabled = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Debug/DebugPanel"]
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.34
 anchor_top = 0.034
 anchor_right = 0.66
 anchor_bottom = 0.034
-margin_top = 0.112
-margin_bottom = 17.112
-grow_horizontal = 2
+offset_left = 0.438995
+offset_top = 0.369423
+offset_right = 0.440369
+offset_bottom = 29.3694
 size_flags_horizontal = 3
+mouse_filter = 2
 bbcode_enabled = true
-bbcode_text = "[center]Debug Panel[/center]"
-text = "Debug Panel"
+text = "[center]Debug Panel[/center]"
 
-[node name="Button" type="Button" parent="Debug/DebugPanel"]
+[node name="To Main Menu" type="Button" parent="Debug/DebugPanel"]
+layout_mode = 0
 anchor_left = 0.380435
 anchor_top = 0.883722
 anchor_right = 0.619565
 anchor_bottom = 0.965117
-margin_right = 3.05176e-05
-text = "Restart"
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+offset_right = 3.05176e-05
+text = "To Main Menu"
+script = ExtResource("9")
 ScenePath = "res://Scenes/Levels/Testing.tscn"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Debug/DebugPanel"]
+[node name="Variables" type="ScrollContainer" parent="Debug/DebugPanel"]
+layout_mode = 0
 anchor_top = 0.101744
 anchor_right = 0.999999
 anchor_bottom = 0.845931
 size_flags_vertical = 3
-script = ExtResource( 14 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
+mouse_filter = 2
+script = ExtResource("14")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Debug/DebugPanel/ScrollContainer"]
-margin_right = 736.0
-margin_bottom = 256.0
+[node name="VBoxContainer" type="VBoxContainer" parent="Debug/DebugPanel/Variables"]
+layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 2
+mouse_filter = 2
 alignment = 1
 
+[node name="Reset Values" type="Button" parent="Debug/DebugPanel"]
+layout_mode = 0
+offset_left = 574.06
+offset_top = 328.744
+offset_right = 748.06
+offset_bottom = 358.744
+text = "Reset Values"
+
 [node name="PanelContainer" type="PanelContainer" parent="Debug"]
-margin_left = 63.0
-margin_top = 52.0
-margin_right = 350.0
-margin_bottom = 201.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 295.0
+offset_bottom = 157.0
 
 [node name="Visibility Index" type="RichTextLabel" parent="Debug/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 280.0
-margin_bottom = 142.0
-script = ExtResource( 18 )
+layout_mode = 2
+script = ExtResource("18")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Debug"]
-margin_left = 720.0
-margin_top = 512.0
-margin_right = 1024.0
-margin_bottom = 600.0
-script = ExtResource( 22 )
+offset_left = 720.0
+offset_top = 512.0
+offset_right = 1024.0
+offset_bottom = 600.0
+script = ExtResource("22")
 
 [node name="Panel" type="Panel" parent="Debug"]
-margin_left = 24.0
-margin_top = 416.0
-margin_right = 104.0
-margin_bottom = 584.0
+offset_left = 17.0
+offset_top = 466.0
+offset_right = 199.0
+offset_bottom = 634.0
 
 [node name="Label" type="RichTextLabel" parent="Debug/Panel"]
-margin_right = 80.0
-margin_bottom = 40.0
-text = "Colliding with body"
+layout_mode = 0
+offset_right = 180.0
+offset_bottom = 40.0
+bbcode_enabled = true
+text = "[center]Colliding with body[/center]"
 
 [node name="Head" type="RichTextLabel" parent="Debug/Panel"]
-margin_top = 40.0
-margin_right = 80.0
-margin_bottom = 80.0
-rect_pivot_offset = Vector2( -168, -8 )
+layout_mode = 0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 80.0
+pivot_offset = Vector2(-168, -8)
 text = "Head:"
-script = ExtResource( 23 )
+script = ExtResource("23")
 
 [node name="Body" type="RichTextLabel" parent="Debug/Panel"]
-margin_top = 80.0
-margin_right = 80.0
-margin_bottom = 120.0
+layout_mode = 0
+offset_top = 80.0
+offset_right = 80.0
+offset_bottom = 120.0
 text = "Body:"
-script = ExtResource( 23 )
+script = ExtResource("23")
 
 [node name="Feet" type="RichTextLabel" parent="Debug/Panel"]
-margin_top = 120.0
-margin_right = 80.0
-margin_bottom = 160.0
+layout_mode = 0
+offset_top = 120.0
+offset_right = 80.0
+offset_bottom = 160.0
 text = "Feet:"
-script = ExtResource( 23 )
+script = ExtResource("23")
+
+[node name="Wall Detection" type="Node3D" parent="."]
+script = ExtResource("3")
+
+[node name="Right Ray" type="RayCast3D" parent="Wall Detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+target_position = Vector3(0.8, 0, 0)
+
+[node name="Left Ray" type="RayCast3D" parent="Wall Detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+target_position = Vector3(-0.8, 0, 0)
+
+[node name="LowerBody" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+shape = SubResource("2")
+
+[node name="Feet" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+shape = SubResource("2")
+
+[node name="Upper Body Detection" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Upper Body Detection"]
+shape = SubResource("1")
+
+[node name="Lower Body Detection" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.219881, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Lower Body Detection"]
+shape = SubResource("6")
+
+[node name="Floor Cast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.933548, 0)
 
 [node name="PlayerSound" type="Node" parent="."]
-script = ExtResource( 12 )
-Jump = ExtResource( 19 )
+script = ExtResource("12")
+Jump = ExtResource("19")
 
 [node name="Legs" type="AudioStreamPlayer" parent="PlayerSound"]
+stream = ExtResource("19")
 volume_db = 24.0
-bus = "Effects"
+bus = &"Effects"
 
 [node name="Arms" type="AudioStreamPlayer" parent="PlayerSound"]
-bus = "Effects"
+bus = &"Effects"
 
 [node name="Music" type="Node" parent="."]
-script = ExtResource( 11 )
+script = ExtResource("11")
 
 [node name="Ambient Sound" type="AudioStreamPlayer" parent="Music"]
-bus = "Ambient"
+bus = &"Ambient"
 
 [node name="Music" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource( 10 )
+stream = ExtResource("10")
 autoplay = true
-bus = "Music"
+bus = &"Music"
 
-[node name="Gem" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.698862, 0 )
+[node name="Gem" parent="." instance=ExtResource("16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.698862, 0)
 
-[node name="PlayerDetectionPoints" type="KinematicBody" parent="."]
+[node name="PlayerDetectionPoints" type="CharacterBody3D" parent="."]
 collision_layer = 65536
 collision_mask = 65536
-script = ExtResource( 20 )
+script = ExtResource("20")
 
-[node name="Head" type="CollisionShape" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0 )
-shape = SubResource( 10 )
+[node name="Head" type="CollisionShape3D" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("10")
 
-[node name="Body" type="CollisionShape" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0 )
-shape = SubResource( 11 )
+[node name="Body" type="CollisionShape3D" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, 0)
+shape = SubResource("11")
 
-[node name="Legs" type="CollisionShape" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0 )
-shape = SubResource( 11 )
+[node name="Legs" type="CollisionShape3D" parent="PlayerDetectionPoints" groups=["DetectionPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
+shape = SubResource("11")
 
-[node name="ClippedCamera" type="ClippedCamera" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564)
 
 [connection signal="SetBodyNumber" from="BodyNode/Mantling" to="Debug/Panel/Body" method="SetTextTo"]
 [connection signal="SetFootNumber" from="BodyNode/Mantling" to="Debug/Panel/Feet" method="SetTextTo"]
 [connection signal="SetHeadNumber" from="BodyNode/Mantling" to="Debug/Panel/Head" method="SetTextTo"]
-[connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]
+[connection signal="pressed" from="Debug/DebugPanel/To Main Menu" to="Debug/DebugPanel/To Main Menu" method="RestartLevel"]
+[connection signal="pressed" from="Debug/DebugPanel/Reset Values" to="Debug/DebugPanel/Variables" method="ResetVariables"]

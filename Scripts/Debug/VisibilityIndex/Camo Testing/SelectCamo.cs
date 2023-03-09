@@ -3,7 +3,7 @@ using System;
 
 namespace Debug.VisibilityIndex.CamoTesting
 {
-    public class SelectCamo : FileDialog
+    public partial class SelectCamo : FileDialog
     {
         [Export]
         private NodePath[] CamoSelectors { get; set; }
@@ -13,13 +13,15 @@ namespace Debug.VisibilityIndex.CamoTesting
         }
         private void TextureSelect(int selector)
         {
-            Godot.Collections.Array list = GetSignalConnectionList("file_selected");
-            foreach (Godot.Collections.Dictionary x in list)
-            {
-                Disconnect(x["signal"].ToString(), (Godot.Object)(x["target"]), x["method"].ToString());
-            }
-            Popup_();
-            Connect("file_selected", GetNode(CamoSelectors[selector]), nameof(SetCamo.SetCamoTexture), null, (uint)(ConnectFlags.Oneshot));
+            // This code doesn't work and I'm 90 percent sure that it isn't being used.
+            // Godot.Collections.Array<Godot.Collections.Dictionary> list = GetSignalConnectionList("file_selected");
+            // foreach (Godot.Collections.Dictionary x in list)
+            // {
+            //     Disconnect(x["signal"].ToString(), new Callable((Godot.Object)(x["target"]), x["method"].ToString()));
+            // }
+            // Popup_();
+            // FileSelected += () => {};
+            // Connect("file_selected", new Callable(GetNode(CamoSelectors[selector]), nameof(SetCamo.SetCamoTexture)), null, (uint)(ConnectFlags.OneShot));
         }
     }
 

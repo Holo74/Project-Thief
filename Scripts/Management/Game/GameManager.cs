@@ -3,24 +3,32 @@ using System;
 
 namespace Management.Game
 {
-    public class GameManager : Node
+    public partial class GameManager : Node
     {
         public static GameManager Instance { get; private set; }
         public delegate void StateChange(bool b);
         public static event StateChange PlayingChange;
-        private ResourceInteractiveLoader Loader { get; set; }
+        private string LoaderPath { get; set; }
         private bool LoadingScene { get; set; } = false;
         private ProgressBar LoadingBar { get; set; }
+
+        private bool InPausableMoment { get; set; }
+
         public RandomNumberGenerator Generator { get; set; }
         public string FavoriteGame { get; set; }
         public static void Start()
         {
             PLAYING = true;
+            Input.MouseMode = Input.MouseModeEnum.Captured;
+            Instance.GetTree().Paused = false;
+            Instance.InPausableMoment = true;
         }
 
         public static void Pause()
         {
             PLAYING = false;
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+            Instance.GetTree().Paused = true;
         }
 
         private static bool playing = false;
@@ -41,17 +49,31 @@ namespace Management.Game
             GetNode<Control>("LoadingScreen").Visible = false;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
+            if (Input.IsActionJustPressed("Menu") && InPausableMoment)
+            {
+                if (PLAYING)
+                {
+                    Pause();
+                }
+                else
+                {
+                    Start();
+                }
+            }
             if (LoadingScene)
             {
-                while (Loader.Poll() == Error.Ok)
+                Godot.Collections.Array a = new Godot.Collections.Array();
+                GD.Print("Loading scene");
+                if (ResourceLoader.LoadThreadedGetStatus(LoaderPath, a) == ResourceLoader.ThreadLoadStatus.InProgress)
                 {
-                    LoadingBar.Value = Loader.GetStage() / Loader.GetStageCount() * 100;
+                    LoadingBar.Value = ((float)a[0]);
+                    return;
                 }
                 LoadingScene = false;
-                PackedScene scene = (PackedScene)Loader.GetResource();
-                if (GetTree().ChangeSceneTo(scene) == Error.Ok)
+                PackedScene scene = (PackedScene)ResourceLoader.LoadThreadedGet(LoaderPath);
+                if (GetTree().ChangeSceneToPacked(scene) == Error.Ok)
                 {
                     CallDeferred(nameof(SetupSceneTree));
                 }
@@ -59,25 +81,51 @@ namespace Management.Game
             }
         }
 
+        public Action DoAfterLoad;
         private void SetupSceneTree()
         {
-            Player.Variables.INIT();
-            Player.PlayerManager player = (Player.PlayerManager)ResourceLoader.Load<PackedScene>("res://Scenes/Characters/Player/Player.tscn").Instance();
-            GetTree().Root.AddChild(player);
-            Godot.Collections.Array group = GetTree().GetNodesInGroup("Start");
-            if (group.Count > 0)
-            {
-                player.Transform = ((Spatial)group[0]).Transform;
-            }
-            // Temp assign camo
-            Player.Variables.CAMO.UpdateCurrentBodyCamo(ResourceLoader.Load<Texture>("res://Textures/Camo Patterns Test/AnotherCamo.jpg"));
+            DoAfterLoad?.Invoke();
+            DoAfterLoad = null;
             GetNode<Control>("LoadingScreen").Visible = false;
         }
 
-        // Make a function to better load in the player
-        public void LoadScene(string path)
+        public void SetupPlayer()
         {
-            Loader = ResourceLoader.LoadInteractive(path);
+            PlayingChange = null;
+            new Player.Variables().INIT();
+            Player.PlayerManager player = (Player.PlayerManager)ResourceLoader.Load<PackedScene>("res://Scenes/Characters/Player/Player.tscn").Instantiate();
+            GetTree().CurrentScene.AddChild(player);
+            Godot.Collections.Array<Node> group = GetTree().GetNodesInGroup("Start");
+            if (group.Count > 0)
+            {
+                Transform3D t = ((Node3D)group[0]).Transform;
+
+                player.Transform = t.Translated(Vector3.Up * .5f);
+            }
+            // Temp assign camo
+            Player.Variables.Instance.CAMO.UpdateCurrentBodyCamo(ResourceLoader.Load<Texture2D>("res://Textures/Camo Patterns Test/AnotherCamo.jpg"));
+            Start();
+        }
+
+        public void QuitToMainMenu()
+        {
+            LoadScene("res://Scenes/Menus/MainMenu.tscn");
+            PLAYING = false;
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+            Instance.GetTree().Paused = false;
+            Instance.InPausableMoment = false;
+        }
+
+        // Make a function to better load in the player
+        public void LoadScene(string path, Action[] doOnLoad = null)
+        {
+            doOnLoad ??= new Action[0];
+            foreach (Action a in doOnLoad)
+            {
+                DoAfterLoad += a;
+            }
+            LoaderPath = path;
+            ResourceLoader.LoadThreadedRequest(LoaderPath);
             LoadingScene = true;
             LoadingBar.Value = 0;
             GetNode<Control>("LoadingScreen").Visible = true;

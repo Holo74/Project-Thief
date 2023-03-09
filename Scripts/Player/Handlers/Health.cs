@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Handlers
 {
-    public class Health : Resource
+    public partial class Health : Resource
     {
 
         public enum InteractionTypes

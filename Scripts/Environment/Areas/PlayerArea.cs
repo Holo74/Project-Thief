@@ -3,12 +3,14 @@ using System;
 
 namespace Environment.Areas
 {
-    public abstract class PlayerArea : Area
+    public abstract partial class PlayerArea : Area3D
     {
         public override void _Ready()
         {
-            Connect("body_entered", this, nameof(NodeEntered));
-            Connect("body_exited", this, nameof(NodeLeft));
+            BodyEntered += NodeEntered;
+            BodyExited += NodeLeft;
+            // Connect("body_entered", new Callable(this, nameof(NodeEntered)));
+            // Connect("body_exited", new Callable(this, nameof(NodeLeft)));
         }
 
         private void NodeEntered(Node body)

@@ -3,33 +3,33 @@
 [ext_resource path="res://Scenes/Prefabs/Testing/StartPlayerTimer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Models/Private use only/RPG Models Reimport/Buildings/rpgpp_lt_building_01 -col/rpgpp_lt_building_01 -col.glb" type="PackedScene" id=6]
 
-[node name="Spatial" type="Spatial"]
+[node name="Node3D" type="Node3D"]
 
-[node name="Start" type="Spatial" parent="." groups=["Start"]]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.7605, 5.0033, 0.425155 )
+[node name="Start" type="Node3D" parent="." groups=["Start"]]
+transform = Transform3D( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 10.7605, 5.0033, 0.425155 )
 
 [node name="Timer" parent="." instance=ExtResource( 2 )]
 
-[node name="Testing Scene" type="Position3D" parent="."]
+[node name="Testing Scene" type="Marker3D" parent="."]
 
-[node name="CSGCombiner" type="CSGCombiner" parent="Testing Scene"]
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Testing Scene"]
 use_collision = true
 
-[node name="CSGBox" type="CSGBox" parent="Testing Scene/CSGCombiner"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Testing Scene/CSGCombiner3D"]
 use_collision = true
 width = 100.0
 depth = 100.0
 
-[node name="Ambient Lighting" type="Spatial" parent="."]
+[node name="Ambient Lighting" type="Node3D" parent="."]
 
-[node name="Ambient Light" type="DirectionalLight" parent="Ambient Lighting"]
-transform = Transform( 0.7369, 0.480344, -0.475655, 0, 0.70363, 0.710566, 0.676002, -0.523616, 0.518505, 0, 0, 0 )
+[node name="Ambient Light3D" type="DirectionalLight3D" parent="Ambient Lighting"]
+transform = Transform3D( 0.7369, 0.480344, -0.475655, 0, 0.70363, 0.710566, 0.676002, -0.523616, 0.518505, 0, 0, 0 )
 shadow_enabled = true
 
-[node name="Ambient Light shadowing" type="DirectionalLight" parent="Ambient Lighting"]
-transform = Transform( -0.7369, -0.480344, 0.475655, 0, 0.70363, 0.710566, -0.676002, 0.523616, -0.518505, 0, 0, 0 )
+[node name="Ambient Light3D shadowing" type="DirectionalLight3D" parent="Ambient Lighting"]
+transform = Transform3D( -0.7369, -0.480344, 0.475655, 0, 0.70363, 0.710566, -0.676002, 0.523616, -0.518505, 0, 0, 0 )
 light_color = Color( 0.337255, 0.337255, 0.337255, 1 )
 shadow_enabled = true
 
 [node name="rpgpp_lt_building_01 -col" parent="." instance=ExtResource( 6 )]
-transform = Transform( 0.850398, 0, 0.52614, 0, 1, 0, -0.52614, 0, 0.850398, -1.93451, 1, -39.2513 )
+transform = Transform3D( 0.850398, 0, 0.52614, 0, 1, 0, -0.52614, 0, 0.850398, -1.93451, 1, -39.2513 )

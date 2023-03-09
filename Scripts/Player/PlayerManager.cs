@@ -5,7 +5,7 @@ using Player.Rotation;
 
 namespace Player
 {
-    public class PlayerManager : KinematicBody, Interfaces.Interactions.IHealth
+    public partial class PlayerManager : CharacterBody3D, Interfaces.Interactions.IHealth
     {
         [Export]
         public Handlers.Health PlayerHealth { get; set; }
@@ -19,24 +19,23 @@ namespace Player
             PlayerQuickAccess.SyncVariables(this);
             //Input.SetMouseMode(Input.MouseMode.Captured);
             Instance = this;
-            Variables.DEFAULT_MOVEMENT = new BasicMovement();
-            Variables.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y) - 10, 0, Mathf.Inf), 3)); };
             // GD.Print(GetViewport().ShadowAtlasSize);
+            ConnectVariablesToPlayer();
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
-            if (Input.IsActionJustPressed("ToggleThirdPerson"))
+            if (false && Input.IsActionJustPressed("ToggleThirdPerson"))
             {
                 if (PlayerQuickAccess.CAMERA.Current)
                 {
                     PlayerQuickAccess.CAMERA.Current = false;
-                    GetNode<Camera>("ClippedCamera").Current = true;
+                    GetNode<Camera3D>("Camera3D").Current = true;
                 }
                 else
                 {
                     PlayerQuickAccess.CAMERA.Current = true;
-                    GetNode<Camera>("ClippedCamera").Current = false;
+                    GetNode<Camera3D>("Camera3D").Current = false;
 
                 }
             }
@@ -52,24 +51,24 @@ namespace Player
             {
                 if (Management.Game.GameManager.PLAYING)
                 {
-                    Variables.ROTATION?.BaseRotate(mouse);
+                    Variables.Instance.ROTATION?.BaseRotate(mouse);
                 }
             }
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             if (Management.Game.GameManager.PLAYING)
             {
-                if (Variables.ON_FLOOR)
+                if (Variables.Instance.ON_FLOOR)
                 {
-                    Variables.MOVEMENT.Movement(delta);
+                    Variables.Instance.MOVEMENT.Movement(delta);
                 }
                 else
                 {
-                    Variables.MOVEMENT.FallingMovement(delta);
+                    Variables.Instance.MOVEMENT.FallingMovement(delta);
                 }
-                Variables.MOVEMENT.FloorDetection();
+                Variables.Instance.MOVEMENT.FloorDetection();
                 Upgrades.RunUpgrades(delta);
             }
         }
@@ -79,15 +78,20 @@ namespace Player
             PlayerHealth.ModifyHealth(type, amount);
         }
 
+        public float GetStealthValue()
+        {
+            return Helper.MathEquations.GET_STEALTH_VALUE(PlayerQuickAccess.LIGHT.CurrentLight, Variables.Instance.CAMO.BaseVisibility);
+        }
+
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
-            Variables.DELETE_VARIABLES();
         }
 
-        public float GetStealthValue()
+        public void ConnectVariablesToPlayer()
         {
-            return Helper.MathEquations.GET_STEALTH_VALUE(PlayerQuickAccess.LIGHT.CurrentLight, Variables.CAMO.BaseVisibility);
+            Variables.Instance.DEFAULT_MOVEMENT = new BasicMovement();
+            Variables.Instance.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.Y) - 10, 0, Mathf.Inf), 3)); };
         }
     }
 }

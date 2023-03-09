@@ -1,73 +1,51 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=2 format=3 uid="uid://cw51ygj40hxl6"]
 
-[ext_resource path="res://Scripts/Debug/Menus/DebugLoadScene.cs" type="Script" id=1]
+[ext_resource type="Script" path="res://Scripts/Debug/Menus/DebugLoadScene.cs" id="1"]
 
 [node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Container" type="Panel" parent="."]
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Container"]
+layout_mode = 1
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.08
 anchor_right = 0.5
-anchor_bottom = 0.08
-margin_left = -288.0
-margin_top = -24.0
-margin_right = -144.0
-margin_bottom = -8.0
-rect_scale = Vector2( 4, 4 )
+offset_left = -248.0
+offset_right = 248.0
+offset_bottom = 88.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-bbcode_text = "[center]Project Thief[/center]"
-text = "Project Thief"
-__meta__ = {
-"_edit_use_anchors_": true
-}
+text = "[center]Project Thief[/center]"
 
 [node name="Debug Menu" type="Control" parent="Container"]
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Load Game" type="Button" parent="Container/Debug Menu"]
+layout_mode = 0
 anchor_left = 0.398438
 anchor_top = 0.64
 anchor_right = 0.601562
 anchor_bottom = 0.68
 text = "Load Level"
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Possible Scenes" type="PopupMenu" parent="Container/Debug Menu"]
-anchor_left = 0.40625
-anchor_top = 0.226667
-anchor_right = 0.59375
-anchor_bottom = 0.773333
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Settings" type="Panel" parent="Container"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_editor_description_": "List of settings
- -Ambient Light
- -Toggle crouch
- -Toggle Lean
- -Toggle sprint
- -Sensitivity
- -Sound
-	-Music
-	-Ambient
-	-Sound effects
-	-Dialogue
- -FOV
- -"
-}
+script = ExtResource("1")
+PathDirectory = "res://Scenes/Levels/Madeline's Levels/Brainstorming/Level 1"
 
 [connection signal="pressed" from="Container/Debug Menu/Load Game" to="Container/Debug Menu/Possible Scenes" method="popup_centered"]

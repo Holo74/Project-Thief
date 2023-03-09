@@ -3,7 +3,7 @@ using System;
 
 namespace Environment.Interactables
 {
-    public class SwingingVine : Node, IInteract
+    public partial class SwingingVine : Node, IInteract
     {
         public bool CanInteract()
         {

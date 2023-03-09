@@ -4,21 +4,23 @@ using System;
 namespace Environment.Areas
 {
     [Tool]
-    public class SetCamo : Node
+    public partial class SetCamo : Node
     {
         [Export]
-        private Shape AreaShape
+        private Shape3D AreaShape
         {
             get { return areaShape; }
             set { ChangeShape(value); }
         }
-        private Shape areaShape = null;
+        private Shape3D areaShape = null;
+
         [Export]
-        private Texture Surroundings { get; set; }
-        [Export(PropertyHint.Range, "0, 100")]
-        private int Priority { get; set; }
-        [Export]
-        private Resources.SoundDictionary Sound { get; set; }
+        Environment.Resources.CamoInstance Camo { get; set; }
+
+        public override void _Ready()
+        {
+            base._Ready();
+        }
 
         private void PlayerEntered(Node body)
         {
@@ -26,12 +28,7 @@ namespace Environment.Areas
             // GD.Print("Node enter body");
             if (body is Player.PlayerManager p)
             {
-                // GD.Print("Entered body");
-                Player.Handlers.CamoHandler.CamoInstance camo = new Player.Handlers.CamoHandler.CamoInstance();
-                camo.Priority = Priority;
-                camo.Camo = Surroundings;
-                camo.Sound = Sound;
-                Player.Variables.CAMO.AddSurroundingTexture(camo);
+                Player.Variables.Instance.CAMO.AddSurroundingTexture(Camo);
             }
         }
 
@@ -39,23 +36,18 @@ namespace Environment.Areas
         {
             if (body is Player.PlayerManager p)
             {
-                // GD.Print("Left body");
-                Player.Handlers.CamoHandler.CamoInstance camo = new Player.Handlers.CamoHandler.CamoInstance();
-                camo.Priority = Priority;
-                camo.Camo = Surroundings;
-                camo.Sound = Sound;
-                Player.Variables.CAMO.RemoveSurroundingTexture(camo);
+                Player.Variables.Instance.CAMO.RemoveSurroundingTexture(Camo);
             }
         }
 
-        private void ChangeShape(Shape changeTo)
+        private void ChangeShape(Shape3D changeTo)
         {
-            if (!Engine.EditorHint)
+            if (!Engine.IsEditorHint())
             {
                 return;
             }
             areaShape = changeTo;
-            GetNode<CollisionShape>("Area/CollisionShape").Shape = changeTo;
+            GetNode<CollisionShape3D>("Area3D/CollisionShape3D").Shape = changeTo;
         }
     }
 

@@ -3,12 +3,12 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Conditions
 {
-    public class TimerReader : Base
+    public partial class TimerReader : Base
     {
         // This will read once and then flip back to being false
         [Export]
         private bool TimerWentOff { get; set; }
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             if (TimerWentOff)
             {

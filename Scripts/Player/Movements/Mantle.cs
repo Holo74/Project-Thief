@@ -3,46 +3,47 @@ using System;
 
 namespace Player.Movement
 {
-    public class Mantle : AbstractMovement
+    public partial class Mantle : AbstractMovement
     {
-        public delegate void Moving(float delta);
+        public delegate void Moving(double delta);
         private Moving CurrentMoving;
         private bool WasCrouched { get; set; }
-        private float Timer { get; set; }
+        private double Timer { get; set; }
         private bool LedgeAboveWaist { get; set; }
 
         public override void Starting()
         {
-            // PlayerQuickAccess.CAMERA_SHAKE.Shake(0, 0, Mathf.Clamp(Variables.WALKING_MOVEMENT.Length(), 0f, 0.5f), .1f, 1, 1, -1);
-
-            Variables.ON_FLOOR = false;
-            Variables.WALKING_MOVEMENT = -PlayerQuickAccess.BODY_DIRECTION.z * Variables.MANTLE_FORWARD_SPEED;
-            Variables.GRAVITY_MOVEMENT = Vector3.Up * Variables.MANTLE_UPWARD_SPEED;
+            // PlayerQuickAccess.CAMERA_SHAKE.Shake(0, 0, Mathf.Clamp(Variables.Instance.WALKING_MOVEMENT.Length(), 0f, 0.5f), .1f, 1, 1, -1);
+            // PlayerQuickAccess.CHARACTER_BODY.UpDirection = Vector3.Zero;
+            PlayerQuickAccess.CHARACTER_BODY.MotionMode = CharacterBody3D.MotionModeEnum.Floating;
+            Variables.Instance.ON_FLOOR = false;
+            Variables.Instance.WALKING_MOVEMENT = -PlayerQuickAccess.BODY_DIRECTION.Z * ((float)Variables.Instance.MANTLE_FORWARD_SPEED);
+            Variables.Instance.GRAVITY_MOVEMENT = Vector3.Up * ((float)Variables.Instance.MANTLE_UPWARD_SPEED);
             WasCrouched = Helper.CommonComparisions.IS_CROUCHED;
-            Timer = Variables.MANTLE_UPWARD_TIME;
+            Timer = Variables.Instance.MANTLE_UPWARD_TIME;
             CurrentMoving = UpwardMoving;
-            Variables.ROTATION = null;
+            Variables.Instance.ROTATION = null;
             LedgeAboveWaist = PlayerQuickAccess.MANTLE.UpperLedge.IsColliding();
         }
 
-        public override void Movement(float delta)
+        public override void Movement(double delta)
         {
             MantleUp(delta);
         }
 
-        public override void FallingMovement(float delta)
+        public override void FallingMovement(double delta)
         {
             MantleUp(delta);
         }
 
-        private void MantleUp(float delta)
+        private void MantleUp(double delta)
         {
             CurrentMoving(delta);
         }
 
-        private void UpwardMoving(float delta)
+        private void UpwardMoving(double delta)
         {
-            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.GRAVITY_MOVEMENT * delta);
+            KinematicCollision3D k = PlayerQuickAccess.CHARACTER_BODY.MoveAndCollide(Variables.Instance.GRAVITY_MOVEMENT * ((float)delta));
             if ((PlayerQuickAccess.MANTLE.CanMoveForwardUpper() && LedgeAboveWaist) || PlayerQuickAccess.MANTLE.CanMoveForwardLower())
             {
                 //GD.Print(String.Format("Above waist Ledge: {0}\nUpper forward:{1}\nLower forward:{2}\n", LedgeAboveWaist, PlayerQuickAccess.MANTLE.CanMoveForwardUpper(), PlayerQuickAccess.MANTLE.CanMoveForwardLower()));
@@ -50,7 +51,7 @@ namespace Player.Movement
             }
             if (k != null)
             {
-                if (k.Position.y > PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y + 1f)
+                if (k.GetPosition().Y > PlayerQuickAccess.CHARACTER_BODY.GlobalPosition.Y + 1f)
                 {
                     if (!Helper.CommonComparisions.IS_CROUCHED)
                     {
@@ -74,18 +75,18 @@ namespace Player.Movement
         private void TransitionToForward()
         {
             CurrentMoving = ForwardMove;
-            Variables.GRAVITY_MOVEMENT = Vector3.Zero;
-            Timer = Variables.MANTLE_FORWARD_TIME;
+            Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
+            Timer = Variables.Instance.MANTLE_FORWARD_TIME;
         }
 
-        private void ForwardMove(float delta)
+        private void ForwardMove(double delta)
         {
-            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.WALKING_MOVEMENT * delta);
+            KinematicCollision3D k = PlayerQuickAccess.CHARACTER_BODY.MoveAndCollide(Variables.Instance.WALKING_MOVEMENT * ((float)delta));
             if (k != null)
             {
-                Vector3 holder = k.Position;
-                holder.y = PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y;
-                if (holder.DistanceTo(PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin) > .5f)
+                Vector3 holder = k.GetPosition();
+                holder.Y = PlayerQuickAccess.CHARACTER_BODY.GlobalPosition.Y;
+                if (holder.DistanceTo(PlayerQuickAccess.CHARACTER_BODY.GlobalPosition) > .5f)
                 {
                     if (!Helper.CommonComparisions.IS_CROUCHED)
                     {
@@ -105,9 +106,9 @@ namespace Player.Movement
             }
         }
 
-        private void MoveToGround(float delta)
+        private void MoveToGround(double delta)
         {
-            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Vector3.Down * 10 * delta);
+            KinematicCollision3D k = PlayerQuickAccess.CHARACTER_BODY.MoveAndCollide(Vector3.Down * 10 * ((float)delta));
             if (k != null)
             {
                 FinishMantle();
@@ -116,13 +117,15 @@ namespace Player.Movement
 
         private void FinishMantle()
         {
-            Variables.WALKING_MOVEMENT = Vector3.Zero;
-            Variables.GRAVITY_MOVEMENT = Vector3.Zero;
+            Variables.Instance.WALKING_MOVEMENT = Vector3.Zero;
+            Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
             if (!WasCrouched && WasCrouched != Helper.CommonComparisions.IS_CROUCHED)
             {
                 CrouchWithoutInput();
             }
-            Variables.RESET_MOVEMENT();
+            PlayerQuickAccess.CHARACTER_BODY.MotionMode = CharacterBody3D.MotionModeEnum.Grounded;
+
+            Variables.Instance.RESET_MOVEMENT();
         }
     }
 

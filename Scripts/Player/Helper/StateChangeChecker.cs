@@ -14,7 +14,7 @@ namespace Player.Helper
         };
         public static bool TransferToState(Variables.PlayerStandingState toState)
         {
-            return StateMatix[(int)(Variables.CURRENT_STANDING_STATE), (int)toState]();
+            return StateMatix[(int)(Variables.Instance.CURRENT_STANDING_STATE), (int)toState]();
         }
     }
 }

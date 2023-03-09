@@ -3,7 +3,7 @@ using System;
 
 namespace Environment.Areas
 {
-    public class WebTrap : PlayerArea
+    public partial class WebTrap : PlayerArea
     {
         [Export]
         private float WalkSpeed { get; set; }
@@ -17,14 +17,14 @@ namespace Environment.Areas
 
         protected override void PlayerEntered()
         {
-            Player.Variables.SPEED_MOD = WalkSpeed;
-            Player.Variables.JUMP_MOD = JumpStr;
+            Player.Variables.Instance.SPEED_MOD = WalkSpeed;
+            Player.Variables.Instance.JUMP_MOD = JumpStr;
         }
 
         protected override void PlayerLeft()
         {
-            Player.Variables.RESET_SPEED_MOD();
-            Player.Variables.RESET_JUMP_MOD();
+            Player.Variables.Instance.RESET_SPEED_MOD();
+            Player.Variables.Instance.RESET_JUMP_MOD();
         }
     }
 

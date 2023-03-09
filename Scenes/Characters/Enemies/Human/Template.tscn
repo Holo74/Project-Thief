@@ -1,420 +1,261 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=22 format=3 uid="uid://hf41csi7umor"]
 
-[ext_resource path="res://Scripts/BehaviorTree/BehaviorController.cs" type="Script" id=1]
-[ext_resource path="res://Models/Private use only/Weapons/Sword/Sword.fbx" type="PackedScene" id=2]
-[ext_resource path="res://CollisionShapes/SightShapes/BasicCone.tres" type="Shape" id=4]
+[ext_resource type="Script" path="res://Scripts/BehaviorTree/BehaviorController.cs" id="1"]
+[ext_resource type="Script" path="res://Scripts/BehaviorTree/SensoryModules/Eyes.cs" id="2_k8otp"]
+[ext_resource type="JSON" path="res://Scripts/BehaviorTree/SensoryModules/Distances.json" id="3_iw61r"]
+[ext_resource type="Shape3D" path="res://CollisionShapes/SightShapes/BasicCone.tres" id="4"]
 
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.5
+[sub_resource type="CapsuleShape3D" id="1"]
 
-[sub_resource type="CapsuleMesh" id=2]
-radius = 0.5
+[sub_resource type="CapsuleMesh" id="2"]
 
-[sub_resource type="VisualShaderNodeColorUniform" id=4]
-uniform_name = "Eye_Colors"
+[sub_resource type="VisualShaderNodeColorParameter" id="4"]
+parameter_name = "Eye_Colors"
 default_value_enabled = true
-default_value = Color( 0, 0.112796, 0.893437, 1 )
+default_value = Color(0, 0.112796, 0.893437, 1)
 
-[sub_resource type="VisualShader" id=5]
+[sub_resource type="VisualShader" id="5"]
 code = "shader_type spatial;
-render_mode specular_schlick_ggx, async_visible;
-
-uniform vec4 Eye_Colors : hint_color = vec4(0.000000, 0.112796, 0.893437, 1.000000);
+uniform vec4 Eye_Colors : source_color = vec4(0.000000, 0.112796, 0.893437, 1.000000);
 
 
-
-void vertex() {
-// Output:0
-
-}
 
 void fragment() {
-// ColorUniform:2
-	vec3 n_out2p0 = Eye_Colors.rgb;
-	float n_out2p1 = Eye_Colors.a;
+// ColorParameter:2
+	vec4 n_out2p0 = Eye_Colors;
+
 
 // Output:0
-	ALBEDO = n_out2p0;
-	ALPHA = n_out2p1;
+	ALBEDO = vec3(n_out2p0.xyz);
 
-}
-
-void light() {
-// Output:0
 
 }
 "
-graph_offset = Vector2( -207.72, 127.28 )
-nodes/fragment/2/node = SubResource( 4 )
-nodes/fragment/2/position = Vector2( -40, 200 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 1, 0, 1 )
+graph_offset = Vector2(-207.72, 127.28)
+nodes/fragment/2/node = SubResource("4")
+nodes/fragment/2/position = Vector2(-40, 200)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
-shader_param/Eye_Colors = Color( 0, 0.112796, 0.893437, 1 )
+[sub_resource type="ShaderMaterial" id="6"]
+render_priority = 0
+shader = SubResource("5")
+shader_parameter/Eye_Colors = Color(0, 0.112796, 0.893437, 1)
 
-[sub_resource type="CubeMesh" id=3]
-material = SubResource( 6 )
-size = Vector3( 0.631, 0.208, 0.189 )
+[sub_resource type="BoxMesh" id="3"]
+material = SubResource("6")
+size = Vector3(0.631, 0.208, 0.189)
 
-[sub_resource type="QuadMesh" id=22]
+[sub_resource type="QuadMesh" id="22"]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=7]
+[sub_resource type="AnimationNodeAnimation" id="28"]
+animation = &"Idle"
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=8]
+[sub_resource type="AnimationNodeAnimation" id="29"]
+animation = &"Investigate"
 
-[sub_resource type="VisualShaderNodeVectorDecompose" id=9]
+[sub_resource type="AnimationNodeStateMachineTransition" id="30"]
+advance_condition = &"Investigate"
 
-[sub_resource type="VisualShaderNodeScalarOp" id=10]
-operator = 3
-
-[sub_resource type="VisualShaderNodeScalarFunc" id=11]
-function = 14
-
-[sub_resource type="VisualShaderNodeScalarOp" id=12]
-default_input_values = [ 0, 0.0, 1, -1.0 ]
-operator = 2
-
-[sub_resource type="VisualShaderNodeScalarOp" id=13]
-default_input_values = [ 0, 0.0, 1, 1.0 ]
-
-[sub_resource type="VisualShaderNodeScalarClamp" id=14]
-
-[sub_resource type="VisualShaderNodeScalarUniform" id=15]
-uniform_name = "Visibility_Rating"
-default_value_enabled = true
-
-[sub_resource type="VisualShaderNodeVectorInterp" id=16]
-
-[sub_resource type="VisualShaderNodeColorUniform" id=17]
-uniform_name = "Hidden"
-default_value_enabled = true
-
-[sub_resource type="VisualShaderNodeColorUniform" id=18]
-uniform_name = "Not_Hidden"
-default_value_enabled = true
-
-[sub_resource type="VisualShaderNodeInput" id=19]
-input_name = "uv"
-
-[sub_resource type="VisualShader" id=20]
-code = "shader_type spatial;
-render_mode specular_schlick_ggx, async_visible, depth_test_disable, unshaded, ensure_correct_normals, shadows_disabled, ambient_light_disabled;
-
-uniform vec4 Hidden : hint_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform vec4 Not_Hidden : hint_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform float Visibility_Rating = 0;
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// ColorUniform:7
-	vec3 n_out7p0 = Hidden.rgb;
-	float n_out7p1 = Hidden.a;
-
-// ColorUniform:8
-	vec3 n_out8p0 = Not_Hidden.rgb;
-	float n_out8p1 = Not_Hidden.a;
-
-// ScalarUniform:2
-	float n_out2p0 = Visibility_Rating;
-
-// VectorMix:6
-	vec3 n_out6p0 = mix(n_out7p0, n_out8p0, vec3(n_out2p0));
-
-// Input:9
-	vec3 n_out9p0 = vec3(UV, 0.0);
-
-// VectorDecompose:12
-	float n_out12p0 = n_out9p0.x;
-	float n_out12p1 = n_out9p0.y;
-	float n_out12p2 = n_out9p0.z;
-
-// ScalarOp:16
-	float n_in16p1 = -1.00000;
-	float n_out16p0 = n_out12p1 * n_in16p1;
-
-// ScalarOp:17
-	float n_in17p1 = 1.00000;
-	float n_out17p0 = n_out16p0 + n_in17p1;
-
-// Scalar:11
-	float n_out11p0 = 0.000000;
-
-// ScalarOp:10
-	float n_out10p0 = n_out17p0 + n_out11p0;
-
-// ScalarOp:13
-	float n_out13p0 = n_out2p0 / n_out10p0;
-
-// ScalarFunc:15
-	float n_out15p0 = floor(n_out13p0);
-
-// ScalarClamp:18
-	float n_in18p1 = 0.00000;
-	float n_in18p2 = 1.00000;
-	float n_out18p0 = clamp(n_out15p0, n_in18p1, n_in18p2);
-
-// Output:0
-	ALBEDO = n_out6p0;
-	ALPHA = n_out18p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-graph_offset = Vector2( -477.706, 86.3233 )
-flags/ambient_light_disabled = true
-flags/depth_test_disable = true
-flags/ensure_correct_normals = true
-flags/shadows_disabled = true
-flags/unshaded = true
-nodes/fragment/0/position = Vector2( 380, 360 )
-nodes/fragment/2/node = SubResource( 15 )
-nodes/fragment/2/position = Vector2( -780, 520 )
-nodes/fragment/6/node = SubResource( 16 )
-nodes/fragment/6/position = Vector2( -40, 360 )
-nodes/fragment/7/node = SubResource( 17 )
-nodes/fragment/7/position = Vector2( -440, 100 )
-nodes/fragment/8/node = SubResource( 18 )
-nodes/fragment/8/position = Vector2( -440, 300 )
-nodes/fragment/9/node = SubResource( 19 )
-nodes/fragment/9/position = Vector2( -1580, 740 )
-nodes/fragment/10/node = SubResource( 7 )
-nodes/fragment/10/position = Vector2( -580, 820 )
-nodes/fragment/11/node = SubResource( 8 )
-nodes/fragment/11/position = Vector2( -860, 900 )
-nodes/fragment/12/node = SubResource( 9 )
-nodes/fragment/12/position = Vector2( -1340, 760 )
-nodes/fragment/13/node = SubResource( 10 )
-nodes/fragment/13/position = Vector2( -320, 660 )
-nodes/fragment/15/node = SubResource( 11 )
-nodes/fragment/15/position = Vector2( -20, 520 )
-nodes/fragment/16/node = SubResource( 12 )
-nodes/fragment/16/position = Vector2( -1100, 760 )
-nodes/fragment/17/node = SubResource( 13 )
-nodes/fragment/17/position = Vector2( -840, 760 )
-nodes/fragment/18/node = SubResource( 14 )
-nodes/fragment/18/position = Vector2( 180, 440 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 6, 2, 7, 0, 6, 0, 8, 0, 6, 1, 6, 0, 0, 0, 11, 0, 10, 1, 9, 0, 12, 0, 10, 0, 13, 1, 13, 0, 15, 0, 2, 0, 13, 0, 12, 1, 16, 0, 16, 0, 17, 0, 17, 0, 10, 0, 15, 0, 18, 0, 18, 0, 0, 1 )
-
-[sub_resource type="ShaderMaterial" id=21]
-shader = SubResource( 20 )
-shader_param/Hidden = Color( 1, 0.941176, 0.0431373, 1 )
-shader_param/Not_Hidden = Color( 1, 0, 0, 1 )
-shader_param/Visibility_Rating = 0.0
-
-[sub_resource type="AnimationNodeAnimation" id=28]
-animation = "Idle"
-
-[sub_resource type="AnimationNodeAnimation" id=29]
-animation = "Investigate"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=30]
-advance_condition = "Investigate"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+[sub_resource type="AnimationNodeStateMachineTransition" id="31"]
 switch_mode = 2
-auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=23]
-states/Idle/node = SubResource( 28 )
-states/Idle/position = Vector2( 238, 64 )
-states/Investigate/node = SubResource( 29 )
-states/Investigate/position = Vector2( 541, 44 )
-transitions = [ "Idle", "Investigate", SubResource( 30 ), "Investigate", "Idle", SubResource( 31 ) ]
-start_node = "Idle"
-graph_offset = Vector2( -127, -122 )
+[sub_resource type="AnimationNodeStateMachine" id="23"]
+states/Idle/node = SubResource("28")
+states/Idle/position = Vector2(238, 64)
+states/Investigate/node = SubResource("29")
+states/Investigate/position = Vector2(541, 44)
+transitions = ["Idle", "Investigate", SubResource("30"), "Investigate", "Idle", SubResource("31")]
+graph_offset = Vector2(-127, -122)
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=24]
+[sub_resource type="AnimationNodeStateMachinePlayback" id="24"]
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id="25"]
 resource_name = "Idle"
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id="26"]
 resource_name = "Investigate"
 length = 3.0
-loop = true
 tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Eyes:rotation_degrees:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, -5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Eyes:rotation_degrees:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Eyes:rotation_degrees:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("AnimationTree:parameters/conditions/Investigate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ false ]
+"values": [false]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id="27"]
 length = 0.001
 tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("Eyes:rotation_degrees:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("Eyes:rotation_degrees:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
 tracks/2/path = NodePath("Eyes:rotation_degrees:z")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
 }
 tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
 tracks/3/path = NodePath("AnimationTree:parameters/conditions/Investigate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [ false ]
+"values": [false]
 }
 
-[node name="Human" type="KinematicBody"]
-moving_platform_apply_velocity_on_leave = 1
-script = ExtResource( 1 )
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4u044"]
+_data = {
+"Idle": SubResource("25"),
+"Investigate": SubResource("26"),
+"RESET": SubResource("27")
+}
 
-[node name="Ears" type="Spatial" parent="."]
+[node name="Human" type="CharacterBody3D"]
+script = ExtResource("1")
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 1 )
+[node name="Ears" type="Node3D" parent="."]
 
-[node name="Body" type="MeshInstance" parent="CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0 )
-mesh = SubResource( 2 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("1")
+
+[node name="Body" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0)
+mesh = SubResource("2")
 skeleton = NodePath("../..")
 
-[node name="NavigationAgent" type="NavigationAgent" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
 
-[node name="Eyes" type="Spatial" parent="."]
+[node name="Eyes" type="Node3D" parent="." node_paths=PackedStringArray("UpperCast", "MiddleCast", "LowerCast")]
+script = ExtResource("2_k8otp")
+UpperCast = NodePath("RayCast3D")
+MiddleCast = NodePath("RayCast2")
+LowerCast = NodePath("RayCast3")
+Distances = ExtResource("3_iw61r")
 
-[node name="Direct" type="Area" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33841, 0 )
+[node name="Direct" type="Area3D" parent="Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33841, 0)
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="Eyes/Direct"]
-transform = Transform( 10, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 0, -0.722897, -18.8641 )
-shape = ExtResource( 4 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eyes/Direct"]
+transform = Transform3D(10, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 0, -0.722897, -18.8641)
+shape = ExtResource("4")
 
-[node name="Indirect" type="Area" parent="Eyes"]
+[node name="Indirect" type="Area3D" parent="Eyes"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Eyes/Indirect"]
-transform = Transform( 20, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0.603323, -9.76133 )
-shape = ExtResource( 4 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eyes/Indirect"]
+transform = Transform3D(20, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0.603323, -9.76133)
+shape = ExtResource("4")
 
-[node name="RayCast" type="RayCast" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665, -0.566 )
-enabled = true
-cast_to = Vector3( 0, 0, -37 )
+[node name="RayCast3D" type="RayCast3D" parent="Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665, -0.566)
+target_position = Vector3(0, 0, -37)
 collision_mask = 65536
 
-[node name="RayCast2" type="RayCast" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155 )
-enabled = true
-cast_to = Vector3( 0, 0, -37 )
+[node name="RayCast2" type="RayCast3D" parent="Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155)
+target_position = Vector3(0, 0, -37)
 collision_mask = 65536
 
-[node name="RayCast3" type="RayCast" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155 )
-enabled = true
-cast_to = Vector3( 0, 0, -37 )
+[node name="RayCast3" type="RayCast3D" parent="Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155)
+target_position = Vector3(0, 0, -37)
 collision_mask = 65536
 
-[node name="Facing" type="MeshInstance" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653882, -0.408684 )
-mesh = SubResource( 3 )
+[node name="Facing" type="MeshInstance3D" parent="Eyes"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653882, -0.408684)
+mesh = SubResource("3")
 skeleton = NodePath("../..")
 
 [node name="Mouth" type="AudioStreamPlayer3D" parent="."]
 attenuation_model = 3
-bus = "NPCs"
+bus = &"NPCs"
 
 [node name="Feet" type="AudioStreamPlayer3D" parent="."]
 
-[node name="Indicator" type="MeshInstance" parent="."]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.84163, 0 )
-mesh = SubResource( 22 )
-material/0 = SubResource( 21 )
+[node name="Indicator" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.84163, 0)
+mesh = SubResource("22")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 23 )
+tree_root = SubResource("23")
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 24 )
+parameters/playback = SubResource("24")
 parameters/conditions/Investigate = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Idle = SubResource( 25 )
-anims/Investigate = SubResource( 26 )
-anims/RESET = SubResource( 27 )
+libraries = {
+"": SubResource("AnimationLibrary_4u044")
+}
 
-[node name="Sword" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.74846e-07, -4, 0, 4, -1.74846e-07, 0, 0, 0, 4, -0.266761, 0.5346, -0.781987 )
-
-[connection signal="body_entered" from="Eyes/Direct" to="." method="InArea" binds= [ true, "DirectVision" ]]
-[connection signal="body_exited" from="Eyes/Direct" to="." method="InArea" binds= [ false, "DirectVision" ]]
-[connection signal="body_entered" from="Eyes/Indirect" to="." method="InArea" binds= [ true, "InDirectVision" ]]
-[connection signal="body_exited" from="Eyes/Indirect" to="." method="InArea" binds= [ false, "InDirectVision" ]]
+[connection signal="body_entered" from="Eyes/Direct" to="." method="InArea" binds= [true, "DirectVision"]]
+[connection signal="body_exited" from="Eyes/Direct" to="." method="InArea" binds= [false, "DirectVision"]]
+[connection signal="body_entered" from="Eyes/Indirect" to="." method="InArea" binds= [true, "InDirectVision"]]
+[connection signal="body_exited" from="Eyes/Indirect" to="." method="InArea" binds= [false, "InDirectVision"]]

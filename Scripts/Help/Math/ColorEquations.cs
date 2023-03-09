@@ -5,7 +5,7 @@ namespace Help.Math
 {
     public static class ColorEquations
     {
-        public static float CompareTwoTextures(Texture one, Texture two)
+        public static float CompareTwoTextures(Texture2D one, Texture2D two)
         {
             // Image img1 = one.GetData();
             // Image img2 = two.GetData();
@@ -17,10 +17,10 @@ namespace Help.Math
         [Obsolete]
         private static Color[,] ImageToColorArray(Image input)
         {
-            Color[,] outputing = new Color[(int)input.GetSize().x, (int)input.GetSize().y];
-            for (int x = 0; x < input.GetSize().x; x++)
+            Color[,] outputing = new Color[(int)input.GetSize().X, (int)input.GetSize().Y];
+            for (int x = 0; x < input.GetSize().X; x++)
             {
-                for (int y = 0; y < input.GetSize().y; y++)
+                for (int y = 0; y < input.GetSize().Y; y++)
                 {
                     outputing[x, y] = input.GetPixel(x, y);
                 }
@@ -68,23 +68,22 @@ namespace Help.Math
 
         private static bool ColorMatches(Color first, Color second, float matching)
         {
-            float rMean = (first.r + second.r) / 2.0f;
-            float r = (first.r - second.r);
-            float g = first.g - second.g;
-            float b = first.b - second.b;
+            float rMean = (first.R + second.R) / 2.0f;
+            float r = (first.R - second.R);
+            float g = first.G - second.G;
+            float b = first.B - second.B;
             float output = Mathf.Sqrt(((int)((512 + rMean) * r * r) >> 8) + 4 * g * g + ((int)((767 - rMean) * b * b) >> 8));
             return output < matching;
         }
 
-        private static Color[,] ColorAverageInFifths(Texture Camo)
+        private static Color[,] ColorAverageInFifths(Texture2D Camo)
         {
             Color[,] Colors = new Color[5, 5];
-            Image source = Camo.GetData();
+            Image source = Camo.GetImage();
             if (source.IsCompressed())
             {
                 source.Decompress();
             }
-            source.Lock();
             int fifthX = source.GetWidth() / 5;
             int fifthY = source.GetHeight() / 5;
             for (int x = 0; x < 5; x++)
@@ -123,9 +122,9 @@ namespace Help.Math
                     for (int y = startY; y < endY; y++)
                     {
                         Color c = image.GetPixel(i, y);
-                        r += c.r;
-                        g += c.g;
-                        b += c.b;
+                        r += c.R;
+                        g += c.G;
+                        b += c.B;
                     }
                 }
                 r /= count;
@@ -139,9 +138,9 @@ namespace Help.Math
                     for (int y = 0; y < 5; y++)
                     {
                         Color c = AverageColor(startX + (x * stepFX), startX + (x + 1) * stepFX, startY + y * stepFY, startY + (y + 1) * stepFY, image);
-                        r += c.r;
-                        g += c.g;
-                        b += c.b;
+                        r += c.R;
+                        g += c.G;
+                        b += c.B;
                     }
                 }
                 r /= 25.0f;
@@ -154,7 +153,7 @@ namespace Help.Math
 
         public static float ColorIntensity(Color c)
         {
-            return (Mathf.Clamp(Mathf.Round((ConvertToLumaUse(c.r, 0.2126f) + ConvertToLumaUse(c.g, 0.7152f) + ConvertToLumaUse(c.b, 0.0722f)) * 10), 0f, 10f) / 10);
+            return (Mathf.Clamp(Mathf.Round((ConvertToLumaUse(c.R, 0.2126f) + ConvertToLumaUse(c.G, 0.7152f) + ConvertToLumaUse(c.B, 0.0722f)) * 10), 0f, 10f) / 10);
         }
 
         private static float ConvertToLumaUse(float value, float multiplier)

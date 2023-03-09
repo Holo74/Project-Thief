@@ -3,7 +3,7 @@ using System;
 
 namespace Debug
 {
-    public class VariablesModPanel : Panel
+    public partial class VariablesModPanel : Panel
     {
         [Export]
         private bool Enabled { get; set; }

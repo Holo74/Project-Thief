@@ -3,10 +3,10 @@ using System;
 
 namespace Player.Handlers
 {
-    public class CameraShaker : Spatial
+    public partial class CameraShaker : Node3D
     {
-        private SceneTreeTween tweening;
-        private SceneTreeTween Tweening
+        private Tween tweening;
+        private Tween Tweening
         {
             get
             {
@@ -28,12 +28,12 @@ namespace Player.Handlers
         public override void _Ready()
         {
             // Tweening = CreateTween();
-            //Variables.Jump += () => { if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing) MoveToPositionAndBack(new Vector3(0, -.5f, 0), .625f * 2); };
-            Variables.OnFloorChange += (onFloor) =>
+            //Variables.Instance.Jump += () => { if (Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing) MoveToPositionAndBack(new Vector3(0, -.5f, 0), .625f * 2); };
+            Variables.Instance.OnFloorChange += (onFloor) =>
             {
-                if (onFloor && Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing)
+                if (onFloor && Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing)
                 {
-                    MoveToPositionAndBack(new Vector3(0, Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y)), -.9f, 0f), 0), .2f);
+                    MoveToPositionAndBack(new Vector3(0, Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.Y)), -.9f, 0f), 0), .2f);
                 }
             };
         }
@@ -42,8 +42,8 @@ namespace Player.Handlers
         {
             Tweening = CreateTween();
             Tweening.SetProcessMode(Tween.TweenProcessMode.Physics);
-            Tweening.TweenProperty(PlayerQuickAccess.CAMERA_SHAKE, "translation", pos, time / 2).SetEase(Tween.EaseType.Out);
-            Tweening.Chain().TweenProperty(PlayerQuickAccess.CAMERA_SHAKE, "translation", new Vector3(0, 0, 0), time / 2).SetEase(Tween.EaseType.In);
+            Tweening.TweenProperty(PlayerQuickAccess.CAMERA_SHAKE, "position", pos, time / 2).SetEase(Tween.EaseType.Out);
+            Tweening.Chain().TweenProperty(PlayerQuickAccess.CAMERA_SHAKE, "position", new Vector3(0, 0, 0), time / 2).SetEase(Tween.EaseType.In);
             Tweening.Play();
 
         }
@@ -56,7 +56,7 @@ namespace Player.Handlers
 
             for (float i = 0; i < amount; i += step)
             {
-                PropertyTweener t = Tweening.TweenProperty(PlayerQuickAccess.CAMERA_SHAKE, "translation", new Vector3(Mathf.Clamp(x - i, 0, x) * flip, Mathf.Clamp(y - i, 0, y) * flip, Mathf.Clamp(z - i, 0, z) * flip), time);
+                PropertyTweener t = Tweening.TweenProperty(PlayerQuickAccess.CAMERA_SHAKE, "position", new Vector3(Mathf.Clamp(x - i, 0, x) * flip, Mathf.Clamp(y - i, 0, y) * flip, Mathf.Clamp(z - i, 0, z) * flip), time);
                 t.SetEase(Tween.EaseType.Out);
                 flip *= -1;
                 played = true;

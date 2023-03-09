@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Movement
 {
-    public class Climbing : AbstractMovement
+    public partial class Climbing : AbstractMovement
     {
         public Climbing(Vector3 right)
         {
@@ -13,7 +13,7 @@ namespace Player.Movement
         private Vector3 Forward { get; set; }
         private bool TouchingFloor { get; set; } = true;
 
-        public override void FallingMovement(float delta)
+        public override void FallingMovement(double delta)
         {
             Move();
             TouchingFloor = false;
@@ -21,43 +21,45 @@ namespace Player.Movement
 
         public override void FloorDetection()
         {
-            if (Variables.ON_FLOOR != PlayerQuickAccess.FLOOR_CAST.IsColliding())
+            if (Variables.Instance.ON_FLOOR != PlayerQuickAccess.FLOOR_CAST.IsColliding())
             {
-                Variables.ON_FLOOR = PlayerQuickAccess.FLOOR_CAST.IsColliding();
+                Variables.Instance.ON_FLOOR = PlayerQuickAccess.FLOOR_CAST.IsColliding();
             }
         }
 
-        public override void Movement(float delta)
+        public override void Movement(double delta)
         {
             Move();
             if (!TouchingFloor)
             {
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
             }
         }
 
         private Vector3 Movement()
         {
             Vector3 output = new Vector3();
-            output = (InputToInt("ui_down") - InputToInt("ui_up")) * Vector3.Down;
-            output += (InputToInt("ui_right") - InputToInt("ui_left")) * Right;
+            output = (InputToInt("Back") - InputToInt("Forward")) * Vector3.Down;
+            output += (InputToInt("Right") - InputToInt("Left")) * Right;
             return output.Normalized();
         }
 
         private void Move()
         {
-            Variables.WALKING_MOVEMENT = Movement() + Forward;
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.WALKING_MOVEMENT * Variables.STANDING_SPEED);
-            if (Input.IsActionJustPressed("ui_select"))
+            Variables.Instance.WALKING_MOVEMENT = Movement();
+            PlayerQuickAccess.CHARACTER_BODY.Velocity = Variables.Instance.WALKING_MOVEMENT;
+            PlayerQuickAccess.CHARACTER_BODY.MoveAndSlide();
+            if (Input.IsActionJustPressed("Jump"))
             {
-                Jump(Vector3.Down.Cross(Right) * Variables.STANDING_SPEED);
-                Variables.RESET_MOVEMENT();
+                Jump(Vector3.Down.Cross(Right) * ((float)Variables.Instance.STANDING_SPEED));
+                Variables.Instance.RESET_MOVEMENT();
             }
         }
 
         public override void Starting()
         {
             Forward = Vector3.Up.Cross(Right);
+            PlayerQuickAccess.CHARACTER_BODY.UpDirection = Forward;
         }
     }
 

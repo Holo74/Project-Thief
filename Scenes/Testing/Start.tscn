@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="Start" type="Label3D" groups=["Start"]]
+layers = 262144
+billboard = 1
+text = "Start Position"

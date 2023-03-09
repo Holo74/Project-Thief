@@ -10,54 +10,54 @@ background_mode = 1
 
 [sub_resource type="SphereMesh" id=3]
 
-[node name="Gem" type="Spatial"]
+[node name="Gem" type="Node3D"]
 script = ExtResource( 2 )
 
-[node name="Capture Light" type="Timer" parent="."]
+[node name="Capture Light3D" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="Bottom" type="Viewport" parent="."]
+[node name="Bottom" type="SubViewport" parent="."]
 size = Vector2( 100, 100 )
-size_override_stretch = true
+size_2d_override_stretch = true
 transparent_bg = true
 render_target_update_mode = 3
 shadow_atlas_size = 4096
 
-[node name="Camera" type="Camera" parent="Bottom"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
+[node name="Camera3D" type="Camera3D" parent="Bottom"]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
 cull_mask = 524288
 environment = SubResource( 4 )
 projection = 1
 current = true
 size = 0.2
 
-[node name="Top" type="Viewport" parent="."]
+[node name="Top" type="SubViewport" parent="."]
 size = Vector2( 100, 100 )
-size_override_stretch = true
+size_2d_override_stretch = true
 transparent_bg = true
 render_target_update_mode = 3
 shadow_atlas_size = 4096
 
-[node name="Camera" type="Camera" parent="Top"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
+[node name="Camera3D" type="Camera3D" parent="Top"]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
 cull_mask = 524288
 environment = SubResource( 2 )
 projection = 1
 current = true
 size = 0.2
 
-[node name="Top Remote" type="RemoteTransform" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
-remote_path = NodePath("../Top/Camera")
+[node name="Top Remote" type="RemoteTransform3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0 )
+remote_path = NodePath("../Top/Camera3D")
 
-[node name="Bottom Remote" type="RemoteTransform" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
-remote_path = NodePath("../Bottom/Camera")
+[node name="Bottom Remote" type="RemoteTransform3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0 )
+remote_path = NodePath("../Bottom/Camera3D")
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0 )
 layers = 524288
 cast_shadow = 0
 mesh = SubResource( 3 )
 
-[connection signal="timeout" from="Capture Light" to="." method="UpdateLight"]
+[connection signal="timeout" from="Capture Light3D" to="." method="UpdateLight"]

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bx20ylbpi5ym1"]
+
+[ext_resource type="Script" path="res://Scripts/Environment/Resources/CamoInstance.cs" id="1_5yors"]
+
+[resource]
+script = ExtResource("1_5yors")
+Priority = 0

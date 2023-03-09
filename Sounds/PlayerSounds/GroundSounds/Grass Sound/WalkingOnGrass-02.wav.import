@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/WalkingOnGrass-02.wav-0397329eceb7a0f2472d23fa910e956c.sample"
+type="AudioStreamWAV"
+uid="uid://bh05vwt6u81e2"
+path="res://.godot/imported/WalkingOnGrass-02.wav-0397329eceb7a0f2472d23fa910e956c.sample"
 
 [deps]
 
 source_file="res://Sounds/PlayerSounds/GroundSounds/Grass Sound/WalkingOnGrass-02.wav"
-dest_files=[ "res://.import/WalkingOnGrass-02.wav-0397329eceb7a0f2472d23fa910e956c.sample" ]
+dest_files=["res://.godot/imported/WalkingOnGrass-02.wav-0397329eceb7a0f2472d23fa910e956c.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

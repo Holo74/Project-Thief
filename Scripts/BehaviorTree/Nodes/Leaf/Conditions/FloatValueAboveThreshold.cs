@@ -3,13 +3,13 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Conditions
 {
-    public class FloatValueAboveThreshold : Base
+    public partial class FloatValueAboveThreshold : Base
     {
         [Export]
         private float Threshold { get; set; }
         [Export]
         private BehaviorTree.Enums.KeyList Key { get; set; }
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             if (BC.BlackBoard.ContainsKey(Key))
             {

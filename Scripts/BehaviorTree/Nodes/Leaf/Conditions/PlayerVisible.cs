@@ -3,11 +3,11 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Conditions
 {
-    public class PlayerVisible : Base
+    public partial class PlayerVisible : Base
     {
         [Export(PropertyHint.Range, "0, 2")]
         private float Threshold { get; set; }
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             if (Player.PlayerManager.Instance.GetStealthValue() > Threshold)
             {

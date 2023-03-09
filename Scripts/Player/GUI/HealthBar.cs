@@ -3,7 +3,7 @@ using System;
 
 namespace Player.GUI
 {
-    public class HealthBar : Control
+    public partial class HealthBar : Control
     {
         private Label HealthNumber { get; set; }
         private ProgressBar Health { get; set; }

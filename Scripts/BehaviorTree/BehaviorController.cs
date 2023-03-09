@@ -3,11 +3,11 @@ using System;
 
 namespace BehaviorTree
 {
-    public class BehaviorController : KinematicBody
+    public partial class BehaviorController : CharacterBody3D
     {
         private Nodes.Base Root { get; set; }
-        public Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, object> BlackBoard { get; private set; }
-        public NavigationAgent NavAgent { get; private set; }
+        public Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, Variant> BlackBoard { get; private set; }
+        public NavigationAgent3D NavAgent { get; private set; }
         public AnimationTree AnimTree { get; private set; }
         public Vector3 SetVelocity { get; set; }
 
@@ -21,14 +21,14 @@ namespace BehaviorTree
         private float StartBeyondXDegrees { get; set; }
         public override void _Ready()
         {
-            BlackBoard = new Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, object>();
-            NavAgent = GetNode<NavigationAgent>("NavigationAgent");
+            BlackBoard = new Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, Variant>();
+            NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
             AnimTree = GetNode<AnimationTree>("AnimationTree");
             StartBeyondXDegrees = (90 - StartBeyondXDegrees) / 90;
             VelocitySyncCounter = 0;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if (!(Root is null))
             {
@@ -40,7 +40,7 @@ namespace BehaviorTree
             }
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             if (SetVelocity.IsEqualApprox(Vector3.Zero))
             {
@@ -72,13 +72,14 @@ namespace BehaviorTree
         public void SafeVelocityComputed(Vector3 velocity)
         {
             // Turn to
-            if (velocity.Dot(-GlobalTransform.basis.z) < StartBeyondXDegrees)
+            if (velocity.Dot(-GlobalTransform.Basis.Z) < StartBeyondXDegrees)
             {
-                Transform = Transform.InterpolateWith(Transform.LookingAt(velocity, Vector3.Up), GetPhysicsProcessDeltaTime() * TurnSpeed);
+                Transform = Transform.InterpolateWith(Transform.LookingAt(velocity, Vector3.Up), ((float)GetPhysicsProcessDeltaTime()) * TurnSpeed);
             }
             else
             {
-                MoveAndSlideWithSnap(velocity, Vector3.Down * .4f, Vector3.Up, true);
+                Velocity = velocity;
+                MoveAndSlide();
             }
         }
     }

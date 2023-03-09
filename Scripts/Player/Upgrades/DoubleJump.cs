@@ -3,18 +3,18 @@ using System;
 
 namespace Player.Upgrades
 {
-    public class DoubleJump : AbstractUpgrade
+    public partial class DoubleJump : AbstractUpgrade
     {
         private int JumpAmount { get; set; } = 0;
         private int frameBuffer = 1;
         public override void Applied()
         {
-            Variables.OnFloorChange += FloorChange;
+            Variables.Instance.OnFloorChange += FloorChange;
         }
 
-        public override void Update(float delta)
+        public override void Update(double delta)
         {
-            if (!Player.Variables.ON_FLOOR)
+            if (!Player.Variables.Instance.ON_FLOOR)
             {
                 // This way you don't jump again when you first jump
                 if (frameBuffer == 1)
@@ -23,10 +23,10 @@ namespace Player.Upgrades
                     // Skips the first frame
                     return;
                 }
-                if (Input.IsActionJustPressed("ui_select") && JumpAmount < 1)
+                if (Input.IsActionJustPressed("Jump") && JumpAmount < 1)
                 {
                     JumpAmount += 1;
-                    Player.Variables.GRAVITY_MOVEMENT = Vector3.Up * Player.Variables.JUMP_STRENGTH;
+                    Player.Variables.Instance.GRAVITY_MOVEMENT = Vector3.Up * ((float)Player.Variables.Instance.JUMP_STRENGTH);
                 }
             }
 
@@ -34,7 +34,7 @@ namespace Player.Upgrades
 
         public override void Removed()
         {
-            Variables.OnFloorChange -= FloorChange;
+            Variables.Instance.OnFloorChange -= FloorChange;
         }
 
         private void FloorChange(bool floor)

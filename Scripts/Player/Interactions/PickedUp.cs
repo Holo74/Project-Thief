@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Interactions
 {
-    public class PickedUp : AbstractInteraction
+    public partial class PickedUp : AbstractInteraction
     {
         public override bool CanInteract()
         {

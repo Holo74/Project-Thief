@@ -3,7 +3,7 @@ using System;
 
 namespace Events.Collisions
 {
-    public class ChangeDisabled : CollisionShape
+    public partial class ChangeDisabled : CollisionShape3D
     {
         // [Signal]
         // public delegate void ChangedTo(bool to);

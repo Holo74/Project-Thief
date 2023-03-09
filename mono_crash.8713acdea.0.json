@@ -1,0 +1,454 @@
+{
+  "protocol_version" : "0.0.6",
+  "configuration" : {
+    "version" : "(6.12.0) ((no/6051b710)",
+    "tlc" : "normal",
+    "sigsgev" : "altstack",
+    "notifications" : "epoll",
+    "architecture" : "amd64",
+    "disabled_features" : "none",
+    "smallconfig" : "disabled",
+    "bigarrays" : "disabled",
+    "softdebug" : "enabled",
+    "interpreter" : "enabled",
+    "llvm_support" : "disabled",
+    "suspend" : "preemptive"
+  },
+  "memory" : {
+    "minor_gc_time" : "0",
+    "major_gc_time" : "0",
+    "minor_gc_count" : "0",
+    "major_gc_count" : "0",
+    "major_gc_time_concurrent" : "0"
+ },
+  "threads" : [
+ {
+    "is_managed" : true,
+    "offset_free_hash" : "0x8713acdea",
+    "offset_rich_hash" : "0x8713acf4b",
+    "crashed" : true,
+    "native_thread_id" : "0x7fb5e0cc25c0",
+    "thread_info_addr" : "0x1160f9a0",
+    "thread_name" : "Godot.64",
+    "ctx" : {
+      "IP" : "0x1b4df6d",
+      "SP" : "0x7fff379e5db0",
+      "BP" : "0x7fb59e9026f8"
+  },
+    "managed_frames" : [
+  {
+      "is_managed" : "false",
+      "native_address" : "unregistered"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "8C99985F-F129-47BA-A88B-379583357AC3",
+      "token" : "0x00000",
+      "native_offset" : "0x0",
+      "filename" : "GodotSharp.dll",
+      "sizeofimage" : "0x29a000",
+      "timestamp" : "0xdc602040",
+      "il_offset" : "0xffffffff"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "8C99985F-F129-47BA-A88B-379583357AC3",
+      "token" : "0x60001ed",
+      "native_offset" : "0x0",
+      "filename" : "GodotSharp.dll",
+      "sizeofimage" : "0x29a000",
+      "timestamp" : "0xdc602040",
+      "il_offset" : "0x00007"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "8C99985F-F129-47BA-A88B-379583357AC3",
+      "token" : "0x6004e53",
+      "native_offset" : "0x0",
+      "filename" : "GodotSharp.dll",
+      "sizeofimage" : "0x29a000",
+      "timestamp" : "0xdc602040",
+      "il_offset" : "0x00000"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "02071A39-C8A3-4187-BDD1-F58E4BE38764",
+      "token" : "0x60013e5",
+      "native_offset" : "0x0",
+      "filename" : "mscorlib.dll",
+      "sizeofimage" : "0x472000",
+      "timestamp" : "0xbdaa207d",
+      "il_offset" : "0x00029"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "8C99985F-F129-47BA-A88B-379583357AC3",
+      "token" : "0x600023f",
+      "native_offset" : "0x0",
+      "filename" : "GodotSharp.dll",
+      "sizeofimage" : "0x29a000",
+      "timestamp" : "0xdc602040",
+      "il_offset" : "0x0001d"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "8C99985F-F129-47BA-A88B-379583357AC3",
+      "token" : "0x6000247",
+      "native_offset" : "0x0",
+      "filename" : "GodotSharp.dll",
+      "sizeofimage" : "0x29a000",
+      "timestamp" : "0xdc602040",
+      "il_offset" : "0x00001"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x6000150",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x00016"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x00000",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0xffffffff"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x6000134",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x0005d"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x600000d",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x00007"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x6000011",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x0003b"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x00000",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0xffffffff"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x600007f",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x00007"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x60000a1",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x00024"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x600000c",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0x00037"
+   }
+,
+  {
+      "is_managed" : "true",
+      "guid" : "18619155-3601-4A36-A410-A85D66D1C098",
+      "token" : "0x00000",
+      "native_offset" : "0x0",
+      "filename" : "Project Thief.dll",
+      "sizeofimage" : "0x20000",
+      "timestamp" : "0xe8a2fab4",
+      "il_offset" : "0xffffffff"
+   }
+
+  ],
+  "unmanaged_frames" : [
+ {
+    "is_managed" : "false",
+    "native_address" : "0xff3b2b",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x118c54e",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1195344",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x10033b5",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x10035b9",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0xff5c6f",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x100d210",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1172420",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1b4df6d",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "true",
+    "guid" : "8C99985F-F129-47BA-A88B-379583357AC3",
+    "token" : "0x00000",
+    "native_offset" : "0x0",
+    "filename" : "GodotSharp.dll",
+    "sizeofimage" : "0x29a000",
+    "timestamp" : "0xdc602040",
+    "il_offset" : "0x00000"
+  }
+
+ ]
+},
+{
+  "is_managed" : false,
+  "offset_free_hash" : "0x0",
+  "offset_rich_hash" : "0x0",
+  "crashed" : false,
+  "native_thread_id" : "0x7fb59cffe700",
+  "thread_info_addr" : "0x7fb584000b60",
+  "thread_name" : "Debugger agent",
+  "ctx" : {
+    "IP" : "0x7fb5e11714ff",
+    "SP" : "0x7fb59cffda40",
+    "BP" : "0x19"
+ },
+  "unmanaged_frames" : [
+ {
+    "is_managed" : "false",
+    "native_address" : "0xff3b2b",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x118c54e",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1195217",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x100276a",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1172420",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e11714ff",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1061964",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1073972",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1191ad7",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1166609",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e0f2a133",
+    "native_offset" : "0x00000"
+  }
+
+ ]
+},
+{
+  "is_managed" : false,
+  "offset_free_hash" : "0x0",
+  "offset_rich_hash" : "0x0",
+  "crashed" : false,
+  "native_thread_id" : "0x7fb59ef7b700",
+  "thread_info_addr" : "0x7fb590000b60",
+  "thread_name" : "Finalizer",
+  "ctx" : {
+    "IP" : "0x7fb5e1170454",
+    "SP" : "0x7fb59ef7ace0",
+    "BP" : "0x5cff500"
+ },
+  "unmanaged_frames" : [
+ {
+    "is_managed" : "false",
+    "native_address" : "0xff3b2b",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x118c54e",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1195217",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x100276a",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1172420",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1170454",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1170548",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x10bf408",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x1191ad7",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e1166609",
+    "native_offset" : "0x00000"
+  }
+,
+ {
+    "is_managed" : "false",
+    "native_address" : "0x7fb5e0f2a133",
+    "native_offset" : "0x00000"
+  }
+
+ ]
+}
+]
+}

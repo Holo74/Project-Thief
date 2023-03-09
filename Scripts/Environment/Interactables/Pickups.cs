@@ -5,7 +5,7 @@ using Player.Interactions;
 
 namespace Environment.Interactables
 {
-    public class Pickups : RigidBody, IInteract
+    public partial class Pickups : RigidBody3D, IInteract
     {
         public void Interact()
         {

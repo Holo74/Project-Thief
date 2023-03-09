@@ -3,18 +3,18 @@ using System;
 
 namespace Player.Handlers
 {
-    public class UpgradeHandler : Resource
+    public partial class UpgradeHandler : Resource
     {
         public void Init()
         {
-            UpgradeList = new System.Collections.Generic.List<Upgrades.AbstractUpgrade>();
+            UpgradeList = new Godot.Collections.Array<Upgrades.AbstractUpgrade>();
             foreach (Upgrades.AbstractUpgrade upgrade in UpgradeList)
             {
                 upgrade.Applied();
             }
         }
         [Export]
-        public System.Collections.Generic.List<Upgrades.AbstractUpgrade> UpgradeList { get; private set; } = new System.Collections.Generic.List<Upgrades.AbstractUpgrade>();
+        public Godot.Collections.Array<Upgrades.AbstractUpgrade> UpgradeList { get; private set; } = new Godot.Collections.Array<Upgrades.AbstractUpgrade>();
 
         public void AddUpgrade(Upgrades.AbstractUpgrade upgrade)
         {
@@ -31,7 +31,7 @@ namespace Player.Handlers
             }
         }
 
-        public void RunUpgrades(float delta)
+        public void RunUpgrades(double delta)
         {
             foreach (Upgrades.AbstractUpgrade upgrade in UpgradeList)
             {

@@ -3,9 +3,9 @@ using System;
 
 namespace BehaviorTree.Nodes.Flow
 {
-    public class Selector : Base
+    public partial class Selector : Base
     {
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             foreach (Base c in Children)
             {

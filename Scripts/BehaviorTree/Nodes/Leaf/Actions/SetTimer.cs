@@ -3,7 +3,7 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Actions
 {
-    public class SetTimer : Base
+    public partial class SetTimer : Base
     {
         [Export]
         private float TimerSet { get; set; }
@@ -15,7 +15,7 @@ namespace BehaviorTree.Nodes.Leaf.Actions
             Clock = GetNode<Timer>("Timer");
         }
 
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             Clock.Start(TimerSet);
             return Results.Success;

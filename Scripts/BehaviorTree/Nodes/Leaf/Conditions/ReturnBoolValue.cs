@@ -3,13 +3,13 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Conditions
 {
-    public class ReturnBoolValue : Base
+    public partial class ReturnBoolValue : Base
     {
         [Export]
         private BehaviorTree.Enums.KeyList Key { get; set; }
         [Export]
         private bool ExpectedVal { get; set; }
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             if (BC.BlackBoard.ContainsKey(Key))
             {

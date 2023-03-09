@@ -6,8 +6,8 @@ code = "shader_type spatial;
 uniform float Scale = 0;
 uniform float StartColorRange : hint_range(0, 1);
 uniform float EndColorRange : hint_range(0, 1);
-uniform vec4 StartColor : hint_color;
-uniform vec4 EndColor : hint_color;
+uniform vec4 StartColor : source_color;
+uniform vec4 EndColor : source_color;
 const float TAO = 6.28318;
 
 void vertex()

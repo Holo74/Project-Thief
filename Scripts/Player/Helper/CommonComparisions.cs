@@ -9,7 +9,7 @@ namespace Player.Helper
         {
             get
             {
-                return Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching;
+                return Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching;
             }
         }
     }

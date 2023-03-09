@@ -3,37 +3,39 @@ using System;
 
 namespace Debug.Menus
 {
-    public class DebugLoadScene : PopupMenu
+    public partial class DebugLoadScene : PopupMenu
     {
+        [Export(PropertyHint.Dir)]
+        private string PathDirectory { get; set; }
         System.Collections.Generic.List<string> LevelList { get; set; }
         public override void _Ready()
         {
             LevelList = new System.Collections.Generic.List<string>();
-            Directory filePath = new Directory();
-            //GD.Print();
-            filePath.Open("res://Scenes/Levels/");
-            filePath.ListDirBegin();
+            DirAccess filePath = DirAccess.Open(PathDirectory);
             string currentName = "";
+            //GD.Print();
+            filePath.ListDirBegin();
             do
             {
                 currentName = filePath.GetNext();
                 if (!filePath.CurrentIsDir())
                 {
-                    if (!currentName.Empty() && currentName.Contains(".tscn"))
+                    if (currentName.Contains(".tscn"))
                     {
                         LevelList.Add(currentName);
                         AddItem(currentName);
                     }
                 }
             }
-            while (!currentName.Empty());
+            while (currentName.Length > 0);
 
-            Connect("id_pressed", this, nameof(LoadLevel));
+            // Connect("id_pressed", new Callable(this, nameof(LoadLevel)));
+            IdPressed += LoadLevel;
         }
 
-        private void LoadLevel(int id)
+        private void LoadLevel(long id)
         {
-            Management.Game.GameManager.Instance.LoadScene("res://Scenes/Levels/" + LevelList[id]);
+            Management.Game.GameManager.Instance.LoadScene(PathDirectory + "/" + LevelList[((int)id)], new Action[] { Management.Game.GameManager.Instance.SetupPlayer });
         }
     }
 }

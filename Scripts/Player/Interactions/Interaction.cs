@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Interactions
 {
-    public class Interaction : RayCast
+    public partial class Interaction : RayCast3D
     {
         public AbstractInteraction InteractMod { get; private set; }
         public void Interact()

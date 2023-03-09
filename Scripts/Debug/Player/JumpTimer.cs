@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Debug.PlayerD
 {
-    public class JumpTimer : Node
+    public partial class JumpTimer : Node
     {
         private long InitialJump { get; set; }
         private long AfterJump { get; set; }
@@ -12,7 +12,7 @@ namespace Debug.PlayerD
         public override void _Ready()
         {
             Watch = new Stopwatch();
-            Player.Variables.OnFloorChange += FloorChange;
+            Player.Variables.Instance.OnFloorChange += FloorChange;
         }
 
         private void FloorChange(bool onFloor)

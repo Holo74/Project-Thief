@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Movement
 {
-    public class Sliding : AbstractMovement
+    public partial class Sliding : AbstractMovement
     {
         private float Modifier { get; set; }
         public Sliding(float modifier)
@@ -11,21 +11,28 @@ namespace Player.Movement
             Modifier = modifier;
         }
 
-        public override void Movement(float delta)
+        public override void Starting()
         {
-            if (Input.IsActionJustPressed("ui_select"))
+            base.Starting();
+            PlayerQuickAccess.CHARACTER_BODY.UpDirection = Vector3.Up;
+        }
+
+        public override void Movement(double delta)
+        {
+            if (Input.IsActionJustPressed("Jump"))
             {
-                Jump(Variables.WALKING_MOVEMENT * Modifier);
+                Jump(Variables.Instance.WALKING_MOVEMENT * Modifier);
                 FallingMovement(delta);
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
                 return;
             }
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlideWithSnap(TotalMovement() * Modifier, Vector3.Down, Vector3.Up);
-            if (Variables.WALKING_MOVEMENT.Length() < Variables.CROUCH_SPEED)
+            PlayerQuickAccess.CHARACTER_BODY.Velocity = TotalMovement() * Modifier;
+            PlayerQuickAccess.CHARACTER_BODY.MoveAndSlide();
+            if (Variables.Instance.WALKING_MOVEMENT.Length() < Variables.Instance.CROUCH_SPEED)
             {
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
             }
-            Variables.WALKING_MOVEMENT *= .99f;
+            Variables.Instance.WALKING_MOVEMENT *= .99f;
         }
     }
 

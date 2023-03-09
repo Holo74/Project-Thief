@@ -1,13 +1,14 @@
 using Godot;
 using System;
+using Environment.Resources;
 
 namespace Player.Handlers
 {
-    public class CamoHandler
+    public partial class CamoHandler
     {
-        private Texture CurrentBodyCamo { get; set; }
+        private Texture2D CurrentBodyCamo { get; set; }
         private System.Collections.Generic.List<CamoInstance> SurroundingTexture { get; set; }
-        private Texture PrioritySurroundingTexture { get; set; }
+        private Texture2D PrioritySurroundingTexture { get; set; }
         private float CurrentCamoMatch { get; set; }
 
         private int BodyShowValue { get; set; }
@@ -24,8 +25,9 @@ namespace Player.Handlers
 
         public void Init()
         {
-            Variables.StandingChangedTo += UpdateBodyValue;
+            Variables.Instance.StandingChangedTo += UpdateBodyValue;
             SurroundingTexture = new System.Collections.Generic.List<CamoInstance>();
+            UpdateBodyValue(Variables.Instance.CURRENT_STANDING_STATE);
         }
 
         private void UpdateBodyValue(Variables.PlayerStandingState state)
@@ -34,7 +36,7 @@ namespace Player.Handlers
             BaseVisibility = (BodyShowValue - 80) + Mathf.RoundToInt(CurrentCamoMatch * 16) * 5;
         }
 
-        public void UpdateCurrentBodyCamo(Texture newCamo)
+        public void UpdateCurrentBodyCamo(Texture2D newCamo)
         {
             CurrentBodyCamo = newCamo;
             UpdateCamoMatch();
@@ -120,13 +122,6 @@ namespace Player.Handlers
             CurrentCamoMatch = Help.Math.ColorEquations.CompareTwoTextures(CurrentBodyCamo, PrioritySurroundingTexture);
             // GD.Print("Finished calculating");
             BaseVisibility = (BodyShowValue - 80) + Mathf.RoundToInt(CurrentCamoMatch * 16) * 5;
-        }
-
-        public struct CamoInstance
-        {
-            public Texture Camo { get; set; }
-            public int Priority { get; set; }
-            public Environment.Resources.SoundDictionary Sound { get; set; }
         }
     }
 }

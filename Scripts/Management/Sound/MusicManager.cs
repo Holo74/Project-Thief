@@ -3,7 +3,7 @@ using System;
 
 namespace Management.Sound
 {
-    public class MusicManager : Node
+    public partial class MusicManager : Node
     {
         private AudioStreamPlayer Ambience { get; set; }
         private AudioStreamPlayer Music { get; set; }

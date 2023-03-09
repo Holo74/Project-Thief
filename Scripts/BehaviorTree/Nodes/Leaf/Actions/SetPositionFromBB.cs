@@ -3,16 +3,16 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Actions
 {
-    public class SetPositionFromBB : Base
+    public partial class SetPositionFromBB : Base
     {
         [Export]
         private Enums.KeyList Memory { get; set; }
 
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
-            if (BC.BlackBoard.ContainsKey(Memory) && BC.BlackBoard[Memory] is Vector3 vec)
+            if (BC.BlackBoard.ContainsKey(Memory) && BC.BlackBoard[Memory].VariantType == Variant.Type.Vector3)
             {
-                BC.BlackBoard[Enums.KeyList.MoveToPosition] = vec;
+                BC.BlackBoard[Enums.KeyList.MoveToPosition] = BC.BlackBoard[Memory].AsVector3();
                 return Results.Success;
             }
             return Results.Failure;

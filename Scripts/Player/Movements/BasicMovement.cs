@@ -3,21 +3,27 @@ using System;
 
 namespace Player.Movement
 {
-    public class BasicMovement : AbstractMovement
+    public partial class BasicMovement : AbstractMovement
     {
-        public override void Movement(float delta)
+        public override void Starting()
         {
-            if (Input.IsActionJustPressed("ui_select"))
+            base.Starting();
+            PlayerQuickAccess.CHARACTER_BODY.UpDirection = Vector3.Up;
+        }
+
+        public override void Movement(double delta)
+        {
+            if (Input.IsActionJustPressed("Jump"))
             {
                 Jump(Vector3.Zero);
                 FallingMovement(delta);
                 return;
             }
-            Variables.WALKING_MOVEMENT = DirectionalInput() * MovementSpeed();
-            Variables.MOVEMENT.Crouch();
-            Variables.MOVEMENT.Crawl();
-            Vector3 floorConnect = PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor() ? Vector3.Zero : Vector3.Down * 0.1f;
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlideWithSnap(TotalMovement() + floorConnect, Vector3.Down * .1f, Vector3.Up, true, 1);
+            Variables.Instance.WALKING_MOVEMENT = DirectionalInput() * ((float)MovementSpeed());
+            Variables.Instance.MOVEMENT.Crouch();
+            Variables.Instance.MOVEMENT.Crawl();
+            PlayerQuickAccess.CHARACTER_BODY.Velocity = TotalMovement();
+            PlayerQuickAccess.CHARACTER_BODY.MoveAndSlide();
         }
     }
 

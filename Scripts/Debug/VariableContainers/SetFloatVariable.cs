@@ -3,7 +3,7 @@ using System;
 
 namespace Debug.VariablesContainers
 {
-    public class SetFloatVariable : Panel
+    public partial class SetFloatVariable : Panel
     {
         // private enum Variables { Gravity, Jump, Walking };
         // [Export]
@@ -11,55 +11,64 @@ namespace Debug.VariablesContainers
         private HSlider Slider { get; set; }
         private LineEdit Line { get; set; }
         private Label Naming { get; set; }
-        public Action<float> SetValue;
-        public Func<float> GetValue;
+        public Action<double> SetValue;
+        public Func<double> GetValue;
         public override void _Ready()
         {
             Slider = GetChild<HSlider>(0);
             Line = GetChild<LineEdit>(2);
             Naming = GetChild<Label>(1);
-            Slider.Connect("value_changed", this, nameof(SliderChanged));
-            Line.Connect("text_entered", this, nameof(TextChanged));
+            Slider.ValueChanged += SliderChanged;
+
+            // Slider.Connect("value_changed", new Callable(this, nameof(SliderChanged)));
+            Line.TextSubmitted += TextChanged;
+            // Line.Connect("text_entered", new Callable(this, nameof(TextChanged)));
             // switch (SelectedVariable)
             // {
-            //     case Variables.Gravity:
-            //         Slider.Value = Player.Variables.GRAVITY_STRENGTH;
-            //         SliderChanged(Player.Variables.GRAVITY_STRENGTH);
+            //     case Variables.Instance.Gravity:
+            //         Slider.Value = Player.Variables.Instance.GRAVITY_STRENGTH;
+            //         SliderChanged(Player.Variables.Instance.GRAVITY_STRENGTH);
             //         break;
-            //     case Variables.Jump:
-            //         Slider.Value = Player.Variables.JUMP_STRENGTH;
-            //         SliderChanged(Player.Variables.JUMP_STRENGTH);
+            //     case Variables.Instance.Jump:
+            //         Slider.Value = Player.Variables.Instance.JUMP_STRENGTH;
+            //         SliderChanged(Player.Variables.Instance.JUMP_STRENGTH);
             //         break;
-            //     case Variables.Walking:
-            //         Slider.Value = Player.Variables.STANDING_SPEED;
-            //         SliderChanged(Player.Variables.STANDING_SPEED);
+            //     case Variables.Instance.Walking:
+            //         Slider.Value = Player.Variables.Instance.STANDING_SPEED;
+            //         SliderChanged(Player.Variables.Instance.STANDING_SPEED);
             //         break;
             // }
         }
 
-        public void Init(Action<float> setting, Func<float> getter, String name)
+        public void Init(Action<double> setting, Func<double> getter, String name)
         {
             SetValue = setting;
             GetValue = getter;
             Naming.Text = name;
-            float temp = GetValue();
-            Slider.Value = temp;
-            SliderChanged(temp);
+            SetValuesFromDatabase();
+        }
+
+        public void SetValuesFromDatabase()
+        {
+            double temp = GetValue();
+            Slider.SetValueNoSignal(temp);
+            Line.Text = temp.ToString();
         }
 
         private void TextChanged(string input)
         {
-            float convert = float.Parse(input);
+            double convert = double.Parse(input);
+            convert = Mathf.Clamp(convert, 0, 100);
             Slider.Value = convert;
         }
 
-        private void SliderChanged(float value)
+        private void SliderChanged(double value)
         {
             Line.Text = value.ToString();
             UpdateValue(value);
         }
 
-        private void UpdateValue(float value)
+        private void UpdateValue(double value)
         {
             SetValue(value);
         }

@@ -3,44 +3,44 @@ using System;
 
 namespace Player.BodyMods
 {
-    public class Mantle : Spatial
+    public partial class Mantle : Node3D
     {
-        private Area HeadSpace { get; set; }
-        private Area LowerLedgeSpace { get; set; }
-        private Area UpperLedgeSpace { get; set; }
-        public RayCast UpperLedge { get; private set; }
-        public RayCast LowerLedge { get; private set; }
+        private Area3D HeadSpace { get; set; }
+        private Area3D LowerLedgeSpace { get; set; }
+        private Area3D UpperLedgeSpace { get; set; }
+        public RayCast3D UpperLedge { get; private set; }
+        public RayCast3D LowerLedge { get; private set; }
         private int InHeadSpace { get; set; }
         private int InUpperLedgeSpace { get; set; }
         private int InLowerLedgeSpace { get; set; }
 
         [Signal]
-        private delegate void SetHeadNumber(string output);
+        public delegate void SetHeadNumberEventHandler(string output);
         [Signal]
-        private delegate void SetBodyNumber(string output);
+        public delegate void SetBodyNumberEventHandler(string output);
         [Signal]
-        private delegate void SetFootNumber(string output);
+        public delegate void SetFootNumberEventHandler(string output);
 
         public override void _Ready()
         {
-            HeadSpace = GetNode<Area>("Spacer");
-            UpperLedgeSpace = GetNode<Area>("UpperBodyLedge");
-            LowerLedgeSpace = GetNode<Area>("LowerBodyLedge");
-            LowerLedge = GetNode<RayCast>("BottomFloor");
-            UpperLedge = GetNode<RayCast>("MiddleFloor");
-            HeadSpace.Connect("body_entered", this, nameof(EnterHeadSpace));
-            HeadSpace.Connect("body_exited", this, nameof(ExitHeadSpace));
-            UpperLedgeSpace.Connect("body_entered", this, nameof(EnterUpperLedgeSpace));
-            UpperLedgeSpace.Connect("body_exited", this, nameof(ExitUpperLedgeSpace));
-            LowerLedgeSpace.Connect("body_entered", this, nameof(EnterLowerLedgeSpace));
-            LowerLedgeSpace.Connect("body_exited", this, nameof(ExitLowerLedgeSpace));
-            Variables.StandingChangedTo += CrouchChange;
-            Variables.OnFloorChange += ChangeMonitors;
+            HeadSpace = GetNode<Area3D>("Spacer");
+            UpperLedgeSpace = GetNode<Area3D>("UpperBodyLedge");
+            LowerLedgeSpace = GetNode<Area3D>("LowerBodyLedge");
+            LowerLedge = GetNode<RayCast3D>("BottomFloor");
+            UpperLedge = GetNode<RayCast3D>("MiddleFloor");
+            HeadSpace.Connect("body_entered", new Callable(this, nameof(EnterHeadSpace)));
+            HeadSpace.Connect("body_exited", new Callable(this, nameof(ExitHeadSpace)));
+            UpperLedgeSpace.Connect("body_entered", new Callable(this, nameof(EnterUpperLedgeSpace)));
+            UpperLedgeSpace.Connect("body_exited", new Callable(this, nameof(ExitUpperLedgeSpace)));
+            LowerLedgeSpace.Connect("body_entered", new Callable(this, nameof(EnterLowerLedgeSpace)));
+            LowerLedgeSpace.Connect("body_exited", new Callable(this, nameof(ExitLowerLedgeSpace)));
+            Variables.Instance.StandingChangedTo += CrouchChange;
+            Variables.Instance.OnFloorChange += ChangeMonitors;
         }
 
         private void ChangeMonitors(bool state)
         {
-            if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching)
+            if (Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching)
             {
                 if (state)
                 {
@@ -61,8 +61,8 @@ namespace Player.BodyMods
         {
             if (current == Variables.PlayerStandingState.Crouching)
             {
-                // GD.Print("ON the floor: " + Variables.ON_FLOOR);
-                if (Variables.ON_FLOOR)
+                // GD.Print("ON the floor: " + Variables.Instance.ON_FLOOR);
+                if (Variables.Instance.ON_FLOOR)
                 {
                     LowerLedge.Enabled = true;
                     LowerLedgeSpace.Monitoring = true;
@@ -102,7 +102,7 @@ namespace Player.BodyMods
         public override void _ExitTree()
         {
             base._ExitTree();
-            Variables.StandingChangedTo -= CrouchChange;
+            Variables.Instance.StandingChangedTo -= CrouchChange;
         }
 
         public bool CanMantle()
