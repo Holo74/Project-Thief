@@ -58,7 +58,7 @@ namespace Player.Movement
             {
                 // GD.Print("Changing floor too: " + PlayerQuickAccess.CHARACTER_BODY.IsOnFloor());
                 Variables.Instance.ON_FLOOR = PlayerQuickAccess.CHARACTER_BODY.IsOnFloor();
-                GD.Print("Gravity: " + Variables.Instance.GRAVITY_MOVEMENT);
+                // GD.Print("Gravity: " + Variables.Instance.GRAVITY_MOVEMENT);
             }
         }
 

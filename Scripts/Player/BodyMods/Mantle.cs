@@ -28,12 +28,14 @@ namespace Player.BodyMods
             LowerLedgeSpace = GetNode<Area3D>("LowerBodyLedge");
             LowerLedge = GetNode<RayCast3D>("BottomFloor");
             UpperLedge = GetNode<RayCast3D>("MiddleFloor");
-            HeadSpace.Connect("body_entered", new Callable(this, nameof(EnterHeadSpace)));
-            HeadSpace.Connect("body_exited", new Callable(this, nameof(ExitHeadSpace)));
-            UpperLedgeSpace.Connect("body_entered", new Callable(this, nameof(EnterUpperLedgeSpace)));
-            UpperLedgeSpace.Connect("body_exited", new Callable(this, nameof(ExitUpperLedgeSpace)));
-            LowerLedgeSpace.Connect("body_entered", new Callable(this, nameof(EnterLowerLedgeSpace)));
-            LowerLedgeSpace.Connect("body_exited", new Callable(this, nameof(ExitLowerLedgeSpace)));
+            HeadSpace.BodyEntered += EnterHeadSpace;
+            HeadSpace.BodyExited += ExitHeadSpace;
+            UpperLedgeSpace.BodyEntered += EnterUpperLedgeSpace;
+            UpperLedgeSpace.BodyExited += ExitUpperLedgeSpace;
+            LowerLedgeSpace.BodyEntered += EnterLowerLedgeSpace;
+            LowerLedgeSpace.BodyExited += ExitLowerLedgeSpace;
+            LowerLedgeSpace.AreaEntered += EnterLowerLedgeSpace;
+            LowerLedgeSpace.AreaExited += ExitLowerLedgeSpace;
             Variables.Instance.StandingChangedTo += CrouchChange;
             Variables.Instance.OnFloorChange += ChangeMonitors;
         }
@@ -113,9 +115,11 @@ namespace Player.BodyMods
 
         private void EnterHeadSpace(Node body)
         {
+
             if ((body is PlayerManager))
                 return;
             InHeadSpace += 1;
+
             EmitSignal(nameof(SetHeadNumber), "Head: " + InHeadSpace);
         }
 
@@ -132,6 +136,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InUpperLedgeSpace += 1;
+            GD.Print("upper body space entered by: " + body.Name);
             EmitSignal(nameof(SetBodyNumber), "Body: " + InUpperLedgeSpace);
         }
 
@@ -148,7 +153,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InLowerLedgeSpace += 1;
-            EmitSignal(nameof(SetFootNumber), "Foot: " + InLowerLedgeSpace);
+            EmitSignal(nameof(SetFootNumber), Variant.CreateFrom("Foot: " + InLowerLedgeSpace));
         }
 
         private void ExitLowerLedgeSpace(Node body)
@@ -156,7 +161,7 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InLowerLedgeSpace -= 1;
-            EmitSignal(nameof(SetFootNumber), "Foot: " + InLowerLedgeSpace);
+            EmitSignal(nameof(SetFootNumber), Variant.CreateFrom("Foot: " + InLowerLedgeSpace));
         }
     }
 

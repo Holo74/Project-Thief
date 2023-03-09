@@ -1,14 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://ctw65oxtphcpr"]
 
-[ext_resource path="res://Models/Private use only/KayKit/tileBrickB_largeCrackedA.gltf.glb" type="PackedScene" id=1]
+[ext_resource type="PackedScene" uid="uid://c2opf4g4baeht" path="res://Models/Private use only/KayKit/tileBrickB_largeCrackedA.gltf.glb" id="1"]
 
-[sub_resource type="BoxShape3D" id=1]
-size = Vector3( 3, 0.5, 3 )
+[sub_resource type="BoxShape3D" id="1"]
+size = Vector3(6, 1, 6)
 
-[node name="tileBrickB_largeCrackedAgltf" instance=ExtResource( 1 )]
+[node name="tileBrickB_largeCrackedAgltf" instance=ExtResource("1")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tileBrickB_largeCrackedA" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tileBrickB_largeCrackedA/StaticBody3D" index="0"]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
-shape = SubResource( 1 )
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.533773, 0)
+shape = SubResource("1")

@@ -25,7 +25,7 @@ namespace Player
 
         public override void _Process(double delta)
         {
-            if (false && Input.IsActionJustPressed("ToggleThirdPerson"))
+            if (Input.IsActionJustPressed("ToggleThirdPerson"))
             {
                 if (PlayerQuickAccess.CAMERA.Current)
                 {

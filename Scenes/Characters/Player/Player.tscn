@@ -1,10 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://cyf0i84sb4tre"]
+[gd_scene load_steps=35 format=3 uid="uid://cyf0i84sb4tre"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerManager.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player/GUI/HealthBar.cs" id="2"]
 [ext_resource type="Script" path="res://Scripts/Player/BodyMods/SideWallDetection.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://ckprmabba2ivj" path="res://Textures/Player/GUI/Crosshair.png" id="4"]
 [ext_resource type="Script" path="res://Scripts/Player/Interactions/Interaction.cs" id="5"]
+[ext_resource type="Script" path="res://Scripts/Debug/Player/AreaTester.cs" id="5_rcgyq"]
 [ext_resource type="Script" path="res://Scripts/Player/GUI/InteractionTexture.cs" id="6"]
 [ext_resource type="Script" path="res://Scripts/Debug/VariablesModPanel.cs" id="7"]
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/UpgradeHandler.cs" id="8"]
@@ -82,6 +83,7 @@ script = ExtResource("13")
 [node name="UpperBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546)
 monitorable = false
+script = ExtResource("5_rcgyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/UpperBodyLedge"]
 shape = SubResource("4")
@@ -89,6 +91,7 @@ shape = SubResource("4")
 [node name="LowerBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31094, -0.570546)
 monitorable = false
+script = ExtResource("5_rcgyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/LowerBodyLedge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0)
@@ -96,9 +99,10 @@ shape = SubResource("4")
 
 [node name="Spacer" type="Area3D" parent="BodyNode/Mantling"]
 monitorable = false
+script = ExtResource("5_rcgyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/Spacer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.227216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428881, -0.227216)
 shape = SubResource("5")
 
 [node name="BottomFloor" type="RayCast3D" parent="BodyNode/Mantling"]

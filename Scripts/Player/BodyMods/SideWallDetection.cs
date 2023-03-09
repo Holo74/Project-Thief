@@ -12,6 +12,8 @@ namespace Player.BodyMods
         {
             LeftRay = GetNode<RayCast3D>("Left Ray");
             RightRay = GetNode<RayCast3D>("Right Ray");
+            LeftRay.AddException(GetParent<CharacterBody3D>());
+            RightRay.AddException(GetParent<CharacterBody3D>());
         }
 
         public Vector3 GetRightNormal()

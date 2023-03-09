@@ -1,8 +1,12 @@
+MeshInstance3D
+CollisionShape3D
+StaticBody3D
+RigidBody3D
+CSGBox3D
+CSGCylinder3D
+CSGCombiner3D
 Button
 Panel
-CSGBox3D
 DirectionalLight3D
 WorldEnvironment
-CSGCombiner3D
 CSGSphere3D
-CSGCylinder3D
