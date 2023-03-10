@@ -13,15 +13,15 @@ namespace Player.Movement
 
         public override void Starting()
         {
-            // PlayerQuickAccess.CAMERA_SHAKE.Shake(0, 0, Mathf.Clamp(Variables.WALKING_MOVEMENT.Length(), 0f, 0.5f), .1f, 1, 1, -1);
+            // PlayerQuickAccess.CAMERA_SHAKE.Shake(0, 0, Mathf.Clamp(Variables.Instance.WALKING_MOVEMENT.Length(), 0f, 0.5f), .1f, 1, 1, -1);
 
-            Variables.ON_FLOOR = false;
-            Variables.WALKING_MOVEMENT = -PlayerQuickAccess.BODY_DIRECTION.z * Variables.MANTLE_FORWARD_SPEED;
-            Variables.GRAVITY_MOVEMENT = Vector3.Up * Variables.MANTLE_UPWARD_SPEED;
+            Variables.Instance.ON_FLOOR = false;
+            Variables.Instance.WALKING_MOVEMENT = -PlayerQuickAccess.BODY_DIRECTION.z * Variables.Instance.MANTLE_FORWARD_SPEED;
+            Variables.Instance.GRAVITY_MOVEMENT = Vector3.Up * Variables.Instance.MANTLE_UPWARD_SPEED;
             WasCrouched = Helper.CommonComparisions.IS_CROUCHED;
-            Timer = Variables.MANTLE_UPWARD_TIME;
+            Timer = Variables.Instance.MANTLE_UPWARD_TIME;
             CurrentMoving = UpwardMoving;
-            Variables.ROTATION = null;
+            Variables.Instance.ROTATION = null;
             LedgeAboveWaist = PlayerQuickAccess.MANTLE.UpperLedge.IsColliding();
         }
 
@@ -42,7 +42,7 @@ namespace Player.Movement
 
         private void UpwardMoving(float delta)
         {
-            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.GRAVITY_MOVEMENT * delta);
+            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.Instance.GRAVITY_MOVEMENT * delta);
             if ((PlayerQuickAccess.MANTLE.CanMoveForwardUpper() && LedgeAboveWaist) || PlayerQuickAccess.MANTLE.CanMoveForwardLower())
             {
                 //GD.Print(String.Format("Above waist Ledge: {0}\nUpper forward:{1}\nLower forward:{2}\n", LedgeAboveWaist, PlayerQuickAccess.MANTLE.CanMoveForwardUpper(), PlayerQuickAccess.MANTLE.CanMoveForwardLower()));
@@ -74,13 +74,13 @@ namespace Player.Movement
         private void TransitionToForward()
         {
             CurrentMoving = ForwardMove;
-            Variables.GRAVITY_MOVEMENT = Vector3.Zero;
-            Timer = Variables.MANTLE_FORWARD_TIME;
+            Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
+            Timer = Variables.Instance.MANTLE_FORWARD_TIME;
         }
 
         private void ForwardMove(float delta)
         {
-            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.WALKING_MOVEMENT * delta);
+            KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.Instance.WALKING_MOVEMENT * delta);
             if (k != null)
             {
                 Vector3 holder = k.Position;
@@ -116,13 +116,13 @@ namespace Player.Movement
 
         private void FinishMantle()
         {
-            Variables.WALKING_MOVEMENT = Vector3.Zero;
-            Variables.GRAVITY_MOVEMENT = Vector3.Zero;
+            Variables.Instance.WALKING_MOVEMENT = Vector3.Zero;
+            Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
             if (!WasCrouched && WasCrouched != Helper.CommonComparisions.IS_CROUCHED)
             {
                 CrouchWithoutInput();
             }
-            Variables.RESET_MOVEMENT();
+            Variables.Instance.RESET_MOVEMENT();
         }
     }
 

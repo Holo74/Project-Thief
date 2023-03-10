@@ -9,7 +9,7 @@ namespace Debug.VisibilityIndex
         {
             string output = "Total value: " + Player.PlayerManager.Instance.GetStealthValue().ToString();
             output += "\nLight value: " + Player.PlayerQuickAccess.LIGHT.CurrentLight;
-            output += "\nBase Camo: " + Player.Variables.CAMO.BaseVisibility;
+            output += "\nBase Camo: " + Player.Variables.Instance.CAMO.BaseVisibility;
             Text = output;
         }
     }

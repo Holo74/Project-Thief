@@ -5,13 +5,15 @@ namespace Debug.Menus
 {
     public class DebugLoadScene : PopupMenu
     {
+        [Export(PropertyHint.Dir)]
+        private string PathDirectory { get; set; }
         System.Collections.Generic.List<string> LevelList { get; set; }
         public override void _Ready()
         {
             LevelList = new System.Collections.Generic.List<string>();
             Directory filePath = new Directory();
             //GD.Print();
-            filePath.Open("res://Scenes/Levels/");
+            Error e = filePath.Open(PathDirectory);
             filePath.ListDirBegin();
             string currentName = "";
             do
@@ -33,7 +35,7 @@ namespace Debug.Menus
 
         private void LoadLevel(int id)
         {
-            Management.Game.GameManager.Instance.LoadScene("res://Scenes/Levels/" + LevelList[id]);
+            Management.Game.GameManager.Instance.LoadScene(PathDirectory + "/" + LevelList[id]);
         }
     }
 }

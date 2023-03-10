@@ -15,9 +15,9 @@ namespace Environment.Areas
 
         protected override void PlayerEntered()
         {
-            if (!(Player.Variables.MOVEMENT is Player.Movement.Swinging))
+            if (!(Player.Variables.Instance.MOVEMENT is Player.Movement.Swinging))
             {
-                Player.Variables.MOVEMENT = new Player.Movement.Swinging(Point, GetNode<Spatial>("Swing Point").GlobalTransform.basis.z);
+                Player.Variables.Instance.MOVEMENT = new Player.Movement.Swinging(Point, GetNode<Spatial>("Swing Point").GlobalTransform.basis.z);
             }
         }
 

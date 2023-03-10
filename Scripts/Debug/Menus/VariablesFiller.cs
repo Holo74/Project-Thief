@@ -16,12 +16,12 @@ namespace Debug.Menus
             {
                 if (prop.PropertyType.IsPrimitive)
                 {
-                    if (prop.GetValue(null) is float)
+                    if (prop.GetValue(Player.Variables.Instance) is float)
                     {
                         marginFiller = AdjustMargin<float>(marginFiller, ref row);
                         VariablesContainers.SetFloatVariable menu = GD.Load<PackedScene>("res://Scenes/Prefabs/MenuItems/FloatVariableSetter.tscn").Instance<VariablesContainers.SetFloatVariable>();
                         row.AddChild(menu);
-                        menu.Init((value) => { prop.SetValue(null, value); }, () => { return (float)prop.GetValue(null); }, prop.Name);
+                        menu.Init((value) => { prop.SetValue(Player.Variables.Instance, value); }, () => { return (float)prop.GetValue(Player.Variables.Instance); }, prop.Name);
                         if (marginFiller != 3)
                         {
                             row.AddChild(new HSeparator());

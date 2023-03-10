@@ -14,7 +14,7 @@ namespace Player.Movement
             // Pushes the player onto a floor
             Vector3 floorConnect = Vector3.Down * 0.1f;
             Vector3 jumpFactor = Vector3.Zero;
-            Variables.WALKING_MOVEMENT = DirectionalInput();
+            Variables.Instance.WALKING_MOVEMENT = DirectionalInput();
             // This function is only active when the player is "on floor" and with walls as floor now we can assume this case
             if (!PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor())
             {
@@ -23,14 +23,14 @@ namespace Player.Movement
                     snap = PlayerQuickAccess.WALL_DETECTION.GetLeftNormal();
                     jumpFactor = PlayerQuickAccess.WALL_DETECTION.GetLeftNormal();
                     floorConnect = -snap;
-                    Variables.WALKING_MOVEMENT = snap.Cross(Vector3.Down);
+                    Variables.Instance.WALKING_MOVEMENT = snap.Cross(Vector3.Down);
                 }
                 if (PlayerQuickAccess.WALL_DETECTION.IsWallDetected(true))
                 {
                     snap = PlayerQuickAccess.WALL_DETECTION.GetRightNormal();
                     jumpFactor = PlayerQuickAccess.WALL_DETECTION.GetRightNormal();
                     floorConnect = -snap;
-                    Variables.WALKING_MOVEMENT = snap.Cross(Vector3.Up);
+                    Variables.Instance.WALKING_MOVEMENT = snap.Cross(Vector3.Up);
                 }
             }
             else
@@ -38,12 +38,12 @@ namespace Player.Movement
                 floorConnect = Vector3.Zero;
                 snap = Vector3.Down;
             }
-            Variables.WALKING_MOVEMENT *= MovementSpeed();
+            Variables.Instance.WALKING_MOVEMENT *= MovementSpeed();
             if (Input.IsActionJustPressed("ui_select"))
             {
-                Jump(jumpFactor * Variables.JUMP_STRENGTH);
+                Jump(jumpFactor * Variables.Instance.JUMP_STRENGTH);
             }
-            if (Variables.GRAVITY_MOVEMENT.y > 0)
+            if (Variables.Instance.GRAVITY_MOVEMENT.y > 0)
             {
                 snap = Vector3.Zero;
             }
@@ -56,12 +56,12 @@ namespace Player.Movement
             bool grounded = PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor();
             // Walls are only floors if you are moving fast
             bool canRun = PlayerQuickAccess.WALL_DETECTION.IsWallDetected(true) || PlayerQuickAccess.WALL_DETECTION.IsWallDetected(false);
-            canRun = Variables.WALKING_MOVEMENT.LengthSquared() > 1f ? canRun : false;
+            canRun = Variables.Instance.WALKING_MOVEMENT.LengthSquared() > 1f ? canRun : false;
             grounded = grounded || (canRun);
             if (grounded != currentFloorState)
             {
-                Variables.ON_FLOOR = grounded;
-                currentFloorState = Variables.ON_FLOOR;
+                Variables.Instance.ON_FLOOR = grounded;
+                currentFloorState = Variables.Instance.ON_FLOOR;
             }
         }
     }

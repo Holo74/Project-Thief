@@ -12,7 +12,7 @@ namespace Debug.PlayerD
         public override void _Ready()
         {
             Watch = new Stopwatch();
-            Player.Variables.OnFloorChange += FloorChange;
+            Player.Variables.Instance.OnFloorChange += FloorChange;
         }
 
         private void FloorChange(bool onFloor)

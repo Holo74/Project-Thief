@@ -4,9 +4,11 @@ using System;
 namespace Player
 {
     //We must reset some values to their default states!!!
-    public static class Variables
+    public class Variables
     {
-        public static Handlers.CamoHandler CAMO { get; set; }
+
+        public static Variables Instance { get; set; }
+        public Handlers.CamoHandler CAMO { get; set; }
         // These are the states that the player can be in
         public enum PlayerStandingState
         {
@@ -15,7 +17,7 @@ namespace Player
             Crawling = 2
         }
         // Current state the player is in
-        public static PlayerStandingState CURRENT_STANDING_STATE
+        public PlayerStandingState CURRENT_STANDING_STATE
         {
             get { return CurrentStandingState; }
             set
@@ -24,61 +26,71 @@ namespace Player
                 StandingChangedTo?.Invoke(value);
             }
         }
-        private static PlayerStandingState CurrentStandingState { get; set; }
+        private PlayerStandingState CurrentStandingState { get; set; }
         public delegate void StandingStateChanged(PlayerStandingState state);
-        public static event StandingStateChanged StandingChangedTo;
+        public event StandingStateChanged StandingChangedTo;
         // Maps the current state to a speed
-        public static Func<float>[] SPEED_MAPPING = { () => { return STANDING_SPEED; }, () => { return CROUCH_SPEED; }, () => { return CRAWLING_SPEED; } };
+        // public float SPEED_MAPPING = { STANDING_SPEED, () => { return CROUCH_SPEED; }, () => { return CRAWLING_SPEED; } };
+        public float SPEED_MAPPING(int input)
+        {
+            switch (input)
+            {
+                case 0:
+                    return STANDING_SPEED;
+                case 1:
+                    return CROUCH_SPEED;
+                case 2:
+                    return CRAWLING_SPEED;
+            }
+            return 1f;
+        }
 
         // Resetting the variables that would be transfer when loading a save otherwise
-        public static void INIT()
+        public void INIT()
         {
+            Instance = this;
             defaultMovement = new Movement.BasicMovement();
             CAMO = new Handlers.CamoHandler();
             CurrentStandingState = PlayerStandingState.Standing;
             // OnFloorChange += (onFloor) => { if (onFloor) GRAVITY_MOVEMENT = Vector3.Zero; };
             isSprinting = false;
             CAMO.Init();
-            #region default floats
-            SPEED_MOD = 1f;
-            GRAVITY_MOD = 1f;
-            JUMP_MOD = 1f;
-            #endregion
+
         }
 
         // The vectors that decide the movement of the player.  Should always be used as the final movement
-        public static Vector3 WALKING_MOVEMENT { get; set; } = new Vector3();
-        public static Vector3 GRAVITY_MOVEMENT { get; set; } = new Vector3();
+        public Vector3 WALKING_MOVEMENT { get; set; } = new Vector3();
+        public Vector3 GRAVITY_MOVEMENT { get; set; } = new Vector3();
 
         // In game, none of these should be modified by the upgrades or anything else.  For all intense and purposes they should have a private setter
-        #region Static floats
-        public static float GRAVITY_STRENGTH { get; set; } = 10f;
-        public static float JUMP_STRENGTH { get; set; } = 5f;
-        public static float STANDING_SPEED { get; set; } = 3.5f;
-        public static float BOOST_WALL_JUMP { get; set; } = .2f;
-        public static float SPRINT_SPEED { get; set; } = 1.5f;
-        public static float CROUCH_SPEED { get; set; } = 2.2f;
-        public static float CRAWLING_SPEED { get; set; } = 1f;
-        public static float MOVE_TO_CROUCH { get; set; } = 5f;
-        public static float MANTLE_FORWARD_SPEED { get; set; } = 6f;
-        public static float MANTLE_UPWARD_SPEED { get; set; } = 7.5f;
-        public static float MANTLE_UPWARD_TIME { get; set; } = 1f;
-        public static float MANTLE_FORWARD_TIME { get; set; } = 0.1f;
-        public static float MANTLE_BUFFER_TIMER { get; set; } = 0.1f;
-        public static float ACCELERATION { get; set; } = 10f;
-        public static float DECCELERATION { get; set; } = 10f;
-        public static float MAX_CAMERA_SHAKE { get; set; } = 0.4f;
+        #region   floats
+        public float GRAVITY_STRENGTH { get; set; } = 10f;
+        public float JUMP_STRENGTH { get; set; } = 5f;
+        public float STANDING_SPEED { get; set; } = 3.5f;
+        public float BOOST_WALL_JUMP { get; set; } = .2f;
+        public float SPRINT_SPEED { get; set; } = 1.5f;
+        public float CROUCH_SPEED { get; set; } = 2.2f;
+        public float CRAWLING_SPEED { get; set; } = 1f;
+        public float MOVE_TO_CROUCH { get; set; } = 5f;
+        public float MANTLE_FORWARD_SPEED { get; set; } = 6f;
+        public float MANTLE_UPWARD_SPEED { get; set; } = 7.5f;
+        public float MANTLE_UPWARD_TIME { get; set; } = 1f;
+        public float MANTLE_FORWARD_TIME { get; set; } = 0.1f;
+        public float MANTLE_BUFFER_TIMER { get; set; } = 0.1f;
+        public float ACCELERATION { get; set; } = 10f;
+        public float DECCELERATION { get; set; } = 10f;
+        public float MAX_CAMERA_SHAKE { get; set; } = 0.4f;
         #endregion
 
         #region Modifiable floats
-        public static float JUMP_MOD { get; set; } = 1f;
-        public static float SPEED_MOD { get; set; } = 1f;
-        public static float GRAVITY_MOD { get; set; } = 1f;
-        public static float CURRENT_SPEED { get; set; } = 0f;
+        public float JUMP_MOD { get; set; } = 1f;
+        public float SPEED_MOD { get; set; } = 1f;
+        public float GRAVITY_MOD { get; set; } = 1f;
+        public float CURRENT_SPEED { get; set; } = 0f;
         #endregion
 
-        private static bool isSprinting = false;
-        public static bool IS_SPRINTING
+        private bool isSprinting = false;
+        public bool IS_SPRINTING
         {
             get
             {
@@ -95,80 +107,73 @@ namespace Player
         }
 
         public delegate void SimpleEventTrigger();
-        public static SimpleEventTrigger Jump;
+        public SimpleEventTrigger Jump;
 
 
         // A boolean value has changed states and needs to send a signal
         public delegate void StateChange(bool newState);
 
         #region bool signals
-        public static event StateChange SprintingChanged;
-        public static event StateChange OnFloorChange;
+        public event StateChange SprintingChanged;
+        public event StateChange OnFloorChange;
         [Obsolete]
-        public static event StateChange CrouchChange;
+        public event StateChange CrouchChange;
         #endregion
 
         #region Rotation
-        private static Rotation.BasicRotation rotation;
-        public static Rotation.BasicRotation ROTATION
+        private Rotation.BasicRotation rotation;
+        public Rotation.BasicRotation ROTATION
         {
             get { return rotation; }
             set { rotation = value; }
         }
 
-        public static void RESET_ROTATION()
+        public void RESET_ROTATION()
         {
             ROTATION = new Rotation.BasicRotation();
         }
         #endregion
 
         #region Movement
-        private static Movement.AbstractMovement movement;
-        public static Movement.AbstractMovement MOVEMENT
+        private Movement.AbstractMovement movement;
+        public Movement.AbstractMovement MOVEMENT
         {
             get { return movement; }
             set { movement = value; movement.Starting(); }
         }
-        private static Movement.AbstractMovement defaultMovement;
-        public static Movement.AbstractMovement DEFAULT_MOVEMENT
+        private Movement.AbstractMovement defaultMovement;
+        public Movement.AbstractMovement DEFAULT_MOVEMENT
         {
             get { return defaultMovement; }
             set { defaultMovement = value; RESET_MOVEMENT(); }
         }
 
-        public static void RESET_MOVEMENT()
+        public void RESET_MOVEMENT()
         {
             MOVEMENT = defaultMovement;
         }
         #endregion
 
         #region Reset 
-        public static void RESET_JUMP_MOD()
+        public void RESET_JUMP_MOD()
         {
             JUMP_MOD = 1f;
         }
-        public static void RESET_SPEED_MOD()
+        public void RESET_SPEED_MOD()
         {
             SPEED_MOD = 1f;
         }
-        public static void RESET_GRAVITY_MOD()
+        public void RESET_GRAVITY_MOD()
         {
             GRAVITY_MOD = 1f;
         }
         #endregion
 
-        private static bool onFloor = true;
-        public static bool ON_FLOOR
+        private bool onFloor = true;
+        public bool ON_FLOOR
         {
             get { return onFloor; }
             set { onFloor = value; OnFloorChange?.Invoke(value); if (value) GRAVITY_MOVEMENT = Vector3.Zero; }
-        }
-
-        public static void DELETE_VARIABLES()
-        {
-            OnFloorChange = null;
-            CrouchChange = null;
-            SprintingChanged = null;
         }
     }
 

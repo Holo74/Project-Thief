@@ -8,7 +8,7 @@ namespace Player.Upgrades
     {
         public override void Applied()
         {
-            Variables.DEFAULT_MOVEMENT = new Movement.WallRun();
+            Variables.Instance.DEFAULT_MOVEMENT = new Movement.WallRun();
         }
 
         public override void Update(float delta)

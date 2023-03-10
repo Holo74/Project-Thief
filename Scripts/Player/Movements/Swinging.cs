@@ -29,7 +29,7 @@ namespace Player.Movement
         {
             AnchorPoint = anchor;
             Right = right;
-            Speed = Variables.WALKING_MOVEMENT.Length() + Variables.GRAVITY_MOVEMENT.Length();
+            Speed = Variables.Instance.WALKING_MOVEMENT.Length() + Variables.Instance.GRAVITY_MOVEMENT.Length();
             Vector3 forward = Vector3.Up.Cross(Right);
             Vector3 endPoint = DirectionToAnchor();
             endPoint.y = 0;
@@ -73,7 +73,7 @@ namespace Player.Movement
             if (Input.IsActionJustPressed("ui_select"))
             {
                 Jump(movingTo * Speed * (dot - MaxSwingAngle + .1f));
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
             }
         }
 
@@ -84,7 +84,7 @@ namespace Player.Movement
 
         public override void Starting()
         {
-            Variables.ON_FLOOR = false;
+            Variables.Instance.ON_FLOOR = false;
         }
     }
 

@@ -22,17 +22,17 @@ namespace Debug.VariablesContainers
             Line.Connect("text_entered", this, nameof(TextChanged));
             // switch (SelectedVariable)
             // {
-            //     case Variables.Gravity:
-            //         Slider.Value = Player.Variables.GRAVITY_STRENGTH;
-            //         SliderChanged(Player.Variables.GRAVITY_STRENGTH);
+            //     case Variables.Instance.Gravity:
+            //         Slider.Value = Player.Variables.Instance.GRAVITY_STRENGTH;
+            //         SliderChanged(Player.Variables.Instance.GRAVITY_STRENGTH);
             //         break;
-            //     case Variables.Jump:
-            //         Slider.Value = Player.Variables.JUMP_STRENGTH;
-            //         SliderChanged(Player.Variables.JUMP_STRENGTH);
+            //     case Variables.Instance.Jump:
+            //         Slider.Value = Player.Variables.Instance.JUMP_STRENGTH;
+            //         SliderChanged(Player.Variables.Instance.JUMP_STRENGTH);
             //         break;
-            //     case Variables.Walking:
-            //         Slider.Value = Player.Variables.STANDING_SPEED;
-            //         SliderChanged(Player.Variables.STANDING_SPEED);
+            //     case Variables.Instance.Walking:
+            //         Slider.Value = Player.Variables.Instance.STANDING_SPEED;
+            //         SliderChanged(Player.Variables.Instance.STANDING_SPEED);
             //         break;
             // }
         }

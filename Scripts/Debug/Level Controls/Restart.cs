@@ -17,7 +17,7 @@ namespace Debug.LevelControls
         private void RestartLevel()
         {
             // Player.PlayerQuickAccess.KINEMATIC_BODY.Translation = PlayerPosition;
-            // Player.Variables.GRAVITY_MOVEMENT = Vector3.Zero;
+            // Player.Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
             GetTree().ChangeScene("res://Scenes/Menus/MainMenu.tscn");
         }
     }

@@ -13,9 +13,9 @@ namespace Player.Movement
                 FallingMovement(delta);
                 return;
             }
-            Variables.WALKING_MOVEMENT = DirectionalInput() * MovementSpeed();
-            Variables.MOVEMENT.Crouch();
-            Variables.MOVEMENT.Crawl();
+            Variables.Instance.WALKING_MOVEMENT = DirectionalInput() * MovementSpeed();
+            Variables.Instance.MOVEMENT.Crouch();
+            Variables.Instance.MOVEMENT.Crawl();
             Vector3 floorConnect = PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor() ? Vector3.Zero : Vector3.Down * 0.1f;
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlideWithSnap(TotalMovement() + floorConnect, Vector3.Down * .1f, Vector3.Up, true, 1);
         }

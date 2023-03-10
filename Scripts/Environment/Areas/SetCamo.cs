@@ -13,12 +13,14 @@ namespace Environment.Areas
             set { ChangeShape(value); }
         }
         private Shape areaShape = null;
-        [Export]
-        private Texture Surroundings { get; set; }
-        [Export(PropertyHint.Range, "0, 100")]
-        private int Priority { get; set; }
-        [Export]
-        private Resources.SoundDictionary Sound { get; set; }
+
+        [Export(PropertyHint.ResourceType)]
+        Environment.Resources.CamoInstance Camo { get; set; }
+
+        public override void _Ready()
+        {
+            base._Ready();
+        }
 
         private void PlayerEntered(Node body)
         {
@@ -26,12 +28,7 @@ namespace Environment.Areas
             // GD.Print("Node enter body");
             if (body is Player.PlayerManager p)
             {
-                // GD.Print("Entered body");
-                Player.Handlers.CamoHandler.CamoInstance camo = new Player.Handlers.CamoHandler.CamoInstance();
-                camo.Priority = Priority;
-                camo.Camo = Surroundings;
-                camo.Sound = Sound;
-                Player.Variables.CAMO.AddSurroundingTexture(camo);
+                Player.Variables.Instance.CAMO.AddSurroundingTexture(Camo);
             }
         }
 
@@ -39,12 +36,7 @@ namespace Environment.Areas
         {
             if (body is Player.PlayerManager p)
             {
-                // GD.Print("Left body");
-                Player.Handlers.CamoHandler.CamoInstance camo = new Player.Handlers.CamoHandler.CamoInstance();
-                camo.Priority = Priority;
-                camo.Camo = Surroundings;
-                camo.Sound = Sound;
-                Player.Variables.CAMO.RemoveSurroundingTexture(camo);
+                Player.Variables.Instance.CAMO.RemoveSurroundingTexture(Camo);
             }
         }
 

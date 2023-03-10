@@ -18,8 +18,8 @@ namespace Debug.Menus
         //  // Called every frame. 'delta' is the elapsed time since the previous frame.
         public override void _Process(float delta)
         {
-            // if (Player.Variables.WALKING_MOVEMENT.y > .1f || Player.Variables.WALKING_MOVEMENT.y < -.1f)
-            Text = "Speed: " + Player.Variables.WALKING_MOVEMENT + "\nGravity: " + Player.Variables.GRAVITY_MOVEMENT;
+            // if (Player.Variables.Instance.WALKING_MOVEMENT.y > .1f || Player.Variables.Instance.WALKING_MOVEMENT.y < -.1f)
+            Text = "Speed: " + Player.Variables.Instance.WALKING_MOVEMENT + "\nGravity: " + Player.Variables.Instance.GRAVITY_MOVEMENT;
         }
     }
 

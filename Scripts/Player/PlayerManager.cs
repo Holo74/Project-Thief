@@ -19,14 +19,14 @@ namespace Player
             PlayerQuickAccess.SyncVariables(this);
             //Input.SetMouseMode(Input.MouseMode.Captured);
             Instance = this;
-            Variables.DEFAULT_MOVEMENT = new BasicMovement();
-            Variables.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y) - 10, 0, Mathf.Inf), 3)); };
+            Variables.Instance.DEFAULT_MOVEMENT = new BasicMovement();
+            Variables.Instance.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.y) - 10, 0, Mathf.Inf), 3)); };
             // GD.Print(GetViewport().ShadowAtlasSize);
         }
 
         public override void _Process(float delta)
         {
-            if (Input.IsActionJustPressed("ToggleThirdPerson"))
+            if (false && Input.IsActionJustPressed("ToggleThirdPerson"))
             {
                 if (PlayerQuickAccess.CAMERA.Current)
                 {
@@ -52,7 +52,7 @@ namespace Player
             {
                 if (Management.Game.GameManager.PLAYING)
                 {
-                    Variables.ROTATION?.BaseRotate(mouse);
+                    Variables.Instance.ROTATION?.BaseRotate(mouse);
                 }
             }
         }
@@ -61,15 +61,15 @@ namespace Player
         {
             if (Management.Game.GameManager.PLAYING)
             {
-                if (Variables.ON_FLOOR)
+                if (Variables.Instance.ON_FLOOR)
                 {
-                    Variables.MOVEMENT.Movement(delta);
+                    Variables.Instance.MOVEMENT.Movement(delta);
                 }
                 else
                 {
-                    Variables.MOVEMENT.FallingMovement(delta);
+                    Variables.Instance.MOVEMENT.FallingMovement(delta);
                 }
-                Variables.MOVEMENT.FloorDetection();
+                Variables.Instance.MOVEMENT.FloorDetection();
                 Upgrades.RunUpgrades(delta);
             }
         }
@@ -79,15 +79,9 @@ namespace Player
             PlayerHealth.ModifyHealth(type, amount);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            base.Dispose(disposing);
-            Variables.DELETE_VARIABLES();
-        }
-
         public float GetStealthValue()
         {
-            return Helper.MathEquations.GET_STEALTH_VALUE(PlayerQuickAccess.LIGHT.CurrentLight, Variables.CAMO.BaseVisibility);
+            return Helper.MathEquations.GET_STEALTH_VALUE(PlayerQuickAccess.LIGHT.CurrentLight, Variables.Instance.CAMO.BaseVisibility);
         }
     }
 }

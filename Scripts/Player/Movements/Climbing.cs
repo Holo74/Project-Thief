@@ -21,9 +21,9 @@ namespace Player.Movement
 
         public override void FloorDetection()
         {
-            if (Variables.ON_FLOOR != PlayerQuickAccess.FLOOR_CAST.IsColliding())
+            if (Variables.Instance.ON_FLOOR != PlayerQuickAccess.FLOOR_CAST.IsColliding())
             {
-                Variables.ON_FLOOR = PlayerQuickAccess.FLOOR_CAST.IsColliding();
+                Variables.Instance.ON_FLOOR = PlayerQuickAccess.FLOOR_CAST.IsColliding();
             }
         }
 
@@ -32,7 +32,7 @@ namespace Player.Movement
             Move();
             if (!TouchingFloor)
             {
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
             }
         }
 
@@ -46,12 +46,12 @@ namespace Player.Movement
 
         private void Move()
         {
-            Variables.WALKING_MOVEMENT = Movement() + Forward;
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.WALKING_MOVEMENT * Variables.STANDING_SPEED);
+            Variables.Instance.WALKING_MOVEMENT = Movement() + Forward;
+            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.Instance.WALKING_MOVEMENT * Variables.Instance.STANDING_SPEED);
             if (Input.IsActionJustPressed("ui_select"))
             {
-                Jump(Vector3.Down.Cross(Right) * Variables.STANDING_SPEED);
-                Variables.RESET_MOVEMENT();
+                Jump(Vector3.Down.Cross(Right) * Variables.Instance.STANDING_SPEED);
+                Variables.Instance.RESET_MOVEMENT();
             }
         }
 

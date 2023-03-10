@@ -316,9 +316,14 @@ ToggleThirdPerson={
 
 [layer_names]
 
+3d_render/layer_19="Editor Only"
 3d_render/layer_20="Light Instance Layer"
 3d_physics/layer_16="PickedUp"
 3d_physics/layer_17="Slight Raycast"
+
+[mono]
+
+project/assembly_name="Project Thief"
 
 [physics]
 

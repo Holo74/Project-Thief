@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Environment.Resources;
 
 namespace Player.Handlers
 {
@@ -24,8 +25,9 @@ namespace Player.Handlers
 
         public void Init()
         {
-            Variables.StandingChangedTo += UpdateBodyValue;
+            Variables.Instance.StandingChangedTo += UpdateBodyValue;
             SurroundingTexture = new System.Collections.Generic.List<CamoInstance>();
+            UpdateBodyValue(Variables.Instance.CURRENT_STANDING_STATE);
         }
 
         private void UpdateBodyValue(Variables.PlayerStandingState state)
@@ -120,13 +122,6 @@ namespace Player.Handlers
             CurrentCamoMatch = Help.Math.ColorEquations.CompareTwoTextures(CurrentBodyCamo, PrioritySurroundingTexture);
             // GD.Print("Finished calculating");
             BaseVisibility = (BodyShowValue - 80) + Mathf.RoundToInt(CurrentCamoMatch * 16) * 5;
-        }
-
-        public struct CamoInstance
-        {
-            public Texture Camo { get; set; }
-            public int Priority { get; set; }
-            public Environment.Resources.SoundDictionary Sound { get; set; }
         }
     }
 }

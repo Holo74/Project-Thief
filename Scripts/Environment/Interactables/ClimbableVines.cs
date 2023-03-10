@@ -28,16 +28,16 @@ namespace Environment.Interactables
             if (body is Player.PlayerManager)
             {
                 canInteract = false;
-                if (Player.Variables.MOVEMENT is Player.Movement.Climbing)
+                if (Player.Variables.Instance.MOVEMENT is Player.Movement.Climbing)
                 {
-                    Player.Variables.RESET_MOVEMENT();
+                    Player.Variables.Instance.RESET_MOVEMENT();
                 }
             }
         }
 
         public void Interact()
         {
-            Player.Variables.MOVEMENT = new Player.Movement.Climbing(WorldRight);
+            Player.Variables.Instance.MOVEMENT = new Player.Movement.Climbing(WorldRight);
         }
 
         public bool CanInteract()

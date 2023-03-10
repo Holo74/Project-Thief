@@ -51,6 +51,8 @@ namespace Management.Game
                 }
                 LoadingScene = false;
                 PackedScene scene = (PackedScene)Loader.GetResource();
+                Loader.Dispose();
+                Loader = null;
                 if (GetTree().ChangeSceneTo(scene) == Error.Ok)
                 {
                     CallDeferred(nameof(SetupSceneTree));
@@ -61,16 +63,19 @@ namespace Management.Game
 
         private void SetupSceneTree()
         {
-            Player.Variables.INIT();
+            PlayingChange = null;
+            new Player.Variables().INIT();
             Player.PlayerManager player = (Player.PlayerManager)ResourceLoader.Load<PackedScene>("res://Scenes/Characters/Player/Player.tscn").Instance();
-            GetTree().Root.AddChild(player);
+            GetTree().CurrentScene.AddChild(player);
             Godot.Collections.Array group = GetTree().GetNodesInGroup("Start");
             if (group.Count > 0)
             {
-                player.Transform = ((Spatial)group[0]).Transform;
+                Transform t = ((Spatial)group[0]).Transform;
+
+                player.Transform = t.Translated(Vector3.Up * .5f);
             }
             // Temp assign camo
-            Player.Variables.CAMO.UpdateCurrentBodyCamo(ResourceLoader.Load<Texture>("res://Textures/Camo Patterns Test/AnotherCamo.jpg"));
+            Player.Variables.Instance.CAMO.UpdateCurrentBodyCamo(ResourceLoader.Load<Texture>("res://Textures/Camo Patterns Test/AnotherCamo.jpg"));
             GetNode<Control>("LoadingScreen").Visible = false;
         }
 

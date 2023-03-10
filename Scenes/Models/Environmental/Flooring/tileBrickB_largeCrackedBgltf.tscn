@@ -7,8 +7,8 @@ extents = Vector3( 3, 0.5, 3 )
 
 [node name="tileBrickB_largeCrackedBgltf" instance=ExtResource( 1 )]
 
-[node name="StaticBody" type="StaticBody" parent="." index="1"]
+[node name="StaticBody" type="StaticBody" parent="tileBrickB_largeCrackedB" index="0"]
 
-[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="tileBrickB_largeCrackedB/StaticBody" index="0"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
 shape = SubResource( 1 )

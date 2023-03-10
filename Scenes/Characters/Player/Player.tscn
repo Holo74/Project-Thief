@@ -25,10 +25,12 @@
 [ext_resource path="res://Scripts/Debug/Menus/SetRichText.cs" type="Script" id=23]
 
 [sub_resource type="Resource" id=7]
+resource_local_to_scene = true
 script = ExtResource( 15 )
 ResistanceList = [  ]
 
 [sub_resource type="Resource" id=9]
+resource_local_to_scene = true
 script = ExtResource( 8 )
 UpgradeList = [  ]
 
@@ -90,7 +92,7 @@ shape = SubResource( 4 )
 monitorable = false
 
 [node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/Spacer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -0.227216 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.824753, -0.113489 )
 shape = SubResource( 5 )
 
 [node name="BottomFloor" type="RayCast" parent="BodyNode/Mantling"]
@@ -108,7 +110,7 @@ script = ExtResource( 21 )
 
 [node name="Camera" type="Camera" parent="BodyNode/CameraShaker"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
-cull_mask = 524287
+cull_mask = 262143
 current = true
 near = 0.01
 
@@ -336,6 +338,7 @@ script = ExtResource( 12 )
 Jump = ExtResource( 19 )
 
 [node name="Legs" type="AudioStreamPlayer" parent="PlayerSound"]
+stream = ExtResource( 19 )
 volume_db = 24.0
 bus = "Effects"
 

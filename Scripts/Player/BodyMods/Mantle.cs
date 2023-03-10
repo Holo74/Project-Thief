@@ -34,13 +34,13 @@ namespace Player.BodyMods
             UpperLedgeSpace.Connect("body_exited", this, nameof(ExitUpperLedgeSpace));
             LowerLedgeSpace.Connect("body_entered", this, nameof(EnterLowerLedgeSpace));
             LowerLedgeSpace.Connect("body_exited", this, nameof(ExitLowerLedgeSpace));
-            Variables.StandingChangedTo += CrouchChange;
-            Variables.OnFloorChange += ChangeMonitors;
+            Variables.Instance.StandingChangedTo += CrouchChange;
+            Variables.Instance.OnFloorChange += ChangeMonitors;
         }
 
         private void ChangeMonitors(bool state)
         {
-            if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching)
+            if (Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crouching)
             {
                 if (state)
                 {
@@ -61,8 +61,8 @@ namespace Player.BodyMods
         {
             if (current == Variables.PlayerStandingState.Crouching)
             {
-                // GD.Print("ON the floor: " + Variables.ON_FLOOR);
-                if (Variables.ON_FLOOR)
+                // GD.Print("ON the floor: " + Variables.Instance.ON_FLOOR);
+                if (Variables.Instance.ON_FLOOR)
                 {
                     LowerLedge.Enabled = true;
                     LowerLedgeSpace.Monitoring = true;
@@ -102,7 +102,7 @@ namespace Player.BodyMods
         public override void _ExitTree()
         {
             base._ExitTree();
-            Variables.StandingChangedTo -= CrouchChange;
+            Variables.Instance.StandingChangedTo -= CrouchChange;
         }
 
         public bool CanMantle()

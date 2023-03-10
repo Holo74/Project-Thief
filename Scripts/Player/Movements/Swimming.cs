@@ -8,16 +8,16 @@ namespace Player.Movement
     {
         public override void FallingMovement(float delta)
         {
-            Variables.WALKING_MOVEMENT = DirectionMovement() * Variables.STANDING_SPEED;
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.WALKING_MOVEMENT + Variables.GRAVITY_MOVEMENT);
-            float gravitySqr = Variables.GRAVITY_MOVEMENT.LengthSquared();
+            Variables.Instance.WALKING_MOVEMENT = DirectionMovement() * Variables.Instance.STANDING_SPEED;
+            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.Instance.WALKING_MOVEMENT + Variables.Instance.GRAVITY_MOVEMENT);
+            float gravitySqr = Variables.Instance.GRAVITY_MOVEMENT.LengthSquared();
             if (gravitySqr > 1f)
             {
-                Variables.GRAVITY_MOVEMENT -= Variables.GRAVITY_MOVEMENT * delta * Mathf.Clamp(30 - gravitySqr, 1, 30);
+                Variables.Instance.GRAVITY_MOVEMENT -= Variables.Instance.GRAVITY_MOVEMENT * delta * Mathf.Clamp(30 - gravitySqr, 1, 30);
 
-                if (Variables.GRAVITY_MOVEMENT.LengthSquared() < 1f)
+                if (Variables.Instance.GRAVITY_MOVEMENT.LengthSquared() < 1f)
                 {
-                    Variables.GRAVITY_MOVEMENT = Vector3.Zero;
+                    Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace Player.Movement
 
         public override void Starting()
         {
-            Variables.ON_FLOOR = false;
+            Variables.Instance.ON_FLOOR = false;
         }
     }
 

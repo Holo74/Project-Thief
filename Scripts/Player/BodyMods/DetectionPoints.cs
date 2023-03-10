@@ -13,7 +13,7 @@ namespace Player.BodyMods
             Head = GetNode<CollisionShape>("Head");
             Body = GetNode<CollisionShape>("Body");
             Feet = GetNode<CollisionShape>("Legs");
-            Variables.StandingChangedTo += UpdateCollisionDelayer;
+            Variables.Instance.StandingChangedTo += UpdateCollisionDelayer;
 
         }
 

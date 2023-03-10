@@ -15,17 +15,17 @@ namespace Player.Movement
         {
             if (Input.IsActionJustPressed("ui_select"))
             {
-                Jump(Variables.WALKING_MOVEMENT * Modifier);
+                Jump(Variables.Instance.WALKING_MOVEMENT * Modifier);
                 FallingMovement(delta);
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
                 return;
             }
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlideWithSnap(TotalMovement() * Modifier, Vector3.Down, Vector3.Up);
-            if (Variables.WALKING_MOVEMENT.Length() < Variables.CROUCH_SPEED)
+            if (Variables.Instance.WALKING_MOVEMENT.Length() < Variables.Instance.CROUCH_SPEED)
             {
-                Variables.RESET_MOVEMENT();
+                Variables.Instance.RESET_MOVEMENT();
             }
-            Variables.WALKING_MOVEMENT *= .99f;
+            Variables.Instance.WALKING_MOVEMENT *= .99f;
         }
     }
 

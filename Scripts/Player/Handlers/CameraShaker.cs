@@ -28,12 +28,12 @@ namespace Player.Handlers
         public override void _Ready()
         {
             // Tweening = CreateTween();
-            //Variables.Jump += () => { if (Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing) MoveToPositionAndBack(new Vector3(0, -.5f, 0), .625f * 2); };
-            Variables.OnFloorChange += (onFloor) =>
+            //Variables.Instance.Jump += () => { if (Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing) MoveToPositionAndBack(new Vector3(0, -.5f, 0), .625f * 2); };
+            Variables.Instance.OnFloorChange += (onFloor) =>
             {
-                if (onFloor && Variables.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing)
+                if (onFloor && Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Standing)
                 {
-                    MoveToPositionAndBack(new Vector3(0, Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(Variables.GRAVITY_MOVEMENT.y)), -.9f, 0f), 0), .2f);
+                    MoveToPositionAndBack(new Vector3(0, Mathf.Clamp(Mathf.Sqrt(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.y)), -.9f, 0f), 0), .2f);
                 }
             };
         }

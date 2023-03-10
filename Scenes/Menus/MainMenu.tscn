@@ -50,6 +50,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+PathDirectory = "res://Scenes/Levels/Madeline's Levels/Brainstorming/Level 1"
 
 [node name="Settings" type="Panel" parent="Container"]
 margin_right = 40.0
