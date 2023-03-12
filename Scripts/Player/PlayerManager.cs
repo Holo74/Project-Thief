@@ -11,6 +11,8 @@ namespace Player
         public Handlers.Health PlayerHealth { get; set; }
         [Export]
         public Handlers.UpgradeHandler Upgrades { get; set; }
+        [Export]
+        public bool DebugMode { get; set; }
 
         public static PlayerManager Instance { get; private set; }
 
@@ -26,7 +28,7 @@ namespace Player
 
         public override void _Process(float delta)
         {
-            if (false && Input.IsActionJustPressed("ToggleThirdPerson"))
+            if (DebugMode && Input.IsActionJustPressed("ToggleThirdPerson"))
             {
                 if (PlayerQuickAccess.CAMERA.Current)
                 {

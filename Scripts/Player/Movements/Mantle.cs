@@ -22,7 +22,8 @@ namespace Player.Movement
             Timer = Variables.Instance.MANTLE_UPWARD_TIME;
             CurrentMoving = UpwardMoving;
             Variables.Instance.ROTATION = null;
-            LedgeAboveWaist = PlayerQuickAccess.MANTLE.UpperLedge.IsColliding();
+            // LedgeAboveWaist = PlayerQuickAccess.MANTLE.UpperLedge.IsColliding();
+            LedgeAboveWaist = false;
         }
 
         public override void Movement(float delta)
@@ -43,11 +44,6 @@ namespace Player.Movement
         private void UpwardMoving(float delta)
         {
             KinematicCollision k = PlayerQuickAccess.KINEMATIC_BODY.MoveAndCollide(Variables.Instance.GRAVITY_MOVEMENT * delta);
-            if ((PlayerQuickAccess.MANTLE.CanMoveForwardUpper() && LedgeAboveWaist) || PlayerQuickAccess.MANTLE.CanMoveForwardLower())
-            {
-                //GD.Print(String.Format("Above waist Ledge: {0}\nUpper forward:{1}\nLower forward:{2}\n", LedgeAboveWaist, PlayerQuickAccess.MANTLE.CanMoveForwardUpper(), PlayerQuickAccess.MANTLE.CanMoveForwardLower()));
-                TransitionToForward();
-            }
             if (k != null)
             {
                 if (k.Position.y > PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y + 1f)
@@ -64,7 +60,7 @@ namespace Player.Movement
                 }
             }
             Timer -= delta;
-            if (Timer < 0)
+            if (Timer < 0 || PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y > PlayerQuickAccess.MANTLE.MantleHeight.y)
             {
                 //GD.Print("Upper timer ran out");
                 TransitionToForward();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Player/PlayerManager.cs" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/GUI/HealthBar.cs" type="Script" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Scripts/Player/Handlers/CameraShaker.cs" type="Script" id=21]
 [ext_resource path="res://Scripts/Debug/Menus/PlayerVariableDisplay.cs" type="Script" id=22]
 [ext_resource path="res://Scripts/Debug/Menus/SetRichText.cs" type="Script" id=23]
+[ext_resource path="res://Scripts/Player/BodyMods/MantleRaycasters.cs" type="Script" id=24]
 
 [sub_resource type="Resource" id=7]
 resource_local_to_scene = true
@@ -37,12 +38,6 @@ UpgradeList = [  ]
 [sub_resource type="CylinderShape" id=1]
 height = 0.9
 radius = 0.49
-
-[sub_resource type="BoxShape" id=4]
-extents = Vector3( 0.316381, 0.522355, 0.0574478 )
-
-[sub_resource type="BoxShape" id=5]
-extents = Vector3( 0.456778, 0.74014, 0.495552 )
 
 [sub_resource type="CylinderShape" id=2]
 height = 0.5
@@ -62,6 +57,7 @@ radius = 0.1
 script = ExtResource( 1 )
 PlayerHealth = SubResource( 7 )
 Upgrades = SubResource( 9 )
+DebugMode = true
 
 [node name="UpperBody" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0 )
@@ -72,38 +68,45 @@ shape = SubResource( 1 )
 [node name="Mantling" type="Spatial" parent="BodyNode"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0 )
 script = ExtResource( 13 )
+MinSizes = PoolRealArray( 2, 1, 0 )
+CastToSizes = PoolRealArray( 2, 1, 0 )
 
-[node name="UpperBodyLedge" type="Area" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546 )
-monitorable = false
+[node name="Lower Raycasts" type="Spatial" parent="BodyNode/Mantling"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, -0.7 )
+script = ExtResource( 24 )
 
-[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/UpperBodyLedge"]
-shape = SubResource( 4 )
-
-[node name="LowerBodyLedge" type="Area" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31094, -0.570546 )
-monitorable = false
-
-[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/LowerBodyLedge"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0 )
-shape = SubResource( 4 )
-
-[node name="Spacer" type="Area" parent="BodyNode/Mantling"]
-monitorable = false
-
-[node name="CollisionShape" type="CollisionShape" parent="BodyNode/Mantling/Spacer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.824753, -0.113489 )
-shape = SubResource( 5 )
-
-[node name="BottomFloor" type="RayCast" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.92504, -0.362932 )
+[node name="RayCast" type="RayCast" parent="BodyNode/Mantling/Lower Raycasts"]
 enabled = true
-cast_to = Vector3( 0, 0, -0.3 )
+cast_to = Vector3( 0, 2, 0 )
 
-[node name="MiddleFloor" type="RayCast" parent="BodyNode/Mantling"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.876423, -0.362932 )
+[node name="RayCast2" type="RayCast" parent="BodyNode/Mantling/Lower Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0 )
 enabled = true
-cast_to = Vector3( 0, 0, -0.3 )
+cast_to = Vector3( 0, 2, 0 )
+
+[node name="RayCast3" type="RayCast" parent="BodyNode/Mantling/Lower Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, 2, 0 )
+
+[node name="Positioner" type="Spatial" parent="BodyNode/Mantling"]
+
+[node name="Upper Raycasts" type="Spatial" parent="BodyNode/Mantling/Positioner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.7 )
+script = ExtResource( 24 )
+
+[node name="RayCast" type="RayCast" parent="BodyNode/Mantling/Positioner/Upper Raycasts"]
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
+
+[node name="RayCast2" type="RayCast" parent="BodyNode/Mantling/Positioner/Upper Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0 )
+enabled = true
+
+[node name="RayCast3" type="RayCast" parent="BodyNode/Mantling/Positioner/Upper Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0 )
+enabled = true
+cast_to = Vector3( 0, -2, 0 )
 
 [node name="CameraShaker" type="Spatial" parent="BodyNode"]
 script = ExtResource( 21 )
@@ -121,7 +124,7 @@ cast_to = Vector3( 0, 0, -3 )
 script = ExtResource( 5 )
 
 [node name="RemoteTransform" type="RemoteTransform" parent="BodyNode/CameraShaker/Camera"]
-remote_path = NodePath("../../../Mantling/Spacer")
+remote_path = NodePath("../../../Mantling/Positioner")
 update_rotation = false
 update_scale = false
 
@@ -379,7 +382,4 @@ shape = SubResource( 11 )
 [node name="ClippedCamera" type="ClippedCamera" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564 )
 
-[connection signal="SetBodyNumber" from="BodyNode/Mantling" to="Debug/Panel/Body" method="SetTextTo"]
-[connection signal="SetFootNumber" from="BodyNode/Mantling" to="Debug/Panel/Feet" method="SetTextTo"]
-[connection signal="SetHeadNumber" from="BodyNode/Mantling" to="Debug/Panel/Head" method="SetTextTo"]
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]
