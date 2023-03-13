@@ -13,10 +13,10 @@ var edited_object_ref: WeakRef = weakref(null)
 func _get_plugin_name() -> String:
 	return "Qodot"
 
-func _handles(object: Variant) -> bool:
+func _handles(object: Object) -> bool:
 	return object is QodotMap
 	
-func _edit(object: Variant) -> void:
+func _edit(object: Object) -> void:
 	edited_object_ref = weakref(object)
 
 func _make_visible(visible: bool) -> void:
@@ -77,6 +77,7 @@ func setup_project_settings() -> void:
 	try_add_project_setting('qodot/textures/roughness_pattern', TYPE_STRING, QodotTextureLoader.PBR_SUFFIX_PATTERNS[QodotTextureLoader.PBRSuffix.ROUGHNESS])
 	try_add_project_setting('qodot/textures/emission_pattern', TYPE_STRING, QodotTextureLoader.PBR_SUFFIX_PATTERNS[QodotTextureLoader.PBRSuffix.EMISSION])
 	try_add_project_setting('qodot/textures/ao_pattern', TYPE_STRING, QodotTextureLoader.PBR_SUFFIX_PATTERNS[QodotTextureLoader.PBRSuffix.AO])
+	try_add_project_setting('qodot/textures/height_pattern', TYPE_STRING, QodotTextureLoader.PBR_SUFFIX_PATTERNS[QodotTextureLoader.PBRSuffix.HEIGHT])
 
 func try_add_project_setting(name: String, type: int, value, info: Dictionary = {}) -> void:
 	if not ProjectSettings.has_setting(name):
