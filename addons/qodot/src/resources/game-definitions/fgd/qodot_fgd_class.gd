@@ -3,30 +3,30 @@ extends Resource
 
 var prefix: String = ""
 
-export(String) var class_options : String = QodotUtil.CATEGORY_STRING
+@export var class_options := QodotUtil.CATEGORY_STRING
 
-export(String) var classname := ""
+@export var classname := ""
 
-export(String) var description := ""
+@export var description := ""
 
-export(bool) var qodot_internal := false
+@export var qodot_internal := false
 
-export(Array, Resource) var base_classes := []
+@export var base_classes: Array[Resource] = [] # (Array, Resource)
 
-export(Dictionary) var class_properties := {}
+@export var class_properties := {}
 
-export(Dictionary) var class_property_descriptions := {}
+@export var class_property_descriptions := {}
 
-export(Dictionary) var meta_properties := {
+@export var meta_properties := {
 	"size": AABB(Vector3(-8, -8, -8), Vector3(8, 8, 8)),
 	"color": Color(0.8, 0.8, 0.8)
 }
 
-export(String) var node_options : String = QodotUtil.CATEGORY_STRING
+@export var node_options: String = QodotUtil.CATEGORY_STRING
 
-export(String) var node_class := ""
+@export var node_class := ""
 
-export(bool) var transient_node := false
+@export var transient_node := false
 
 func build_def_text() -> String:
 	# Class prefix
@@ -90,10 +90,10 @@ func build_def_text() -> String:
 
 		if value is int:
 			prop_type = "integer"
-			prop_val = String(value)
+			prop_val = str(value)
 		elif value is float:
 			prop_type = "float"
-			prop_val = String(value)
+			prop_val = str(value)
 		elif value is String:
 			prop_type = "string"
 			prop_val = "\"" + value + "\""
@@ -116,13 +116,13 @@ func build_def_text() -> String:
 			prop_val = "[" + "\n"
 			for choice in value:
 				var choice_val = value[choice]
-				prop_val += "\t\t" + String(choice_val) + " : \"" + choice + "\"\n"
+				prop_val += "\t\t" + str(choice_val) + " : \"" + choice + "\"\n"
 			prop_val += "\t]"
 		elif value is Array:
 			prop_type = "flags"
 			prop_val = "[" + "\n"
 			for arr_val in value:
-				prop_val += "\t\t" + String(arr_val[1]) + " : \"" + String(arr_val[0]) + "\" : " + ("1" if arr_val[2] else "0") + "\n"
+				prop_val += "\t\t" + str(arr_val[1]) + " : \"" + str(arr_val[0]) + "\" : " + ("1" if arr_val[2] else "0") + "\n"
 			prop_val += "\t]"
 		elif value is NodePath:
 			prop_type = "target_destination"

@@ -4,7 +4,7 @@ using System;
 namespace Player.Upgrades
 {
     // Adds a universal ability where the player can slide along the ground
-    public class Sliding : AbstractUpgrade
+    public partial class Sliding : AbstractUpgrade
     {
         private int SprintKick = 0;
         private bool CrouchChanged = false;
@@ -25,7 +25,7 @@ namespace Player.Upgrades
 
         }
 
-        public override void Update(float delta)
+        public override void Update(double delta)
         {
             if (Variables.Instance.IS_SPRINTING)
             {

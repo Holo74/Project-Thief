@@ -3,7 +3,7 @@ using System;
 
 namespace Debug
 {
-    public class CrossProductTester : Node
+    public partial class CrossProductTester : Node
     {
         private Vector3 Right { get; set; }
         private bool ForwardSwing = true;
@@ -12,25 +12,25 @@ namespace Debug
         public override void _Ready()
         {
             base._Ready();
-            KinematicBody moving = GetNode<KinematicBody>("RigidBody");
-            Right = -moving.GlobalTransform.basis.z;
+            CharacterBody3D moving = GetNode<CharacterBody3D>("RigidBody3D");
+            Right = -moving.GlobalTransform.Basis.Z;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
 
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
-            KinematicBody moving = GetNode<KinematicBody>("RigidBody");
-            Spatial stationary = GetNode<Spatial>("RigidBody2");
-            Vector3 directionTo = stationary.GlobalTransform.origin - moving.GlobalTransform.origin;
+            CharacterBody3D moving = GetNode<CharacterBody3D>("RigidBody3D");
+            Node3D stationary = GetNode<Node3D>("RigidBody2");
+            Vector3 directionTo = stationary.GlobalPosition - moving.GlobalPosition;
             directionTo = directionTo.Normalized();
 
-            //GD.Print(directionTo.Cross(-moving.GlobalTransform.basis.z));
+            //GD.Print(directionTo.Cross(-moving.GlobalTransform.Basis.Z));
 
-            float dot = Vector3.Up.Dot((stationary.GlobalTransform.origin - moving.GlobalTransform.origin).Normalized());
+            float dot = Vector3.Up.Dot((stationary.GlobalPosition - moving.GlobalPosition).Normalized());
             if (dot < .8f)
             {
                 if (dot < PreviousDot)
@@ -43,7 +43,7 @@ namespace Debug
             Vector3 movingTo = directionTo.Cross(Right);
             GD.Print(movingTo);
 
-            moving.MoveAndCollide(movingTo * delta * dot);
+            moving.MoveAndCollide(movingTo * ((float)delta) * dot);
             PreviousDot = dot;
         }
     }

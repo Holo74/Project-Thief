@@ -5,7 +5,7 @@ using Player.Rotation;
 
 namespace Player
 {
-    public class PlayerManager : KinematicBody, Interfaces.Interactions.IHealth
+    public partial class PlayerManager : CharacterBody3D, Interfaces.Interactions.IHealth
     {
         [Export]
         public Handlers.Health PlayerHealth { get; set; }
@@ -22,23 +22,26 @@ namespace Player
             //Input.SetMouseMode(Input.MouseMode.Captured);
             Instance = this;
             Variables.Instance.DEFAULT_MOVEMENT = new BasicMovement();
-            Variables.Instance.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.y) - 10, 0, Mathf.Inf), 3)); };
+            Variables.Instance.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.Y) - 10, 0, Mathf.Inf), 3)); };
             // GD.Print(GetViewport().ShadowAtlasSize);
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             if (DebugMode && Input.IsActionJustPressed("ToggleThirdPerson"))
             {
                 if (PlayerQuickAccess.CAMERA.Current)
                 {
                     PlayerQuickAccess.CAMERA.Current = false;
-                    GetNode<Camera>("ClippedCamera").Current = true;
+                    GetNode<Camera3D>("Camera3D").Current = true;
+                    Visible = true;
+
                 }
                 else
                 {
                     PlayerQuickAccess.CAMERA.Current = true;
-                    GetNode<Camera>("ClippedCamera").Current = false;
+                    GetNode<Camera3D>("Camera3D").Current = false;
+                    Visible = false;
 
                 }
             }
@@ -59,7 +62,7 @@ namespace Player
             }
         }
 
-        public override void _PhysicsProcess(float delta)
+        public override void _PhysicsProcess(double delta)
         {
             if (Management.Game.GameManager.PLAYING)
             {
@@ -84,6 +87,12 @@ namespace Player
         public float GetStealthValue()
         {
             return Helper.MathEquations.GET_STEALTH_VALUE(PlayerQuickAccess.LIGHT.CurrentLight, Variables.Instance.CAMO.BaseVisibility);
+        }
+
+        public void ConnectVariablesToPlayer()
+        {
+            Variables.Instance.DEFAULT_MOVEMENT = new BasicMovement();
+            Variables.Instance.OnFloorChange += (state) => { if (state) ReceiveHealthUpdate(Handlers.Health.InteractionTypes.Falling, -(int)Math.Pow(Mathf.Clamp(Mathf.Abs(Variables.Instance.GRAVITY_MOVEMENT.Y) - 10, 0, Mathf.Inf), 3)); };
         }
     }
 }

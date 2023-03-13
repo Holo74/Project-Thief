@@ -1,19 +1,37 @@
+@tool
 class_name TrenchBroomGameConfigFile
 extends Resource
-tool
 
-export(bool) var export_file : bool setget set_export_file
-export(String, FILE, GLOBAL, "*.cfg") var target_file : String
+@export var export_file: bool:
+	get:
+		return export_file # TODOConverter40 Non existent get function 
+	set(new_export_file):
+		if new_export_file != export_file:
+			do_export_file()
+func do_export_file():
+			if not Engine.is_editor_hint():
+				return
 
-export(String) var game_name := "Qodot"
+			if target_file.is_empty():
+				print("Skipping export: No target file")
+				return
 
-export(Array, Resource) var brush_tags : Array = []
-export(Array, Resource) var face_tags : Array = []
-export(Resource) var face_attrib_defaults : Resource = null setget set_face_attrib_defaults
-export(Array, Resource) var face_attrib_surface_flags : Array = []
-export(Array, Resource) var face_attrib_content_flags : Array = []
+			print("Exporting TrenchBroom Game Config File to ", target_file)
+			
+			var file_obj := FileAccess.open(target_file, FileAccess.WRITE)
+			file_obj.store_string(build_class_text())
+			file_obj = null
+@export var target_file : String # (String, FILE, GLOBAL, "*.cfg")
 
-export(Array, String) var fgd_filenames : Array = []
+@export var game_name := "Qodot"
+
+@export var brush_tags : Array[Resource] = [] # (Array, Resource)
+@export var face_tags : Array[Resource] = [] # (Array, Resource)
+@export var face_attrib_defaults: TrenchBroomFaceAttribDefaults = null
+@export var face_attrib_surface_flags : Array[Resource] = [] # (Array, Resource)
+@export var face_attrib_content_flags : Array[Resource] = [] # (Array, Resource)
+
+@export var fgd_filenames : Array = [] # (Array, String)
 
 var base_text: String = """{
 	version: 3,
@@ -40,7 +58,7 @@ var base_text: String = """{
 	"entities": {
 		"definitions": [ %s ],
 		"defaultcolor": "0.6 0.6 0.6 1.0",
-		"modelformats": [ "mdl", "md2", "md3", "bsp", "dkm" ]
+		"modelformats": [ "mdl", "md2", "md3", "bsp", "dkm", "assimp" ]
 	},
 	"tags": {
 		"brush": [
@@ -62,27 +80,6 @@ var base_text: String = """{
 }
 """
 
-func set_export_file(new_export_file : bool = true) -> void:
-	if new_export_file != export_file:
-		if not Engine.is_editor_hint():
-			return
-
-		if not target_file:
-			print("Skipping export: No target file")
-			return
-
-		print("Exporting TrenchBroom Game Config File to ", target_file)
-		var file_obj := File.new()
-		file_obj.open(target_file, File.WRITE)
-		file_obj.store_string(build_class_text())
-		file_obj.close()
-
-func set_face_attrib_defaults(new_face_attrib_defaults : Resource) -> void:
-	if !new_face_attrib_defaults is TrenchBroomFaceAttribDefaults:
-		face_attrib_defaults = null
-	else:
-		face_attrib_defaults = new_face_attrib_defaults
-
 func build_class_text() -> String:
 	var fgd_filename_str := ""
 	for fgd_filename in fgd_filenames:
@@ -90,11 +87,11 @@ func build_class_text() -> String:
 		if fgd_filename != fgd_filenames[-1]:
 			fgd_filename_str += ", "
 
-	var brush_tags_str = parse_tags(brush_tags)
-	var face_tags_str = parse_tags(face_tags)
-	var face_defaults_str = parse_defaults(face_attrib_defaults)
-	var surface_flags_str = parse_flags(face_attrib_surface_flags)
-	var content_flags_str = parse_flags(face_attrib_content_flags)
+	var brush_tags_str:= parse_tags(brush_tags)
+	var face_tags_str:= parse_tags(face_tags)
+	var face_defaults_str:= parse_defaults(face_attrib_defaults)
+	var surface_flags_str:= parse_flags(face_attrib_surface_flags)
+	var content_flags_str:= parse_flags(face_attrib_content_flags)
 
 	return base_text % [
 		game_name,

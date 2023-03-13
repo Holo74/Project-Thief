@@ -3,23 +3,23 @@ using System;
 
 namespace Player.BodyMods
 {
-    public class DetectionPoints : Node
+    public partial class DetectionPoints : Node
     {
-        private CollisionShape Head { get; set; }
-        private CollisionShape Body { get; set; }
-        private CollisionShape Feet { get; set; }
+        private CollisionShape3D Head { get; set; }
+        private CollisionShape3D Body { get; set; }
+        private CollisionShape3D Feet { get; set; }
         public override void _Ready()
         {
-            Head = GetNode<CollisionShape>("Head");
-            Body = GetNode<CollisionShape>("Body");
-            Feet = GetNode<CollisionShape>("Legs");
+            Head = GetNode<CollisionShape3D>("Head");
+            Body = GetNode<CollisionShape3D>("Body");
+            Feet = GetNode<CollisionShape3D>("Legs");
             Variables.Instance.StandingChangedTo += UpdateCollisionDelayer;
 
         }
 
         private void UpdateCollisionDelayer(Variables.PlayerStandingState state)
         {
-            CallDeferred(nameof(UpdateCollision), state);
+            CallDeferred(nameof(UpdateCollision), Variant.CreateFrom(((int)state)));
         }
 
         private void UpdateCollision(Variables.PlayerStandingState state)

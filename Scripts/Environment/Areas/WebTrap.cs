@@ -3,7 +3,7 @@ using System;
 
 namespace Environment.Areas
 {
-    public class WebTrap : PlayerArea
+    public partial class WebTrap : PlayerArea
     {
         [Export]
         private float WalkSpeed { get; set; }

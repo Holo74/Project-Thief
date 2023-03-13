@@ -7,9 +7,9 @@ namespace Player.Movement
     public abstract class AbstractMovement
     {
         #region Basic Movement
-        public abstract void Movement(float delta);
+        public abstract void Movement(double delta);
 
-        public virtual void FallingMovement(float delta)
+        public virtual void FallingMovement(double delta)
         {
             if (Mantled(delta))
             {
@@ -25,13 +25,14 @@ namespace Player.Movement
             }
             Vector3 move = DirectionalInput() * MovementSpeed();
             Variables.Instance.MOVEMENT.Crouch();
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(move + Variables.Instance.GRAVITY_MOVEMENT, Vector3.Up);
-            Variables.Instance.GRAVITY_MOVEMENT += delta * Vector3.Down * Variables.Instance.GRAVITY_STRENGTH * Variables.Instance.GRAVITY_MOD;
+            PlayerQuickAccess.KINEMATIC_BODY.Velocity = move + Variables.Instance.GRAVITY_MOVEMENT;
+            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide();
+            Variables.Instance.GRAVITY_MOVEMENT += ((float)delta) * Vector3.Down * Variables.Instance.GRAVITY_STRENGTH * Variables.Instance.GRAVITY_MOD;
         }
         #endregion
 
-        private float MantleTimer { get; set; }
-        protected bool Mantled(float delta)
+        private double MantleTimer { get; set; }
+        protected bool Mantled(double delta)
         {
             if (Input.IsActionJustPressed("ui_select"))
             {
@@ -58,15 +59,14 @@ namespace Player.Movement
             {
                 // GD.Print("Changing floor too: " + PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor());
                 Variables.Instance.ON_FLOOR = PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor();
-                GD.Print("Gravity: " + Variables.Instance.GRAVITY_MOVEMENT);
             }
         }
 
         protected Vector3 DirectionalInput()
         {
             Vector3 output = new Vector3();
-            output = (InputToInt("ui_down") - InputToInt("ui_up")) * PlayerQuickAccess.BODY_DIRECTION.z;
-            output += (InputToInt("ui_right") - InputToInt("ui_left")) * PlayerQuickAccess.BODY_DIRECTION.x;
+            output = (InputToInt("ui_down") - InputToInt("ui_up")) * PlayerQuickAccess.BODY_DIRECTION.Z;
+            output += (InputToInt("ui_right") - InputToInt("ui_left")) * PlayerQuickAccess.BODY_DIRECTION.X;
             return output.Normalized();
         }
 
@@ -77,7 +77,7 @@ namespace Player.Movement
                 return;
             }
             Vector3 holder = Variables.Instance.GRAVITY_MOVEMENT;
-            holder.y = Variables.Instance.JUMP_STRENGTH;
+            holder.Y = Variables.Instance.JUMP_STRENGTH;
             holder += modifier;
             Variables.Instance.GRAVITY_MOVEMENT = holder * Variables.Instance.JUMP_MOD;
             Variables.Instance.Jump?.Invoke();
@@ -142,7 +142,7 @@ namespace Player.Movement
         {
             if (onFloor)
             {
-                PlayerQuickAccess.CAMERA.Translation = Vector3.Down * .1f;
+                PlayerQuickAccess.CAMERA.Position = Vector3.Down * .1f;
                 PlayerQuickAccess.KINEMATIC_BODY.Translate(Vector3.Up);
                 UpdateCollision();
                 Variables.Instance.OnFloorChange -= CrouchGroundCorrection;
@@ -166,19 +166,6 @@ namespace Player.Movement
             Variables.Instance.CURRENT_STANDING_STATE = state;
             UpdateCollision();
             CrouchCamera();
-        }
-
-        private Vector3 FloorCorrection()
-        {
-            Vector3 totalMove = Variables.Instance.WALKING_MOVEMENT;
-            Vector3 normal = PlayerQuickAccess.FLOOR_CAST.GetCollisionNormal();
-            if (!PlayerQuickAccess.FLOOR_CAST.IsColliding() || normal.Dot(Vector3.Down) < 0.2f)
-            {
-                return totalMove;
-            }
-            totalMove = totalMove.Cross(Vector3.Down);
-            totalMove = totalMove.Cross(normal);
-            return totalMove;
         }
 
         private void UpdateCollision()
@@ -235,25 +222,29 @@ namespace Player.Movement
             switch (Variables.Instance.CURRENT_STANDING_STATE)
             {
                 case Variables.PlayerStandingState.Standing:
-                    PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.Instance.MOVE_TO_CROUCH);
+                    PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "position:y", .9, Mathf.Abs(.9f - PlayerQuickAccess.CAMERA.Position.Y) / Variables.Instance.MOVE_TO_CROUCH);
                     break;
                 case Variables.PlayerStandingState.Crouching:
                     if (Variables.Instance.ON_FLOOR)
                     {
-                        PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.Instance.MOVE_TO_CROUCH);
+                        PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "position:y", -.1f, Mathf.Abs(-.1f - PlayerQuickAccess.CAMERA.Position.Y) / Variables.Instance.MOVE_TO_CROUCH);
                     }
                     break;
                 case Variables.PlayerStandingState.Crawling:
-                    PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "translation:y", -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Translation.y) / Variables.Instance.MOVE_TO_CROUCH);
+                    PlayerQuickAccess.CreateCameraTween().TweenProperty(PlayerQuickAccess.CAMERA, "position:y", -.6f, Mathf.Abs(-.6f - PlayerQuickAccess.CAMERA.Position.Y) / Variables.Instance.MOVE_TO_CROUCH);
                     break;
             }
         }
 
         protected Vector3 TotalMovement()
         {
-            if (Variables.Instance.ON_FLOOR)
+            // if (Variables.Instance.ON_FLOOR)
+            // {
+            //     return FloorCorrection() + Variables.Instance.GRAVITY_MOVEMENT;
+            // }
+            if (PlayerQuickAccess.KINEMATIC_BODY.MotionMode == CharacterBody3D.MotionModeEnum.Grounded)
             {
-                return FloorCorrection() + Variables.Instance.GRAVITY_MOVEMENT;
+                return Variables.Instance.WALKING_MOVEMENT + Variables.Instance.GRAVITY_MOVEMENT - PlayerQuickAccess.KINEMATIC_BODY.UpDirection;
             }
             return Variables.Instance.WALKING_MOVEMENT + Variables.Instance.GRAVITY_MOVEMENT;
         }
@@ -263,11 +254,14 @@ namespace Player.Movement
             if (state)
             {
                 // Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
+                // PlayerQuickAccess.KINEMATIC_BODY.MotionMode = CharacterBody3D.MotionModeEnum.Grounded;
             }
             else
             {
+                // PlayerQuickAccess.KINEMATIC_BODY.MotionMode = CharacterBody3D.MotionModeEnum.Floating;
                 if (Variables.Instance.CURRENT_STANDING_STATE == Variables.PlayerStandingState.Crawling)
                 {
+
                     // This doesn't work for some reason.  I clip through the ground
                     //CrouchWithoutInput();
                 }

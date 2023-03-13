@@ -2,15 +2,15 @@
 
 [ext_resource path="res://Scripts/BehaviorTree/BehaviorController.cs" type="Script" id=1]
 [ext_resource path="res://Models/Private use only/Weapons/Sword/Sword.fbx" type="PackedScene" id=2]
-[ext_resource path="res://CollisionShapes/SightShapes/BasicCone.tres" type="Shape" id=4]
+[ext_resource path="res://CollisionShapes/SightShapes/BasicCone.tres" type="Shape3D" id=4]
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape3D" id=1]
 radius = 0.5
 
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.5
 
-[sub_resource type="VisualShaderNodeColorUniform" id=4]
+[sub_resource type="VisualShaderNodeColorParameter" id=4]
 uniform_name = "Eye_Colors"
 default_value_enabled = true
 default_value = Color( 0, 0.112796, 0.893437, 1 )
@@ -19,7 +19,7 @@ default_value = Color( 0, 0.112796, 0.893437, 1 )
 code = "shader_type spatial;
 render_mode specular_schlick_ggx, async_visible;
 
-uniform vec4 Eye_Colors : hint_color = vec4(0.000000, 0.112796, 0.893437, 1.000000);
+uniform vec4 Eye_Colors : source_color = vec4(0.000000, 0.112796, 0.893437, 1.000000);
 
 
 
@@ -47,50 +47,50 @@ void light() {
 graph_offset = Vector2( -207.72, 127.28 )
 nodes/fragment/2/node = SubResource( 4 )
 nodes/fragment/2/position = Vector2( -40, 200 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 2, 1, 0, 1 )
+nodes/fragment/connections = PackedInt32Array( 2, 0, 0, 0, 2, 1, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
 shader_param/Eye_Colors = Color( 0, 0.112796, 0.893437, 1 )
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="BoxMesh" id=3]
 material = SubResource( 6 )
 size = Vector3( 0.631, 0.208, 0.189 )
 
 [sub_resource type="QuadMesh" id=22]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=7]
+[sub_resource type="VisualShaderNodeFloatOp" id=7]
 
-[sub_resource type="VisualShaderNodeScalarConstant" id=8]
+[sub_resource type="VisualShaderNodeFloatConstant" id=8]
 
 [sub_resource type="VisualShaderNodeVectorDecompose" id=9]
 
-[sub_resource type="VisualShaderNodeScalarOp" id=10]
+[sub_resource type="VisualShaderNodeFloatOp" id=10]
 operator = 3
 
-[sub_resource type="VisualShaderNodeScalarFunc" id=11]
+[sub_resource type="VisualShaderNodeFloatFunc" id=11]
 function = 14
 
-[sub_resource type="VisualShaderNodeScalarOp" id=12]
+[sub_resource type="VisualShaderNodeFloatOp" id=12]
 default_input_values = [ 0, 0.0, 1, -1.0 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeScalarOp" id=13]
+[sub_resource type="VisualShaderNodeFloatOp" id=13]
 default_input_values = [ 0, 0.0, 1, 1.0 ]
 
-[sub_resource type="VisualShaderNodeScalarClamp" id=14]
+[sub_resource type="VisualShaderNodeClamp" id=14]
 
-[sub_resource type="VisualShaderNodeScalarUniform" id=15]
+[sub_resource type="VisualShaderNodeFloatParameter" id=15]
 uniform_name = "Visibility_Rating"
 default_value_enabled = true
 
-[sub_resource type="VisualShaderNodeVectorInterp" id=16]
+[sub_resource type="VisualShaderNodeMix" id=16]
 
-[sub_resource type="VisualShaderNodeColorUniform" id=17]
+[sub_resource type="VisualShaderNodeColorParameter" id=17]
 uniform_name = "Hidden"
 default_value_enabled = true
 
-[sub_resource type="VisualShaderNodeColorUniform" id=18]
+[sub_resource type="VisualShaderNodeColorParameter" id=18]
 uniform_name = "Not_Hidden"
 default_value_enabled = true
 
@@ -101,8 +101,8 @@ input_name = "uv"
 code = "shader_type spatial;
 render_mode specular_schlick_ggx, async_visible, depth_test_disable, unshaded, ensure_correct_normals, shadows_disabled, ambient_light_disabled;
 
-uniform vec4 Hidden : hint_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
-uniform vec4 Not_Hidden : hint_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform vec4 Hidden : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform vec4 Not_Hidden : source_color = vec4(1.000000, 1.000000, 1.000000, 1.000000);
 uniform float Visibility_Rating = 0;
 
 
@@ -204,7 +204,7 @@ nodes/fragment/17/node = SubResource( 13 )
 nodes/fragment/17/position = Vector2( -840, 760 )
 nodes/fragment/18/node = SubResource( 14 )
 nodes/fragment/18/position = Vector2( 180, 440 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 6, 2, 7, 0, 6, 0, 8, 0, 6, 1, 6, 0, 0, 0, 11, 0, 10, 1, 9, 0, 12, 0, 10, 0, 13, 1, 13, 0, 15, 0, 2, 0, 13, 0, 12, 1, 16, 0, 16, 0, 17, 0, 17, 0, 10, 0, 15, 0, 18, 0, 18, 0, 0, 1 )
+nodes/fragment/connections = PackedInt32Array( 2, 0, 6, 2, 7, 0, 6, 0, 8, 0, 6, 1, 6, 0, 0, 0, 11, 0, 10, 1, 9, 0, 12, 0, 10, 0, 13, 1, 13, 0, 15, 0, 2, 0, 13, 0, 12, 1, 16, 0, 16, 0, 17, 0, 17, 0, 10, 0, 15, 0, 18, 0, 18, 0, 0, 1 )
 
 [sub_resource type="ShaderMaterial" id=21]
 shader = SubResource( 20 )
@@ -250,8 +250,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, -5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3 )
+"points": PackedFloat32Array( 0, -0.25, 0, 0.25, 0, 5, -0.25, 0, 0.25, 0, -5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0, 1, 2, 3 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Eyes:rotation_degrees:y")
@@ -260,8 +260,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3 )
+"points": PackedFloat32Array( 0, -0.25, 0, 0.25, 0, 50, -0.25, 0, 0.25, 0, -50, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0, 1, 2, 3 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Eyes:rotation_degrees:z")
@@ -270,8 +270,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 1, 2, 3 )
+"points": PackedFloat32Array( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0, 1, 2, 3 )
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("AnimationTree:parameters/conditions/Investigate")
@@ -280,8 +280,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0.1 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -295,8 +295,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PackedFloat32Array( 0, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0 )
 }
 tracks/1/type = "bezier"
 tracks/1/path = NodePath("Eyes:rotation_degrees:y")
@@ -305,8 +305,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PackedFloat32Array( 0, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("Eyes:rotation_degrees:z")
@@ -315,8 +315,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0 )
+"points": PackedFloat32Array( 0, -0.25, 0, 0.25, 0 ),
+"times": PackedFloat32Array( 0 )
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("AnimationTree:parameters/conditions/Investigate")
@@ -325,66 +325,66 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ false ]
 }
 
-[node name="Human" type="KinematicBody"]
+[node name="Human" type="CharacterBody3D"]
 moving_platform_apply_velocity_on_leave = 1
 script = ExtResource( 1 )
 
-[node name="Ears" type="Spatial" parent="."]
+[node name="Ears" type="Node3D" parent="."]
 
-[node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 shape = SubResource( 1 )
 
-[node name="Body" type="MeshInstance" parent="CollisionShape"]
-transform = Transform( 1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0 )
+[node name="Body" type="MeshInstance3D" parent="CollisionShape3D"]
+transform = Transform3D( 1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0 )
 mesh = SubResource( 2 )
 skeleton = NodePath("../..")
 
-[node name="NavigationAgent" type="NavigationAgent" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 avoidance_enabled = true
 
-[node name="Eyes" type="Spatial" parent="."]
+[node name="Eyes" type="Node3D" parent="."]
 
-[node name="Direct" type="Area" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33841, 0 )
+[node name="Direct" type="Area3D" parent="Eyes"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33841, 0 )
 monitorable = false
 
-[node name="CollisionShape" type="CollisionShape" parent="Eyes/Direct"]
-transform = Transform( 10, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 0, -0.722897, -18.8641 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eyes/Direct"]
+transform = Transform3D( 10, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 0, -0.722897, -18.8641 )
 shape = ExtResource( 4 )
 
-[node name="Indirect" type="Area" parent="Eyes"]
+[node name="Indirect" type="Area3D" parent="Eyes"]
 
-[node name="CollisionShape" type="CollisionShape" parent="Eyes/Indirect"]
-transform = Transform( 20, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0.603323, -9.76133 )
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Eyes/Indirect"]
+transform = Transform3D( 20, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0.603323, -9.76133 )
 shape = ExtResource( 4 )
 
-[node name="RayCast" type="RayCast" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665, -0.566 )
+[node name="RayCast3D" type="RayCast3D" parent="Eyes"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.665, -0.566 )
 enabled = true
-cast_to = Vector3( 0, 0, -37 )
+target_position = Vector3( 0, 0, -37 )
 collision_mask = 65536
 
-[node name="RayCast2" type="RayCast" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155 )
+[node name="RayCast2" type="RayCast3D" parent="Eyes"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155 )
 enabled = true
-cast_to = Vector3( 0, 0, -37 )
+target_position = Vector3( 0, 0, -37 )
 collision_mask = 65536
 
-[node name="RayCast3" type="RayCast" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155 )
+[node name="RayCast3" type="RayCast3D" parent="Eyes"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.664653, -0.566155 )
 enabled = true
-cast_to = Vector3( 0, 0, -37 )
+target_position = Vector3( 0, 0, -37 )
 collision_mask = 65536
 
-[node name="Facing" type="MeshInstance" parent="Eyes"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653882, -0.408684 )
+[node name="Facing" type="MeshInstance3D" parent="Eyes"]
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653882, -0.408684 )
 mesh = SubResource( 3 )
 skeleton = NodePath("../..")
 
@@ -394,8 +394,8 @@ bus = "NPCs"
 
 [node name="Feet" type="AudioStreamPlayer3D" parent="."]
 
-[node name="Indicator" type="MeshInstance" parent="."]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.84163, 0 )
+[node name="Indicator" type="MeshInstance3D" parent="."]
+transform = Transform3D( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.84163, 0 )
 mesh = SubResource( 22 )
 material/0 = SubResource( 21 )
 
@@ -412,7 +412,7 @@ anims/Investigate = SubResource( 26 )
 anims/RESET = SubResource( 27 )
 
 [node name="Sword" parent="." instance=ExtResource( 2 )]
-transform = Transform( -1.74846e-07, -4, 0, 4, -1.74846e-07, 0, 0, 0, 4, -0.266761, 0.5346, -0.781987 )
+transform = Transform3D( -1.74846e-07, -4, 0, 4, -1.74846e-07, 0, 0, 0, 4, -0.266761, 0.5346, -0.781987 )
 
 [connection signal="body_entered" from="Eyes/Direct" to="." method="InArea" binds= [ true, "DirectVision" ]]
 [connection signal="body_exited" from="Eyes/Direct" to="." method="InArea" binds= [ false, "DirectVision" ]]

@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Callout-03.wav-fcf8006fe5139fb8d78b73d6e235003b.sample"
+type="AudioStreamWAV"
+uid="uid://cfo4qdtjegg"
+path="res://.godot/imported/Callout-03.wav-fcf8006fe5139fb8d78b73d6e235003b.sample"
 
 [deps]
 
 source_file="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-03.wav"
-dest_files=[ "res://.import/Callout-03.wav-fcf8006fe5139fb8d78b73d6e235003b.sample" ]
+dest_files=["res://.godot/imported/Callout-03.wav-fcf8006fe5139fb8d78b73d6e235003b.sample"]
 
 [params]
 

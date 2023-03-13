@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Callout-02.wav-094976da531569606911a8de6f5770c9.sample"
+type="AudioStreamWAV"
+uid="uid://c0pdw6lyra22m"
+path="res://.godot/imported/Callout-02.wav-094976da531569606911a8de6f5770c9.sample"
 
 [deps]
 
 source_file="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-02.wav"
-dest_files=[ "res://.import/Callout-02.wav-094976da531569606911a8de6f5770c9.sample" ]
+dest_files=["res://.godot/imported/Callout-02.wav-094976da531569606911a8de6f5770c9.sample"]
 
 [params]
 

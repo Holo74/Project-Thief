@@ -3,11 +3,11 @@ using System;
 
 namespace Management.Time
 {
-    public class StartPlayerTimer : Timer
+    public partial class StartPlayerTimer : Timer
     {
         public override void _Ready()
         {
-            Connect("timeout", this, nameof(StartPlayer));
+            Connect("timeout",new Callable(this,nameof(StartPlayer)));
         }
 
         private void StartPlayer()

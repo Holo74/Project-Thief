@@ -3,7 +3,7 @@ using System;
 
 namespace Debug.Menus
 {
-    public class PlayerVariableDisplay : RichTextLabel
+    public partial class PlayerVariableDisplay : RichTextLabel
     {
         // Declare member variables here. Examples:
         // private int a = 2;
@@ -16,9 +16,9 @@ namespace Debug.Menus
         }
 
         //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
-            // if (Player.Variables.Instance.WALKING_MOVEMENT.y > .1f || Player.Variables.Instance.WALKING_MOVEMENT.y < -.1f)
+            // if (Player.Variables.Instance.WALKING_MOVEMENT.Y > .1f || Player.Variables.Instance.WALKING_MOVEMENT.Y < -.1f)
             Text = "Speed: " + Player.Variables.Instance.WALKING_MOVEMENT + "\nGravity: " + Player.Variables.Instance.GRAVITY_MOVEMENT;
         }
     }

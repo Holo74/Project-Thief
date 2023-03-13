@@ -3,15 +3,15 @@ using System;
 
 namespace Player.BodyMods
 {
-    public class SideWallDetection : Node
+    public partial class SideWallDetection : Node
     {
-        private RayCast RightRay { get; set; }
-        private RayCast LeftRay { get; set; }
+        private RayCast3D RightRay { get; set; }
+        private RayCast3D LeftRay { get; set; }
 
         public override void _Ready()
         {
-            LeftRay = GetNode<RayCast>("Left Ray");
-            RightRay = GetNode<RayCast>("Right Ray");
+            LeftRay = GetNode<RayCast3D>("Left Ray");
+            RightRay = GetNode<RayCast3D>("Right Ray");
         }
 
         public Vector3 GetRightNormal()
@@ -20,7 +20,7 @@ namespace Player.BodyMods
             {
                 return RightRay.GetCollisionNormal();
             }
-            return -PlayerQuickAccess.BODY_DIRECTION.x;
+            return -PlayerQuickAccess.BODY_DIRECTION.X;
         }
 
         public Vector3 GetLeftNormal()
@@ -29,7 +29,7 @@ namespace Player.BodyMods
             {
                 return LeftRay.GetCollisionNormal();
             }
-            return PlayerQuickAccess.BODY_DIRECTION.x;
+            return PlayerQuickAccess.BODY_DIRECTION.X;
         }
 
         public bool IsWallDetected(bool isRight)

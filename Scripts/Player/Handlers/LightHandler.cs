@@ -3,18 +3,18 @@ using System;
 
 namespace Player.Handlers
 {
-    public class LightHandler : Node
+    public partial class LightHandler : Node
     {
-        private Viewport TopView { get; set; }
-        private Viewport BottomView { get; set; }
+        private SubViewport TopView { get; set; }
+        private SubViewport BottomView { get; set; }
         private Timer Cycle { get; set; }
 
         public float CurrentLight = 0f;
         public override void _Ready()
         {
-            TopView = GetNode<Viewport>("Top");
-            BottomView = GetNode<Viewport>("Bottom");
-            Cycle = GetNode<Timer>("Capture Light");
+            TopView = GetNode<SubViewport>("Top");
+            BottomView = GetNode<SubViewport>("Bottom");
+            Cycle = GetNode<Timer>("Capture Light3D");
             Cycle.Start();
 
         }
@@ -22,10 +22,8 @@ namespace Player.Handlers
         {
             ViewportTexture top = TopView.GetTexture();
             ViewportTexture bottom = BottomView.GetTexture();
-            Image topIm = top.GetData();
-            Image bottomIm = top.GetData();
-            bottomIm.Lock();
-            topIm.Lock();
+            Image topIm = top.GetImage();
+            Image bottomIm = top.GetImage();
             topIm.ClearMipmaps();
             topIm.SavePng("user://Top Image.png");
         }
@@ -33,14 +31,12 @@ namespace Player.Handlers
         {
             ViewportTexture top = TopView.GetTexture();
             ViewportTexture bottom = BottomView.GetTexture();
-            Image topIm = top.GetData();
-            Image bottomIm = top.GetData();
-            bottomIm.Lock();
-            topIm.Lock();
+            Image topIm = top.GetImage();
+            Image bottomIm = top.GetImage();
             topIm.ClearMipmaps();
             CurrentLight = Help.Math.LightCalculator.GetBrightnessFromTextures(bottomIm, topIm);
             // topIm.SavePng("user://Top Image.png");
-            // GD.Print("Updating Light");
+            // GD.Print("Updating Light3D");
             // CurrentLight = Help.Math.LightCalculator.GetBrightnessFromTextures(topIm, bottomIm);
             // Cycle.Start();
             // GD.Print();

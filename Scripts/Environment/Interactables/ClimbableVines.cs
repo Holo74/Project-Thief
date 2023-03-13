@@ -3,7 +3,7 @@ using System;
 
 namespace Environment.Interactables
 {
-    public class ClimbableVines : StaticBody, IInteract
+    public partial class ClimbableVines : StaticBody3D, IInteract
     {
         [Export]
         private Vector3 WorldRight { get; set; }
@@ -11,8 +11,8 @@ namespace Environment.Interactables
 
         public override void _Ready()
         {
-            GetNode<Area>("Area").Connect("body_entered", this, nameof(PlayerEnteredBody));
-            GetNode<Area>("Area").Connect("body_exited", this, nameof(PlayerLeftBody));
+            GetNode<Area3D>("Area3D").Connect("body_entered",new Callable(this,nameof(PlayerEnteredBody)));
+            GetNode<Area3D>("Area3D").Connect("body_exited",new Callable(this,nameof(PlayerLeftBody)));
         }
 
         private void PlayerEnteredBody(Node body)

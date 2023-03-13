@@ -3,7 +3,7 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Actions
 {
-    public class SetTargetToHome : SetTarget
+    public partial class SetTargetToHome : SetTarget
     {
         [Export]
         private Vector3 GlobalPosition;

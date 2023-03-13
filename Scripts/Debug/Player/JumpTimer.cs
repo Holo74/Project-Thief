@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace Debug.PlayerD
 {
-    public class JumpTimer : Node
+    public partial class JumpTimer : Node
     {
         private long InitialJump { get; set; }
         private long AfterJump { get; set; }

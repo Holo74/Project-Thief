@@ -3,14 +3,14 @@ using System;
 
 namespace BehaviorTree.Nodes.Leaf.Actions
 {
-    public abstract class SetTarget : Base
+    public abstract partial class SetTarget : Base
     {
         protected Vector3 TargetPosition { get; set; }
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             if (SetTargetPosition())
             {
-                BC.NavAgent.SetTargetLocation(TargetPosition);
+                BC.NavAgent.TargetPosition = (TargetPosition);
                 return Results.Success;
             }
             return Results.Failure;

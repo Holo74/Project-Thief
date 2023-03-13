@@ -4,11 +4,11 @@ using Environment.Resources;
 
 namespace Player.Handlers
 {
-    public class CamoHandler
+    public partial class CamoHandler
     {
-        private Texture CurrentBodyCamo { get; set; }
+        private Texture2D CurrentBodyCamo { get; set; }
         private System.Collections.Generic.List<CamoInstance> SurroundingTexture { get; set; }
-        private Texture PrioritySurroundingTexture { get; set; }
+        private Texture2D PrioritySurroundingTexture { get; set; }
         private float CurrentCamoMatch { get; set; }
 
         private int BodyShowValue { get; set; }
@@ -36,7 +36,7 @@ namespace Player.Handlers
             BaseVisibility = (BodyShowValue - 80) + Mathf.RoundToInt(CurrentCamoMatch * 16) * 5;
         }
 
-        public void UpdateCurrentBodyCamo(Texture newCamo)
+        public void UpdateCurrentBodyCamo(Texture2D newCamo)
         {
             CurrentBodyCamo = newCamo;
             UpdateCamoMatch();

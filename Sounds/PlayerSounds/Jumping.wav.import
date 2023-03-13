@@ -1,13 +1,14 @@
 [remap]
 
 importer="wav"
-type="AudioStreamSample"
-path="res://.import/Jumping.wav-9d64f4b268c6dbdf70bc75490dd00d3a.sample"
+type="AudioStreamWAV"
+uid="uid://dw2t2s6s1w0o1"
+path="res://.godot/imported/Jumping.wav-9d64f4b268c6dbdf70bc75490dd00d3a.sample"
 
 [deps]
 
 source_file="res://Sounds/PlayerSounds/Jumping.wav"
-dest_files=[ "res://.import/Jumping.wav-9d64f4b268c6dbdf70bc75490dd00d3a.sample" ]
+dest_files=["res://.godot/imported/Jumping.wav-9d64f4b268c6dbdf70bc75490dd00d3a.sample"]
 
 [params]
 
@@ -17,5 +18,7 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
-edit/loop=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
 compress/mode=0

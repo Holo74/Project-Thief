@@ -3,9 +3,9 @@ using System;
 
 namespace Player.GUI
 {
-    public class InteractionTexture : TextureRect
+    public partial class InteractionTexture : TextureRect
     {
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             Visible = Player.PlayerQuickAccess.INTERACTION.InteractMod.CanInteract();
         }

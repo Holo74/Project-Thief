@@ -3,7 +3,7 @@ using System;
 
 namespace Management.Sound
 {
-    public class PlayerSoundManager : Node
+    public partial class PlayerSoundManager : Node
     {
         private AudioStreamPlayer Legs { get; set; }
         private AudioStreamPlayer Arms { get; set; }
@@ -26,7 +26,7 @@ namespace Management.Sound
             Player.Variables.Instance.Jump += PlayJump;
         }
 
-        public override void _Process(float delta)
+        public override void _Process(double delta)
         {
             base._Process(delta);
             SettingSoundLevel = 0;
@@ -39,7 +39,7 @@ namespace Management.Sound
             if (state)
             {
                 Track = PlayGroundWalkingSound;
-                float loudness = Player.Variables.Instance.CAMO.GetSoundVolume() / LandingMods[(int)Player.Variables.Instance.CURRENT_STANDING_STATE] * Player.Variables.Instance.GRAVITY_MOVEMENT.y;
+                float loudness = Player.Variables.Instance.CAMO.GetSoundVolume() / LandingMods[(int)Player.Variables.Instance.CURRENT_STANDING_STATE] * Player.Variables.Instance.GRAVITY_MOVEMENT.Y;
                 PlayLegSound(Player.Variables.Instance.CAMO?.GetSoundDictionary()?.LandingSound, true, Mathf.Clamp(loudness, 0f, 1f));
             }
             else
@@ -55,7 +55,7 @@ namespace Management.Sound
 
         private void PlayJump()
         {
-            SoundLevel += Player.Variables.Instance.GRAVITY_MOVEMENT.y;
+            SoundLevel += Player.Variables.Instance.GRAVITY_MOVEMENT.Y;
             PlayLegSound(Jump, true);
         }
 

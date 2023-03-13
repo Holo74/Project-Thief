@@ -4,7 +4,7 @@ using System;
 namespace Player
 {
     //We must reset some values to their default states!!!
-    public class Variables
+    public partial class Variables
     {
 
         public static Variables Instance { get; set; }
@@ -116,8 +116,6 @@ namespace Player
         #region bool signals
         public event StateChange SprintingChanged;
         public event StateChange OnFloorChange;
-        [Obsolete]
-        public event StateChange CrouchChange;
         #endregion
 
         #region Rotation

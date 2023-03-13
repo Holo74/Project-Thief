@@ -4,7 +4,7 @@ using System.Threading;
 
 namespace Debug.VisibilityIndex.CamoTesting
 {
-    public class SetCamo : Node
+    public partial class SetCamo : Node
     {
         private Color[,] Colors;
         private TextureRect Camo;
@@ -25,13 +25,13 @@ namespace Debug.VisibilityIndex.CamoTesting
         public void SetCamoTexture(string path)
         {
             // // GD.Print(path);
-            // Camo.Texture = ResourceLoader.Load<Texture>(path);
+            // Camo.Texture2D = ResourceLoader.Load<Texture2D>(path);
 
 
             // //source.Crop(100, 100);
             // ImageTexture texture = new ImageTexture();
             // texture.CreateFromImage(source);
-            // Camo.Texture = texture;
+            // Camo.Texture2D = texture;
 
 
             // HasPattern = true;

@@ -2,7 +2,7 @@ class_name QodotUtil
 
 # General-purpose utility functions namespaced to Qodot for compatibility
 
-const DEBUG := false
+const DEBUG := true
 
 const CATEGORY_STRING := '----------------------------------------------------------------'
 

@@ -3,21 +3,21 @@ using System;
 
 namespace Environment.Areas
 {
-    public class SwingingVine : PlayerArea
+    public partial class SwingingVine : PlayerArea
     {
         private Vector3 Point { get; set; }
 
         public override void _Ready()
         {
             base._Ready();
-            Point = GetNode<Spatial>("Swing Point").GlobalTransform.origin;
+            Point = GetNode<Node3D>("Swing Point").GlobalPosition;
         }
 
         protected override void PlayerEntered()
         {
             if (!(Player.Variables.Instance.MOVEMENT is Player.Movement.Swinging))
             {
-                Player.Variables.Instance.MOVEMENT = new Player.Movement.Swinging(Point, GetNode<Spatial>("Swing Point").GlobalTransform.basis.z);
+                Player.Variables.Instance.MOVEMENT = new Player.Movement.Swinging(Point, GetNode<Node3D>("Swing Point").GlobalTransform.Basis.Z);
             }
         }
 

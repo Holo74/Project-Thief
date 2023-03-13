@@ -77,43 +77,43 @@
 [ext_resource path="res://Scenes/Models/Environmental/Scaffolding/scaffold_small_lowgltf.tscn" type="PackedScene" id=75]
 [ext_resource path="res://Scenes/Models/Environmental/Scaffolding/scaffold_small_low_cornerLeftgltf.tscn" type="PackedScene" id=76]
 
-[node name="Spatial" type="Spatial"]
+[node name="Node3D" type="Node3D"]
 
 [node name="tileBrickA_largegltf" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7 )
 
 [node name="tileBrickA_mediumgltf" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14 )
 
 [node name="tileBrickA_smallgltf" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21 )
 
 [node name="tileBrickB_largeCrackedAgltf" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 7 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 7 )
 
 [node name="tileBrickB_largeCrackedBgltf" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 14 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 14 )
 
 [node name="tileBrickB_largegltf" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 21 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 21 )
 
 [node name="tileBrickB_mediumgltf" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 28 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 28 )
 
 [node name="tileBrickB_smallgltf" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 34 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 34 )
 
 [node name="tileSpikesgltf" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28 )
 
 [node name="tileSpikes_largegltf" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34 )
 
 [node name="tileSpikes_shallowgltf" parent="." instance=ExtResource( 10 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 39 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 39 )
 
 [node name="scaffold_highgltf" parent="." instance=ExtResource( 73 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="scaffold_high_cornerBothgltf" parent="." instance=ExtResource( 15 )]
 

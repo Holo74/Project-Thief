@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Movement
 {
-    public class Climbing : AbstractMovement
+    public partial class Climbing : AbstractMovement
     {
         public Climbing(Vector3 right)
         {
@@ -13,7 +13,7 @@ namespace Player.Movement
         private Vector3 Forward { get; set; }
         private bool TouchingFloor { get; set; } = true;
 
-        public override void FallingMovement(float delta)
+        public override void FallingMovement(double delta)
         {
             Move();
             TouchingFloor = false;
@@ -27,7 +27,7 @@ namespace Player.Movement
             }
         }
 
-        public override void Movement(float delta)
+        public override void Movement(double delta)
         {
             Move();
             if (!TouchingFloor)
@@ -47,7 +47,8 @@ namespace Player.Movement
         private void Move()
         {
             Variables.Instance.WALKING_MOVEMENT = Movement() + Forward;
-            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide(Variables.Instance.WALKING_MOVEMENT * Variables.Instance.STANDING_SPEED);
+            PlayerQuickAccess.KINEMATIC_BODY.Velocity = Variables.Instance.WALKING_MOVEMENT * Variables.Instance.STANDING_SPEED;
+            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide();
             if (Input.IsActionJustPressed("ui_select"))
             {
                 Jump(Vector3.Down.Cross(Right) * Variables.Instance.STANDING_SPEED);
@@ -58,6 +59,8 @@ namespace Player.Movement
         public override void Starting()
         {
             Forward = Vector3.Up.Cross(Right);
+            PlayerQuickAccess.KINEMATIC_BODY.MotionMode = CharacterBody3D.MotionModeEnum.Grounded;
+            PlayerQuickAccess.KINEMATIC_BODY.UpDirection = -Forward;
         }
     }
 

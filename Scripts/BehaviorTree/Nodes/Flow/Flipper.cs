@@ -3,9 +3,9 @@ using System;
 
 namespace BehaviorTree.Nodes.Flow
 {
-    public class Flipper : Base
+    public partial class Flipper : Base
     {
-        public override Results Tick(float delta, BehaviorController BC)
+        public override Results Tick(double delta, BehaviorController BC)
         {
             foreach (Base c in Children)
             {

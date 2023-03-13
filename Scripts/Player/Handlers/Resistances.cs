@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Handlers
 {
-    public class Resistances : Resource
+    public partial class Resistances : Resource
     {
         [Export]
         public Health.InteractionTypes resistant;

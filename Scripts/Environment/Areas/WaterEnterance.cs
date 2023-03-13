@@ -3,7 +3,7 @@ using System;
 
 namespace Environment.Areas
 {
-    public class WaterEnterance : PlayerArea
+    public partial class WaterEnterance : PlayerArea
     {
         protected override void PlayerEntered()
         {
@@ -12,7 +12,7 @@ namespace Environment.Areas
 
         protected override void PlayerLeft()
         {
-            if (Player.PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.origin.y > GlobalTransform.origin.y)
+            if (Player.PlayerQuickAccess.KINEMATIC_BODY.GlobalPosition.Y > GlobalPosition.Y)
             {
                 if (Player.Variables.Instance.MOVEMENT is Player.Movement.Swimming)
                 {

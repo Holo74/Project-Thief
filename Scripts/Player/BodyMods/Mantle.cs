@@ -3,7 +3,7 @@ using System;
 
 namespace Player.BodyMods
 {
-    public class Mantle : Spatial
+    public partial class Mantle : Node3D
     {
         private MantleRaycasters Upper { get; set; }
         private MantleRaycasters Lower { get; set; }
@@ -28,20 +28,21 @@ namespace Player.BodyMods
         {
             int index = ((int)state);
             PlayerMinSize = MinSizes[index];
-            Upper.SetCastTo(Vector3.Down * CastToSizes[index]);
-            Lower.SetCastTo(Vector3.Up * CastToSizes[index]);
+            Upper.SetTargetPosition(Vector3.Down * CastToSizes[index]);
+            Lower.SetTargetPosition(Vector3.Up * CastToSizes[index]);
         }
 
         public bool CanMantle()
         {
             if (Upper.IsColliding())
             {
-                Vector3 holder = Lower.GlobalTranslation;
-                holder.y = Upper.FurthestHit().y;
-                Lower.GlobalTranslation = holder;
+                Vector3 holder = Lower.GlobalPosition;
+                holder.Y = Upper.FurthestHit().Y;
+                Lower.GlobalPosition = holder;
+                GD.Print(Lower.GetSmallestDistance());
                 if (Lower.GetSmallestDistance() > AbsoluteMin)
                 {
-                    holder.y += 0.1f;
+                    holder.Y += 0.1f;
                     MantleHeight = holder;
                     return true;
                 }

@@ -3,26 +3,26 @@ using System;
 
 namespace Player.BodyMods
 {
-    public class MantleRaycasters : Spatial
+    public partial class MantleRaycasters : Node3D
     {
-        private RayCast[] Raycasters { get; set; }
+        private RayCast3D[] Raycasters { get; set; }
 
         private Vector3 distance = new Vector3();
 
         public override void _Ready()
         {
-            Raycasters = new RayCast[GetChildCount()];
+            Raycasters = new RayCast3D[GetChildCount()];
             for (int i = 0; i < GetChildCount(); i++)
             {
-                Raycasters[i] = GetChild<RayCast>(i);
+                Raycasters[i] = GetChild<RayCast3D>(i);
             }
         }
 
-        public void SetCastTo(Vector3 dis)
+        public void SetTargetPosition(Vector3 dis)
         {
-            foreach (RayCast r in Raycasters)
+            foreach (RayCast3D r in Raycasters)
             {
-                r.CastTo = dis;
+                r.TargetPosition = dis;
             }
         }
 
@@ -40,13 +40,13 @@ namespace Player.BodyMods
 
         public Vector3 FurthestHit()
         {
-            Vector3 point = Raycasters[0].CastTo + Raycasters[0].GlobalTranslation;
+            Vector3 point = Raycasters[0].TargetPosition + Raycasters[0].GlobalPosition;
             float pointDistance = 0f;
             for (int i = 0; i < Raycasters.Length; i++)
             {
                 if (Raycasters[i].IsColliding())
                 {
-                    float distance = Raycasters[i].GlobalTranslation.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
+                    float distance = Raycasters[i].GlobalPosition.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
                     if (pointDistance < distance)
                     {
                         point = Raycasters[i].GetCollisionPoint();
@@ -62,9 +62,11 @@ namespace Player.BodyMods
             float distance = Mathf.Inf;
             for (int i = 0; i < Raycasters.Length; i++)
             {
+                GD.Print("Testing colliders");
                 if (Raycasters[i].IsColliding())
                 {
-                    float dis = Raycasters[i].GlobalTranslation.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
+                    float dis = Raycasters[i].GlobalPosition.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
+                    GD.Print("Distance to the point is: " + dis);
                     distance = distance > dis ? dis : distance;
                 }
             }

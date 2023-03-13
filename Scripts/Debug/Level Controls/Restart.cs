@@ -3,7 +3,7 @@ using System;
 
 namespace Debug.LevelControls
 {
-    public class Restart : Button
+    public partial class Restart : Button
     {
         [Export]
         private string ScenePath { get; set; }
@@ -11,14 +11,14 @@ namespace Debug.LevelControls
 
         public override void _Ready()
         {
-            //PlayerPosition = Player.PlayerQuickAccess.KINEMATIC_BODY.Transform.origin;
+            //PlayerPosition = Player.PlayerQuickAccess.KINEMATIC_BODY.Transform3D.origin;
         }
 
         private void RestartLevel()
         {
-            // Player.PlayerQuickAccess.KINEMATIC_BODY.Translation = PlayerPosition;
+            // Player.PlayerQuickAccess.KINEMATIC_BODY.Position = PlayerPosition;
             // Player.Variables.Instance.GRAVITY_MOVEMENT = Vector3.Zero;
-            GetTree().ChangeScene("res://Scenes/Menus/MainMenu.tscn");
+            Management.Game.GameManager.Instance.QuitToMainMenu();
         }
     }
 }

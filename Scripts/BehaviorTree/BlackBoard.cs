@@ -3,7 +3,7 @@ using System;
 
 namespace BehaviorTree
 {
-    public class BlackBoard : Node
+    public partial class BlackBoard : Node
     {
 
     }

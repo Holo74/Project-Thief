@@ -3,7 +3,7 @@ using System;
 
 namespace Player.Upgrades
 {
-    public class DoubleJump : AbstractUpgrade
+    public partial class DoubleJump : AbstractUpgrade
     {
         private int JumpAmount { get; set; } = 0;
         private int frameBuffer = 1;
@@ -12,7 +12,7 @@ namespace Player.Upgrades
             Variables.Instance.OnFloorChange += FloorChange;
         }
 
-        public override void Update(float delta)
+        public override void Update(double delta)
         {
             if (!Player.Variables.Instance.ON_FLOOR)
             {

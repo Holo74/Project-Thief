@@ -3,7 +3,7 @@ using System;
 
 namespace Debug.Menus
 {
-    public class SetRichText : RichTextLabel
+    public partial class SetRichText : RichTextLabel
     {
         private void SetTextTo(string text)
         {

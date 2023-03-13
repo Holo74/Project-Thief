@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace BehaviorTree.Nodes
 {
-    public abstract class Base : Node
+    public abstract partial class Base : Node
     {
         private Base Parent { get; set; }
         protected List<Base> Children { get; set; }
@@ -25,7 +25,7 @@ namespace BehaviorTree.Nodes
             }
         }
 
-        public abstract Results Tick(float delta, BehaviorController BC);
+        public abstract Results Tick(double delta, BehaviorController BC);
     }
 
     public enum Results

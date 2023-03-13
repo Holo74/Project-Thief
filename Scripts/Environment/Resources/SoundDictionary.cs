@@ -3,7 +3,8 @@ using System;
 
 namespace Environment.Resources
 {
-    public class SoundDictionary : Resource
+    [Tool]
+    public partial class SoundDictionary : Resource
     {
         [Export]
         public AudioStream[] Sounds { get; private set; }
