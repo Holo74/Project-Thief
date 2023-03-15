@@ -3,6 +3,7 @@
 *.translation
 export_presents.cfg
 .mono/
+.godot/
 
 # Binaries
 bin/
