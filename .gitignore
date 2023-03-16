@@ -4,7 +4,7 @@
 export_presents.cfg
 .mono/
 .godot/
-*.import
+**.import
 
 # Binaries
 bin/
