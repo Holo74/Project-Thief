@@ -48,7 +48,7 @@ namespace Player.Rotation
 
             xRotation += subtraction;
             HeadRotation += xRotation;
-            PlayerQuickAccess.CAMERA.RotateX(xRotation);
+            PlayerQuickAccess.CAMERA.Rotate(PlayerQuickAccess.CAMERA.Basis.X, xRotation);
         }
     }
 }

@@ -2,12 +2,13 @@
 
 importer="qodot.map"
 type="Resource"
-path="res://.import/DebugMap.map-eb587ba28c3810ff0b176bf82a672dc2.tres"
+uid="uid://ctygd8m77pow"
+path="res://.godot/imported/DebugMap.map-eb587ba28c3810ff0b176bf82a672dc2.tres"
 
 [deps]
 
 source_file="res://Maps/Debug/DebugMap.map"
-dest_files=[ "res://.import/DebugMap.map-eb587ba28c3810ff0b176bf82a672dc2.tres" ]
+dest_files=["res://.godot/imported/DebugMap.map-eb587ba28c3810ff0b176bf82a672dc2.tres"]
 
 [params]
 

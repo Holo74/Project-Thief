@@ -5,9 +5,17 @@ namespace Player.BodyMods
 {
     public partial class Mantle : Node3D
     {
-        private MantleRaycasters Upper { get; set; }
+        public MantleRaycasters Upper { get; private set; }
         private MantleRaycasters Lower { get; set; }
+        [Export]
+        private Node3D LowerPosition { get; set; }
         private float PlayerMinSize { get; set; }
+
+        [Export]
+        public RayCast3D LeftHand { get; set; }
+        [Export]
+        public RayCast3D RightHand { get; set; }
+
         [Export]
         private float[] MinSizes { get; set; }
         [Export]
@@ -18,7 +26,8 @@ namespace Player.BodyMods
         public override void _Ready()
         {
             Upper = GetNode<MantleRaycasters>("Positioner/Upper Raycasts");
-            Lower = GetNode<MantleRaycasters>("Lower Raycasts");
+            Lower = GetNode<MantleRaycasters>("Lower/Lower Raycasts");
+
             Variables.Instance.StandingChangedTo += SetMinSize;
             PlayerMinSize = MinSizes[0];
             AbsoluteMin = 1f;
@@ -36,18 +45,27 @@ namespace Player.BodyMods
         {
             if (Upper.IsColliding())
             {
-                Vector3 holder = Lower.GlobalPosition;
+                Vector3 holder = LowerPosition.GlobalPosition;
                 holder.Y = Upper.FurthestHit().Y;
-                Lower.GlobalPosition = holder;
-                GD.Print(Lower.GetSmallestDistance());
-                if (Lower.GetSmallestDistance() > AbsoluteMin)
+                LowerPosition.GlobalPosition = holder;
+                if (Lower.GetSmallestDistance() > AbsoluteMin && (HandsCanHold() || !HandsAboveWaist()))
                 {
-                    holder.Y += 0.1f;
+                    holder.Y += 1.0f;
                     MantleHeight = holder;
                     return true;
                 }
             }
             return false;
+        }
+
+        public bool HandsAboveWaist()
+        {
+            return Lower.GlobalPosition.Y > PlayerQuickAccess.KINEMATIC_BODY.GlobalPosition.Y;
+        }
+
+        private bool HandsCanHold()
+        {
+            return RightHand.IsColliding() && LeftHand.IsColliding() && RightHand.GetCollisionNormal().Dot(LeftHand.GetCollisionNormal()) > .9f;
         }
     }
 

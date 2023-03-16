@@ -2,12 +2,13 @@
 
 importer="qodot.map"
 type="Resource"
-path="res://.import/PlayGround.map-939f220dfd67d910411074a8d4aa10ff.tres"
+uid="uid://d4mxsp7urko3x"
+path="res://.godot/imported/PlayGround.map-939f220dfd67d910411074a8d4aa10ff.tres"
 
 [deps]
 
 source_file="res://Maps/TestingMap/PlayGround.map"
-dest_files=[ "res://.import/PlayGround.map-939f220dfd67d910411074a8d4aa10ff.tres" ]
+dest_files=["res://.godot/imported/PlayGround.map-939f220dfd67d910411074a8d4aa10ff.tres"]
 
 [params]
 

@@ -2,12 +2,13 @@
 
 importer="qodot.map"
 type="Resource"
-path="res://.import/StealthIntro.12.map-90094c744e382300c0ae1f5bc71d1b39.tres"
+uid="uid://cajqnjrd7ojnp"
+path="res://.godot/imported/StealthIntro.12.map-90094c744e382300c0ae1f5bc71d1b39.tres"
 
 [deps]
 
 source_file="res://Maps/DemoMaps/Stealth Intro/autosave/StealthIntro.12.map"
-dest_files=[ "res://.import/StealthIntro.12.map-90094c744e382300c0ae1f5bc71d1b39.tres" ]
+dest_files=["res://.godot/imported/StealthIntro.12.map-90094c744e382300c0ae1f5bc71d1b39.tres"]
 
 [params]
 

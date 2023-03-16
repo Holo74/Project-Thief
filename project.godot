@@ -37,7 +37,7 @@ version_control_plugin_name="GitAPI"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg", "res://addons/qodot/plugin.cfg")
 
 [gdnative]
 

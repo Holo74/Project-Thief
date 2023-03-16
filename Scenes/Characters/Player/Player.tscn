@@ -57,7 +57,6 @@ floor_constant_speed = true
 script = ExtResource("1")
 PlayerHealth = SubResource("7")
 Upgrades = SubResource("9")
-DebugMode = true
 
 [node name="UpperBody" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -65,48 +64,67 @@ shape = SubResource("1")
 
 [node name="BodyNode" type="Node3D" parent="."]
 
-[node name="Mantling" type="Node3D" parent="BodyNode"]
+[node name="Mantling" type="Node3D" parent="BodyNode" node_paths=PackedStringArray("LowerPosition", "LeftHand", "RightHand")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 script = ExtResource("13")
+LowerPosition = NodePath("Lower")
+LeftHand = NodePath("Lower/Left Hand")
+RightHand = NodePath("Lower/Right Hand")
 MinSizes = PackedFloat32Array(2, 1, 0)
 CastToSizes = PackedFloat32Array(2, 1, 0)
 
-[node name="Lower Raycasts" type="Node3D" parent="BodyNode/Mantling"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, -0.7)
-script = ExtResource("24")
-
-[node name="RayCast3D" type="RayCast3D" parent="BodyNode/Mantling/Lower Raycasts"]
-target_position = Vector3(0, 2, 0)
-hit_from_inside = true
-debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
-
-[node name="RayCast2" type="RayCast3D" parent="BodyNode/Mantling/Lower Raycasts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
-target_position = Vector3(0, 2, 0)
-hit_from_inside = true
-debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
-
-[node name="RayCast3" type="RayCast3D" parent="BodyNode/Mantling/Lower Raycasts"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
-target_position = Vector3(0, 2, 0)
-hit_from_inside = true
-debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
-
 [node name="Positioner" type="Node3D" parent="BodyNode/Mantling"]
 
-[node name="Upper Raycasts" type="Node3D" parent="BodyNode/Mantling/Positioner"]
+[node name="Upper Raycasts" type="Node3D" parent="BodyNode/Mantling/Positioner" node_paths=PackedStringArray("RightMost", "LeftMost")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.7)
 script = ExtResource("24")
+RightMost = NodePath("RayCast2")
+LeftMost = NodePath("RayCast3")
 
 [node name="RayCast3D" type="RayCast3D" parent="BodyNode/Mantling/Positioner/Upper Raycasts"]
 target_position = Vector3(0, -2, 0)
 
 [node name="RayCast2" type="RayCast3D" parent="BodyNode/Mantling/Positioner/Upper Raycasts"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(0, -2, 0)
 
 [node name="RayCast3" type="RayCast3D" parent="BodyNode/Mantling/Positioner/Upper Raycasts"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 target_position = Vector3(0, -2, 0)
+
+[node name="Lower" type="Node3D" parent="BodyNode/Mantling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, -0.7)
+
+[node name="Lower Raycasts" type="Node3D" parent="BodyNode/Mantling/Lower"]
+visible = false
+script = ExtResource("24")
+
+[node name="RayCast3D" type="RayCast3D" parent="BodyNode/Mantling/Lower/Lower Raycasts"]
+target_position = Vector3(0, 2, 0)
+hit_from_inside = true
+debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
+
+[node name="RayCast2" type="RayCast3D" parent="BodyNode/Mantling/Lower/Lower Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+target_position = Vector3(0, 2, 0)
+hit_from_inside = true
+debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
+
+[node name="RayCast3" type="RayCast3D" parent="BodyNode/Mantling/Lower/Lower Raycasts"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+target_position = Vector3(0, 2, 0)
+hit_from_inside = true
+debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
+
+[node name="Left Hand" type="RayCast3D" parent="BodyNode/Mantling/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.0279403, 0.2)
+target_position = Vector3(0, 0, -0.3)
+hit_from_inside = true
+
+[node name="Right Hand" type="RayCast3D" parent="BodyNode/Mantling/Lower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.0279403, 0.2)
+target_position = Vector3(0, 0, -0.3)
+hit_from_inside = true
 
 [node name="CameraShaker" type="Node3D" parent="BodyNode"]
 script = ExtResource("21")
@@ -138,6 +156,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Health" type="Control" parent="GUI/GUI"]
 anchors_preset = 0
@@ -291,6 +311,7 @@ offset_bottom = 600.0
 script = ExtResource("22")
 
 [node name="Panel" type="Panel" parent="Debug"]
+visible = false
 offset_left = 24.0
 offset_top = 416.0
 offset_right = 104.0

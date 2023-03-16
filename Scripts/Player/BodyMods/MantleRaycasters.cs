@@ -9,6 +9,11 @@ namespace Player.BodyMods
 
         private Vector3 distance = new Vector3();
 
+        [Export]
+        public RayCast3D RightMost { get; private set; }
+        [Export]
+        public RayCast3D LeftMost { get; private set; }
+
         public override void _Ready()
         {
             Raycasters = new RayCast3D[GetChildCount()];
@@ -62,15 +67,63 @@ namespace Player.BodyMods
             float distance = Mathf.Inf;
             for (int i = 0; i < Raycasters.Length; i++)
             {
-                GD.Print("Testing colliders");
                 if (Raycasters[i].IsColliding())
                 {
                     float dis = Raycasters[i].GlobalPosition.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
-                    GD.Print("Distance to the point is: " + dis);
                     distance = distance > dis ? dis : distance;
                 }
             }
             return Mathf.Sqrt(distance);
+        }
+
+        private RayCast3D GetClosestColliding()
+        {
+            int holder = 0;
+            float distance = Mathf.Inf;
+            for (int i = 0; i < Raycasters.Length; i++)
+            {
+                if (Raycasters[i].IsColliding())
+                {
+                    float dis = Raycasters[i].GlobalPosition.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
+                    if (distance > dis)
+                    {
+                        distance = dis;
+                        holder = i;
+                    }
+
+                }
+            }
+            return Raycasters[holder];
+        }
+
+        private RayCast3D GetFurestColliding()
+        {
+            int holder = 0;
+            float distance = 0f;
+            for (int i = 0; i < Raycasters.Length; i++)
+            {
+                if (Raycasters[i].IsColliding())
+                {
+                    float dis = Raycasters[i].GlobalPosition.DistanceSquaredTo(Raycasters[i].GetCollisionPoint());
+                    if (distance < dis)
+                    {
+                        distance = dis;
+                        holder = i;
+                    }
+
+                }
+            }
+            return Raycasters[holder];
+        }
+
+        private float DistanceToPoint(RayCast3D ray)
+        {
+            return ray.GlobalPosition.DistanceTo(ray.GetCollisionPoint());
+        }
+
+        public Vector3 GetCasterAngle(bool rightToLeft)
+        {
+            return (RightMost.GetCollisionPoint() - LeftMost.GetCollisionPoint()) * (rightToLeft ? 1 : -1);
         }
 
     }

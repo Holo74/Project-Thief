@@ -2,12 +2,13 @@
 
 importer="qodot.map"
 type="Resource"
-path="res://.import/Tower.28.map-faa7dd062acc00800ab29c49eace50ab.tres"
+uid="uid://bqhk2y1sy2i6s"
+path="res://.godot/imported/Tower.28.map-faa7dd062acc00800ab29c49eace50ab.tres"
 
 [deps]
 
 source_file="res://Maps/Tower/autosave/Tower.28.map"
-dest_files=[ "res://.import/Tower.28.map-faa7dd062acc00800ab29c49eace50ab.tres" ]
+dest_files=["res://.godot/imported/Tower.28.map-faa7dd062acc00800ab29c49eace50ab.tres"]
 
 [params]
 

@@ -2,12 +2,13 @@
 
 importer="qodot.map"
 type="Resource"
-path="res://.import/NoblesHouse.7.map-f4eb98cc9a54f67e24c4b5cb8fdad558.tres"
+uid="uid://c7vxsjns243by"
+path="res://.godot/imported/NoblesHouse.7.map-f4eb98cc9a54f67e24c4b5cb8fdad558.tres"
 
 [deps]
 
 source_file="res://Maps/Nobles House/autosave/NoblesHouse.7.map"
-dest_files=[ "res://.import/NoblesHouse.7.map-f4eb98cc9a54f67e24c4b5cb8fdad558.tres" ]
+dest_files=["res://.godot/imported/NoblesHouse.7.map-f4eb98cc9a54f67e24c4b5cb8fdad558.tres"]
 
 [params]
 

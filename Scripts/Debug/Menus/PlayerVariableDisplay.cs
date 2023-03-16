@@ -19,7 +19,7 @@ namespace Debug.Menus
         public override void _Process(double delta)
         {
             // if (Player.Variables.Instance.WALKING_MOVEMENT.Y > .1f || Player.Variables.Instance.WALKING_MOVEMENT.Y < -.1f)
-            Text = "Speed: " + Player.Variables.Instance.WALKING_MOVEMENT + "\nGravity: " + Player.Variables.Instance.GRAVITY_MOVEMENT;
+            Text = "Speed: " + Player.PlayerQuickAccess.KINEMATIC_BODY.Velocity + "\nGravity: " + Player.Variables.Instance.GRAVITY_MOVEMENT;
         }
     }
 

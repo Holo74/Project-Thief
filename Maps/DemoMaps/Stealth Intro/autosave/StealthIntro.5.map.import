@@ -2,12 +2,13 @@
 
 importer="qodot.map"
 type="Resource"
-path="res://.import/StealthIntro.5.map-17e4636588643e52272a768feabbd672.tres"
+uid="uid://etuekn540dug"
+path="res://.godot/imported/StealthIntro.5.map-17e4636588643e52272a768feabbd672.tres"
 
 [deps]
 
 source_file="res://Maps/DemoMaps/Stealth Intro/autosave/StealthIntro.5.map"
-dest_files=[ "res://.import/StealthIntro.5.map-17e4636588643e52272a768feabbd672.tres" ]
+dest_files=["res://.godot/imported/StealthIntro.5.map-17e4636588643e52272a768feabbd672.tres"]
 
 [params]
 
