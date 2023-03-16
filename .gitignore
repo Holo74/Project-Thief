@@ -4,10 +4,12 @@
 export_presents.cfg
 .mono/
 .godot/
-**.import
+*.import
+*.map.import
 
 # Binaries
 bin/
 build/
 lib/
 Maps/Nobles \House/autosave/
+Maps/DemoMaps/Stealth Intro/autosave/
