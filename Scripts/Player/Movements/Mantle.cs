@@ -55,18 +55,27 @@ namespace Player.Movement
 
         private void RotateToFaceLedge(double delta)
         {
-            Interpolating += ((float)delta);
+            Interpolating += ((float)delta) * 2;
             Transform3D holder = PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform.LookingAt(PlayerQuickAccess.KINEMATIC_BODY.GlobalPosition - PlayerQuickAccess.MANTLE.RightHand.GetCollisionNormal(), Vector3.Up);
-            float dis = PlayerQuickAccess.MANTLE.Upper.GetSmallestDistance();
-            holder.Origin.Y -= dis < 2f ? dis : 0;
-            holder.Origin.Y += .1f;
             PlayerQuickAccess.KINEMATIC_BODY.GlobalTransform = StartingTransform.InterpolateWith(holder, Interpolating);
             if (Interpolating > 1.0f)
             {
-                CurrentMoving = MoveAlongLedge;
+                CurrentMoving = MoveToWall;
                 PlayerQuickAccess.KINEMATIC_BODY.UpDirection = PlayerQuickAccess.MANTLE.RightHand.GetCollisionNormal();
-                Variables.Instance.ROTATION = new Rotation.BasicRotation();
                 RightAngle = Vector3.Up.Cross(-PlayerQuickAccess.BODY_DIRECTION.Z);
+            }
+        }
+
+        private void MoveToWall(double delta)
+        {
+            float dis = PlayerQuickAccess.MANTLE.Upper.GetSmallestDistance();
+            Vector3 moveToWall = -PlayerQuickAccess.MANTLE.RightHand.GetCollisionNormal() * 10;
+            moveToWall += Vector3.Down * ((dis < .1f) ? 0 : dis) * 2;
+            PlayerQuickAccess.KINEMATIC_BODY.Velocity = moveToWall;
+            PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide();
+            if (dis < .1f && PlayerQuickAccess.KINEMATIC_BODY.IsOnFloor())
+            {
+                CurrentMoving = MoveAlongLedge;
                 Variables.Instance.ROTATION = new Rotation.HeadOnly();
             }
         }
@@ -75,7 +84,6 @@ namespace Player.Movement
         private void MoveAlongLedge(double delta)
         {
             PlayerQuickAccess.KINEMATIC_BODY.Velocity = Vector3.Zero;
-            GD.Print("Right most is colliding: " + PlayerQuickAccess.MANTLE.Upper.RightMost.IsColliding());
             if (PlayerQuickAccess.MANTLE.Upper.RightMost.IsColliding() && Input.IsActionPressed("ui_right"))
             {
                 PlayerQuickAccess.KINEMATIC_BODY.Velocity = PlayerQuickAccess.MANTLE.Upper.GetCasterAngle(true) * Vector3.Up;
@@ -86,7 +94,22 @@ namespace Player.Movement
                 PlayerQuickAccess.KINEMATIC_BODY.Velocity = PlayerQuickAccess.MANTLE.Upper.GetCasterAngle(false) * Vector3.Up;
                 PlayerQuickAccess.KINEMATIC_BODY.Velocity += RightAngle;
             }
+
+            if (Input.IsActionJustPressed("ui_select"))
+            {
+                Jump(-PlayerQuickAccess.CAMERA.GlobalTransform.Basis.Z);
+                ResetHeadAndBodyRotation();
+                Variables.Instance.MOVEMENT = new BasicMovement();
+            }
+
             PlayerQuickAccess.KINEMATIC_BODY.MoveAndSlide();
+        }
+
+        private void ResetHeadAndBodyRotation()
+        {
+            Vector3 rotation = PlayerQuickAccess.CAMERA.Rotation;
+            PlayerQuickAccess.CAMERA.RotateY(-rotation.Y);
+            PlayerQuickAccess.KINEMATIC_BODY.RotateY(rotation.Y);
         }
 
         private void UpwardMoving(double delta)

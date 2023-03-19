@@ -57,6 +57,7 @@ floor_constant_speed = true
 script = ExtResource("1")
 PlayerHealth = SubResource("7")
 Upgrades = SubResource("9")
+DebugMode = true
 
 [node name="UpperBody" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -117,13 +118,13 @@ hit_from_inside = true
 debug_shape_custom_color = Color(0.701961, 0.313726, 0.819608, 1)
 
 [node name="Left Hand" type="RayCast3D" parent="BodyNode/Mantling/Lower"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.0279403, 0.2)
-target_position = Vector3(0, 0, -0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, -0.0279403, 0.372165)
+target_position = Vector3(0, 0, -0.592)
 hit_from_inside = true
 
 [node name="Right Hand" type="RayCast3D" parent="BodyNode/Mantling/Lower"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.0279403, 0.2)
-target_position = Vector3(0, 0, -0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -0.0279403, 0.372165)
+target_position = Vector3(0, 0, -0.592)
 hit_from_inside = true
 
 [node name="CameraShaker" type="Node3D" parent="BodyNode"]
@@ -392,6 +393,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.7, 0)
 shape = SubResource("11")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.866025, -0.183169, 0.465241, 0, 0.930482, 0.366339, -0.5, -0.317259, 0.805821, 2.66301, 2.46854, 3.20845)
+transform = Transform3D(1, 0, 0, 0, 0.906595, 0.422001, 0, -0.422001, 0.906595, -0.410658, 2.46854, 3.40529)
 
 [connection signal="pressed" from="Debug/DebugPanel/Button" to="Debug/DebugPanel/Button" method="RestartLevel"]
