@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "n6gZ4tU96a2Ap0gSuh4y1DLDGCNPzDTh1KUkxRs6O3IyLAdvnuhrYfr9XMMl/ucBt2OhZdyoOY0QeqFWF9Lycg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Chase\\OneDrive\\Documents\\Coollenge\\CS4650\\GroupGame\\Project-Thief\\Project Thief.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chase\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godot.sourcegenerators\\4.0.0\\godot.sourcegenerators.4.0.0.nupkg.sha512",
+    "C:\\Users\\Chase\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharp\\4.0.0\\godotsharp.4.0.0.nupkg.sha512",
+    "C:\\Users\\Chase\\AppData\\Roaming\\Godot\\mono\\GodotNuGetFallbackFolder\\godotsharpeditor\\4.0.0\\godotsharpeditor.4.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

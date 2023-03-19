@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cyf0i84sb4tre"]
+[gd_scene load_steps=36 format=3 uid="uid://cyf0i84sb4tre"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerManager.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player/GUI/HealthBar.cs" id="2"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/CameraShaker.cs" id="21"]
 [ext_resource type="Script" path="res://Scripts/Debug/Menus/PlayerVariableDisplay.cs" id="22"]
 [ext_resource type="Script" path="res://Scripts/Debug/Menus/SetRichText.cs" id="23"]
+[ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="25_1ulsx"]
 
 [sub_resource type="Resource" id="7"]
 resource_local_to_scene = true
@@ -397,6 +398,9 @@ shape = SubResource("11")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564)
+
+[node name="Start" parent="." instance=ExtResource("25_1ulsx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14761, 0, 2.1339)
 
 [connection signal="SetBodyNumber" from="BodyNode/Mantling" to="Debug/Panel/Body" method="SetTextTo"]
 [connection signal="SetFootNumber" from="BodyNode/Mantling" to="Debug/Panel/Feet" method="SetTextTo"]

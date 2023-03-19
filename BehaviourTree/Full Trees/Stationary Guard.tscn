@@ -161,21 +161,3 @@ wait_time = 10.0
 [node name="Produce random idle noise" type="Node" parent="Idle\nSelector/Sequencer"]
 
 [node name="Play random idle animation" type="Node" parent="Idle\nSelector/Sequencer"]
-
-[connection signal="timeout" from="Hostile
-Sequencere/Selector/Hit player
-Sequencer/@Selector@952/Hitting player
-Sequencer/Reset timer/Timer" to="Hostile
-Sequencere/Selector/Hit player
-Sequencer/@Selector@952/Hitting player
-Sequencer/Timer runs out" method="TimedOut"]
-[connection signal="timeout" from="Investigate
-Sequencer/Sequencer/Return true/Make sound tree
-Sequencer/Set Timer/Timer" to="Investigate
-Sequencer/Sequencer/Return true/Make sound tree
-Sequencer/Wait 10 sec after succeed" method="TimedOut"]
-[connection signal="timeout" from="Idle
-Selector/Sequencer/SetTimer/Timer" to="Hostile
-Sequencere/Selector/Hit player
-Sequencer/@Selector@952/Hitting player
-Sequencer/Timer runs out" method="TimedOut"]

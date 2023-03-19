@@ -1,0 +1,24 @@
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.csproj.AssemblyReference.cache
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.GeneratedMSBuildEditorConfig.editorconfig
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.AssemblyInfoInputs.cache
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.AssemblyInfo.cs
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.csproj.CoreCompileInputs.cache
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/bin/Debug/Project Thief.deps.json
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/bin/Debug/Project Thief.dll
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/bin/Debug/Project Thief.pdb
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.dll
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/refint/Project Thief.dll
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/Project Thief.pdb
+/home/meow74/Documents/Godot/Project Thief/.godot/mono/temp/obj/Debug/ref/Project Thief.dll
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\bin\Debug\Project Thief.deps.json
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\bin\Debug\Project Thief.dll
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\bin\Debug\Project Thief.pdb
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.csproj.AssemblyReference.cache
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.AssemblyInfoInputs.cache
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.AssemblyInfo.cs
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.csproj.CoreCompileInputs.cache
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.dll
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\refint\Project Thief.dll
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\Project Thief.pdb
+C:\Users\Chase\OneDrive\Documents\Coollenge\CS4650\GroupGame\Project-Thief\.godot\mono\temp\obj\Debug\ref\Project Thief.dll

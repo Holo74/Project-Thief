@@ -46,6 +46,6 @@ text = "Load Level"
 
 [node name="Possible Scenes" type="PopupMenu" parent="Container/Debug Menu"]
 script = ExtResource("1")
-PathDirectory = "res://Scenes/Levels/Madeline's Levels/Brainstorming/Level 1"
+PathDirectory = "res://Scenes/Levels"
 
 [connection signal="pressed" from="Container/Debug Menu/Load Game" to="Container/Debug Menu/Possible Scenes" method="popup_centered"]
