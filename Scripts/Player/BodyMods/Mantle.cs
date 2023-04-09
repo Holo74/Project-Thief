@@ -34,8 +34,6 @@ namespace Player.BodyMods
             UpperLedgeSpace.BodyExited += ExitUpperLedgeSpace;
             LowerLedgeSpace.BodyEntered += EnterLowerLedgeSpace;
             LowerLedgeSpace.BodyExited += ExitLowerLedgeSpace;
-            LowerLedgeSpace.AreaEntered += EnterLowerLedgeSpace;
-            LowerLedgeSpace.AreaExited += ExitLowerLedgeSpace;
             Variables.Instance.StandingChangedTo += CrouchChange;
             Variables.Instance.OnFloorChange += ChangeMonitors;
         }
@@ -136,7 +134,6 @@ namespace Player.BodyMods
             if ((body is PlayerManager))
                 return;
             InUpperLedgeSpace += 1;
-            GD.Print("upper body space entered by: " + body.Name);
             EmitSignal(nameof(SetBodyNumber), "Body: " + InUpperLedgeSpace);
         }
 

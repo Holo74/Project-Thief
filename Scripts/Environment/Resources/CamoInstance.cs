@@ -6,6 +6,10 @@ namespace Environment.Resources
     [Tool]
     public partial class CamoInstance : Resource
     {
+        public CamoInstance()
+        {
+
+        }
         [Export]
         public Texture2D Camo { get; set; }
         [Export(PropertyHint.Range, "0, 100")]

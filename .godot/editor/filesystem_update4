@@ -1,8 +1,0 @@
-res://default_env.tres
-res://Scenes/Levels/Level1Chase.tscn
-res://Scenes/Menus/MainMenu.tscn
-res://Scenes/Characters/Player/Player.tscn
-res://Scenes/Levels/Madeline's Levels/Brainstorming/Level 1/First.tscn
-res://BehaviourTree/Full Trees/Stationary Guard.tscn
-res://Scenes/Characters/Enemies/Human/Template.tscn
-res://Scenes/Levels/DemoScene.tscn

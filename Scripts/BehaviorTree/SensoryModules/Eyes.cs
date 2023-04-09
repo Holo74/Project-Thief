@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 
 namespace BehaviorTree.SensoryModules
 {
@@ -15,22 +16,41 @@ namespace BehaviorTree.SensoryModules
         private double VisionSensitivity { get; set; }
 
         [Export]
-        private Godot.Json Distances { get; set; }
-        private System.Collections.Generic.List<DistanceMultiplier> RangesAndMultipliers { get; set; }
+        private Godot.Collections.Array<DistanceMultiplier> RangesAndMultipliers { get; set; }
+        private System.Collections.Generic.List<DistanceMultiplier> RanMult { get; set; }
+        [Export]
+        private Godot.Collections.Array<string> Testing { get; set; }
         public override void _Ready()
         {
-            RangesAndMultipliers = new System.Collections.Generic.List<DistanceMultiplier>();
-            Godot.Collections.Array a = Distances.Data.AsGodotDictionary()["Distances"].AsGodotArray();
-            foreach (Godot.Collections.Dictionary<string, double> dic in a)
+            RanMult = RangesAndMultipliers.OrderBy(x => x.Range).ToList(); ;
+            foreach (var item in RanMult)
             {
-                RangesAndMultipliers.Add(new DistanceMultiplier(dic));
+                GD.Print(item);
             }
+            // RangesAndMultipliers.OrderBy(x => x.Range);
+            // foreach (DistanceMultiplier item in RangesAndMultipliers)
+            // {
+            //     GD.Print(item.GetType());
+            // }
+            // RangesAndMultipliers = new Godot.Collections.Array<DistanceMultiplier>();
+            // Godot.Collections.Array a = Distances.Data.AsGodotDictionary()["Distances"].AsGodotArray();
+            // foreach (Godot.Collections.Dictionary<string, double> dic in a)
+            // {
+            //     RangesAndMultipliers.Add(new DistanceMultiplier(dic));
+            // }
         }
 
         public override void _Process(double delta)
         {
+
+
+
+        }
+
+        public double GetValues()
+        {
             float distanceToPlayer = GlobalPosition.DistanceTo(Player.PlayerManager.Instance.GlobalPosition);
-            double addToSensory = SensoryAmount(UpperCast.IsColliding(), distanceToPlayer) + SensoryAmount(MiddleCast.IsColliding(), distanceToPlayer) + SensoryAmount(LowerCast.IsColliding(), distanceToPlayer);
+            return SensoryAmount(UpperCast.IsColliding(), distanceToPlayer) + SensoryAmount(MiddleCast.IsColliding(), distanceToPlayer) + SensoryAmount(LowerCast.IsColliding(), distanceToPlayer);
         }
 
         private double SensoryAmount(bool seen, float distance)
@@ -41,8 +61,8 @@ namespace BehaviorTree.SensoryModules
             }
             float length = UpperCast.TargetPosition.Length();
             int i = 0;
-            for (; i < RangesAndMultipliers.Count - 1 && RangesAndMultipliers[i].Range * length < distance; i++) ;
-            return RangesAndMultipliers[i].Multiplier * VisionSensitivity;
+            for (; i < RanMult.Count - 1 && RanMult[i].Range * length < distance; i++) ;
+            return RanMult[i].Multiplier * VisionSensitivity;
         }
     }
 }

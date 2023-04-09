@@ -9,6 +9,7 @@ namespace Player.Interactions
         {
             if (PlayerQuickAccess.INTERACTION.IsColliding())
             {
+                GD.Print("Hitting something");
                 if (PlayerQuickAccess.INTERACTION.GetCollider() is Environment.Interactables.IInteract e)
                 {
                     return e.CanInteract();
@@ -24,7 +25,7 @@ namespace Player.Interactions
 
         public override void SetInteraction()
         {
-            PlayerQuickAccess.INTERACTION.CollisionMask = 1;
+            // PlayerQuickAccess.INTERACTION.CollisionMask = 1;
         }
     }
 

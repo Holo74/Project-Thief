@@ -6,6 +6,10 @@ namespace Player.Upgrades
     // Adds a universal ability where the player can slide along the ground
     public partial class Sliding : AbstractUpgrade
     {
+        public Sliding()
+        {
+
+        }
         private int SprintKick = 0;
         private bool CrouchChanged = false;
         public override void Applied()

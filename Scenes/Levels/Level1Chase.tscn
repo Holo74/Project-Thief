@@ -1,14 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://caliosqy0xute"]
+[gd_scene load_steps=7 format=3 uid="uid://dm3isvjfleh0l"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="1_irkrf"]
-[ext_resource type="AudioStream" uid="uid://b766ie0dmp7ji" path="res://Music/In Game/Hidden/16 - Chozo Ruins.mp3" id="2_pife6"]
 [ext_resource type="PackedScene" uid="uid://hf41csi7umor" path="res://Scenes/Characters/Enemies/Human/Template.tscn" id="2_s5b3e"]
+[ext_resource type="Script" path="res://Scripts/Debug/Player/WinInteract.cs" id="3_l5tgx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujgv5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2fgq3"]
+albedo_color = Color(0.858824, 0.180392, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tx7gr"]
+material = SubResource("StandardMaterial3D_2fgq3")
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313505, 0)
 
 [node name="Start" parent="." instance=ExtResource("1_irkrf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0566182, 0.50673, -4.57628)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0846404, 0.408575, -5.27657)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.99556, 0.0850183, 0.0403882, 0.0936587, 0.937416, 0.33538, -0.00934711, 0.337674, -0.941217, -0.195089, 5.81054, -5.49119)
@@ -819,6 +827,14 @@ transform = Transform3D(-0.998367, 0.0571285, 0, -0.0571285, -0.998367, 0, 0, 0,
 operation = 2
 size = Vector3(7.1361, 6.22809, 7.73922)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_pife6")
-autoplay = true
+[node name="StaticBody3D" type="StaticBody3D" parent="Room6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.96837, -4.5291, -13.7034)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("3_l5tgx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Room6/StaticBody3D"]
+shape = SubResource("BoxShape3D_ujgv5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Room6/StaticBody3D"]
+mesh = SubResource("BoxMesh_tx7gr")

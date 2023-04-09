@@ -1,12 +1,6 @@
-{
-	"Distances" : [
-		{
-			"Range": 1.0,
-			"Multiplier": 10.0
-		},
-		{
-			"Range": 5.0,
-			"Multiplier": 5.0
-		}
-	]
-}
+[
+	{
+		"Multiplier" : 40,
+		"Range" : 1.0
+	}
+]

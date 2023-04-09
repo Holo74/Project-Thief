@@ -1,9 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://hf41csi7umor"]
+[gd_scene load_steps=27 format=3 uid="uid://hf41csi7umor"]
 
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/BehaviorController.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/SensoryModules/Eyes.cs" id="2_k8otp"]
-[ext_resource type="JSON" path="res://Scripts/BehaviorTree/SensoryModules/Distances.json" id="3_iw61r"]
+[ext_resource type="Resource" uid="uid://dr6qgtrihh3wk" path="res://Resources/NPC/Range and Multipliers/Range1Mult.2.tres" id="3_xs3sn"]
 [ext_resource type="Shape3D" path="res://CollisionShapes/SightShapes/BasicCone.tres" id="4"]
+[ext_resource type="Resource" uid="uid://dfpjf04g1pv13" path="res://Resources/NPC/Range and Multipliers/Range.2Mult4.tres" id="4_31oni"]
+[ext_resource type="Resource" uid="uid://hgkqy10seei7" path="res://Resources/NPC/Range and Multipliers/Range.4Mult1.tres" id="5_6b1yg"]
+[ext_resource type="Resource" uid="uid://bmwxbaka04qas" path="res://Resources/NPC/Range and Multipliers/Range.6Mult.8.tres" id="6_yefop"]
+[ext_resource type="Resource" uid="uid://bmbn821x2brkg" path="res://Resources/NPC/Range and Multipliers/Range.8Mult.4.tres" id="7_i1okx"]
+[ext_resource type="Script" path="res://Scripts/Debug/ViewBlackboard.cs" id="9_62nbu"]
 
 [sub_resource type="CapsuleShape3D" id="1"]
 
@@ -45,8 +50,6 @@ shader_parameter/Eye_Colors = Color(0, 0.112796, 0.893437, 1)
 material = SubResource("6")
 size = Vector3(0.631, 0.208, 0.189)
 
-[sub_resource type="QuadMesh" id="22"]
-
 [sub_resource type="AnimationNodeAnimation" id="28"]
 animation = &"Idle"
 
@@ -59,12 +62,15 @@ advance_condition = &"Investigate"
 [sub_resource type="AnimationNodeStateMachineTransition" id="31"]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_84a8c"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="23"]
 states/Idle/node = SubResource("28")
-states/Idle/position = Vector2(238, 64)
+states/Idle/position = Vector2(200, 7)
 states/Investigate/node = SubResource("29")
 states/Investigate/position = Vector2(541, 44)
-transitions = ["Idle", "Investigate", SubResource("30"), "Investigate", "Idle", SubResource("31")]
+transitions = ["Idle", "Investigate", SubResource("30"), "Investigate", "Idle", SubResource("31"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_84a8c")]
 graph_offset = Vector2(-127, -122)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="24"]
@@ -176,8 +182,10 @@ _data = {
 "RESET": SubResource("27")
 }
 
-[node name="Human" type="CharacterBody3D"]
+[node name="Human" type="CharacterBody3D" node_paths=PackedStringArray("MouthSoundPlayer", "FeetSoundPlayer")]
 script = ExtResource("1")
+MouthSoundPlayer = NodePath("Mouth")
+FeetSoundPlayer = NodePath("Feet")
 
 [node name="Ears" type="Node3D" parent="."]
 
@@ -197,7 +205,8 @@ script = ExtResource("2_k8otp")
 UpperCast = NodePath("RayCast3D")
 MiddleCast = NodePath("RayCast2")
 LowerCast = NodePath("RayCast3")
-Distances = ExtResource("3_iw61r")
+RangesAndMultipliers = Array[Resource]([ExtResource("3_xs3sn"), ExtResource("4_31oni"), ExtResource("5_6b1yg"), ExtResource("6_yefop"), ExtResource("7_i1okx")])
+Testing = Array[String]([])
 
 [node name="Direct" type="Area3D" parent="Eyes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33841, 0)
@@ -208,6 +217,7 @@ transform = Transform3D(10, 0, 0, 0, -8.74228e-07, -10, 0, 20, -4.37114e-07, 0, 
 shape = ExtResource("4")
 
 [node name="Indirect" type="Area3D" parent="Eyes"]
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Eyes/Indirect"]
 transform = Transform3D(20, 0, 0, 0, -4.37114e-07, -10, 0, 10, -4.37114e-07, 0, 0.603323, -9.76133)
@@ -239,10 +249,6 @@ bus = &"NPCs"
 
 [node name="Feet" type="AudioStreamPlayer3D" parent="."]
 
-[node name="Indicator" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 1.84163, 0)
-mesh = SubResource("22")
-
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("23")
 anim_player = NodePath("../AnimationPlayer")
@@ -254,6 +260,13 @@ parameters/conditions/Investigate = false
 libraries = {
 "": SubResource("AnimationLibrary_4u044")
 }
+
+[node name="Debugger" type="Label3D" parent="." node_paths=PackedStringArray("Controller")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43259, 0)
+billboard = 1
+text = "Sensory: "
+script = ExtResource("9_62nbu")
+Controller = NodePath("..")
 
 [connection signal="body_entered" from="Eyes/Direct" to="." method="InArea" binds= [true, "DirectVision"]]
 [connection signal="body_exited" from="Eyes/Direct" to="." method="InArea" binds= [false, "DirectVision"]]

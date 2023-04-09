@@ -5,6 +5,10 @@ namespace Player.Upgrades
 {
     public partial class DoubleJump : AbstractUpgrade
     {
+        public DoubleJump()
+        {
+
+        }
         private int JumpAmount { get; set; } = 0;
         private int frameBuffer = 1;
         public override void Applied()

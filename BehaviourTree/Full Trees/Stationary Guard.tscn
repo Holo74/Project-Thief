@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dd2jrr4f30juc"]
+[gd_scene load_steps=17 format=3 uid="uid://dd2jrr4f30juc"]
 
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Flow/Selector.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Flow/Sequencer.cs" id="2"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Flow/ReturnsXAlways.cs" id="10"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/ContainsValue.cs" id="11"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetPositionFromBB.cs" id="12"]
+[ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/PlaySound.cs" id="12_8g16j"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/MoveToPosition.cs" id="13"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetTargetToPlayer.cs" id="14"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Flow/Flipper.cs" id="15"]
@@ -104,6 +105,7 @@ TimerSet = 10.0
 [node name="Timer" type="Timer" parent="Investigate\nSequencer/Sequencer/Return true/Make sound tree\nSequencer/Set Timer"]
 
 [node name="Play alert sound" type="Node" parent="Investigate\nSequencer/Sequencer/Return true/Make sound tree\nSequencer"]
+script = ExtResource("12_8g16j")
 
 [node name="Walk to point\nSequencer" type="Node" parent="Investigate\nSequencer/Sequencer"]
 script = ExtResource("2")
@@ -159,5 +161,6 @@ script = ExtResource("6")
 wait_time = 10.0
 
 [node name="Produce random idle noise" type="Node" parent="Idle\nSelector/Sequencer"]
+script = ExtResource("12_8g16j")
 
 [node name="Play random idle animation" type="Node" parent="Idle\nSelector/Sequencer"]

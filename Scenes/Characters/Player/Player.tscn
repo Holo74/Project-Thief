@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cyf0i84sb4tre"]
+[gd_scene load_steps=36 format=3 uid="uid://bkdn88w8gmp6h"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerManager.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player/GUI/HealthBar.cs" id="2"]
@@ -24,7 +24,6 @@
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/CameraShaker.cs" id="21"]
 [ext_resource type="Script" path="res://Scripts/Debug/Menus/PlayerVariableDisplay.cs" id="22"]
 [ext_resource type="Script" path="res://Scripts/Debug/Menus/SetRichText.cs" id="23"]
-[ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="25_1ulsx"]
 
 [sub_resource type="Resource" id="7"]
 resource_local_to_scene = true
@@ -39,6 +38,9 @@ UpgradeList = []
 [sub_resource type="CylinderShape3D" id="1"]
 height = 0.9
 radius = 0.49
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hfmd3"]
+size = Vector3(0.316381, 0.522355, 0.0574478)
 
 [sub_resource type="BoxShape3D" id="4"]
 size = Vector3(0.316381, 0.522355, 0.0574478)
@@ -83,15 +85,16 @@ script = ExtResource("13")
 
 [node name="UpperBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546)
-monitorable = false
+disable_mode = 2
+priority = 1.0
 script = ExtResource("5_rcgyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/UpperBodyLedge"]
-shape = SubResource("4")
+shape = SubResource("BoxShape3D_hfmd3")
 
 [node name="LowerBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31094, -0.570546)
-monitorable = false
+priority = 1.0
 script = ExtResource("5_rcgyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/LowerBodyLedge"]
@@ -99,11 +102,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0)
 shape = SubResource("4")
 
 [node name="Spacer" type="Area3D" parent="BodyNode/Mantling"]
-monitorable = false
 script = ExtResource("5_rcgyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/Spacer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428881, -0.227216)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428881, -0.318036)
 shape = SubResource("5")
 
 [node name="BottomFloor" type="RayCast3D" parent="BodyNode/Mantling"]
@@ -126,6 +128,7 @@ near = 0.01
 [node name="Pickup Ray" type="RayCast3D" parent="BodyNode/CameraShaker/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00315607, 0.0065276)
 target_position = Vector3(0, 0, -3)
+collision_mask = 2
 script = ExtResource("5")
 
 [node name="RemoteTransform3D" type="RemoteTransform3D" parent="BodyNode/CameraShaker/Camera3D"]
@@ -140,7 +143,6 @@ light_cull_mask = 4293918721
 script = ExtResource("17")
 
 [node name="GUI" type="Control" parent="GUI"]
-process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,6 +196,15 @@ offset_bottom = 20.0
 texture = ExtResource("4")
 expand_mode = 1
 script = ExtResource("6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/GUI/Interaction Texture2D"]
+layout_mode = 0
+offset_left = -60.0
+offset_top = 56.0
+offset_right = 100.0
+offset_bottom = 96.0
+bbcode_enabled = true
+text = "[center]Press E to interact[/center]"
 
 [node name="Debug" type="CanvasLayer" parent="."]
 process_mode = 3
@@ -399,11 +410,5 @@ shape = SubResource("11")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564)
 
-[node name="Start" parent="." instance=ExtResource("25_1ulsx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14761, 0, 2.1339)
-
-[connection signal="SetBodyNumber" from="BodyNode/Mantling" to="Debug/Panel/Body" method="SetTextTo"]
-[connection signal="SetFootNumber" from="BodyNode/Mantling" to="Debug/Panel/Feet" method="SetTextTo"]
-[connection signal="SetHeadNumber" from="BodyNode/Mantling" to="Debug/Panel/Head" method="SetTextTo"]
 [connection signal="pressed" from="Debug/DebugPanel/To Main Menu" to="Debug/DebugPanel/To Main Menu" method="RestartLevel"]
 [connection signal="pressed" from="Debug/DebugPanel/Reset Values" to="Debug/DebugPanel/Variables" method="ResetVariables"]

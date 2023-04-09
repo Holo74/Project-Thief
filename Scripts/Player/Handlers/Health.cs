@@ -5,6 +5,10 @@ namespace Player.Handlers
 {
     public partial class Health : Resource
     {
+        public Health()
+        {
+
+        }
 
         public enum InteractionTypes
         {

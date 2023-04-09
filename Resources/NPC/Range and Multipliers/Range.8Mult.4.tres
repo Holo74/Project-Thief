@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bmbn821x2brkg"]
+
+[ext_resource type="Script" path="res://Scripts/BehaviorTree/SensoryModules/DistanceMultiplier.cs" id="1_wfyw0"]
+
+[resource]
+script = ExtResource("1_wfyw0")
+Multiplier = 0.4
+Range = 0.8

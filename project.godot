@@ -13,6 +13,12 @@ config_version=5
 ScriptsFolder="res://Scripts/"
 ClassPrefix=""
 
+[MonoCustomResourceRegistry]
+
+ClassPrefix=""
+SearchType=0
+ResourceScriptDirectories=["res://"]
+
 [application]
 
 config/name="Project Thief"
@@ -35,7 +41,7 @@ version_control_plugin_name="GitAPI"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/MonoCustomResourceRegistry/plugin.cfg")
 
 [gdnative]
 
@@ -137,6 +143,7 @@ Menu={
 
 3d_render/layer_19="Editor Only"
 3d_render/layer_20="Light Instance Layer"
+3d_physics/layer_2="Interactabless"
 3d_physics/layer_16="PickedUp"
 3d_physics/layer_17="Slight Raycast"
 

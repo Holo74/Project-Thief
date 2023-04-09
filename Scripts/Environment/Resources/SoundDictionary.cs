@@ -6,6 +6,10 @@ namespace Environment.Resources
     [Tool]
     public partial class SoundDictionary : Resource
     {
+        public SoundDictionary()
+        {
+
+        }
         [Export]
         public AudioStream[] Sounds { get; private set; }
         // From 0 to 1

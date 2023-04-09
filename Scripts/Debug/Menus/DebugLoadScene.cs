@@ -22,8 +22,9 @@ namespace Debug.Menus
                 {
                     if (currentName.Contains(".tscn"))
                     {
-                        LevelList.Add(currentName);
-                        AddItem(currentName);
+                        string name = currentName.Substring(0, currentName.IndexOf('.'));
+                        LevelList.Add(name + ".tscn");
+                        AddItem(name);
                     }
                 }
             }

@@ -5,6 +5,10 @@ namespace Player.Handlers
 {
     public partial class UpgradeHandler : Resource
     {
+        public UpgradeHandler()
+        {
+
+        }
         public void Init()
         {
             UpgradeList = new Godot.Collections.Array<Upgrades.AbstractUpgrade>();
