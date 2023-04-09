@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxesivs0tmwxa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dolg7"]
+
+[node name="Node3D" type="StaticBody3D"]
+collision_layer = 32768
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_dolg7")
