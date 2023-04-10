@@ -126,7 +126,7 @@ size = Vector3(22.3213, 0.00387607, 15.3239)
 [node name="Enemy" type="Node" parent="Room1"]
 
 [node name="Human" parent="Room1/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9919, 0, 2.51628)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9919, 0.287217, 2.51628)
 
 [node name="Room2" type="Node" parent="."]
 
@@ -278,7 +278,7 @@ size = Vector3(32.2174, 0.002, 22.311)
 [node name="Enemy" type="Node" parent="Room2"]
 
 [node name="Human" parent="Room2/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(-0.0614492, 0, -0.99811, 0, 1, 0, 0.99811, 0, -0.0614492, -40.4575, 3.40065, 0.593288)
+transform = Transform3D(-0.0614492, 0, -0.99811, 0, 1, 0, 0.99811, 0, -0.0614492, -40.4574, 2.59731, 0.593185)
 
 [node name="Room3" type="Node" parent="."]
 
@@ -632,14 +632,14 @@ size = Vector3(43.9787, 0.002, 50.04)
 [node name="Enemy" type="Node" parent="Room4"]
 
 [node name="Human" parent="Room4/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(-0.828354, 0, -0.560205, 0, 1, 0, 0.560205, 0, -0.828354, -68.6871, 14.646, -39.5876)
+transform = Transform3D(-0.828354, 0, -0.560205, 0, 1, 0, 0.560205, 0, -0.828354, -68.6871, 13.4947, -39.5876)
 TurnSpeed = 1.0
 
 [node name="Human2" parent="Room4/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.306, 14.2452, -28.5732)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.306, 13.501, -28.5732)
 
 [node name="Human3" parent="Room4/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(-0.112995, 0, 0.993596, 0, 1, 0, -0.993596, 0, -0.112995, -55.1484, 14.2452, -24.7173)
+transform = Transform3D(-0.112995, 0, 0.993596, 0, 1, 0, -0.993596, 0, -0.112995, -55.1484, 13.4927, -24.7173)
 
 [node name="Room5" type="Node" parent="."]
 
@@ -802,13 +802,13 @@ size = Vector3(39.3496, 0.002, 27.2774)
 [node name="Enemy" type="Node" parent="Room5"]
 
 [node name="Human" parent="Room5/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(0.968899, -0.123702, 0.214318, 0, 0.866086, 0.499894, -0.247456, -0.484347, 0.839151, -3.64938, -4.24554, -29.0006)
+transform = Transform3D(0.968899, -0.123702, 0.214318, 0, 0.866086, 0.499894, -0.247456, -0.484347, 0.839151, -3.64938, -4.79064, -29.0006)
 
 [node name="Human2" parent="Room5/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(-0.657586, -0.37661, 0.652492, 2.46448e-08, 0.866087, 0.499894, -0.75338, 0.328723, -0.569526, -17.4616, -3.9602, -34.9726)
+transform = Transform3D(-0.657586, -0.37661, 0.652492, 2.46448e-08, 0.866087, 0.499894, -0.75338, 0.328723, -0.569526, -17.4616, -4.71402, -34.9726)
 
 [node name="Human3" parent="Room5/Enemy" instance=ExtResource("2_s5b3e")]
-transform = Transform3D(0.119704, 0.0155673, -0.992688, 0.013558, 0.999758, 0.0173132, 0.992717, -0.0155313, 0.119464, -11.7387, -7.5334, -30.6185)
+transform = Transform3D(0.119704, 0.0155673, -0.992688, 0.013558, 0.999758, 0.0173132, 0.992717, -0.0155313, 0.119464, -11.7387, -8.05615, -30.6185)
 
 [node name="Room6" type="Node" parent="."]
 
