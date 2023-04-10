@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://hf41csi7umor"]
+[gd_scene load_steps=28 format=3 uid="uid://hf41csi7umor"]
 
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/BehaviorController.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/SensoryModules/Eyes.cs" id="2_k8otp"]
+[ext_resource type="PackedScene" uid="uid://detctyo1fh7p7" path="res://Models/Enemy/SkeletonLookout.glb" id="2_l6guq"]
 [ext_resource type="Resource" uid="uid://dr6qgtrihh3wk" path="res://Resources/NPC/Range and Multipliers/Range1Mult.2.tres" id="3_xs3sn"]
 [ext_resource type="Shape3D" path="res://CollisionShapes/SightShapes/BasicCone.tres" id="4"]
 [ext_resource type="Resource" uid="uid://dfpjf04g1pv13" path="res://Resources/NPC/Range and Multipliers/Range.2Mult4.tres" id="4_31oni"]
@@ -192,8 +193,12 @@ FeetSoundPlayer = NodePath("Feet")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("1")
 
+[node name="SkeletonLookout" parent="CollisionShape3D" instance=ExtResource("2_l6guq")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.474828, 0)
+
 [node name="Body" type="MeshInstance3D" parent="CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, -1.06581e-14, 0, 1.06581e-14, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("2")
 skeleton = NodePath("../..")
 
@@ -240,6 +245,7 @@ collision_mask = 65536
 
 [node name="Facing" type="MeshInstance3D" parent="Eyes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653882, -0.408684)
+visible = false
 mesh = SubResource("3")
 skeleton = NodePath("../..")
 
