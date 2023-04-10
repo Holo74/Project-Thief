@@ -9,6 +9,7 @@ namespace BehaviorTree.Nodes.Leaf.Conditions
         private float Threshold { get; set; }
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
             if (Player.PlayerManager.Instance.GetStealthValue() > Threshold)
             {
                 return Results.Success;

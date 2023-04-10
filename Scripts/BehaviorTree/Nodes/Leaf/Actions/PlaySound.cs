@@ -1,15 +1,30 @@
 using Godot;
 using System;
 
-public partial class PlaySound : Node
+namespace BehaviorTree.Nodes.Leaf.Actions
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
+    public partial class PlaySound : Base
+    {
+        [Export]
+        private bool MouthSound { get; set; }
+        [Export]
+        private AudioStream Audio { get; set; }
+        public override Results Tick(double delta, BehaviorController BC)
+        {
+            base.Tick(delta, BC);
+            if (MouthSound)
+            {
+                BC.MouthSoundPlayer.Stream = Audio;
+                BC.MouthSoundPlayer.Play();
+            }
+            else
+            {
+                BC.FeetSoundPlayer.Stream = Audio;
+                BC.FeetSoundPlayer.Play();
+            }
+            BC.BlackBoard[Enums.KeyList.Debugging] = "Playing Soundd";
+            return Results.Success;
+        }
+    }
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
 }

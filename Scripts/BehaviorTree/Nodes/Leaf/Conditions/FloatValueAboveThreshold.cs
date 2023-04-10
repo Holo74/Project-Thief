@@ -11,6 +11,7 @@ namespace BehaviorTree.Nodes.Leaf.Conditions
         private BehaviorTree.Enums.KeyList Key { get; set; }
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
             if (BC.BlackBoard.ContainsKey(Key))
             {
                 if ((float)BC.BlackBoard[Key] > Threshold)

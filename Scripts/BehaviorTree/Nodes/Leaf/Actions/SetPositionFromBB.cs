@@ -10,9 +10,11 @@ namespace BehaviorTree.Nodes.Leaf.Actions
 
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
+            BC.BlackBoard[Enums.KeyList.Debugging] = "Setting position";
             if (BC.BlackBoard.ContainsKey(Memory) && BC.BlackBoard[Memory].VariantType == Variant.Type.Vector3)
             {
-                BC.BlackBoard[Enums.KeyList.MoveToPosition] = BC.BlackBoard[Memory].AsVector3();
+                BC.NavAgent.TargetPosition = BC.BlackBoard[Memory].AsVector3();
                 return Results.Success;
             }
             return Results.Failure;

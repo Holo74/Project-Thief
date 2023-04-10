@@ -7,6 +7,7 @@ namespace BehaviorTree.Nodes.Leaf.Actions
     {
         protected override bool SetTargetPosition()
         {
+            Target = "Player";
             TargetPosition = Player.PlayerQuickAccess.CHARACTER_BODY.GlobalPosition;
             return true;
         }

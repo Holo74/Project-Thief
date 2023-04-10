@@ -17,7 +17,7 @@ namespace Debug
             string outputting = "";
             foreach (var item in Controller.BlackBoard)
             {
-                outputting += item.Key.ToString() + " : " + item.Value.ToString();
+                outputting += item.Key.ToString() + " : " + item.Value.ToString() + "\n";
             }
             Text = outputting;
         }

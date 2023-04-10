@@ -13,7 +13,10 @@ namespace BehaviorTree
             IsAttacking,
             HasDisturbance,
             DisturbanceLocation,
-            MoveToPosition
+            MoveToPosition,
+            InDirectEye,
+            DirectEye,
+            Debugging
         }
     }
 

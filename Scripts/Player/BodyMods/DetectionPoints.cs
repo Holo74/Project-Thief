@@ -5,9 +5,9 @@ namespace Player.BodyMods
 {
     public partial class DetectionPoints : Node
     {
-        private CollisionShape3D Head { get; set; }
-        private CollisionShape3D Body { get; set; }
-        private CollisionShape3D Feet { get; set; }
+        public CollisionShape3D Head { get; private set; }
+        public CollisionShape3D Body { get; private set; }
+        public CollisionShape3D Feet { get; private set; }
         public override void _Ready()
         {
             Head = GetNode<CollisionShape3D>("Head");

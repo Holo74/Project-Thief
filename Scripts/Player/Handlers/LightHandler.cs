@@ -5,15 +5,15 @@ namespace Player.Handlers
 {
     public partial class LightHandler : Node
     {
-        private SubViewport TopView { get; set; }
-        private SubViewport BottomView { get; set; }
+        private Godot.SubViewport TopView { get; set; }
+        private Godot.SubViewport BottomView { get; set; }
         private Timer Cycle { get; set; }
 
         public float CurrentLight = 0f;
         public override void _Ready()
         {
-            TopView = GetNode<SubViewport>("Top");
-            BottomView = GetNode<SubViewport>("Bottom");
+            TopView = GetNode<Godot.SubViewport>("Top");
+            BottomView = GetNode<Godot.SubViewport>("Bottom");
             Cycle = GetNode<Timer>("Capture Light3D");
             Cycle.Start();
 

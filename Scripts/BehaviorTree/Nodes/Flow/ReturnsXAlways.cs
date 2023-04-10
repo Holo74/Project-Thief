@@ -10,12 +10,12 @@ namespace BehaviorTree.Nodes.Flow
 
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
             foreach (Base c in Children)
             {
                 Results r = c.Tick(delta, BC);
-                return ReturnThis;
             }
-            return Results.Error;
+            return ReturnThis;
         }
     }
 }

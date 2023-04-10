@@ -9,7 +9,10 @@ namespace BehaviorTree.Nodes.Leaf.Actions
         private float Speed { get; set; }
         public override Results Tick(double delta, BehaviorController BC)
         {
-            BC.SetVelocityToPhysics((BC.NavAgent.GetNextPathPosition() - BC.GlobalPosition).Normalized() * Speed);
+            base.Tick(delta, BC);
+            BC.SetVelocityToPhysics(BC.GlobalPosition.DirectionTo(BC.NavAgent.GetNextPathPosition()) * Speed);
+            // GD.Print(BC.NavAgent.GetNextPathPosition());
+            BC.BlackBoard[Enums.KeyList.Debugging] = "Moving";
             return Results.Success;
         }
     }

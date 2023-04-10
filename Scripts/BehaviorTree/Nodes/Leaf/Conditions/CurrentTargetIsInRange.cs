@@ -9,6 +9,8 @@ namespace BehaviorTree.Nodes.Leaf.Conditions
         private float Range { get; set; }
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
+            GD.Print("Distance: " + BC.NavAgent.DistanceToTarget());
             return ReturnBoolValue.BoolToResult(BC.NavAgent.DistanceToTarget() <= Range);
         }
     }

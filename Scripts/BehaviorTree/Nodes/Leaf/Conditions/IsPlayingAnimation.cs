@@ -9,6 +9,7 @@ namespace BehaviorTree.Nodes.Leaf.Conditions
         private string IsPlayingAnimName { get; set; }
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
             if (GetNode<AnimationPlayer>(BC.AnimTree.AnimPlayer).CurrentAnimation.Equals(IsPlayingAnimName))
             {
                 return Results.Success;

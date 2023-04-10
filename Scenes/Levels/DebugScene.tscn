@@ -1,11 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://cn2l37ixtvsr7"]
+[gd_scene load_steps=9 format=3 uid="uid://cn2l37ixtvsr7"]
 
 [ext_resource type="PackedScene" uid="uid://hf41csi7umor" path="res://Scenes/Characters/Enemies/Human/Template.tscn" id="1_2tyxh"]
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="2_7nh3q"]
+[ext_resource type="PackedScene" uid="uid://dd2jrr4f30juc" path="res://BehaviourTree/Full Trees/Stationary Guard.tscn" id="2_vhtiv"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_6l5of"]
-vertices = PackedVector3Array(-15.5, 1, 7.75, -15.5, 1, 15.5, -7.75, 1, 15.5, 7.75, 1, 15.5, 15.5, 1, 15.5, 15.5, 1, 7.75, 15.5, 1, -7.75, 15.5, 1, -15.5, 7.75, 1, -15.5, -7.75, 1, -15.5, -15.5, 1, -15.5, -15.5, 1, -7.75, -15.5, 1, 0, -15.5, 1, 7.75, -7.75, 1, 15.5, 0, 1, 15.5, 7.75, 1, 15.5, 15.5, 1, 7.75, 15.5, 1, 0, 15.5, 1, -7.75, 7.75, 1, -15.5, 0, 1, -15.5, 0, 1, -15.5, -7.75, 1, -15.5, -15.5, 1, -7.75, -15.5, 1, 0, 15.5, 1, 0, 0, 1, -15.5, -15.5, 1, 0, -7.75, 1, 15.5, 0, 1, 15.5, 15.5, 1, 7.75)
-polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(5, 4, 3), PackedInt32Array(8, 7, 6), PackedInt32Array(11, 10, 9), PackedInt32Array(14, 13, 12), PackedInt32Array(17, 16, 15), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(31, 30, 26), PackedInt32Array(26, 30, 29), PackedInt32Array(26, 29, 28), PackedInt32Array(26, 28, 27)]
+vertices = PackedVector3Array(-8.75, 0.781489, -15.5, -15.5, 0.781489, -15.5, -15.5, 0.781489, -6.25, -15.5, 0.781489, 3.25, -3.5, 0.781489, 3.25, -3.25, 0.781489, 2.25, -15.5, 0.781489, -6.25, -15.5, 0.781489, -6.25, -3.25, 0.781489, 2.25, -1.75, 0.781489, 2.25, -2, 0.781489, -15.5, -8.75, 0.781489, -15.5, 8.25, 0.781489, 2.25, 8.5, 0.781489, 3.25, 15.5, 0.781489, 3.25, 15.5, 0.781489, -6.25, 8.25, 0.781489, 2.25, 15.5, 0.781489, -6.25, 6.75, 0.781489, -15.5, -2, 0.781489, -15.5, -1.75, 0.781489, 2.25, 15.5, 0.781489, -6.25, 15.5, 0.781489, -15.5, 6.75, 0.781489, -15.5, -15.5, 0.781489, 9.25, -15.5, 0.781489, 15.5, -8.5, 0.781489, 15.5, -1.25, 0.781489, 15.5, -1.25, 0.781489, 4.5, -3.25, 0.781489, 4.5, -8.5, 0.781489, 15.5, -1.25, 0.781489, 15.5, -3.25, 0.781489, 4.5, -3.5, 0.781489, 3.25, -15.5, 0.781489, 3.25, -15.5, 0.781489, 9.25, 15.5, 0.781489, 3.25, 8.5, 0.781489, 3.25, 8.25, 0.781489, 4.5, 15.5, 0.781489, 9.25, 15.5, 0.781489, 9.25, 8.25, 0.781489, 4.5, 6.25, 0.781489, 4.5, 6.25, 0.781489, 15.5, 15.5, 0.781489, 15.5, -1.25, 0.781489, 15.5, 6.25, 0.781489, 15.5, 6.25, 0.781489, 4.5, -1.25, 0.781489, 4.5)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Array(5, 3, 6), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 11), PackedInt32Array(9, 11, 10), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(16, 20, 17), PackedInt32Array(17, 20, 18), PackedInt32Array(18, 20, 19), PackedInt32Array(23, 22, 21), PackedInt32Array(26, 25, 24), PackedInt32Array(29, 28, 27), PackedInt32Array(32, 31, 33), PackedInt32Array(33, 31, 30), PackedInt32Array(33, 30, 35), PackedInt32Array(33, 35, 34), PackedInt32Array(37, 36, 38), PackedInt32Array(38, 36, 39), PackedInt32Array(41, 40, 42), PackedInt32Array(42, 40, 44), PackedInt32Array(42, 44, 43), PackedInt32Array(48, 47, 45), PackedInt32Array(45, 47, 46)]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_t5ugo"]
+
+[sub_resource type="Sky" id="Sky_diss1"]
+sky_material = SubResource("ProceduralSkyMaterial_t5ugo")
+process_mode = 1
+
+[sub_resource type="Environment" id="Environment_2ipir"]
+background_mode = 2
+sky = SubResource("Sky_diss1")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ehnik"]
 
 [node name="DebugScene" type="Node3D"]
 
@@ -14,12 +27,33 @@ navigation_mesh = SubResource("NavigationMesh_6l5of")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="NavigationRegion3D"]
 use_collision = true
+collision_layer = 65537
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
 size = Vector3(32, 1, 32)
 
+[node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.82828, 3.46106)
+size = Vector3(5.91718, 2.65656, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="NavigationRegion3D/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.11283, 3.46106)
+size = Vector3(5.91718, 1.22567, 1)
+
 [node name="Human" parent="NavigationRegion3D" instance=ExtResource("1_2tyxh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.83468, 12.2611)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53149, 12.2611)
+
+[node name="Selector" parent="NavigationRegion3D/Human" instance=ExtResource("2_vhtiv")]
+
+[node name="Marker3D" parent="NavigationRegion3D/Human/Selector/Idle\n Selector/Sequence2/Return success/Get Position" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00885302, 1.62501, 12.3058)
+gizmo_extents = 2.13
 
 [node name="Start" parent="." instance=ExtResource("2_7nh3q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90839, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2ipir")
+camera_attributes = SubResource("CameraAttributesPractical_ehnik")
+
+[editable path="NavigationRegion3D/Human/Selector"]

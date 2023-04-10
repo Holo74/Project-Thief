@@ -14,6 +14,11 @@ namespace BehaviorTree.SensoryModules
         private RayCast3D LowerCast { get; set; }
         [Export]
         private double VisionSensitivity { get; set; }
+        [Export(PropertyHint.Range, ("0,100,.1"))]
+        private double DecreasingVisibilityVal { get; set; }
+
+        [Export]
+        private BehaviorController BC { get; set; }
 
         [Export]
         private Godot.Collections.Array<DistanceMultiplier> RangesAndMultipliers { get; set; }
@@ -22,6 +27,7 @@ namespace BehaviorTree.SensoryModules
         private Godot.Collections.Array<string> Testing { get; set; }
         public override void _Ready()
         {
+
             RanMult = RangesAndMultipliers.OrderBy(x => x.Range).ToList(); ;
             foreach (var item in RanMult)
             {
@@ -42,20 +48,46 @@ namespace BehaviorTree.SensoryModules
 
         public override void _Process(double delta)
         {
-
-
+            if (BC.BlackBoard is null)
+                return;
+            if (!BC.BlackBoard.ContainsKey(Enums.KeyList.Sensor))
+            {
+                BC.BlackBoard.Add(Enums.KeyList.Sensor, 0.0);
+            }
+            if (BC.BlackBoard[Enums.KeyList.InDirectEye].AsBool() || BC.BlackBoard[Enums.KeyList.DirectEye].AsBool())
+            {
+                double currentVal = BC.BlackBoard[Enums.KeyList.Sensor].AsDouble();
+                UpperCast.LookAt(Player.PlayerQuickAccess.DETECTION_POINTS.Head.GlobalPosition);
+                MiddleCast.LookAt(Player.PlayerQuickAccess.DETECTION_POINTS.Body.GlobalPosition);
+                LowerCast.LookAt(Player.PlayerQuickAccess.DETECTION_POINTS.Feet.GlobalPosition);
+                double sensorVal = GetValues();
+                BC.BlackBoard[Enums.KeyList.SeePlayer] = (sensorVal > .5);
+                sensorVal = (sensorVal > .5) ? sensorVal : -DecreasingVisibilityVal;
+                BC.BlackBoard[Enums.KeyList.Sensor] = Mathf.Clamp(sensorVal * delta + currentVal, 0, 100);
+                BC.BlackBoard[Enums.KeyList.DisturbanceLocation] = Player.PlayerQuickAccess.CHARACTER_BODY.GlobalPosition;
+            }
+            else
+            {
+                double currentVal = BC.BlackBoard[Enums.KeyList.Sensor].AsDouble();
+                BC.BlackBoard[Enums.KeyList.Sensor] = Mathf.Clamp(-DecreasingVisibilityVal * delta + currentVal, 0, 100);
+            }
 
         }
 
         public double GetValues()
         {
             float distanceToPlayer = GlobalPosition.DistanceTo(Player.PlayerManager.Instance.GlobalPosition);
-            return SensoryAmount(UpperCast.IsColliding(), distanceToPlayer) + SensoryAmount(MiddleCast.IsColliding(), distanceToPlayer) + SensoryAmount(LowerCast.IsColliding(), distanceToPlayer);
+            return SensoryAmount(SeesPlayer(UpperCast), distanceToPlayer) + SensoryAmount(SeesPlayer(MiddleCast), distanceToPlayer) + SensoryAmount(SeesPlayer(LowerCast), distanceToPlayer);
+        }
+
+        private bool SeesPlayer(RayCast3D caster)
+        {
+            return caster.IsColliding() && caster.GetCollider() is Player.BodyMods.DetectionPoints;
         }
 
         private double SensoryAmount(bool seen, float distance)
         {
-            if (seen)
+            if (!seen)
             {
                 return 0.0;
             }

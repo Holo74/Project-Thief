@@ -6,10 +6,18 @@ namespace BehaviorTree.Nodes.Leaf.Actions
     public partial class SetTargetToHome : SetTarget
     {
         [Export]
-        private Vector3 GlobalPosition;
+        private Vector3 GlobalPositioning;
+        [Export]
+        private Marker3D Position { get; set; }
+        public override void _Ready()
+        {
+            base._Ready();
+            GlobalPositioning = Position.GlobalPosition;
+        }
         protected override bool SetTargetPosition()
         {
-            TargetPosition = GlobalPosition;
+            Target = "Set position";
+            TargetPosition = GlobalPositioning;
             return true;
         }
     }

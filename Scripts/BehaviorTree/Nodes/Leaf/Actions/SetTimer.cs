@@ -17,6 +17,8 @@ namespace BehaviorTree.Nodes.Leaf.Actions
 
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
+            BC.BlackBoard[Enums.KeyList.Debugging] = "Setting timer";
             Clock.Start(TimerSet);
             return Results.Success;
         }

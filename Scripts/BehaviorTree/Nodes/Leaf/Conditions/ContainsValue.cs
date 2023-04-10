@@ -9,6 +9,7 @@ namespace BehaviorTree.Nodes.Leaf.Conditions
         private Enums.KeyList Value { get; set; }
         public override Results Tick(double delta, BehaviorController BC)
         {
+            base.Tick(delta, BC);
             if (BC.BlackBoard.ContainsKey(Value))
             {
                 return Results.Success;

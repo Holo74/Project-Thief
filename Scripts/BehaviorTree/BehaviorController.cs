@@ -30,6 +30,7 @@ namespace BehaviorTree
             AnimTree = GetNode<AnimationTree>("AnimationTree");
             StartBeyondXDegrees = (90 - StartBeyondXDegrees) / 90;
             VelocitySyncCounter = 0;
+            BlackBoard.Add(Enums.KeyList.Debugging, "");
         }
 
         public override void _Process(double delta)
@@ -39,16 +40,17 @@ namespace BehaviorTree
                 Nodes.Results result = Root.Tick(delta, this);
                 if (result == Nodes.Results.Failure)
                 {
-                    GD.Print("Ended in Failure");
+                    //GD.Print("Ended in Failure");
                 }
             }
         }
 
         public override void _PhysicsProcess(double delta)
         {
-            if (SetVelocity.IsEqualApprox(Vector3.Zero))
+            if (!SetVelocity.IsEqualApprox(Vector3.Zero))
             {
                 NavAgent.SetVelocity(SetVelocity);
+                // GD.Print(SetVelocity);
                 VelocitySyncCounter++;
                 if (VelocitySyncCounter >= 60)
                 {
@@ -62,9 +64,10 @@ namespace BehaviorTree
             Root = root;
         }
 
-        public void InArea(Node body, bool entered, BehaviorTree.Enums.KeyList name)
+        public void InArea(Node body, bool entered, int name)
         {
-            BlackBoard[name] = entered;
+            if (body is Player.PlayerManager)
+                BlackBoard[(BehaviorTree.Enums.KeyList)name] = entered;
         }
 
         public void SetVelocityToPhysics(Vector3 vel)
@@ -76,15 +79,12 @@ namespace BehaviorTree
         public void SafeVelocityComputed(Vector3 velocity)
         {
             // Turn to
-            if (velocity.Dot(-GlobalTransform.Basis.Z) < StartBeyondXDegrees)
-            {
-                Transform = Transform.InterpolateWith(Transform.LookingAt(velocity, Vector3.Up), ((float)GetPhysicsProcessDeltaTime()) * TurnSpeed);
-            }
-            else
-            {
-                Velocity = velocity;
-                MoveAndSlide();
-            }
+            // GD.Print("Turning and at degree: " + velocity.Dot(-GlobalTransform.Basis.Z));
+            Vector3 sameLevel = velocity;
+            sameLevel.Y = 0;
+            GlobalTransform = GlobalTransform.InterpolateWith(GlobalTransform.LookingAt(sameLevel + GlobalPosition, Vector3.Up), ((float)GetPhysicsProcessDeltaTime()) * TurnSpeed);
+            Velocity = velocity;
+            MoveAndSlide();
         }
     }
 
