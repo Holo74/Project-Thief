@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/BodyMods/Mantle.cs" id="13"]
 [ext_resource type="Script" path="res://Scripts/Debug/Menus/VariablesFiller.cs" id="14"]
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/Health.cs" id="15"]
-[ext_resource type="PackedScene" path="res://Scenes/Characters/Player/Gem.tscn" id="16"]
+[ext_resource type="PackedScene" uid="uid://bsvxhqtnvu0eb" path="res://Scenes/Characters/Player/Gem.tscn" id="16"]
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/GUI.cs" id="17"]
 [ext_resource type="Script" path="res://Scripts/Debug/VisibilityIndex/Display.cs" id="18"]
 [ext_resource type="AudioStream" uid="uid://duw8qxfeiypfk" path="res://Sounds/PlayerSounds/Jumping.wav" id="19"]
@@ -69,6 +69,7 @@ radius = 0.1
 radius = 0.1
 
 [node name="Player" type="CharacterBody3D"]
+visible = false
 script = ExtResource("1")
 PlayerHealth = SubResource("7")
 Upgrades = SubResource("9")

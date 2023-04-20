@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://dapdf8rwg2ok2"]
+
+[ext_resource type="Script" path="res://Scripts/Debug/Player/WinInteract.cs" id="1_43k4v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kn6xd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yu7ui"]
+albedo_color = Color(0.792157, 0, 0.0705882, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cgmh0"]
+material = SubResource("StandardMaterial3D_yu7ui")
+
+[node name="End point" type="StaticBody3D"]
+collision_layer = 3
+script = ExtResource("1_43k4v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_kn6xd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cgmh0")
