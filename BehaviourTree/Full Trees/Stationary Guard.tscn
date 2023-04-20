@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/CurrentTargetIsInRange.cs" id="5"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/TimerReader.cs" id="7"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetAnimCondition.cs" id="8"]
-[ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetTargetToHome.cs" id="9"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Flow/ReturnsXAlways.cs" id="10"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetBoolBlackboard.cs" id="10_pdjre"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Conditions/ContainsValue.cs" id="11"]
@@ -20,6 +19,7 @@
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Flow/Flipper.cs" id="15"]
 [ext_resource type="AudioStream" uid="uid://ddm5wy6vpbanj" path="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-03.wav" id="15_ck3kv"]
 [ext_resource type="AudioStream" uid="uid://sgt8xoaj2xag" path="res://Sounds/NPC/Human/Generic/Female/Curious Sounds/Callout-04.wav" id="16_hndoy"]
+[ext_resource type="Script" path="res://Scripts/BehaviorTree/Nodes/Leaf/Actions/SetHomeToStart.cs" id="19_fqysi"]
 [ext_resource type="AudioStream" uid="uid://dnnqgsjn7k8oq" path="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-02.wav" id="22_uxcw1"]
 [ext_resource type="AudioStream" uid="uid://b4jk3ekneyloo" path="res://Sounds/NPC/Human/Generic/Female/Passive Sounds/Callout-04.wav" id="23_k5p8f"]
 
@@ -161,11 +161,8 @@ script = ExtResource("2")
 script = ExtResource("10")
 ReturnThis = 1
 
-[node name="Get Position" type="Node" parent="Idle\n Selector/Sequence2/Return success" node_paths=PackedStringArray("Position")]
-script = ExtResource("9")
-Position = NodePath("Marker3D")
-
-[node name="Marker3D" type="Marker3D" parent="Idle\n Selector/Sequence2/Return success/Get Position"]
+[node name="Get Position" type="Node" parent="Idle\n Selector/Sequence2/Return success"]
+script = ExtResource("19_fqysi")
 
 [node name="Sequence" type="Node" parent="Idle\n Selector/Sequence2"]
 script = ExtResource("2")

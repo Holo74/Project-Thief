@@ -54,6 +54,11 @@ namespace BehaviorTree.SensoryModules
             {
                 BC.BlackBoard.Add(Enums.KeyList.Sensor, 0.0);
             }
+            if (!BC.BlackBoard.ContainsKey(Enums.KeyList.InDirectEye) || !BC.BlackBoard.ContainsKey(Enums.KeyList.DirectEye))
+            {
+                BC.BlackBoard[Enums.KeyList.InDirectEye] = false;
+                BC.BlackBoard[Enums.KeyList.DirectEye] = false;
+            }
             if (BC.BlackBoard[Enums.KeyList.InDirectEye].AsBool() || BC.BlackBoard[Enums.KeyList.DirectEye].AsBool())
             {
                 double currentVal = BC.BlackBoard[Enums.KeyList.Sensor].AsDouble();
