@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_ff15j")
-Multiplier = 0.8
+Multiplier = 1.0
 Range = 0.6

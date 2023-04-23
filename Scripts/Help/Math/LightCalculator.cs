@@ -21,6 +21,14 @@ namespace Help.Math
 
         public static float GetBrightnessFromTextures(Image tex1, Image tex2)
         {
+            // tex1.Resize(1, 1, Image.Interpolation.Lanczos);
+            // Color c1 = tex1.GetPixel(0, 0);
+            // c1.A = 1;
+            // float bright1 = c1.SrgbToLinear().Luminance;
+            // tex2.Resize(1, 1, Image.Interpolation.Lanczos);
+            // Color c2 = tex2.GetPixel(0, 0);
+            // c2.A = 1;
+            // float bright2 = c2.SrgbToLinear().Luminance;
             float bright1 = LightLevelFromTexture(tex1);
             float bright2 = LightLevelFromTexture(tex2);
             return bright1 > bright2 ? bright1 : bright2;

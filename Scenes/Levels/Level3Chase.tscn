@@ -1,13 +1,13 @@
 [gd_scene load_steps=80 format=3 uid="uid://dm3isvjfleh0l"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="1_jeljy"]
-[ext_resource type="Texture2D" uid="uid://b6vsyx4at53q1" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_8a5p8"]
-[ext_resource type="Texture2D" uid="uid://drqqltfce17gv" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_nor_gl_4k.png" id="3_rmj43"]
-[ext_resource type="Texture2D" uid="uid://bi8mot6qhgjxc" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_rough_4k.png" id="4_fu1mm"]
-[ext_resource type="PackedScene" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="5_lg38n"]
-[ext_resource type="Texture2D" uid="uid://dl0ep8ghat432" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="6_txvg4"]
-[ext_resource type="Texture2D" uid="uid://crecvo1uxrlxe" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_nor_gl_4k.png" id="7_yhfdj"]
-[ext_resource type="Texture2D" uid="uid://c3qtpcktunbun" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_rough_4k.png" id="8_sfho1"]
+[ext_resource type="Texture2D" uid="uid://co4a88cpx2hy6" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_8a5p8"]
+[ext_resource type="Texture2D" uid="uid://dk2ok3wwt6kdx" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_nor_gl_4k.png" id="3_rmj43"]
+[ext_resource type="Texture2D" uid="uid://duhkv1kk0fmvn" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_rough_4k.png" id="4_fu1mm"]
+[ext_resource type="PackedScene" uid="uid://mfdm2087uh0" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="5_lg38n"]
+[ext_resource type="Texture2D" uid="uid://dqnqlssge43fp" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="6_txvg4"]
+[ext_resource type="Texture2D" uid="uid://fwslr03bncq2" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_nor_gl_4k.png" id="7_yhfdj"]
+[ext_resource type="Texture2D" uid="uid://0rhpdm5fsugt" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_rough_4k.png" id="8_sfho1"]
 [ext_resource type="PackedScene" uid="uid://bilric8f70r7u" path="res://Scenes/Models/Environmental/CollisionObjects/doorgltf.tscn" id="9_qgheg"]
 [ext_resource type="PackedScene" uid="uid://djwosuv47wqmv" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_stairsgltf.tscn" id="10_bcmaf"]
 [ext_resource type="PackedScene" uid="uid://dbpgsssm617iq" path="res://Scenes/Models/Environmental/CollisionObjects/wallgltf.tscn" id="11_vskfh"]
@@ -20,19 +20,17 @@
 [ext_resource type="PackedScene" path="res://Scenes/Models/Weapons/axeDouble_raregltf.tscn" id="18_y0bdk"]
 [ext_resource type="PackedScene" path="res://Scenes/Models/Props/lootSackBgltf.tscn" id="19_omwsr"]
 [ext_resource type="PackedScene" uid="uid://cj8rwvlxvujtg" path="res://Scenes/Models/Props/benchgltf.tscn" id="20_j483h"]
-[ext_resource type="Texture2D" uid="uid://bbfaolem0fy5i" path="res://Textures/GameProjectTextures/dark_wood_diff_4k.png" id="21_poqt0"]
+[ext_resource type="Texture2D" uid="uid://cgq32twja6322" path="res://Textures/GameProjectTextures/dark_wood_diff_4k.png" id="21_poqt0"]
 [ext_resource type="PackedScene" uid="uid://70u4i24oecc8" path="res://Scenes/Models/Environmental/CollisionObjects/bookcaseWideFilledgltf.tscn" id="22_soju5"]
 [ext_resource type="PackedScene" uid="uid://bh0f10rp0yxv7" path="res://Scenes/Models/Environmental/CollisionObjects/tableLargegltf.tscn" id="23_nedhw"]
 [ext_resource type="PackedScene" path="res://Scenes/Models/Props/lootSackAgltf.tscn" id="24_p0kaq"]
 [ext_resource type="PackedScene" uid="uid://dvirlhsj80diq" path="res://Scenes/Models/Environmental/CollisionObjects/chairgltf.tscn" id="25_xqmel"]
 [ext_resource type="Texture2D" uid="uid://djptm2erscyri" path="res://Textures/GameProjectTextures/beautiful-shining-stars-night-sky.jpg" id="26_qofdf"]
-[ext_resource type="Texture2D" uid="uid://brg85rdsu7rey" path="res://Textures/GameProjectTextures/beautiful-shining-stars-night-sky.jpg" id="26_qofdf"]
 [ext_resource type="PackedScene" uid="uid://dagn8ia667mh5" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_small_highgltf.tscn" id="27_tiqtp"]
 [ext_resource type="PackedScene" uid="uid://d3hvsnld2xnmv" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_small_medium_railing_longgltf.tscn" id="28_1i41d"]
 [ext_resource type="PackedScene" uid="uid://iseqhvgvxvf5" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_high_railinggltf.tscn" id="29_lcm0t"]
 [ext_resource type="PackedScene" uid="uid://bggig1cpvh3eb" path="res://Scenes/Models/Environmental/CollisionObjects/tileBrickA_largegltf.tscn" id="30_1u4gq"]
 [ext_resource type="Script" path="res://Scripts/Debug/Player/WinInteract.cs" id="31_xxphx"]
-[ext_resource type="AudioStream" uid="uid://1rc2wh3wan4" path="res://Music/In Game/Hidden/justin-allan-arnold-premonition-in-the-park.mp3" id="32_hpuo6"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_s7s5g"]
 vertices = PackedVector3Array(-17.1597, 0.291522, -0.9729, -15.4097, 0.291522, -1.9729, -15.9097, 0.291522, -2.2229, -17.6597, 0.291522, -1.7229, -15.6597, 0.291522, -4.4729, -9.65971, 0.291522, -4.7229, -9.65971, 0.291522, -6.2229, -19.4097, 0.291522, -6.2229, -17.6597, 0.291522, -1.7229, -15.9097, 0.291522, -2.2229, -15.6597, 0.291522, -4.4729, -19.4097, 0.291522, -6.2229, -19.4097, 0.291522, -1.7229, -7.15971, 0.291522, -2.4729, -6.90971, 0.291522, -2.4729, -6.40971, 0.291522, -2.7229, -6.15971, 0.291522, -3.9729, -7.65971, 0.291522, -4.7229, -7.65971, 0.291522, -4.7229, -6.15971, 0.291522, -3.9729, -4.40971, 0.291522, -3.7229, -2.40971, 0.291522, -6.2229, -9.65971, 0.291522, -6.2229, -4.40971, 0.291522, -3.7229, -4.15971, 0.291522, 1.5271, -2.40971, 0.291522, 1.7771, -2.40971, 0.291522, -6.2229, -9.65971, 0.291522, -6.2229, -9.65971, 0.291522, -4.7229, -7.65971, 0.291522, -4.7229, -2.40971, 7.04152, 0.0270996, -2.40971, 7.04152, -5.9729, -11.1597, 7.04152, -5.9729, -19.9097, 7.29152, 0.0270996, -19.9097, 7.29152, 6.2771, -11.1597, 7.04152, 6.2771, -11.1597, 7.04152, -5.9729, -19.9097, 7.29152, -5.9729, -19.9097, 7.29152, 0.0270996, -11.1597, 7.04152, 6.2771, -2.40971, 7.04152, 6.2771, -2.40971, 7.04152, 0.0270996, 1.09029, 7.04152, 0.2771, 1.09029, 7.04152, -5.9729, -0.909712, 7.04152, -5.9729, -0.909712, 7.04152, 0.2771, -0.909712, 7.04152, 0.2771, -0.909712, 7.04152, 6.7771, 1.09029, 7.04152, 6.7771, 1.09029, 7.04152, 0.2771, 0.0902882, 0.291522, -0.2229, 0.840288, 0.791522, -0.2229, 1.09029, 0.291522, -0.7229, 1.09029, 0.291522, -5.7229, -0.909712, 0.291522, -5.7229, -0.909712, 0.291522, 6.7771, 0.0902882, 0.291522, 6.7771, 0.0902882, 0.291522, 5.7771, 0.590288, 0.541522, 2.7771, 1.09029, 0.541522, 2.7771, 1.09029, 0.291522, 0.7771, 0.0902882, 0.291522, 0.5271, 0.0902882, 0.291522, 1.2771, -0.909712, 0.541522, 1.0271, 0.0902882, 0.291522, 0.5271, 0.0902882, 0.291522, -0.2229, -0.909712, 0.291522, -5.7229, 0.0902882, 0.291522, 5.7771, 1.09029, 0.291522, 5.2771, 0.590288, 0.541522, 2.7771, -0.909712, 0.291522, 2.5271, -0.909712, 0.291522, 6.7771, 0.0902882, 0.291522, 5.7771, 0.590288, 0.541522, 2.7771, 0.0902882, 0.291522, 2.2771, -0.909712, 0.541522, 1.0271, 0.0902882, 0.291522, 1.2771, 0.0902882, 0.291522, 0.5271, 0.0902882, 0.291522, 1.2771, 0.0902882, 0.291522, 2.2771, 0.590288, 0.541522, 2.7771, -10.4097, 2.04152, -3.7229, -10.4097, 2.04152, -2.9729, -8.40971, 2.04152, -3.2229, -8.40971, 2.04152, -3.9729, -14.9097, 2.04152, -3.7229, -14.9097, 2.04152, -2.9729, -12.4097, 2.04152, -2.9729, -12.4097, 2.04152, -3.7229, -6.90971, 0.291522, -1.2229, -6.90971, 0.291522, -2.4729, -7.15971, 0.291522, -2.4729, -9.65971, 0.291522, -1.9729, -8.40971, 0.291522, -0.9729, -8.40971, 0.291522, 3.5271, -10.4097, 0.291522, 3.7771, -10.6597, 0.291522, 4.7771, -8.90971, 0.291522, 4.7771, -7.90971, 0.291522, 4.0271, -9.90971, 0.291522, -0.7229, -11.4097, 0.291522, -0.7229, -11.4097, 0.291522, 3.2771, -8.40971, 0.291522, 6.2771, -2.40971, 0.291522, 6.2771, -4.65971, 0.291522, 4.0271, -7.90971, 0.291522, 4.0271, -8.90971, 0.291522, 4.7771, -8.40971, 0.291522, -0.9729, -9.65971, 0.291522, -1.9729, -9.90971, 0.291522, -0.7229, -2.40971, 0.291522, 1.7771, -4.15971, 0.291522, 1.5271, -4.65971, 0.291522, 4.0271, -2.40971, 0.291522, 6.2771, -11.4097, 0.291522, 3.2771, -10.4097, 0.291522, 3.7771, -8.40971, 0.291522, 3.5271, -8.40971, 0.291522, -0.9729, -9.90971, 0.291522, -0.7229, -14.6597, 0.291522, -0.9729, -14.9097, 0.291522, -1.9729, -15.4097, 0.291522, -1.9729, -17.1597, 0.291522, -0.9729, -17.1597, 0.291522, 1.2771, -12.9097, 0.291522, 4.2771, -11.6597, 0.291522, 4.7771, -11.4097, 0.291522, 3.2771, -15.1597, 0.291522, 5.2771, -13.6597, 0.291522, 5.0271, -12.9097, 0.291522, 4.2771, -15.1597, 0.291522, 5.2771, -12.9097, 0.291522, 4.2771, -11.4097, 0.291522, 3.2771, -11.4097, 0.291522, -0.7229, -14.6597, 0.291522, -0.9729, -17.1597, 0.291522, 1.2771, -19.4097, 0.291522, 6.2771, -15.4097, 0.291522, 6.2771, -15.1597, 0.291522, 5.2771, -17.1597, 0.291522, 1.2771, -19.4097, 0.291522, 1.5271, -5.90971, 2.04152, -1.7229, -5.90971, 2.04152, 0.5271, -5.15971, 2.04152, 0.5271, -5.15971, 2.04152, -1.7229, -5.90971, 2.04152, 2.2771, -5.90971, 2.04152, 3.0271, -5.15971, 2.04152, 3.0271, -5.15971, 2.04152, 2.2771, -19.9097, 7.29152, 8.0271, -19.9097, 7.29152, 8.5271, -9.15971, 7.04152, 8.5271, -9.15971, 7.04152, 8.0271, -9.15971, 7.04152, 8.5271, 1.84029, 7.04152, 8.5271, 1.84029, 7.04152, 8.0271, -9.15971, 7.04152, 8.0271)
@@ -188,6 +186,8 @@ albedo_color = Color(0.858824, 0.180392, 0, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_tx7gr"]
 material = SubResource("StandardMaterial3D_2fgq3")
 
+[sub_resource type="Environment" id="Environment_7xq0t"]
+
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313505, 0)
 
@@ -196,9 +196,11 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.084
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.99556, 0.0850183, 0.0403882, 0.0936587, 0.937416, 0.33538, -0.00934711, 0.337674, -0.941217, -0.195089, 5.81054, -5.49119)
+visible = false
+layers = 524289
 
 [node name="Room1" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.388665, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016645, 0)
 navigation_mesh = SubResource("NavigationMesh_s7s5g")
 
 [node name="Ground" type="CSGBox3D" parent="Room1"]
@@ -208,60 +210,75 @@ use_collision = true
 size = Vector3(22.1812, 5.09756, 14.4835)
 material = SubResource("StandardMaterial3D_qnpfc")
 
-[node name="Lights" type="Node" parent="Room1"]
+[node name="Lights" type="Node3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52302, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6328, 5.08043, -5.87435)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6328, 3.90617, -5.87435)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D" instance=ExtResource("5_lg38n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, -0.449984)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1512, 5.08043, -6.15245)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1512, 3.06216, -6.15245)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D2" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(0.159674, 0, 0.98717, 0, 1, 0, -0.98717, 0, 0.159674, -1.38573, 5.70339, 4.1841)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(0.159674, 0, 0.98717, 0, 1, 0, -0.98717, 0, 0.159674, -1.38573, 2.68842, 4.1841)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D3" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(-0.991223, 0, 0.132205, 0, 1, 0, -0.132205, 0, -0.991223, -5.33947, 5.70339, 6.8255)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(-0.991222, 0, 0.132205, 0, 1, 0, -0.132205, 0, -0.991222, -5.33947, 2.68842, 6.8255)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D4" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(-0.991223, 0, 0.132205, 0, 1, 0, -0.132205, 0, -0.991223, -15.1369, 5.70339, 6.8255)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(-0.991222, 0, 0.132205, 0, 1, 0, -0.132205, 0, -0.991222, -15.1369, 2.68842, 6.8255)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D5" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(-0.031428, 0, 0.999506, 0, 1, 0, -0.999506, 0, -0.031428, -19.7317, 5.70339, 2.39918)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(-0.031428, 0, 0.999506, 0, 1, 0, -0.999506, 0, -0.031428, -19.7317, 2.68842, 2.39918)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D6" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Room1/Lights"]
-transform = Transform3D(-0.031428, 0, 0.999506, 0, 1, 0, -0.999506, 0, -0.031428, -19.7372, 5.70339, -2.7379)
-light_color = Color(1, 0.631373, 0.466667, 1)
-omni_range = 25.3651
+transform = Transform3D(-0.031428, 0, 0.999506, 0, 1, 0, -0.999506, 0, -0.031428, -19.7372, 2.68842, -2.7379)
+layers = 524289
+light_energy = 2.0
+shadow_enabled = true
+omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D7" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
@@ -473,7 +490,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1621, 2.76371, 8.03504)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(0.194543, 0, 0.980894, 0, 1, 0, -0.980894, 0, 0.194543, -49.5592, 5.06839, -1.58819)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D" instance=ExtResource("5_lg38n")]
@@ -481,7 +500,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(-0.996227, 0, -0.0867906, 0, 1, 0, 0.0867906, 0, -0.996227, -24.9911, 5.9899, 8.72156)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D5" instance=ExtResource("5_lg38n")]
@@ -489,7 +510,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(-0.996227, 0, -0.0867906, 0, 1, 0, 0.0867906, 0, -0.996227, -35.8516, 5.9899, 8.72156)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D6" instance=ExtResource("5_lg38n")]
@@ -497,7 +520,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(-0.996227, 0, -0.0867906, 0, 1, 0, 0.0867906, 0, -0.996227, -46.4365, 5.9899, 8.72156)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D7" instance=ExtResource("5_lg38n")]
@@ -505,7 +530,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2227, 5.9899, -8.80515)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D2" instance=ExtResource("5_lg38n")]
@@ -513,7 +540,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9623, 5.9899, -8.80515)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D3" instance=ExtResource("5_lg38n")]
@@ -521,7 +550,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Room2/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5797, 5.9899, -8.80515)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room2/Lights/OmniLight3D4" instance=ExtResource("5_lg38n")]
@@ -676,7 +707,9 @@ transform = Transform3D(-0.994376, -0.0868157, 0.0607193, 0.0551493, 0.0651773, 
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room3/Lights"]
 transform = Transform3D(0.171706, 0, -0.985148, -0.102001, 0.994625, -0.0177782, 0.979854, 0.103539, 0.170783, -51.6487, 12.5265, 0.543526)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room3/Lights/OmniLight3D" instance=ExtResource("5_lg38n")]
@@ -684,7 +717,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room3/Lights"]
 transform = Transform3D(-0.986825, -0.0989129, 0.128033, -0.102001, 0.994625, -0.0177782, -0.125586, -0.0306035, -0.991611, -59.2408, 12.5265, 9.6448)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room3/Lights/OmniLight3D2" instance=ExtResource("5_lg38n")]
@@ -692,7 +727,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Room3/Lights"]
 transform = Transform3D(-0.986825, -0.0989129, 0.128033, -0.102001, 0.994625, -0.0177782, -0.125586, -0.0306035, -0.991611, -71.2624, 12.5265, 9.6448)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room3/Lights/OmniLight3D3" instance=ExtResource("5_lg38n")]
@@ -700,7 +737,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Room3/Lights"]
 transform = Transform3D(-0.0446298, 0.013278, 0.998915, -0.102001, 0.994625, -0.0177782, -0.993783, -0.102684, -0.0430356, -79.7189, 12.5265, 5.46097)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room3/Lights/OmniLight3D4" instance=ExtResource("5_lg38n")]
@@ -708,7 +747,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Room3/Lights"]
 transform = Transform3D(-0.0446298, 0.013278, 0.998915, -0.102001, 0.994625, -0.0177782, -0.993783, -0.102684, -0.0430356, -79.7189, 12.5265, -4.41339)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room3/Lights/OmniLight3D5" instance=ExtResource("5_lg38n")]
@@ -716,7 +757,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Room3/Lights"]
 transform = Transform3D(0.994784, 0.101983, -0.0019211, -0.102001, 0.994625, -0.0177782, 9.76957e-05, 0.0178815, 0.99984, -73.0665, 12.5265, -9.41863)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room3/Lights/OmniLight3D6" instance=ExtResource("5_lg38n")]
@@ -891,7 +934,9 @@ size = Vector3(6.25979, 1.5761, 3.94865)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.3072, 20.337, -51.3485)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D" instance=ExtResource("5_lg38n")]
@@ -899,7 +944,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(0.0448225, 0, -0.998995, 0, 1, 0, 0.998995, 0, 0.0448225, -50.5263, 21.8438, -47.2106)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D7" instance=ExtResource("5_lg38n")]
@@ -907,7 +954,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.9888, 20.337, -51.3485)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D2" instance=ExtResource("5_lg38n")]
@@ -915,7 +964,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.4738, 20.337, -51.3485)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D3" instance=ExtResource("5_lg38n")]
@@ -923,7 +974,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(-0.0552464, 0, 0.998473, 0, 1, 0, -0.998473, 0, -0.0552464, -79.1406, 20.337, -45.9831)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D4" instance=ExtResource("5_lg38n")]
@@ -931,7 +984,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(-0.0552464, 0, 0.998473, 0, 1, 0, -0.998473, 0, -0.0552464, -79.1406, 20.337, -32.9734)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D5" instance=ExtResource("5_lg38n")]
@@ -939,7 +994,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0331841, -1.10391, -0.9608
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Room4/Lights"]
 transform = Transform3D(-0.0552464, 0, 0.998473, 0, 1, 0, -0.998473, 0, -0.0552464, -79.1406, 20.337, -20.5609)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room4/Lights/OmniLight3D6" instance=ExtResource("5_lg38n")]
@@ -999,7 +1056,9 @@ size = Vector3(4.01833, 2.84732, 4.80157)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.995675, 0, 0.0929094, 0, 1, 0, -0.0929094, 0, -0.995675, -14.2444, 0.783013, -18.6695)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D" instance=ExtResource("5_lg38n")]
@@ -1007,7 +1066,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.995675, 0, 0.0929094, 0, 1, 0, -0.0929094, 0, -0.995675, -24.6336, 0.783013, -18.6695)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D2" instance=ExtResource("5_lg38n")]
@@ -1015,7 +1076,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.995675, 0, 0.0929094, 0, 1, 0, -0.0929094, 0, -0.995675, -1.36007, 0.783013, -18.6695)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D3" instance=ExtResource("5_lg38n")]
@@ -1023,7 +1086,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.106229, 0, -0.994342, 0, 1, 0, 0.994342, 0, -0.106229, 4.4863, 0.783013, -25.0527)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D4" instance=ExtResource("5_lg38n")]
@@ -1031,7 +1096,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.106229, 0, -0.994342, 0, 1, 0, 0.994342, 0, -0.106229, 4.4863, 0.783013, -35.5828)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D5" instance=ExtResource("5_lg38n")]
@@ -1039,7 +1106,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(0.999606, 0, 0.0280611, 0, 1, 0, -0.0280611, 0, 0.999606, -14.9623, 0.783013, -42.5323)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D6" instance=ExtResource("5_lg38n")]
@@ -1047,7 +1116,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(0.999606, 0, 0.0280611, 0, 1, 0, -0.0280611, 0, 0.999606, -25.2489, 0.783013, -42.5323)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D7" instance=ExtResource("5_lg38n")]
@@ -1055,7 +1126,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.185581, 0, 0.982629, 0, 1, 0, -0.982629, 0, -0.185581, -29.7588, 0.783013, -31.0296)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D8" instance=ExtResource("5_lg38n")]
@@ -1063,7 +1136,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.185581, 0, 0.982629, 0, 1, 0, -0.982629, 0, -0.185581, -29.7588, 22.1019, -33.4819)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D9" instance=ExtResource("5_lg38n")]
@@ -1071,7 +1146,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Room5/Lights"]
 transform = Transform3D(-0.185581, 0, 0.982629, 0, 1, 0, -0.982629, 0, -0.185581, -29.7588, 22.1019, -33.4819)
+layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+shadow_enabled = true
 omni_range = 25.3651
 
 [node name="torchWallgltf" parent="Room5/Lights/OmniLight3D10" instance=ExtResource("5_lg38n")]
@@ -1362,6 +1439,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3033, -0.515669, 5.6528)
 freeze = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("32_hpuo6")
-volume_db = 11.499
 autoplay = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7xq0t")

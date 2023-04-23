@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_gutmi")
-Multiplier = 1.0
+Multiplier = 2.0
 Range = 0.4

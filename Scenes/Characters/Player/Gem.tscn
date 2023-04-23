@@ -1,17 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsvxhqtnvu0eb"]
+[gd_scene load_steps=6 format=3 uid="uid://bsvxhqtnvu0eb"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/LightHandler.cs" id="2"]
 
-[sub_resource type="Environment" id="4"]
-background_mode = 1
+[sub_resource type="SphereMesh" id="3"]
 
 [sub_resource type="Environment" id="2"]
-background_mode = 1
 
-[sub_resource type="SphereMesh" id="3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tgd6s"]
+viewport_path = NodePath("Bottom")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7lqd5"]
+viewport_path = NodePath("Top")
 
 [node name="Gem" type="Node3D"]
 script = ExtResource("2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+layers = 524288
+cast_shadow = 0
+ignore_occlusion_culling = true
+gi_mode = 2
+mesh = SubResource("3")
 
 [node name="Capture Light3D" type="Timer" parent="."]
 wait_time = 0.5
@@ -20,21 +30,21 @@ wait_time = 0.5
 transparent_bg = true
 size = Vector2i(100, 100)
 size_2d_override_stretch = true
-render_target_update_mode = 3
+render_target_update_mode = 4
 
-[node name="Camera3D" type="Camera3D" parent="Bottom"]
+[node name="Visual" type="Node3D" parent="Bottom"]
+
+[node name="Camera3D" type="Camera3D" parent="Bottom/Visual"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0)
 cull_mask = 524288
-environment = SubResource("4")
 projection = 1
-current = true
 size = 0.2
 
 [node name="Top" type="SubViewport" parent="."]
 transparent_bg = true
 size = Vector2i(100, 100)
 size_2d_override_stretch = true
-render_target_update_mode = 3
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="Top"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1, 0)
@@ -50,12 +60,31 @@ remote_path = NodePath("../Top/Camera3D")
 
 [node name="Bottom Remote" type="RemoteTransform3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1, 0)
-remote_path = NodePath("../Bottom/Camera3D")
+remote_path = NodePath("../Bottom/Visual/Camera3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-layers = 524288
-cast_shadow = 0
-mesh = SubResource("3")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 432.0
+offset_right = 100.0
+offset_bottom = 532.0
+texture = SubResource("ViewportTexture_tgd6s")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 536.0
+offset_right = 100.0
+offset_bottom = 636.0
+texture = SubResource("ViewportTexture_7lqd5")
 
 [connection signal="timeout" from="Capture Light3D" to="." method="UpdateLight"]

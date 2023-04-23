@@ -45,15 +45,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53149, 12.2611)
 
 [node name="Selector" parent="NavigationRegion3D/Human" instance=ExtResource("2_vhtiv")]
 
-[node name="Marker3D" parent="NavigationRegion3D/Human/Selector/Idle\n Selector/Sequence2/Return success/Get Position" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00885302, 1.62501, 12.3058)
-gizmo_extents = 2.13
-
 [node name="Start" parent="." instance=ExtResource("2_7nh3q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90839, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2ipir")
 camera_attributes = SubResource("CameraAttributesPractical_ehnik")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15022, -6.14516)
+shadow_enabled = true
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.52954, 2.15022, -6.14516)
+layers = 524289
+light_energy = 5.095
+shadow_enabled = true
+omni_range = 9.15121
 
 [editable path="NavigationRegion3D/Human/Selector"]
