@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="1_irkrf"]
 [ext_resource type="Texture2D" uid="uid://b6vsyx4at53q1" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_a3ihn"]
 [ext_resource type="Texture2D" uid="uid://dl0ep8ghat432" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="3_o7q1j"]
-[ext_resource type="PackedScene" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="4_uxgsk"]
+[ext_resource type="PackedScene" uid="uid://mfdm2087uh0" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="4_uxgsk"]
 [ext_resource type="PackedScene" uid="uid://jgck5mbv1ney" path="res://Models/Private use only/KayKit/character_barbarian.gltf" id="5_d58ew"]
 [ext_resource type="PackedScene" uid="uid://dhg6erwxead1w" path="res://Models/Private use only/KayKit/banner.gltf.glb" id="5_n1wwk"]
 [ext_resource type="PackedScene" uid="uid://bh81iwtyby4ey" path="res://Models/Private use only/KayKit/bookcase_broken.gltf.glb" id="6_7wel5"]
@@ -725,6 +725,36 @@ transform = Transform3D(-1, -8.74228e-08, 0, 8.52839e-08, -0.975535, 0.219846, -
 [node name="sword_uncommongltf" parent="Node/Room3/weaponRackgltf2" instance=ExtResource("40_3mv0v")]
 transform = Transform3D(-1, -8.74228e-08, 0, 8.56372e-08, -0.979575, 0.201078, -1.75788e-08, 0.201078, 0.979575, -0.218036, 1.28915, -0.242844)
 
+[node name="plategltf" parent="Node/Room3" instance=ExtResource("43_deq6m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16077, 1.49961, -5.0958)
+
+[node name="plateFullgltf" parent="Node/Room3" instance=ExtResource("33_v7dfk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03995, 1.47285, -4.6141)
+
+[node name="plateHalfgltf" parent="Node/Room3" instance=ExtResource("28_0o46f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98793, 1.52306, 3.1128)
+
+[node name="coinsLargegltf" parent="Node/Room3" instance=ExtResource("44_wtjsf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42113, 0.35089, 3.264)
+
+[node name="bucketgltf" parent="Node/Room3" instance=ExtResource("23_adiq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.26792, 0.7645, 4.5601)
+
+[node name="bookOpenBgltf" parent="Node/Room3" instance=ExtResource("22_ue5tg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24101, 1.50786, 3.7481)
+
+[node name="bookOpenAgltf" parent="Node/Room3" instance=ExtResource("21_rk55f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09361, 1.51123, 3.928)
+
+[node name="bookOpenAgltf2" parent="Node/Room3" instance=ExtResource("21_rk55f")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.0382, 2.37657, -1.762)
+
+[node name="chest_raregltf" parent="Node/Room3" instance=ExtResource("45_qe5i3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285491, 2.7673, 4.3471)
+
+[node name="trapdoorgltf" parent="Node/Room3" instance=ExtResource("46_ufs8l")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.1563, 0.35089, 4.0419)
+
 [node name="Room4" type="CSGBox3D" parent="Node"]
 transform = Transform3D(0.996, 0, 0, 0, 1, 0, 0, 0, 1, -29.2258, -0.59225, -22.4288)
 use_collision = true
@@ -760,7 +790,7 @@ material = SubResource("StandardMaterial3D_0gbpt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34331, 0.0496063)
 
 [node name="doorgltf" parent="Node/Room4" instance=ExtResource("6_smsyn")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.676, 0.614715, 1.0798)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.67599, 0.878741, 1.0798)
 
 [node name="OmniLight3D22" type="OmniLight3D" parent="Node/Room4"]
 transform = Transform3D(-1.00402, 0, -8.81264e-08, 0, 1, 0, 8.77739e-08, 0, -1, 15.1048, 2.75565, 0.839386)
@@ -827,33 +857,3 @@ transform = Transform3D(6.26956e-08, -2.15708e-07, 1.42857, -9.46678e-15, -1.428
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.99556, 0.0850183, 0.0403882, 0.0936587, 0.937416, 0.33538, -0.00934711, 0.337674, -0.941217, -0.195089, 5.81054, -5.49119)
-
-[node name="plategltf" parent="." instance=ExtResource("43_deq6m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.16077, -0.384328, -28.7522)
-
-[node name="plateFullgltf" parent="." instance=ExtResource("33_v7dfk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.03995, -0.411086, -28.2705)
-
-[node name="plateHalfgltf" parent="." instance=ExtResource("28_0o46f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.98793, -0.36088, -20.5436)
-
-[node name="coinsLargegltf" parent="." instance=ExtResource("44_wtjsf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.42113, -1.53305, -20.3924)
-
-[node name="bucketgltf" parent="." instance=ExtResource("23_adiq1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.26792, -1.11944, -19.0963)
-
-[node name="bookOpenBgltf" parent="." instance=ExtResource("22_ue5tg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.24101, -0.376084, -19.9083)
-
-[node name="bookOpenAgltf" parent="." instance=ExtResource("21_rk55f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.09361, -0.372705, -19.7284)
-
-[node name="bookOpenAgltf2" parent="." instance=ExtResource("21_rk55f")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10.0382, 0.49263, -25.4184)
-
-[node name="chest_raregltf" parent="." instance=ExtResource("45_qe5i3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285491, 0.883356, -19.3093)
-
-[node name="trapdoorgltf" parent="." instance=ExtResource("46_ufs8l")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.1563, -1.53305, -19.6145)

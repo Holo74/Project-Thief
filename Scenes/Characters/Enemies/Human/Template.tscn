@@ -1,9 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://hf41csi7umor"]
+[gd_scene load_steps=32 format=3 uid="uid://hf41csi7umor"]
 
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/BehaviorController.cs" id="1"]
-[ext_resource type="PackedScene" uid="uid://dd2jrr4f30juc" path="res://BehaviourTree/Full Trees/Stationary Guard.tscn" id="2_8b3u7"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/SensoryModules/Eyes.cs" id="2_k8otp"]
-[ext_resource type="PackedScene" uid="uid://bau1478tp37wd" path="res://Models/Enemy/SkeletonLookout.glb" id="2_l6guq"]
+[ext_resource type="PackedScene" uid="uid://detctyo1fh7p7" path="res://Models/Enemy/SkeletonLookout.glb" id="2_l6guq"]
 [ext_resource type="Shape3D" path="res://CollisionShapes/SightShapes/BasicCone.tres" id="4"]
 [ext_resource type="Resource" uid="uid://dfpjf04g1pv13" path="res://Resources/NPC/Range and Multipliers/Range.2Mult4.tres" id="4_31oni"]
 [ext_resource type="Resource" uid="uid://hgkqy10seei7" path="res://Resources/NPC/Range and Multipliers/Range.4Mult1.tres" id="5_6b1yg"]
@@ -392,7 +391,6 @@ script = ExtResource("1")
 MouthSoundPlayer = NodePath("Mouth")
 FeetSoundPlayer = NodePath("Feet")
 TurnSpeed = 5.0
-AI = ExtResource("2_8b3u7")
 
 [node name="Ears" type="Node3D" parent="."]
 

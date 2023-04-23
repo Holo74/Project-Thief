@@ -1,6 +1,78 @@
-[gd_scene load_steps=2 format=3 uid="uid://cagqfqyck3ois"]
+[gd_scene load_steps=30 format=3 uid="uid://cagqfqyck3ois"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="1_3d5ep"]
+[ext_resource type="Texture2D" uid="uid://dl0ep8ghat432" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="2_dlj38"]
+[ext_resource type="Texture2D" uid="uid://bbfaolem0fy5i" path="res://Textures/GameProjectTextures/dark_wood_diff_4k.png" id="3_uhepn"]
+[ext_resource type="Texture2D" uid="uid://b6vsyx4at53q1" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="4_dxt5u"]
+[ext_resource type="PackedScene" uid="uid://mfdm2087uh0" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="5_rvpq2"]
+[ext_resource type="PackedScene" uid="uid://cys5qtud2w76" path="res://Models/Private use only/KayKit/door.gltf.glb" id="6_xoyte"]
+[ext_resource type="PackedScene" uid="uid://bsfhgpye7chdm" path="res://Scenes/Models/block_out.tscn" id="7_cmhw1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a6nyk"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb31c"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_klufn"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ue15"]
+albedo_texture = ExtResource("3_uhepn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u8hdg"]
+albedo_texture = ExtResource("3_uhepn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wev42"]
+albedo_texture = ExtResource("3_uhepn")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5fqln"]
+albedo_texture = ExtResource("4_dxt5u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf0yk"]
+albedo_texture = ExtResource("4_dxt5u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxkqy"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ypv5"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7lqux"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6rkc"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vnbc0"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_86myc"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5wlo"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5u0gg"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qqga6"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mhea6"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5xt06"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5q12"]
+albedo_texture = ExtResource("2_dlj38")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er7de"]
+albedo_texture = ExtResource("4_dxt5u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3nu2"]
+albedo_texture = ExtResource("2_dlj38")
 
 [node name="Node3D" type="Node3D"]
 
@@ -13,16 +85,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.457176, -0.491696, -6.5872)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96891, 6.90628)
 use_collision = true
 size = Vector3(15.1512, 9.0451, 12.8948)
+material = SubResource("StandardMaterial3D_a6nyk")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1/Room1WallsBelow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354556, 0.551418, 0.482865)
 operation = 2
 size = Vector3(13.8328, 9.41147, 9.92745)
+material = SubResource("StandardMaterial3D_mb31c")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room1/Room1WallsBelow"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.20688, 6.09352)
 operation = 2
 size = Vector3(1.76828, 1.96906, 1.4362)
+material = SubResource("StandardMaterial3D_klufn")
 
 [node name="Railings" type="Node" parent="Room1"]
 
@@ -30,16 +105,19 @@ size = Vector3(1.76828, 1.96906, 1.4362)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.82939, 7.15424)
 use_collision = true
 size = Vector3(0.254769, 0.362818, 11.0278)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room1/Railings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47255, -1.82939, 7.15424)
 use_collision = true
 size = Vector3(0.254769, 0.362818, 11.0278)
+material = SubResource("StandardMaterial3D_u8hdg")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room1/Railings"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.83929, -1.82939, 7.15424)
 use_collision = true
 size = Vector3(0.254769, 0.362818, 11.0278)
+material = SubResource("StandardMaterial3D_wev42")
 
 [node name="BookCases?" type="Node" parent="Room1"]
 
@@ -47,29 +125,35 @@ size = Vector3(0.254769, 0.362818, 11.0278)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.62489, 7.05991)
 use_collision = true
 size = Vector3(8.66226, 15.6492, 1)
+material = SubResource("StandardMaterial3D_5fqln")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1/BookCases?/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.436, 0, 0)
 operation = 2
 size = Vector3(1.59381, 1, 1)
+material = SubResource("StandardMaterial3D_5fqln")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room1/BookCases?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.64052, 4.18987)
 use_collision = true
 size = Vector3(8.66226, 15.489, 1)
+material = SubResource("StandardMaterial3D_5fqln")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1/BookCases?/CSGBox3D4"]
 operation = 2
 size = Vector3(1.96414, 1, 1.75719)
+material = SubResource("StandardMaterial3D_5fqln")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room1/BookCases?"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.62489, 9.58608)
 use_collision = true
 size = Vector3(8.66226, 15.591, 1)
+material = SubResource("StandardMaterial3D_5fqln")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1/BookCases?/CSGBox3D3"]
 operation = 2
 size = Vector3(1.96829, 1, 1)
+material = SubResource("StandardMaterial3D_pf0yk")
 
 [node name="WallsUpperFloor" type="Node" parent="Room1"]
 
@@ -77,35 +161,42 @@ size = Vector3(1.96829, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.85348, 0, 6.92084)
 use_collision = true
 size = Vector3(0.32945, 5.22516, 12.6599)
+material = SubResource("StandardMaterial3D_oxkqy")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room1/WallsUpperFloor"]
 transform = Transform3D(0.00911052, 0, 0.999959, 0, 1, 0, -0.999959, 0, 0.00911052, 0.446719, 0, -3.82023)
 use_collision = true
 size = Vector3(8.5856, 5.22516, 16.8866)
+material = SubResource("StandardMaterial3D_7ypv5")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1/WallsUpperFloor/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.66167, 0.249892, 0.0242502)
 operation = 2
 size = Vector3(13.6093, 3.03237, 2.5382)
+material = SubResource("StandardMaterial3D_7lqux")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room1/WallsUpperFloor"]
 transform = Transform3D(0.00911052, 0, 0.999959, 0, 1, 0, -0.999959, 0, 0.00911052, 0.446719, 0, 13.5953)
 use_collision = true
 size = Vector3(0.32945, 5.22516, 16.8866)
+material = SubResource("StandardMaterial3D_x6rkc")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1/WallsUpperFloor/CSGBox3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00325966, -1.05876, -0.357576)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00326061, -1.05876, -0.357576)
 operation = 2
 size = Vector3(1, 1.14584, 1.77908)
+material = SubResource("StandardMaterial3D_vnbc0")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room1/WallsUpperFloor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.56425, 0, 6.92084)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.063, -7.564, 0, 6.85211)
 use_collision = true
 size = Vector3(0.32945, 5.22516, 12.6599)
+material = SubResource("StandardMaterial3D_86myc")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0784979, 1.55663, 5.96558)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0784979, 2.26481, 5.96558)
 size = Vector3(18.2732, 1, 14.6099)
+material = SubResource("StandardMaterial3D_v5wlo")
 
 [node name="Node3" type="Node" parent="Room1"]
 
@@ -133,27 +224,66 @@ omni_range = 12.8588
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107504, 0.690626, 3.03934)
 omni_range = 12.8588
 
+[node name="OmniLight3D5" type="OmniLight3D" parent="Room1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.74755, 1.37242, 12.5952)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room1/OmniLight3D5" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Room1"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.17454, 1.37242, 12.5952)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room1/OmniLight3D6" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.17454, 1.37242, 1.30426)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room1/OmniLight3D7" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Room1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8708, 1.37242, 1.22173)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room1/OmniLight3D8" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="doorgltf2" parent="Room1" instance=ExtResource("6_xoyte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.488637, -1.05349, -7.86034)
+
 [node name="Room2" type="Node" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.77823, 22.0416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107845, -5.8332, 22.3223)
 use_collision = true
 size = Vector3(15.94, 17.8696, 18.101)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room2/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.93573, -3.21336)
 operation = 2
 size = Vector3(15.006, 17.9522, 12.1578)
+material = SubResource("StandardMaterial3D_qqga6")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room2/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.14749, -4.60327, 5.53655)
 operation = 2
 size = Vector3(1.40944, 1, 6.91289)
+material = SubResource("StandardMaterial3D_mhea6")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room2/CSGBox3D"]
 transform = Transform3D(-0.0292476, 0, -0.999572, 0, 1, 0, 0.999572, 0, -0.0292476, -3.1608, -4.83376, 7.94571)
 operation = 2
 size = Vector3(1.39057, 1, 19.5697)
+material = SubResource("StandardMaterial3D_5xt06")
 
 [node name="Node" type="Node" parent="Room2"]
 
@@ -161,21 +291,25 @@ size = Vector3(1.39057, 1, 19.5697)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.00411, 13.9695)
 use_collision = true
 size = Vector3(3.15474, 1, 1)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room2/Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.71225, -4.01589, 13.9695)
 use_collision = true
 size = Vector3(3.15474, 1, 1)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room2/Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61459, -5.32076, 13.9695)
 use_collision = true
 size = Vector3(3.15474, 1, 1)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room2/Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.70764, -10.4031, 13.9144)
+transform = Transform3D(0.731, 0, 0, 0, 2.262, 0, 0, 0, 1, 0.534054, -10.587, 13.9144)
 use_collision = true
 size = Vector3(22.7127, 0.23488, 1)
+material = SubResource("StandardMaterial3D_v5q12")
 
 [node name="Node2" type="Node" parent="Room2"]
 
@@ -183,40 +317,48 @@ size = Vector3(22.7127, 0.23488, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45209, -9.48713, 16.6188)
 use_collision = true
 size = Vector3(3.15843, 7.75661, 3.05522)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room2/Node2/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.334743, 0.345531, 0)
 operation = 2
 size = Vector3(1.35888, 7.47455, 1.33536)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room2/Node2/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 0.00670199, -0.999978, 0, 0.999978, 0.00670199, -0.334743, -1.12288, 0.539768)
 operation = 2
 size = Vector3(1.43434, 2.46306, 2.11402)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room2/Node2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.45209, -9.48713, 21.8273)
 use_collision = true
 size = Vector3(3.15843, 3.93458, 3.05522)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room2/Node2/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89112, 0)
 operation = 2
 size = Vector3(3.71101, 1, 1.40437)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room2/Node2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14678, -9.48713, 16.8198)
 use_collision = true
 size = Vector3(3.15843, 3.93458, 3.05522)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room2/Node2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.14678, -9.48713, 22.2432)
 use_collision = true
 size = Vector3(3.15843, 3.93458, 3.05522)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31243, 18.4507)
 size = Vector3(15.5327, 0.240161, 15.1132)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Lights" type="Node" parent="Room2"]
 
@@ -244,120 +386,178 @@ omni_range = 16.2809
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.47766, 17.4528)
 omni_range = 16.2809
 
+[node name="OmniLight3D5" type="OmniLight3D" parent="Room2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6.49211, -8.06811, 24.5094)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room2/OmniLight3D5" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Room2"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.84463, -8.06811, 24.5094)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room2/OmniLight3D6" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.84463, -8.06811, 14.1298)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room2/OmniLight3D7" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.82193, -8.06811, 14.1298)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room2/OmniLight3D8" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
 [node name="Room3" type="Node" parent="."]
 
 [node name="Ground+Obsticles" type="CSGBox3D" parent="Room3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.5729, -12.0201, 24.2786)
 use_collision = true
 size = Vector3(25.4596, 1, 22.7425)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25461, 0.70392, -6.89617)
 size = Vector3(4.20421, 4.18372, 4.86978)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3/Ground+Obsticles/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.67787)
 size = Vector3(1, 0.584734, 1)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room3/Ground+Obsticles/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.740826, 0.537763, -2.67787)
 size = Vector3(1, 0.584734, 1)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room3/Ground+Obsticles/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34935, 1.06987, -2.67787)
 size = Vector3(0.655704, 0.584734, 1)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25461, 0.70392, -0.146633)
 size = Vector3(4.20421, 4.18372, 4.86978)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65753, 0.70392, -0.146633)
 size = Vector3(4.20421, 4.18372, 4.86978)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65753, 0.70392, 7.046)
 size = Vector3(4.20421, 4.18372, 4.86978)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.65753, 0.70392, -6.78726)
 size = Vector3(4.20421, 4.18372, 4.86978)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.25461, 0.70392, 6.82467)
 size = Vector3(4.20421, 4.18372, 4.86978)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Room3/Ground+Obsticles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.14146, 1.06827, 0)
 size = Vector3(1, 5.2435, 24.0003)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3/Ground+Obsticles/CSGBox3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.30293)
 operation = 2
 size = Vector3(1, 3.66086, 2.24914)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room3/Ground+Obsticles/CSGBox3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.31116)
 operation = 2
 size = Vector3(1, 3.66086, 2.24914)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Walls" type="Node" parent="Room3"]
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room3/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8165, -5.54005, 12.6858)
+transform = Transform3D(0.92, 0, 0, 0, 1, 0, 0, 0, 1, -20.4576, -5.54005, 12.6858)
 use_collision = true
 size = Vector3(27.5113, 12.7645, 1)
+material = SubResource("StandardMaterial3D_c3nu2")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3/Walls/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.9127, -2.46453, 0)
 size = Vector3(3.16273, 0.594039, 2.96094)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room3/Walls/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.1537, -1.59704, 0)
 size = Vector3(1.76565, 0.594039, 2.96094)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room3/Walls"]
 transform = Transform3D(-0.0121297, 0, 0.999927, 0, 1, 0, -0.999927, 0, -0.0121297, -33.5434, -5.54005, 24.4766)
 use_collision = true
 size = Vector3(27.5113, 19.7389, 1)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3/Walls/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.6063, 0)
 operation = 2
 size = Vector3(1.89978, 2.93705, 1)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room3/Walls/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.01478, 3.11035, 0.152302)
 operation = 2
 size = Vector3(3.08907, 4.18278, 1.77662)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room3/Walls/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.34738, -1.21875, 0.587204)
 size = Vector3(5.26672, 1, 2.11867)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room3/Walls/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.04723, 0.508643, 0.522934)
 size = Vector3(5.26672, 1, 1.33507)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Room3/Walls/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.39954, 0.273966, 0.960587)
 size = Vector3(1.5165, 1, 1.77941)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Room3/Walls/CSGBox3D4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.88548, -0.441411, 1.04366)
 size = Vector3(1.5165, 1, 1.63494)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room3/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8165, -5.54005, 35.3114)
 size = Vector3(27.5113, 12.7645, 1)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3/Walls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9709, -6.03987, 33.3119)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.31342, -6.03987, 33.5665)
 size = Vector3(1, 15.2053, 5.0232)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.3029, 0, 21.6264)
+transform = Transform3D(0.937, 0, 0, 0, 1, 0, 0, 0, 0.801, -20.5575, 0.153061, 22.8144)
 size = Vector3(27.5689, 1, 30.451)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Lights" type="Node" parent="Room3"]
 
@@ -377,12 +577,61 @@ omni_range = 35.3451
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.8114, -1.61655, 29.5488)
 omni_range = 17.1346
 
+[node name="OmniLight3D8" type="OmniLight3D" parent="Room3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.66876, -8.06811, 13.9723)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room3/OmniLight3D8" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Room3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.4654, -8.06811, 13.9723)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room3/OmniLight3D9" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Room3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.4192, -1.3552, 13.8863)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room3/OmniLight3D12" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Room3"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -32.4192, -1.3552, 18.9424)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room3/OmniLight3D13" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Room3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -28.4401, -8.06811, 34.0685)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room3/OmniLight3D10" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Room3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8.56987, -8.06811, 34.0685)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room3/OmniLight3D11" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
 [node name="Room4" type="Node" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3875, -12.8615, 23.8185)
 use_collision = true
 size = Vector3(41.5718, 1.43372, 27.0106)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Walls" type="Node" parent="Room4"]
 
@@ -390,77 +639,95 @@ size = Vector3(41.5718, 1.43372, 27.0106)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.8671, -0.52843, 11.8933)
 use_collision = true
 size = Vector3(45.7786, 31.6858, 2.18606)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room4/Walls/CSGBox3D"]
 transform = Transform3D(0.846063, -0.533083, 0, 0.533083, 0.846063, 0, 0, 0, 1, -10.7828, 6.16828, 1.53823)
 size = Vector3(13.87, 1, 1)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room4/Walls/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12564, 9.80035, 1.50429)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12564, 9.23651, 1.50429)
 size = Vector3(5.7452, 1, 3.06015)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room4/Walls/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5061, -0.918595)
 operation = 2
 size = Vector3(1.96305, 1.58011, 4.18064)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room4/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.8671, -0.52843, 37.0152)
 use_collision = true
 size = Vector3(45.7786, 31.6858, 2.18606)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room4/Walls/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.1391, -11.6354, -1.34005)
 size = Vector3(4.37697, 1.59648, 1.62902)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room4/Walls/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4296, -0.0314662, -1.34005)
 size = Vector3(4.37697, 1.59648, 1.62902)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room4/Walls/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.8273, 0.496375, -1.34005)
 size = Vector3(4.37697, 1.59648, 1.62902)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room4/Walls/CSGBox3D2"]
 transform = Transform3D(0.873687, 0.486488, 0, -0.486488, 0.873687, 0, 0, 0, 1, 1.56542, -5.98175, -1.34005)
 size = Vector3(21.0194, 2.31435, 1.62902)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room4/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.0596, 0, 26.0568)
 use_collision = true
 size = Vector3(2.05593, 34.4275, 33.5579)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room4/Walls/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16297, 0.683024, 6.10881)
 size = Vector3(1.85314, 1, 1.5121)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room4/Walls/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16297, 0.521281, 3.16505)
 size = Vector3(1.85314, 1, 1.5121)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room4/Walls/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16297, 0.323955, -0.213789)
 size = Vector3(1.85314, 1, 1.5121)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room4/Walls/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16297, 0.715788, -2.97318)
 size = Vector3(1.85314, 1, 1.5121)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Room4/Walls/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.16297, 1.00394, -6.34229)
 size = Vector3(1.85314, 1, 1.5121)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Room4/Walls/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.54913, 1.21581, -9.61856)
 size = Vector3(1.85314, 1, 3.08225)
+material = SubResource("StandardMaterial3D_5ue15")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room4/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.9015, 9.40559, 24.1908)
 size = Vector3(1, 16.5683, 29.2891)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Roof2" type="CSGBox3D" parent="Room4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.6646, 14.4885, 23.34)
+transform = Transform3D(1.058, 0, 0, 0, 1, 0, 0, 0, 1, -54.1938, 14.4885, 23.34)
 size = Vector3(39.0362, 1.49432, 27.7811)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Node" type="Node" parent="Room4"]
 
@@ -480,120 +747,209 @@ omni_range = 58.5258
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.3331, 9.52661, 26.3775)
 omni_range = 38.0253
 
+[node name="OmniLight3D8" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.1376, -8.63016, 13.7688)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D8" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.2746, -8.63016, 13.7688)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D9" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0361, 12.3485, 13.7688)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D14" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.7416, 12.3485, 13.7688)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D15" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -73.2746, -8.63016, 35.1696)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D10" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -34.5452, -8.63016, 35.1696)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D11" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.86, -9.17509, 22.8032)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D12" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Room4"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -34.86, -9.17509, 26.0116)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room4/OmniLight3D13" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
 [node name="Room5" type="Node" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.5124, 7.87456, -9.66346)
 use_collision = true
 size = Vector3(30.6869, 2.05059, 40.9988)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5/CSGBox3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5654, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5654, -0.421947, 0)
 size = Vector3(12.6864, 2.41022, 11.2649)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room5/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72366, 2.24734, 0)
 size = Vector3(2.70401, 3.25967, 32.5607)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.839709, -11.1857)
 operation = 2
 size = Vector3(3.03969, 0.949489, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.839709, 11.3098)
 operation = 2
 size = Vector3(3.03969, 0.949489, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.297621, -0.0721331)
 operation = 2
 size = Vector3(3.03969, 2.15492, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room5/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.56585, 2.24734, 0)
 size = Vector3(2.70401, 3.25967, 32.5607)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.839709, -11.1857)
 operation = 2
 size = Vector3(3.03969, 0.949489, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.839709, 11.3098)
 operation = 2
 size = Vector3(3.03969, 0.949489, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.297621, -0.0721331)
 operation = 2
 size = Vector3(3.03969, 2.15492, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Room5/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59933, 2.24734, 0)
 size = Vector3(2.70401, 3.25967, 32.5607)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.839709, -11.1857)
 operation = 2
 size = Vector3(3.03969, 0.949489, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.839709, 11.3098)
 operation = 2
 size = Vector3(3.03969, 0.949489, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room5/CSGBox3D/CSGBox3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.297621, -0.0721331)
 operation = 2
 size = Vector3(3.03969, 2.15492, 8.2221)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room5/CSGBox3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2124, 0, 0)
 size = Vector3(5.1523, 16.3865, 4.50234)
+material = SubResource("StandardMaterial3D_er7de")
 
 [node name="Walls" type="Node" parent="Room5"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5226, 12.8805, 4.23461)
 size = Vector3(1, 19.513, 17.16)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.5226, 12.8805, -22.8964)
 size = Vector3(1, 18.6577, 17.16)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.4868, 12.8805, -10.7171)
 size = Vector3(1, 19.6861, 17.16)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(-0.0343413, 0, 0.99941, 0, 1, 0, -0.99941, 0, -0.0343413, -34.745, 12.8805, -15.1849)
 size = Vector3(1, 19.8502, 12.1312)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(-0.0343413, 0, 0.99941, 0, 1, 0, -0.99941, 0, -0.0343413, -34.745, 12.8805, -4.64247)
 size = Vector3(1, 19.3803, 12.1312)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -70.2081, 12.515, -9.41153)
 size = Vector3(1, 19.4657, 41.4868)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.1392, 12.3483, -29.9519)
 size = Vector3(31.6021, 19.7862, 1)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room5/Walls/CSGBox3D7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.804642, 0)
 operation = 2
 size = Vector3(3.84753, 5.46027, 1)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="Room5/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.0876, 18.0774, 10.3085)
 size = Vector3(29.8604, 9.30919, 2.0687)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Roof" type="CSGBox3D" parent="Room5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.3258, 19.4724, -12.6243)
 size = Vector3(63.3597, 2.48869, 45.7155)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Lights" type="Node" parent="Room5"]
 
@@ -613,6 +969,94 @@ omni_range = 38.7186
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.4213, 17.1237, -22.5453)
 omni_range = 38.7186
 
+[node name="OmniLight3D8" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -41.7935, 12.0569, -28.6752)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D8" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.3806, 12.0569, -28.6752)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D9" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.6711, 12.0569, -28.6752)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D10" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.241, 12.0569, -28.6752)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D11" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -68.9174, 12.0569, -8.40673)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D12" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -68.9174, 12.0569, 10.0204)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D13" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -41.7757, 12.0569, 10.0204)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D14" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D15" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -41.7757, 12.0569, -3.71888)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D15" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D16" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -41.7757, 12.0569, -15.1046)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D16" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D17" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.6203, 12.0569, -14.1644)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D17" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D18" type="OmniLight3D" parent="Room5"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.6203, 12.0569, -5.93058)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room5/OmniLight3D18" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
 [node name="Room6" type="Node" parent="."]
 
 [node name="Ground" type="Node" parent="Room6"]
@@ -621,25 +1065,33 @@ omni_range = 38.7186
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.8608, 8.06812, -45.0759)
 use_collision = true
 size = Vector3(6.09493, 1, 31.1982)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Walls" type="Node" parent="Room6"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room6/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.1115, 10.1474, -46.523)
 size = Vector3(1.92506, 7.98129, 33.6708)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="Room6/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9125, 10.1474, -46.523)
 size = Vector3(1.92506, 7.98129, 33.6708)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="Room6/Walls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.8682, 10.2983, -62.5619)
-size = Vector3(8.29161, 7.83801, 1)
+size = Vector3(8.29161, 7.83801, 3.89127)
+material = SubResource("StandardMaterial3D_5u0gg")
+
+[node name="BlockOut2" parent="Room6/Walls/CSGBox3D3" instance=ExtResource("7_cmhw1")]
+transform = Transform3D(7.221, 0, 1.12439e-07, 0, 4.866, 0, -6.60636e-07, 0, 1.229, 0.887932, 0.863133, 1.68685)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Room6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.9074, 14.5916, -48.4846)
 use_collision = true
 size = Vector3(9.60373, 1, 32.53)
+material = SubResource("StandardMaterial3D_5u0gg")
 
 [node name="Lights" type="Node" parent="Room6"]
 
@@ -650,3 +1102,38 @@ omni_range = 17.5901
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room6/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.0203, 13.2957, -50.6344)
 omni_range = 17.5901
+
+[node name="OmniLight3D8" type="OmniLight3D" parent="Room6"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -57.4137, 10.6256, -46.7425)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room6/OmniLight3D8" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="Room6"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -54.6305, 10.6256, -46.7425)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room6/OmniLight3D9" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="Room6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.3331, 10.6256, -59.8369)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room6/OmniLight3D10" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="Room6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.6094, 10.6256, -59.8369)
+light_color = Color(1, 0.631373, 0.466667, 1)
+omni_range = 25.3651
+
+[node name="torchWallgltf" parent="Room6/OmniLight3D11" instance=ExtResource("5_rvpq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00998497, -0.777263, -0.665672)
+
+[node name="doorgltf" parent="Room6" instance=ExtResource("6_xoyte")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.9148, 8.76042, -60.5207)
