@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/BehaviorController.cs" id="1"]
 [ext_resource type="PackedScene" uid="uid://dd2jrr4f30juc" path="res://BehaviourTree/Full Trees/Stationary Guard.tscn" id="2_8b3u7"]
 [ext_resource type="Script" path="res://Scripts/BehaviorTree/SensoryModules/Eyes.cs" id="2_k8otp"]
-[ext_resource type="PackedScene" uid="uid://bau1478tp37wd" path="res://Models/Enemy/SkeletonLookout.glb" id="2_l6guq"]
+[ext_resource type="PackedScene" uid="uid://detctyo1fh7p7" path="res://Models/Enemy/SkeletonLookout.glb" id="2_l6guq"]
 [ext_resource type="Resource" uid="uid://dr6qgtrihh3wk" path="res://Resources/NPC/Range and Multipliers/Range1Mult.2.tres" id="3_xs3sn"]
 [ext_resource type="Shape3D" path="res://CollisionShapes/SightShapes/BasicCone.tres" id="4"]
 [ext_resource type="Resource" uid="uid://dfpjf04g1pv13" path="res://Resources/NPC/Range and Multipliers/Range.2Mult4.tres" id="4_31oni"]
@@ -413,14 +413,12 @@ skeleton = NodePath("../..")
 avoidance_enabled = true
 debug_enabled = true
 
-[node name="Eyes" type="Node3D" parent="." node_paths=PackedStringArray("UpperCast", "MiddleCast", "LowerCast", "BC")]
+[node name="Eyes" type="Node3D" parent="." node_paths=PackedStringArray("UpperCast", "MiddleCast", "LowerCast")]
 script = ExtResource("2_k8otp")
 UpperCast = NodePath("RayCast3D")
 MiddleCast = NodePath("RayCast2")
 LowerCast = NodePath("RayCast3")
 VisionSensitivity = 1.0
-DecreasingVisibilityVal = 5.0
-BC = NodePath("..")
 RangesAndMultipliers = Array[Resource]([ExtResource("3_xs3sn"), ExtResource("4_31oni"), ExtResource("5_6b1yg"), ExtResource("6_yefop"), ExtResource("7_i1okx")])
 Testing = Array[String]([])
 
