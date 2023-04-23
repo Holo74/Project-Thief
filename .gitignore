@@ -5,6 +5,7 @@ export_presents.cfg
 .mono/
 .godot/
 *.import
+.vscode/
 
 # Binaries
 bin/
@@ -71,4 +72,4 @@ Maps/Nobles \House/autosave/
 .godot/mono/temp/obj/Debug/Project Thief.dll
 .godot/mono/temp/obj/Debug/Project Thief.GeneratedMSBuildEditorConfig.editorconfig
 .godot/mono/temp/obj/Debug/Project Thief.pdb
-.vscode/settings.json
+

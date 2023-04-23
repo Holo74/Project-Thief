@@ -21,12 +21,35 @@ namespace BehaviorTree.Nodes
             if (parent is BehaviorController BC)
             {
                 BC.AssignRoot(this);
+                Controller = BC;
+                GD.Print("Setting children up for failure");
+                foreach (Base x in Children)
+                {
+                    x.SetController();
+
+                }
             }
             if (parent is Base p && !DisabledBehaviour)
             {
                 Parent = p;
                 Parent.Children.Add(this);
             }
+        }
+
+        protected void SetController()
+        {
+            GD.Print("Parent is null: " + (Parent is null).ToString());
+            Controller = Parent.Controller;
+            foreach (Base child in Children)
+            {
+                child.SetController();
+            }
+            AfterControllerSet();
+        }
+
+        protected virtual void AfterControllerSet()
+        {
+
         }
 
         public override void _Process(double delta)

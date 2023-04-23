@@ -29,10 +29,10 @@ namespace BehaviorTree.SensoryModules
         {
 
             RanMult = RangesAndMultipliers.OrderBy(x => x.Range).ToList(); ;
-            foreach (var item in RanMult)
-            {
-                GD.Print(item);
-            }
+            // foreach (var item in RanMult)
+            // {
+            //     GD.Print(item);
+            // }
             // RangesAndMultipliers.OrderBy(x => x.Range);
             // foreach (DistanceMultiplier item in RangesAndMultipliers)
             // {

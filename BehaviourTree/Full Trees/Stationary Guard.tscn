@@ -74,16 +74,16 @@ script = ExtResource("2")
 script = ExtResource("5")
 Range = 2.0
 
-[node name="Is in attack" type="Node" parent="Hostile\nSequencere/Sequence/Selector/Hit player\nSequencer"]
-script = ExtResource("4")
-Key = 3
-
 [node name="Always True" type="Node" parent="Hostile\nSequencere/Sequence/Selector/Hit player\nSequencer"]
 script = ExtResource("10")
 ReturnThis = 1
 
 [node name="Hitting player\nSequencer" type="Node" parent="Hostile\nSequencere/Sequence/Selector/Hit player\nSequencer/Always True"]
 script = ExtResource("2")
+
+[node name="Is in attack" type="Node" parent="Hostile\nSequencere/Sequence/Selector/Hit player\nSequencer/Always True/Hitting player\nSequencer"]
+script = ExtResource("4")
+Key = 3
 
 [node name="Timer runs out" type="Node" parent="Hostile\nSequencere/Sequence/Selector/Hit player\nSequencer/Always True/Hitting player\nSequencer"]
 script = ExtResource("7")

@@ -20,6 +20,9 @@ namespace BehaviorTree
         [Export]
         private float TurnSpeed { get; set; }
 
+        [Export]
+        private PackedScene AI { get; set; }
+
         // If the dot product between the safe velocity and the current facing direction are beyond this then turn
         [Export(PropertyHint.Range, ("0,180,1"))]
         private float StartBeyondXDegrees { get; set; }
@@ -31,6 +34,7 @@ namespace BehaviorTree
             StartBeyondXDegrees = (90 - StartBeyondXDegrees) / 90;
             VelocitySyncCounter = 0;
             BlackBoard.Add(Enums.KeyList.Debugging, "");
+            AddChild(AI.Instantiate());
         }
 
         public override void _Process(double delta)
@@ -85,6 +89,11 @@ namespace BehaviorTree
             GlobalTransform = GlobalTransform.InterpolateWith(GlobalTransform.LookingAt(sameLevel + GlobalPosition, Vector3.Up), ((float)GetPhysicsProcessDeltaTime()) * TurnSpeed);
             Velocity = velocity;
             MoveAndSlide();
+        }
+
+        public void SetBlackboardRemote(int key, Variant val)
+        {
+            BlackBoard[(Enums.KeyList)key] = val;
         }
     }
 

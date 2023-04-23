@@ -12,11 +12,24 @@ namespace BehaviorTree.Nodes.Leaf.Actions
         public override void _Ready()
         {
             base._Ready();
-            Home = Location.GlobalPosition;
+
+        }
+
+        protected override void AfterControllerSet()
+        {
+            if (Location is not null)
+            {
+                Home = Location.GlobalPosition;
+            }
+            else
+            {
+                Home = Controller.GlobalPosition;
+            }
         }
         public override Results Tick(double delta, BehaviorController BC)
         {
             base.Tick(delta, BC);
+
             BC.NavAgent.TargetPosition = Home;
             return Results.Success;
         }
