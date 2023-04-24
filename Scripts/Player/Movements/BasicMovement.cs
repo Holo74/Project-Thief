@@ -16,7 +16,6 @@ namespace Player.Movement
             if (Input.IsActionJustPressed("Jump"))
             {
                 Jump(Vector3.Zero);
-                FallingMovement(delta);
                 return;
             }
             Variables.Instance.WALKING_MOVEMENT = DirectionalInput() * ((float)MovementSpeed());

@@ -1,16 +1,15 @@
-[gd_scene load_steps=36 format=3 uid="uid://bkdn88w8gmp6h"]
+[gd_scene load_steps=37 format=3 uid="uid://bkdn88w8gmp6h"]
 
 [ext_resource type="Script" path="res://Scripts/Player/PlayerManager.cs" id="1"]
 [ext_resource type="Script" path="res://Scripts/Player/GUI/HealthBar.cs" id="2"]
 [ext_resource type="Script" path="res://Scripts/Player/BodyMods/SideWallDetection.cs" id="3"]
 [ext_resource type="Texture2D" uid="uid://ckprmabba2ivj" path="res://Textures/Player/GUI/Crosshair.png" id="4"]
 [ext_resource type="Script" path="res://Scripts/Player/Interactions/Interaction.cs" id="5"]
-[ext_resource type="Script" path="res://Scripts/Debug/Player/AreaTester.cs" id="5_rcgyq"]
+[ext_resource type="Script" path="res://Scripts/Debug/QuickAreaFix.cs" id="5_avxiw"]
 [ext_resource type="Script" path="res://Scripts/Player/GUI/InteractionTexture.cs" id="6"]
 [ext_resource type="Script" path="res://Scripts/Debug/VariablesModPanel.cs" id="7"]
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/UpgradeHandler.cs" id="8"]
 [ext_resource type="Script" path="res://Scripts/Debug/Level Controls/Restart.cs" id="9"]
-[ext_resource type="AudioStream" uid="uid://hyv2mt4ha8k0" path="res://Music/In Game/Hidden/mp208.mp3" id="10"]
 [ext_resource type="Script" path="res://Scripts/Management/Sound/MusicManager.cs" id="11"]
 [ext_resource type="Script" path="res://Scripts/Management/Sound/PlayerSoundManager.cs" id="12"]
 [ext_resource type="Script" path="res://Scripts/Player/BodyMods/Mantle.cs" id="13"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/Health.cs" id="15"]
 [ext_resource type="PackedScene" uid="uid://bsvxhqtnvu0eb" path="res://Scenes/Characters/Player/Gem.tscn" id="16"]
 [ext_resource type="Script" path="res://Scripts/Player/Handlers/GUI.cs" id="17"]
+[ext_resource type="Script" path="res://Scripts/Debug/Player/AreaColliders.cs" id="17_mh8ap"]
 [ext_resource type="Script" path="res://Scripts/Debug/VisibilityIndex/Display.cs" id="18"]
 [ext_resource type="AudioStream" uid="uid://duw8qxfeiypfk" path="res://Sounds/PlayerSounds/Jumping.wav" id="19"]
 [ext_resource type="Script" path="res://Scripts/Player/BodyMods/DetectionPoints.cs" id="20"]
@@ -68,7 +68,12 @@ radius = 0.1
 [sub_resource type="SphereShape3D" id="11"]
 radius = 0.1
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2v3jc"]
+height = 0.1
+
 [node name="Player" type="CharacterBody3D"]
+wall_min_slide_angle = 0.785398
+floor_max_angle = 1.0472
 script = ExtResource("1")
 PlayerHealth = SubResource("7")
 Upgrades = SubResource("9")
@@ -87,7 +92,7 @@ script = ExtResource("13")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.262553, -0.570546)
 disable_mode = 2
 priority = 1.0
-script = ExtResource("5_rcgyq")
+script = ExtResource("5_avxiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/UpperBodyLedge"]
 shape = SubResource("BoxShape3D_hfmd3")
@@ -95,14 +100,14 @@ shape = SubResource("BoxShape3D_hfmd3")
 [node name="LowerBodyLedge" type="Area3D" parent="BodyNode/Mantling"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31094, -0.570546)
 priority = 1.0
-script = ExtResource("5_rcgyq")
+script = ExtResource("5_avxiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/LowerBodyLedge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0849318, 0)
 shape = SubResource("4")
 
 [node name="Spacer" type="Area3D" parent="BodyNode/Mantling"]
-script = ExtResource("5_rcgyq")
+script = ExtResource("5_avxiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BodyNode/Mantling/Spacer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.428881, -0.318036)
@@ -293,11 +298,14 @@ offset_right = 1024.0
 offset_bottom = 600.0
 script = ExtResource("22")
 
-[node name="Panel" type="Panel" parent="Debug"]
+[node name="Panel" type="Panel" parent="Debug" node_paths=PackedStringArray("Body", "LowerBody")]
 offset_left = 17.0
 offset_top = 466.0
 offset_right = 199.0
 offset_bottom = 634.0
+script = ExtResource("17_mh8ap")
+Body = NodePath("Body")
+LowerBody = NodePath("Feet")
 
 [node name="Label" type="RichTextLabel" parent="Debug/Panel"]
 layout_mode = 0
@@ -307,6 +315,7 @@ bbcode_enabled = true
 text = "[center]Colliding with body[/center]"
 
 [node name="Head" type="RichTextLabel" parent="Debug/Panel"]
+visible = false
 layout_mode = 0
 offset_top = 40.0
 offset_right = 80.0
@@ -317,13 +326,15 @@ script = ExtResource("23")
 
 [node name="Body" type="RichTextLabel" parent="Debug/Panel"]
 layout_mode = 0
-offset_top = 80.0
-offset_right = 80.0
-offset_bottom = 120.0
+offset_left = -1.0
+offset_top = 30.0
+offset_right = 181.0
+offset_bottom = 160.0
 text = "Body:"
 script = ExtResource("23")
 
 [node name="Feet" type="RichTextLabel" parent="Debug/Panel"]
+visible = false
 layout_mode = 0
 offset_top = 120.0
 offset_right = 80.0
@@ -352,12 +363,16 @@ shape = SubResource("2")
 
 [node name="Upper Body Detection" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+script = ExtResource("5_avxiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Upper Body Detection"]
 shape = SubResource("1")
 
 [node name="Lower Body Detection" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.219881, 0)
+visible = false
+script = ExtResource("5_avxiw")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Lower Body Detection"]
 shape = SubResource("6")
@@ -384,7 +399,6 @@ script = ExtResource("11")
 bus = &"Ambient"
 
 [node name="Music" type="AudioStreamPlayer" parent="Music"]
-stream = ExtResource("10")
 autoplay = true
 bus = &"Music"
 
@@ -410,6 +424,12 @@ shape = SubResource("11")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.930482, 0.366339, 0, -0.366339, 0.930482, 0, 3.47375, 5.83564)
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("CylinderShape3D_2v3jc")
+target_position = Vector3(0, 1.4, 0)
+debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [connection signal="pressed" from="Debug/DebugPanel/To Main Menu" to="Debug/DebugPanel/To Main Menu" method="RestartLevel"]
 [connection signal="pressed" from="Debug/DebugPanel/Reset Values" to="Debug/DebugPanel/Variables" method="ResetVariables"]

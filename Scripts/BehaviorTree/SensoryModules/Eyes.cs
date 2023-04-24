@@ -28,7 +28,16 @@ namespace BehaviorTree.SensoryModules
         public override void _Ready()
         {
 
-            RanMult = RangesAndMultipliers.OrderBy(x => x.Range).ToList(); ;
+            RanMult = RangesAndMultipliers.OrderBy(x => x.Range).ToList();
+            if (!BC.BlackBoard.ContainsKey(Enums.KeyList.InDirectEye) || !BC.BlackBoard.ContainsKey(Enums.KeyList.DirectEye))
+            {
+                BC.BlackBoard[Enums.KeyList.InDirectEye] = false;
+                BC.BlackBoard[Enums.KeyList.DirectEye] = false;
+            }
+            if (!BC.BlackBoard.ContainsKey(Enums.KeyList.Sensor))
+            {
+                BC.BlackBoard.Add(Enums.KeyList.Sensor, 0.0);
+            }
             // foreach (var item in RanMult)
             // {
             //     GD.Print(item);
@@ -48,17 +57,6 @@ namespace BehaviorTree.SensoryModules
 
         public override void _Process(double delta)
         {
-            if (BC.BlackBoard is null)
-                return;
-            if (!BC.BlackBoard.ContainsKey(Enums.KeyList.Sensor))
-            {
-                BC.BlackBoard.Add(Enums.KeyList.Sensor, 0.0);
-            }
-            if (!BC.BlackBoard.ContainsKey(Enums.KeyList.InDirectEye) || !BC.BlackBoard.ContainsKey(Enums.KeyList.DirectEye))
-            {
-                BC.BlackBoard[Enums.KeyList.InDirectEye] = false;
-                BC.BlackBoard[Enums.KeyList.DirectEye] = false;
-            }
             if (BC.BlackBoard[Enums.KeyList.InDirectEye].AsBool() || BC.BlackBoard[Enums.KeyList.DirectEye].AsBool())
             {
                 double currentVal = BC.BlackBoard[Enums.KeyList.Sensor].AsDouble();

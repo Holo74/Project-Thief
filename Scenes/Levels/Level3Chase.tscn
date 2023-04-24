@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Models/Props/coinsMediumgltf.tscn" id="16_e1c83"]
 [ext_resource type="PackedScene" path="res://Scenes/Models/Weapons/axeDouble_commongltf.tscn" id="17_o641w"]
 [ext_resource type="PackedScene" path="res://Scenes/Models/Weapons/axeDouble_raregltf.tscn" id="18_y0bdk"]
-[ext_resource type="PackedScene" path="res://Scenes/Models/Props/lootSackBgltf.tscn" id="19_omwsr"]
+[ext_resource type="PackedScene" uid="uid://cabw1xgvn2p26" path="res://Scenes/Models/Props/lootSackBgltf.tscn" id="19_omwsr"]
 [ext_resource type="PackedScene" uid="uid://cj8rwvlxvujtg" path="res://Scenes/Models/Props/benchgltf.tscn" id="20_j483h"]
 [ext_resource type="Texture2D" uid="uid://cgq32twja6322" path="res://Textures/GameProjectTextures/dark_wood_diff_4k.png" id="21_poqt0"]
 [ext_resource type="PackedScene" uid="uid://70u4i24oecc8" path="res://Scenes/Models/Environmental/CollisionObjects/bookcaseWideFilledgltf.tscn" id="22_soju5"]
@@ -216,7 +216,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52302, 0)
 [node name="OmniLight3D" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.6328, 3.90617, -5.87435)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
@@ -226,7 +227,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, -0.44998
 [node name="OmniLight3D2" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1512, 3.06216, -6.15245)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
@@ -236,7 +238,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 [node name="OmniLight3D3" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(0.159674, 0, 0.98717, 0, 1, 0, -0.98717, 0, 0.159674, -1.38573, 2.68842, 4.1841)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
@@ -246,7 +249,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 [node name="OmniLight3D4" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(-0.991222, 0, 0.132205, 0, 1, 0, -0.132205, 0, -0.991222, -5.33947, 2.68842, 6.8255)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
@@ -256,7 +260,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 [node name="OmniLight3D5" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(-0.991222, 0, 0.132205, 0, 1, 0, -0.132205, 0, -0.991222, -15.1369, 2.68842, 6.8255)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
@@ -266,7 +271,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 [node name="OmniLight3D6" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(-0.031428, 0, 0.999506, 0, 1, 0, -0.999506, 0, -0.031428, -19.7317, 2.68842, 2.39918)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
@@ -276,19 +282,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 [node name="OmniLight3D7" type="OmniLight3D" parent="Room1/Lights"]
 transform = Transform3D(-0.031428, 0, 0.999506, 0, 1, 0, -0.999506, 0, -0.031428, -19.7372, 2.68842, -2.7379)
 layers = 524289
-light_energy = 2.0
+light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 3.0
 shadow_enabled = true
 omni_range = 26.985
 
 [node name="torchWallgltf" parent="Room1/Lights/OmniLight3D7" instance=ExtResource("5_lg38n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Room1"]
-
 [node name="SmallRoomWalls" type="Node" parent="Room1"]
 
 [node name="WallLong" type="CSGBox3D" parent="Room1/SmallRoomWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.61981, 2.27427, 0.00571823)
+layers = 524289
 material_override = SubResource("StandardMaterial3D_h2a5q")
 use_collision = true
 size = Vector3(0.109759, 9.44531, 14.517)
@@ -302,16 +308,19 @@ height = 1.56918
 
 [node name="WallLong2" type="CSGBox3D" parent="Room1/SmallRoomWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75037, 2.17649, 0.00732708)
+layers = 524289
 material_override = SubResource("StandardMaterial3D_xja3d")
 size = Vector3(0.109759, 9.62521, 14.517)
 material = SubResource("StandardMaterial3D_n1hr0")
 
 [node name="WallShort2" type="CSGBox3D" parent="Room1/SmallRoomWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00443172, 1.17848, -6.82408)
+layers = 524289
 size = Vector3(3.38857, 7.11811, 0.131587)
 
 [node name="WallShort3" type="CSGBox3D" parent="Room1/SmallRoomWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57099, 2.00572, 7.34812)
+layers = 524289
 material_override = SubResource("StandardMaterial3D_04klr")
 size = Vector3(7.6414, 11.5707, 0.131587)
 
@@ -342,7 +351,7 @@ operation = 2
 size = Vector3(1, 3.48264, 1.78923)
 
 [node name="doorgltf" parent="Room1/LargeRoomWalls/WallStairsDoor/CSGBox3D" instance=ExtResource("9_qgheg")]
-transform = Transform3D(-0.777525, 0, 0.692722, 0, 1.4069, 0, -0.746818, 0, -0.721204, 0.116953, -1.71209, -1.1619)
+transform = Transform3D(-0.0217132, 0, 0.999797, 0, 1.4069, 0, -1.07787, 0, -0.0201399, 0.116953, -1.71209, 1.23746)
 
 [node name="scaffold_stairsgltf" parent="Room1/LargeRoomWalls/WallStairsDoor" instance=ExtResource("10_bcmaf")]
 transform = Transform3D(-0.00389206, 0, 0.999992, 0, 1.33402, 0, -0.999992, 0, -0.00389206, 1.28322, -0.899991, -0.046097)
@@ -362,7 +371,7 @@ transform = Transform3D(-0.608467, 0, -0.0324573, 0, 0.763903, 0, 0.0197596, 0, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.41917, 0.441542, -2.96924)
 
 [node name="barrelgltf2" parent="Room1/Cover" instance=ExtResource("12_clo81")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53025, 0.184658, 5.84953)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53025, 0.494696, 5.84953)
 
 [node name="Node" type="Node" parent="Room1"]
 
@@ -381,7 +390,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4799, 0.730919, 1.2239)
 [node name="PropDoor" type="Node" parent="Room1"]
 
 [node name="doorgltf" parent="Room1/PropDoor" instance=ExtResource("9_qgheg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90137, -0.202164, -6.50721)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90137, 0.279866, -6.50721)
 
 [node name="Details" type="Node" parent="Room1"]
 
@@ -410,7 +419,7 @@ transform = Transform3D(1.57271, -0.0251803, 0, 0.0247337, 1.60112, 0, 0, 0, 1, 
 transform = Transform3D(1.52956, 0, 0, 0, 1.66276, 0, 0, 0, 1, -10.3436, 3.06332, 6.97594)
 
 [node name="lootSackBgltf" parent="Room1/Details" instance=ExtResource("19_omwsr")]
-transform = Transform3D(-0.0467007, -0.0518371, 0.997563, -0.0848462, 0.995249, 0.0477448, -0.995299, -0.0824097, -0.050877, -10.504, -0.246568, 5.75391)
+transform = Transform3D(-0.0467007, -0.0518371, 0.997563, -0.0848462, 0.995249, 0.0477448, -0.995299, -0.0824097, -0.050877, -10.504, 0.166129, 5.75391)
 
 [node name="benchgltf" parent="Room1/Details" instance=ExtResource("20_j483h")]
 transform = Transform3D(-0.144723, 0, 0.998617, 0, 1.48123, 0, -2.74862, 0, -0.05258, -7.32255, 0.091053, 2.3878)
@@ -492,6 +501,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1621, 2.76371, 8.03504)
 transform = Transform3D(0.194543, 0, 0.980894, 0, 1, 0, -0.980894, 0, 0.194543, -49.5592, 5.06839, -1.58819)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -502,6 +512,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 transform = Transform3D(-0.996227, 0, -0.0867906, 0, 1, 0, 0.0867906, 0, -0.996227, -24.9911, 5.9899, 8.72156)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -512,6 +523,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 transform = Transform3D(-0.996227, 0, -0.0867906, 0, 1, 0, 0.0867906, 0, -0.996227, -35.8516, 5.9899, 8.72156)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -522,6 +534,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 transform = Transform3D(-0.996227, 0, -0.0867906, 0, 1, 0, 0.0867906, 0, -0.996227, -46.4365, 5.9899, 8.72156)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -532,6 +545,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.2227, 5.9899, -8.80515)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -542,6 +556,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38.9623, 5.9899, -8.80515)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -552,6 +567,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.175114, -0.777263, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.5797, 5.9899, -8.80515)
 layers = 524289
 light_color = Color(1, 0.631373, 0.466667, 1)
+light_energy = 5.0
 shadow_enabled = true
 omni_range = 25.3651
 
@@ -573,24 +589,22 @@ transform = Transform3D(-0.0614492, 0, -0.99811, 0, 1, 0, 0.99811, 0, -0.0614492
 [node name="Cover" type="Node" parent="Room2"]
 
 [node name="LargeTableCollision" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
-transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -30.0297, 2.12004, -3.30561)
-freeze = true
+transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -30.0233, 2.13119, -3.28694)
 
 [node name="lootSackAgltf" parent="Room2/Cover/LargeTableCollision" instance=ExtResource("24_p0kaq")]
-transform = Transform3D(1, 0, 7.45058e-09, 0, 1, 0, -7.45058e-09, 0, 1, -1.03991, 1.41269, 0.0230541)
+transform = Transform3D(1, 0, 9.31323e-09, 0, 1, 0, -9.31323e-09, 0, 1, -1.03991, 1.41269, 0.0230541)
 
 [node name="chairgltf" parent="Room2/Cover/LargeTableCollision" instance=ExtResource("25_xqmel")]
-transform = Transform3D(0.0333371, -1.65001, 0.0214225, 1.57985, 0.0340235, -0.021874, 0.0343012, 0.0365797, 0.986655, -0.691389, 0.522117, 1.28541)
+transform = Transform3D(0.0333371, -1.65001, 0.0214225, 1.57985, 0.0340235, -0.021874, 0.0343012, 0.0365797, 0.986655, -0.692572, 0.526265, 1.28408)
 
 [node name="chairgltf2" parent="Room2/Cover/LargeTableCollision" instance=ExtResource("25_xqmel")]
 transform = Transform3D(1.01756, 0, 1.86265e-08, 0, 1.65557, 0, -3.72529e-09, 0, 1.79212, 0.969202, 0, 6.41003)
 
 [node name="coinsMediumgltf" parent="Room2/Cover" instance=ExtResource("16_e1c83")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.196, 3.55687, -3.39363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.1762, 3.62004, -3.43475)
 
 [node name="LargeTableCollision3" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -34.4471, 2.12004, -3.78661)
-freeze = true
 
 [node name="artifactgltf" parent="Room2/Cover/LargeTableCollision3" instance=ExtResource("15_j1gdh")]
 transform = Transform3D(1, 0, 1.86265e-08, 0, 1, 0, -1.86265e-08, 0, 1, 1.17487, 1.70963, 0.528679)
@@ -600,14 +614,12 @@ transform = Transform3D(0.630104, 0, -0.962404, 0, 1.33935, 0, 0.783215, 0, 0.77
 
 [node name="LargeTableCollision4" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -42.9314, 2.12004, -4.33034)
-freeze = true
 
 [node name="chairgltf" parent="Room2/Cover/LargeTableCollision4" instance=ExtResource("25_xqmel")]
 transform = Transform3D(1.59364, 0, 0.805437, 0, 1.54573, 0, -2.48617, 0, 0.516288, -0.930095, -0.0201707, 4.36871)
 
 [node name="LargeTableCollision2" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -30.0297, 2.12004, 5.7668)
-freeze = true
 
 [node name="chairgltf" parent="Room2/Cover/LargeTableCollision2" instance=ExtResource("25_xqmel")]
 transform = Transform3D(-0.913375, 0, -0.811535, 0, 1.43454, 0, 1.3213, 0, -0.560991, -1.22767, 0, -1.89997)
@@ -617,7 +629,6 @@ transform = Transform3D(1.29647, 0, 1.30385e-08, 0, 1.5091, 0, -2.23517e-08, 0, 
 
 [node name="LargeTableCollision7" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -24.947, 2.12004, 5.7668)
-freeze = true
 
 [node name="chairgltf" parent="Room2/Cover/LargeTableCollision7" instance=ExtResource("25_xqmel")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -627,11 +638,9 @@ transform = Transform3D(-0.043795, 1.33776, -0.0271366, 1.00425, 0.0582348, -0.0
 
 [node name="LargeTableCollision8" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -24.947, 2.12004, -3.10218)
-freeze = true
 
 [node name="LargeTableCollision5" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -36.9279, 2.12004, 5.7668)
-freeze = true
 
 [node name="chairgltf" parent="Room2/Cover/LargeTableCollision5" instance=ExtResource("25_xqmel")]
 transform = Transform3D(0.99902, 0.00184577, -0.0442399, -0.00184576, -0.996526, -0.0832574, -0.04424, 0.0832574, -0.995546, 1.06865, 1.87523, -0.698833)
@@ -641,7 +650,6 @@ transform = Transform3D(-0.997914, -0.0469903, 0.0442924, 0.0469903, -0.998895, 
 
 [node name="LargeTableCollision6" parent="Room2/Cover" instance=ExtResource("23_nedhw")]
 transform = Transform3D(0.0221639, 0, 0.999754, 0, 1, 0, -0.999754, 0, 0.0221639, -43.4048, 2.12004, 5.7668)
-freeze = true
 
 [node name="chairgltf" parent="Room2/Cover/LargeTableCollision6" instance=ExtResource("25_xqmel")]
 transform = Transform3D(1.43952, 0, 0.835339, 0, 1.54573, 0, -2.57847, 0, 0.466357, 1.24995, -0.0274563, 2.06587)
@@ -1436,7 +1444,6 @@ transform = Transform3D(0.00740221, 0, -1.00411, 0, 2.17184, 0, 2.75403, 0, 0.00
 
 [node name="LargeTableCollision" parent="." instance=ExtResource("23_nedhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.3033, -0.515669, 5.6528)
-freeze = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 autoplay = true

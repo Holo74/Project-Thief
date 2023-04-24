@@ -1,57 +1,55 @@
-[gd_scene load_steps=63 format=3 uid="uid://cuojq8xm0qltn"]
+[gd_scene load_steps=61 format=3 uid="uid://cuojq8xm0qltn"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="1_irkrf"]
-[ext_resource type="Texture2D" uid="uid://b6vsyx4at53q1" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_a3ihn"]
-[ext_resource type="Texture2D" uid="uid://dl0ep8ghat432" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="3_o7q1j"]
-[ext_resource type="PackedScene" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="4_uxgsk"]
-[ext_resource type="PackedScene" uid="uid://jgck5mbv1ney" path="res://Models/Private use only/KayKit/character_barbarian.gltf" id="5_d58ew"]
-[ext_resource type="PackedScene" uid="uid://dhg6erwxead1w" path="res://Models/Private use only/KayKit/banner.gltf.glb" id="5_n1wwk"]
-[ext_resource type="PackedScene" uid="uid://bh81iwtyby4ey" path="res://Models/Private use only/KayKit/bookcase_broken.gltf.glb" id="6_7wel5"]
+[ext_resource type="Texture2D" uid="uid://co4a88cpx2hy6" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_a3ihn"]
+[ext_resource type="Texture2D" uid="uid://dqnqlssge43fp" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="3_o7q1j"]
+[ext_resource type="PackedScene" uid="uid://mfdm2087uh0" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="4_uxgsk"]
+[ext_resource type="PackedScene" uid="uid://nor3dwrrbio1" path="res://Models/Private use only/KayKit/character_barbarian.gltf" id="5_d58ew"]
+[ext_resource type="PackedScene" uid="uid://dx2lckabylan0" path="res://Models/Private use only/KayKit/banner.gltf.glb" id="5_n1wwk"]
+[ext_resource type="PackedScene" uid="uid://ivbymvc8gesl" path="res://Models/Private use only/KayKit/bookcase_broken.gltf.glb" id="6_7wel5"]
 [ext_resource type="PackedScene" uid="uid://b4ksid5e1cmv6" path="res://Scenes/Models/Environmental/CollisionObjects/barrelgltf.tscn" id="6_b56et"]
-[ext_resource type="PackedScene" uid="uid://cys5qtud2w76" path="res://Models/Private use only/KayKit/door.gltf.glb" id="6_smsyn"]
-[ext_resource type="PackedScene" uid="uid://bsfhgpye7chdm" path="res://Scenes/Models/block_out.tscn" id="6_u4p68"]
+[ext_resource type="PackedScene" uid="uid://bnhbaevgvd3il" path="res://Models/Private use only/KayKit/door.gltf.glb" id="6_smsyn"]
+[ext_resource type="PackedScene" path="res://Scenes/Models/block_out.tscn" id="6_u4p68"]
 [ext_resource type="PackedScene" uid="uid://bh0f10rp0yxv7" path="res://Scenes/Models/Environmental/CollisionObjects/tableLargegltf.tscn" id="7_jkal4"]
-[ext_resource type="PackedScene" uid="uid://cb6vnsva5xk2i" path="res://Models/Private use only/KayKit/bookcaseWide_broken.gltf.glb" id="7_tcbnh"]
+[ext_resource type="PackedScene" uid="uid://sx25kbc3caim" path="res://Models/Private use only/KayKit/bookcaseWide_broken.gltf.glb" id="7_tcbnh"]
 [ext_resource type="PackedScene" uid="uid://dvirlhsj80diq" path="res://Scenes/Models/Environmental/CollisionObjects/chairgltf.tscn" id="8_g4j83"]
-[ext_resource type="PackedScene" uid="uid://b5kcx5k42k2" path="res://Models/Private use only/KayKit/mug.gltf.glb" id="10_cn0y3"]
-[ext_resource type="PackedScene" uid="uid://celxhv0ndy3kw" path="res://Models/Private use only/KayKit/potA_decorated.gltf.glb" id="11_uacg1"]
-[ext_resource type="PackedScene" uid="uid://cbj0pn7dq32bc" path="res://Models/Private use only/KayKit/potB.gltf.glb" id="12_qypm2"]
-[ext_resource type="PackedScene" uid="uid://4clc4n6digoo" path="res://Models/Private use only/KayKit/potB_decorated.gltf.glb" id="13_m4hdl"]
-[ext_resource type="PackedScene" uid="uid://dhlqhyxapeftd" path="res://Models/Private use only/KayKit/potC_decorated.gltf.glb" id="14_5e1p8"]
-[ext_resource type="PackedScene" uid="uid://jdy1hiduur3p" path="res://Models/Private use only/KayKit/character_rogue.gltf" id="18_x2wmh"]
-[ext_resource type="PackedScene" uid="uid://bmvgwnjqjy3au" path="res://Models/Private use only/KayKit/axe_uncommon.gltf.glb" id="19_sjy5y"]
-[ext_resource type="PackedScene" uid="uid://4avhf3k2rykg" path="res://Models/Private use only/KayKit/bookA.gltf.glb" id="20_i0x0j"]
-[ext_resource type="PackedScene" uid="uid://cyejogsdrahta" path="res://Models/Private use only/KayKit/bookOpenA.gltf.glb" id="21_rk55f"]
-[ext_resource type="PackedScene" uid="uid://dj21b5f7vk477" path="res://Models/Private use only/KayKit/bookOpenB.gltf.glb" id="22_ue5tg"]
-[ext_resource type="PackedScene" uid="uid://ct16ssu7k42c3" path="res://Models/Private use only/KayKit/bucket.gltf.glb" id="23_adiq1"]
-[ext_resource type="PackedScene" uid="uid://tssxr5e8a8mn" path="res://Models/Private use only/KayKit/coinsMedium.gltf.glb" id="24_2okea"]
-[ext_resource type="PackedScene" uid="uid://cbrh5e2c3jt4p" path="res://Models/Private use only/KayKit/coinsSmall.gltf.glb" id="25_lxshy"]
-[ext_resource type="PackedScene" uid="uid://dk0d80meb26i" path="res://Models/Private use only/KayKit/dagger_uncommon.gltf.glb" id="26_m8c3u"]
-[ext_resource type="PackedScene" uid="uid://6vf1wqlik7na" path="res://Models/Private use only/KayKit/lootSackB.gltf.glb" id="27_wyphh"]
-[ext_resource type="PackedScene" uid="uid://do3adqo55flmh" path="res://Models/Private use only/KayKit/plateHalf.gltf.glb" id="28_0o46f"]
-[ext_resource type="PackedScene" uid="uid://csaoyra102yue" path="res://Models/Private use only/KayKit/shield_uncommon.gltf.glb" id="29_10rsp"]
-[ext_resource type="PackedScene" uid="uid://b8hyd1rn121ow" path="res://Models/Private use only/KayKit/shield_common.gltf.glb" id="30_5jikc"]
-[ext_resource type="PackedScene" uid="uid://cwljnd62ntrwv" path="res://Models/Private use only/KayKit/shield_rare.gltf.glb" id="31_6oll6"]
-[ext_resource type="PackedScene" uid="uid://ccd3dgycl3fca" path="res://Models/Private use only/KayKit/dagger_common.gltf.glb" id="32_li5bi"]
-[ext_resource type="PackedScene" uid="uid://brx7hk5313e8x" path="res://Models/Private use only/KayKit/plateFull.gltf.glb" id="33_v7dfk"]
-[ext_resource type="PackedScene" uid="uid://drhf7hv4ywm7r" path="res://Models/Private use only/KayKit/character_knight.gltf" id="35_8aae7"]
+[ext_resource type="PackedScene" uid="uid://b1mptiw5x2xrx" path="res://Models/Private use only/KayKit/mug.gltf.glb" id="10_cn0y3"]
+[ext_resource type="PackedScene" uid="uid://drvrvngl3dfvm" path="res://Models/Private use only/KayKit/potA_decorated.gltf.glb" id="11_uacg1"]
+[ext_resource type="PackedScene" uid="uid://b7hpseqd6kl2h" path="res://Models/Private use only/KayKit/potB.gltf.glb" id="12_qypm2"]
+[ext_resource type="PackedScene" uid="uid://iggcttt2qq7j" path="res://Models/Private use only/KayKit/potB_decorated.gltf.glb" id="13_m4hdl"]
+[ext_resource type="PackedScene" uid="uid://b8or4weetglyc" path="res://Models/Private use only/KayKit/potC_decorated.gltf.glb" id="14_5e1p8"]
+[ext_resource type="PackedScene" uid="uid://4yqtju060vpr" path="res://Models/Private use only/KayKit/character_rogue.gltf" id="18_x2wmh"]
+[ext_resource type="PackedScene" uid="uid://c5wlahhbvugg0" path="res://Models/Private use only/KayKit/axe_uncommon.gltf.glb" id="19_sjy5y"]
+[ext_resource type="PackedScene" uid="uid://b5u6p3yip7iag" path="res://Models/Private use only/KayKit/bookA.gltf.glb" id="20_i0x0j"]
+[ext_resource type="PackedScene" uid="uid://djfm74fedyhyj" path="res://Models/Private use only/KayKit/bookOpenA.gltf.glb" id="21_rk55f"]
+[ext_resource type="PackedScene" uid="uid://dlpgyythm5eul" path="res://Models/Private use only/KayKit/bookOpenB.gltf.glb" id="22_ue5tg"]
+[ext_resource type="PackedScene" uid="uid://bsttvk7o51d2u" path="res://Models/Private use only/KayKit/bucket.gltf.glb" id="23_adiq1"]
+[ext_resource type="PackedScene" uid="uid://dxjtejrnva7ko" path="res://Models/Private use only/KayKit/coinsMedium.gltf.glb" id="24_2okea"]
+[ext_resource type="PackedScene" uid="uid://b2k7tedl2wsk8" path="res://Models/Private use only/KayKit/coinsSmall.gltf.glb" id="25_lxshy"]
+[ext_resource type="PackedScene" uid="uid://4j1h35w7hmhe" path="res://Models/Private use only/KayKit/dagger_uncommon.gltf.glb" id="26_m8c3u"]
+[ext_resource type="PackedScene" uid="uid://daso7ym8nfl8v" path="res://Models/Private use only/KayKit/lootSackB.gltf.glb" id="27_wyphh"]
+[ext_resource type="PackedScene" uid="uid://bpdn1hm3m4rtb" path="res://Models/Private use only/KayKit/plateHalf.gltf.glb" id="28_0o46f"]
+[ext_resource type="PackedScene" uid="uid://bu47j7jnl8bmm" path="res://Models/Private use only/KayKit/shield_uncommon.gltf.glb" id="29_10rsp"]
+[ext_resource type="PackedScene" uid="uid://bfrparpq6h4wa" path="res://Models/Private use only/KayKit/shield_common.gltf.glb" id="30_5jikc"]
+[ext_resource type="PackedScene" uid="uid://6121gr5283bc" path="res://Models/Private use only/KayKit/shield_rare.gltf.glb" id="31_6oll6"]
+[ext_resource type="PackedScene" uid="uid://430xkanyw1n7" path="res://Models/Private use only/KayKit/dagger_common.gltf.glb" id="32_li5bi"]
+[ext_resource type="PackedScene" uid="uid://cnqm7hoiftw85" path="res://Models/Private use only/KayKit/plateFull.gltf.glb" id="33_v7dfk"]
+[ext_resource type="PackedScene" uid="uid://fh4k5tmf233p" path="res://Models/Private use only/KayKit/character_knight.gltf" id="35_8aae7"]
 [ext_resource type="PackedScene" uid="uid://djwosuv47wqmv" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_stairsgltf.tscn" id="35_80tos"]
-[ext_resource type="PackedScene" uid="uid://6ylvcuoafoiw" path="res://Models/Private use only/KayKit/character_mage.gltf" id="36_pkn1l"]
+[ext_resource type="PackedScene" uid="uid://bh8fom0clqvbv" path="res://Models/Private use only/KayKit/character_mage.gltf" id="36_pkn1l"]
 [ext_resource type="PackedScene" uid="uid://70u4i24oecc8" path="res://Scenes/Models/Environmental/CollisionObjects/bookcaseWideFilledgltf.tscn" id="37_8tbnx"]
-[ext_resource type="PackedScene" uid="uid://bobh1hotu4don" path="res://Models/Private use only/KayKit/weaponRack.gltf.glb" id="37_u11a6"]
-[ext_resource type="PackedScene" uid="uid://cyhdib5emqle8" path="res://Models/Private use only/KayKit/sword_common.gltf.glb" id="38_18cxy"]
-[ext_resource type="PackedScene" uid="uid://dl4gf1ptmmscg" path="res://Models/Private use only/KayKit/sword_rare.gltf.glb" id="39_x0ejj"]
-[ext_resource type="PackedScene" uid="uid://4qw5qplnfbvs" path="res://Models/Private use only/KayKit/sword_uncommon.gltf.glb" id="40_3mv0v"]
-[ext_resource type="PackedScene" uid="uid://cqpf5iggpkmwc" path="res://Models/Private use only/KayKit/plate.gltf.glb" id="43_deq6m"]
-[ext_resource type="PackedScene" uid="uid://bxqjifdfdp70s" path="res://Models/Private use only/KayKit/coinsLarge.gltf.glb" id="44_wtjsf"]
-[ext_resource type="PackedScene" uid="uid://eriubhxui0ow" path="res://Models/Private use only/KayKit/chest_rare.gltf.glb" id="45_qe5i3"]
-[ext_resource type="PackedScene" uid="uid://cee7n3g8s5g8i" path="res://Models/Private use only/KayKit/trapdoor.gltf.glb" id="46_ufs8l"]
+[ext_resource type="PackedScene" uid="uid://b6b1k8wqu2sm5" path="res://Models/Private use only/KayKit/weaponRack.gltf.glb" id="37_u11a6"]
+[ext_resource type="PackedScene" uid="uid://c48haf8osyelq" path="res://Models/Private use only/KayKit/sword_common.gltf.glb" id="38_18cxy"]
+[ext_resource type="PackedScene" uid="uid://iklhwg75y8gb" path="res://Models/Private use only/KayKit/sword_rare.gltf.glb" id="39_x0ejj"]
+[ext_resource type="PackedScene" uid="uid://c3fd3mx2hr51b" path="res://Models/Private use only/KayKit/sword_uncommon.gltf.glb" id="40_3mv0v"]
+[ext_resource type="Script" path="res://Scripts/Environment/Interactables/NextLevel.cs" id="42_1rudw"]
+[ext_resource type="PackedScene" uid="uid://dils3wpq07qx" path="res://Models/Private use only/KayKit/plate.gltf.glb" id="43_deq6m"]
+[ext_resource type="PackedScene" uid="uid://bynssnyka0k2m" path="res://Models/Private use only/KayKit/coinsLarge.gltf.glb" id="44_wtjsf"]
+[ext_resource type="PackedScene" uid="uid://dtrm0ka3pqmnb" path="res://Models/Private use only/KayKit/chest_rare.gltf.glb" id="45_qe5i3"]
+[ext_resource type="PackedScene" uid="uid://bct4x6s7e7wmv" path="res://Models/Private use only/KayKit/trapdoor.gltf.glb" id="46_ufs8l"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kpqll"]
 albedo_texture = ExtResource("2_a3ihn")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_4phdy"]
-viewport_path = NodePath("CSGSphere3D/Node/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_srqii"]
 albedo_texture = ExtResource("3_o7q1j")
@@ -77,23 +75,17 @@ albedo_texture = ExtResource("2_a3ihn")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4p3c"]
 albedo_texture = ExtResource("3_o7q1j")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2sqy5"]
-viewport_path = NodePath("CSGSphere3D2/Node3D/SubViewport")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_736xs"]
 albedo_texture = ExtResource("2_a3ihn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0gbpt"]
 albedo_texture = ExtResource("3_o7q1j")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_h6xjy"]
-viewport_path = NodePath("CSGSphere3D3/Node3D/SubViewport")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f7jho"]
 albedo_texture = ExtResource("2_a3ihn")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_eivs3"]
-viewport_path = NodePath("CSGSphere3D4/Node3D/SubViewport")
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rma6w"]
+points = PackedVector3Array(1.88625, 1.80361, 0.0962504, -0.0198413, -0.226693, -0.177361, 0.297716, -0.14739, -0.256741, 2.00397, -0.226941, 0.179751, 0.0600902, 1.68965, 0.096249, 0.337535, -0.14739, 0.259132, 1.80547, 2.03456, -0.13767, 2.00397, -0.226941, -0.177361, 0.337535, 2.15389, -0.13767, 0.705535, 2.26652, 0.0967123, 1.64659, 0.0512404, 0.259132, 1.64659, 0.0907675, -0.256741, -0.0198413, -0.226693, 0.179701, -0.0198413, 1.51872, -0.13767, 2.00397, 1.59827, -0.13767, 1.28961, 2.31274, -0.13767, 1.50762, 2.18851, 0.0965992, 0.377155, 0.0907675, -0.256741, 0.377155, 0.0512404, 0.259132, 2.00397, 0.249373, 0.179751, 1.64659, -0.187166, -0.256741, 0.210457, 1.95781, 0.0964447, 0.694712, 2.31274, -0.13767, -0.0198413, 0.249373, 0.179701, 1.64659, -0.187166, 0.259132, 1.68621, 1.16148, 0.179701, 0.0994161, 1.8762, -0.13767, 1.96532, 1.57706, 0.0965341, 1.28002, 2.27181, 0.097125, 1.84509, 0.884543, 0.179751, 0.0175448, 1.50114, 0.0966577, 1.68621, 2.15389, -0.13767)
 
 [node name="Node3D2" type="Node3D"]
 
@@ -114,20 +106,10 @@ transform = Transform3D(0.688355, 0, 0.725374, 0, 1, 0, -0.725374, 0, 0.688355, 
 [node name="Node" type="Node3D" parent="Node/Room1/character_barbarian"]
 transform = Transform3D(1.1628, 0, 0, 0, 1.44891, 0, 0, 0, 2.19804, 0.901433, 1.30946, 0.265562)
 
-[node name="SubViewport" type="SubViewport" parent="Node/Room1/character_barbarian/Node"]
-transparent_bg = true
-size = Vector2i(1000, 25)
-
-[node name="Label" type="Label" parent="Node/Room1/character_barbarian/Node/SubViewport"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Leave me behind mate \"Press the Ctrl button\" to CROUCH  in the hole surely there is a way out that way"
-
-[node name="Sprite3D" type="Sprite3D" parent="Node/Room1/character_barbarian/Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.707843, 0)
-modulate = Color(1, 1, 0.00784314, 1)
+[node name="Label3D" type="Label3D" parent="Node/Room1/character_barbarian/Node"]
+transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, 0, 0, 1, 0, 0.707843, 0)
 billboard = 2
-texture = SubResource("ViewportTexture_4phdy")
+text = "Leave me behind mate \"Press the Ctrl button\" to CROUCH  in the hole surely there is a way out that way"
 
 [node name="BlockOut2" parent="Node/Room1/character_barbarian" instance=ExtResource("6_u4p68")]
 transform = Transform3D(1.303, 0, 5.96046e-08, 0, 2.072, 0, -1.19209e-07, 0, 1.229, 0.106635, 0.863133, 0.145309)
@@ -217,7 +199,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511925, 0, 0.878826)
 
 [node name="LargeTableCollision7" parent="Node/Room1" instance=ExtResource("7_jkal4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.28992, 0.329177, -4.53604)
-freeze = true
 
 [node name="chairgltf" parent="Node/Room1/LargeTableCollision7" instance=ExtResource("8_g4j83")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -276,7 +257,8 @@ use_collision = true
 size = Vector3(19.6705, 1, 11.1035)
 material = SubResource("StandardMaterial3D_wct6u")
 
-[node name="Obsticle" type="Node" parent="Node/Room2"]
+[node name="Obsticle" type="CSGCombiner3D" parent="Node/Room2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36868, 11.8483)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Node/Room2/Obsticle"]
 transform = Transform3D(0.963, 0, 0, 0, 0.963, 0, 0, 0, 0.67, 1.096, -0.951, -13.2126)
@@ -376,20 +358,10 @@ transform = Transform3D(0.346936, 0, 0.937889, 0, 1, 0, -0.937889, 0, 0.346936, 
 [node name="Node3D" type="Node3D" parent="Node/Room2/character_rogue"]
 transform = Transform3D(0.346936, 0, -0.937889, 0, 1, 0, 0.937889, 0, 0.346936, 1.25251, 0.8928, 0.680216)
 
-[node name="SubViewport" type="SubViewport" parent="Node/Room2/character_rogue/Node3D"]
-transparent_bg = true
-size = Vector2i(1000, 25)
-
-[node name="Label" type="Label" parent="Node/Room2/character_rogue/Node3D/SubViewport"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "\"Been hearing rumors that pressing the ALT button will let you CRAWL under tight spaces\""
-
-[node name="Sprite3D" type="Sprite3D" parent="Node/Room2/character_rogue/Node3D"]
+[node name="Label3D" type="Label3D" parent="Node/Room2/character_rogue/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1468, 0)
-modulate = Color(1, 1, 0, 1)
 billboard = 2
-texture = SubResource("ViewportTexture_2sqy5")
+text = "\"Been hearing rumors that pressing the ALT button will let you CRAWL under tight spaces\""
 
 [node name="BlockOut2" parent="Node/Room2/character_rogue" instance=ExtResource("6_u4p68")]
 transform = Transform3D(0.904, 0, 0, 0, 1.739, 0, 0, 0, 0.862, -0.00873399, 0.960505, 0.141935)
@@ -480,7 +452,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05675, 2.4709, -1.80753)
 
 [node name="LargeTableCollision8" parent="Node/Room2" instance=ExtResource("7_jkal4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.63577, 0.595557, 3.61018)
-freeze = true
 
 [node name="chairgltf" parent="Node/Room2/LargeTableCollision8" instance=ExtResource("8_g4j83")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -490,7 +461,6 @@ transform = Transform3D(-0.043795, 1.33776, -0.0271366, 1.00425, 0.0582348, -0.0
 
 [node name="LargeTableCollision9" parent="Node/Room2" instance=ExtResource("7_jkal4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.63577, 0.595557, -3.7804)
-freeze = true
 
 [node name="chairgltf" parent="Node/Room2/LargeTableCollision9" instance=ExtResource("8_g4j83")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -500,7 +470,6 @@ transform = Transform3D(-0.043795, 1.33776, -0.0271366, 1.00425, 0.0582348, -0.0
 
 [node name="LargeTableCollision10" parent="Node/Room2" instance=ExtResource("7_jkal4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -6.76323, 0.595557, 3.86507)
-freeze = true
 
 [node name="chairgltf" parent="Node/Room2/LargeTableCollision10" instance=ExtResource("8_g4j83")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -639,20 +608,10 @@ transform = Transform3D(0.688355, 0, 0.725374, 0, 1, 0, -0.725374, 0, 0.688355, 
 [node name="Node3D" type="Node3D" parent="Node/Room3/character_knight"]
 transform = Transform3D(0.688355, 0, -0.725374, 0, 1, 0, 0.725374, 0, 0.688355, 11.4409, 0.216784, -5.5592)
 
-[node name="SubViewport" type="SubViewport" parent="Node/Room3/character_knight/Node3D"]
-transparent_bg = true
-size = Vector2i(1000, 25)
-
-[node name="Label" type="Label" parent="Node/Room3/character_knight/Node3D/SubViewport"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Back in my day \"I used to be able to press SPACEBAR to jump..Could be helpful now to get up these stairs."
-
-[node name="Sprite3D" type="Sprite3D" parent="Node/Room3/character_knight/Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5354, 2.19354, 12.3629)
-modulate = Color(1, 1, 0, 1)
+[node name="Label3D" type="Label3D" parent="Node/Room3/character_knight/Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.85376, 2.19354, 13.3496)
 billboard = 2
-texture = SubResource("ViewportTexture_h6xjy")
+text = "Back in my day \"I used to be able to press SPACEBAR to jump..Could be helpful now to get up these stairs."
 
 [node name="scaffold_stairsgltf" parent="Node/Room3" instance=ExtResource("35_80tos")]
 transform = Transform3D(0.0165276, 0, 0.999863, 0, 1, 0, -0.999863, 0, 0.0165276, -9.11947, -0.0596051, 0.990618)
@@ -683,7 +642,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.511925, 0, 0.878826)
 
 [node name="LargeTableCollision8" parent="Node/Room3" instance=ExtResource("7_jkal4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.20088, 0.336072, -4.89209)
-freeze = true
 
 [node name="chairgltf" parent="Node/Room3/LargeTableCollision8" instance=ExtResource("8_g4j83")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -693,7 +651,6 @@ transform = Transform3D(-0.043795, 1.33776, -0.0271366, 1.00425, 0.0582348, -0.0
 
 [node name="LargeTableCollision9" parent="Node/Room3" instance=ExtResource("7_jkal4")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 6.20088, 0.354279, 3.48568)
-freeze = true
 
 [node name="chairgltf" parent="Node/Room3/LargeTableCollision9" instance=ExtResource("8_g4j83")]
 transform = Transform3D(1.00521, 0, 2.23517e-08, 0, 1.33935, 0, -2.6077e-08, 0, 1.23519, -0.804732, 0.0189369, 1.20659)
@@ -762,6 +719,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.34331, 0.0496063)
 [node name="doorgltf" parent="Node/Room4" instance=ExtResource("6_smsyn")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.676, 0.614715, 1.0798)
 
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Node/Room4/doorgltf"]
+transform = Transform3D(1, 0, -7.10543e-15, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+collision_layer = 3
+script = ExtResource("42_1rudw")
+Level = "res://Scenes/Levels/Level2Chase.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Room4/doorgltf/AnimatableBody3D"]
+transform = Transform3D(1, 0, 3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_rma6w")
+
 [node name="OmniLight3D22" type="OmniLight3D" parent="Node/Room4"]
 transform = Transform3D(-1.00402, 0, -8.81264e-08, 0, 1, 0, 8.77739e-08, 0, -1, 15.1048, 2.75565, 0.839386)
 light_color = Color(1, 0.631373, 0.466667, 1)
@@ -800,24 +767,13 @@ transform = Transform3D(0.688355, 0, 0.725374, 0, 1, 0, -0.725374, 0, 0.688355, 
 [node name="Node3D" type="Node3D" parent="Node/Room4/character_mage"]
 transform = Transform3D(0.688355, 0, -0.725374, 0, 1, 0, 0.725374, 0, 0.688355, 11.5007, 0.666864, -5.60193)
 
-[node name="SubViewport" type="SubViewport" parent="Node/Room4/character_mage/Node3D"]
-transparent_bg = true
-size = Vector2i(250, 50)
-
-[node name="Label" type="Label" parent="Node/Room4/character_mage/Node3D/SubViewport"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Run mate by \"HOLDING SHIFT\""
-
-[node name="Sprite3D" type="Sprite3D" parent="Node/Room4/character_mage/Node3D"]
+[node name="Label3D" type="Label3D" parent="Node/Room4/character_mage/Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5354, 1.08265, 12.8735)
-modulate = Color(1, 1, 0, 1)
 billboard = 2
-texture = SubResource("ViewportTexture_eivs3")
+text = "Run mate by \"HOLDING SHIFT\""
 
 [node name="LargeTableCollision9" parent="Node/Room4" instance=ExtResource("7_jkal4")]
 transform = Transform3D(3.0598e-08, -4.62017e-15, 0.7, -1.05697e-07, -0.699999, -3.47101e-21, 0.699999, -1.05697e-07, -3.05979e-08, 17.6519, 2.77158, -0.0233116)
-freeze = true
 
 [node name="barrelgltf2" parent="Node/Room4/LargeTableCollision9" instance=ExtResource("6_b56et")]
 transform = Transform3D(6.26956e-08, -2.15708e-07, 1.42857, -9.46678e-15, -1.42857, -2.15708e-07, 1.43431, -7.5818e-21, -6.24449e-08, -1.57612, 2.31964, 0.395622)
@@ -857,3 +813,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.285491, 0.883356, -19.3093)
 
 [node name="trapdoorgltf" parent="." instance=ExtResource("46_ufs8l")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -4.1563, -1.53305, -19.6145)
+
+[editable path="Node/Room4/doorgltf"]

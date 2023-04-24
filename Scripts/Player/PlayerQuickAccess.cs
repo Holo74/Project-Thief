@@ -26,6 +26,7 @@ namespace Player
         public static BodyMods.Mantle MANTLE { get; private set; }
         public static Handlers.LightHandler LIGHT { get; private set; }
         public static DetectionPoints DETECTION_POINTS { get; set; }
+        public static ShapeCast3D SHAPE_CASTER { get; set; }
 
         public static void DisableLowerBody(bool disabled)
         {
@@ -59,6 +60,7 @@ namespace Player
             MANTLE = p.GetNode<BodyMods.Mantle>("BodyNode/Mantling");
             LIGHT = p.GetNode<Handlers.LightHandler>("Gem");
             DETECTION_POINTS = p.GetNode<DetectionPoints>("PlayerDetectionPoints");
+            SHAPE_CASTER = p.GetNode<ShapeCast3D>("ShapeCast3D");
         }
     }
 

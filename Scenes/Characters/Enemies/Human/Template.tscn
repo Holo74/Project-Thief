@@ -418,6 +418,7 @@ UpperCast = NodePath("RayCast3D")
 MiddleCast = NodePath("RayCast2")
 LowerCast = NodePath("RayCast3")
 VisionSensitivity = 1.0
+DecreasingVisibilityVal = 10.0
 BC = NodePath("..")
 RangesAndMultipliers = Array[Resource]([ExtResource("4_31oni"), ExtResource("5_6b1yg"), ExtResource("6_yefop"), ExtResource("7_i1okx")])
 Testing = Array[String]([])

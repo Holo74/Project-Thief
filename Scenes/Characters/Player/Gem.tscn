@@ -63,6 +63,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -1,
 remote_path = NodePath("../Bottom/Visual/Camera3D")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

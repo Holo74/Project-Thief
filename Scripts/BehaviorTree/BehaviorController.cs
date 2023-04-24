@@ -6,7 +6,7 @@ namespace BehaviorTree
     public partial class BehaviorController : CharacterBody3D
     {
         private Nodes.Base Root { get; set; }
-        public Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, Variant> BlackBoard { get; private set; }
+        public Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, Variant> BlackBoard { get; private set; } = new Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, Variant>();
         public NavigationAgent3D NavAgent { get; private set; }
         public AnimationTree AnimTree { get; private set; }
         public Vector3 SetVelocity { get; set; }
@@ -28,7 +28,6 @@ namespace BehaviorTree
         private float StartBeyondXDegrees { get; set; }
         public override void _Ready()
         {
-            BlackBoard = new Godot.Collections.Dictionary<BehaviorTree.Enums.KeyList, Variant>();
             NavAgent = GetNode<NavigationAgent3D>("NavigationAgent3D");
             AnimTree = GetNode<AnimationTree>("AnimationTree");
             StartBeyondXDegrees = (90 - StartBeyondXDegrees) / 90;

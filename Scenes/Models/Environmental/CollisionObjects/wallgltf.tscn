@@ -67,9 +67,8 @@ shadow_mesh = SubResource("ArrayMesh_jyv4k")
 [sub_resource type="BoxShape3D" id="BoxShape3D_hd5c3"]
 size = Vector3(4, 4, 1.4)
 
-[node name="wallgltf" type="RigidBody3D"]
+[node name="wallgltf" type="Node3D"]
 transform = Transform3D(0.608788, 0, 0, 0, 0.763903, 0, 0, 0, 1, 0, 0, 0)
-freeze = true
 
 [node name="wall" type="MeshInstance3D" parent="."]
 transform = Transform3D(2.30754, 0, 0, 0, 0.584931, 0, 0, 0, 1, 0, 0, 0)
