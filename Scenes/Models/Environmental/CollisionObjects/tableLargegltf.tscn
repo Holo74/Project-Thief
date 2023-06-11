@@ -49,8 +49,8 @@ size = Vector3(0.271309, 0.466945, 1.58319)
 
 [node name="tableLarge" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.21641, 0, 0, 0, 2.06832, 0, 0, 0, 0.995147, 0, 0, 0)
+cast_shadow = 2
 mesh = SubResource("ArrayMesh_2gr4f")
-skeleton = NodePath("")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tableLarge"]
 collision_layer = 65537
@@ -70,4 +70,5 @@ shape = SubResource("BoxShape3D_ktu70")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.21641, 0, 0, 0, 2.06832, 0, 0, 0, 0.995147, 0, 0, 0)
 layers = 524288
+cast_shadow = 3
 mesh = SubResource("ArrayMesh_sxubj")

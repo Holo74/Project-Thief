@@ -92,6 +92,7 @@ namespace BehaviorTree
 
         public void SetBlackboardRemote(int key, Variant val)
         {
+            GD.Print("Key: " + (Enums.KeyList)key + " and value " + val);
             BlackBoard[(Enums.KeyList)key] = val;
         }
     }

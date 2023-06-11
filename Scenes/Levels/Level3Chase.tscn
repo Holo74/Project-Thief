@@ -1,13 +1,13 @@
 [gd_scene load_steps=80 format=3 uid="uid://dm3isvjfleh0l"]
 
 [ext_resource type="PackedScene" path="res://Scenes/Testing/Start.tscn" id="1_jeljy"]
-[ext_resource type="Texture2D" uid="uid://b6vsyx4at53q1" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_8a5p8"]
-[ext_resource type="Texture2D" uid="uid://drqqltfce17gv" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_nor_gl_4k.png" id="3_rmj43"]
-[ext_resource type="Texture2D" uid="uid://bi8mot6qhgjxc" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_rough_4k.png" id="4_fu1mm"]
+[ext_resource type="Texture2D" uid="uid://co4a88cpx2hy6" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_diff_4k.png" id="2_8a5p8"]
+[ext_resource type="Texture2D" uid="uid://dk2ok3wwt6kdx" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_nor_gl_4k.png" id="3_rmj43"]
+[ext_resource type="Texture2D" uid="uid://duhkv1kk0fmvn" path="res://Textures/GameProjectTextures/StoneTileTextureFiles/stone_tiles_rough_4k.png" id="4_fu1mm"]
 [ext_resource type="PackedScene" uid="uid://mfdm2087uh0" path="res://Scenes/Models/Props/torchWallgltf.tscn" id="5_lg38n"]
-[ext_resource type="Texture2D" uid="uid://dl0ep8ghat432" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="6_txvg4"]
-[ext_resource type="Texture2D" uid="uid://crecvo1uxrlxe" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_nor_gl_4k.png" id="7_yhfdj"]
-[ext_resource type="Texture2D" uid="uid://c3qtpcktunbun" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_rough_4k.png" id="8_sfho1"]
+[ext_resource type="Texture2D" uid="uid://dqnqlssge43fp" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_diff_4k.png" id="6_txvg4"]
+[ext_resource type="Texture2D" uid="uid://fwslr03bncq2" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_nor_gl_4k.png" id="7_yhfdj"]
+[ext_resource type="Texture2D" uid="uid://0rhpdm5fsugt" path="res://Textures/GameProjectTextures/StoneWallTextureFiles/stone_wall_02_rough_4k.png" id="8_sfho1"]
 [ext_resource type="PackedScene" uid="uid://bilric8f70r7u" path="res://Scenes/Models/Environmental/CollisionObjects/doorgltf.tscn" id="9_qgheg"]
 [ext_resource type="PackedScene" uid="uid://djwosuv47wqmv" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_stairsgltf.tscn" id="10_bcmaf"]
 [ext_resource type="PackedScene" uid="uid://dbpgsssm617iq" path="res://Scenes/Models/Environmental/CollisionObjects/wallgltf.tscn" id="11_vskfh"]
@@ -20,12 +20,12 @@
 [ext_resource type="PackedScene" path="res://Scenes/Models/Weapons/axeDouble_raregltf.tscn" id="18_y0bdk"]
 [ext_resource type="PackedScene" uid="uid://cabw1xgvn2p26" path="res://Scenes/Models/Props/lootSackBgltf.tscn" id="19_omwsr"]
 [ext_resource type="PackedScene" uid="uid://cj8rwvlxvujtg" path="res://Scenes/Models/Props/benchgltf.tscn" id="20_j483h"]
-[ext_resource type="Texture2D" uid="uid://bbfaolem0fy5i" path="res://Textures/GameProjectTextures/dark_wood_diff_4k.png" id="21_poqt0"]
+[ext_resource type="Texture2D" uid="uid://cgq32twja6322" path="res://Textures/GameProjectTextures/dark_wood_diff_4k.png" id="21_poqt0"]
 [ext_resource type="PackedScene" uid="uid://70u4i24oecc8" path="res://Scenes/Models/Environmental/CollisionObjects/bookcaseWideFilledgltf.tscn" id="22_soju5"]
 [ext_resource type="PackedScene" uid="uid://bh0f10rp0yxv7" path="res://Scenes/Models/Environmental/CollisionObjects/tableLargegltf.tscn" id="23_nedhw"]
 [ext_resource type="PackedScene" path="res://Scenes/Models/Props/lootSackAgltf.tscn" id="24_p0kaq"]
 [ext_resource type="PackedScene" uid="uid://dvirlhsj80diq" path="res://Scenes/Models/Environmental/CollisionObjects/chairgltf.tscn" id="25_xqmel"]
-[ext_resource type="Texture2D" uid="uid://brg85rdsu7rey" path="res://Textures/GameProjectTextures/beautiful-shining-stars-night-sky.jpg" id="26_qofdf"]
+[ext_resource type="Texture2D" uid="uid://djptm2erscyri" path="res://Textures/GameProjectTextures/beautiful-shining-stars-night-sky.jpg" id="26_qofdf"]
 [ext_resource type="PackedScene" uid="uid://dagn8ia667mh5" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_small_highgltf.tscn" id="27_tiqtp"]
 [ext_resource type="PackedScene" uid="uid://d3hvsnld2xnmv" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_small_medium_railing_longgltf.tscn" id="28_1i41d"]
 [ext_resource type="PackedScene" uid="uid://iseqhvgvxvf5" path="res://Scenes/Models/Environmental/CollisionObjects/scaffold_high_railinggltf.tscn" id="29_lcm0t"]
@@ -187,6 +187,9 @@ albedo_color = Color(0.858824, 0.180392, 0, 1)
 material = SubResource("StandardMaterial3D_2fgq3")
 
 [sub_resource type="Environment" id="Environment_7xq0t"]
+background_mode = 1
+background_color = Color(0.0962047, 0.0962048, 0.0962047, 1)
+ssao_enabled = true
 
 [node name="Node3D" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313505, 0)
@@ -384,7 +387,6 @@ size = Vector3(22.3213, 0.00387607, 15.3239)
 
 [node name="Human" parent="Room1/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4799, 0.730919, 1.2239)
-AI = null
 
 [node name="Stairs" type="Node" parent="Room1"]
 
@@ -476,7 +478,7 @@ operation = 2
 size = Vector3(1, 3.48264, 1.78923)
 
 [node name="doorgltf" parent="Room2/Walls/WallDoor/CSGBox3D" instance=ExtResource("9_qgheg")]
-transform = Transform3D(0.96624, 0, 0.186747, 0, 1.19657, 0, -0.183866, 0, 0.981383, 0.359898, -1.15359, 1.04817)
+transform = Transform3D(-0.0498138, 0, 0.997711, 0, 1.19657, 0, -0.982316, 0, -0.0505939, 0.359898, -1.15359, 1.04817)
 
 [node name="bookcaseWideFilledgltf" parent="Room2/Walls/WallDoor" instance=ExtResource("22_soju5")]
 transform = Transform3D(-0.00115192, 0, -0.999999, 0, 1, 0, 0.999999, 0, -0.00115192, 0.659069, 2.12671, -4.60556)
@@ -586,7 +588,6 @@ size = Vector3(32.2174, 0.002, 22.311)
 
 [node name="Human" parent="Room2/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(-0.0614492, 0, -0.99811, 0, 1, 0, 0.99811, 0, -0.0614492, -40.4574, 3.21744, 0.593185)
-AI = null
 
 [node name="Cover" type="Node" parent="Room2"]
 
@@ -696,7 +697,7 @@ operation = 2
 size = Vector3(1.92495, 3.41793, 1.8708)
 
 [node name="doorgltf" parent="Room3/Walls/CSGBox3D3/CSGBox3D" instance=ExtResource("9_qgheg")]
-transform = Transform3D(-0.697854, 0, 0.63911, 0, 1.44894, 0, -0.610323, 0, -0.730769, -0.582959, -1.31191, -0.784592)
+transform = Transform3D(0.0114716, 0, -0.970743, 0, 1.44894, 0, 0.927018, 0, 0.0120124, -0.583824, -1.31191, -0.934319)
 
 [node name="bookcaseWideFilledgltf" parent="Room3/Walls/CSGBox3D3" instance=ExtResource("22_soju5")]
 transform = Transform3D(-0.0178538, 0, 0.999842, 0, 1, 0, -0.999842, 0, -0.0178538, -0.850912, -0.676014, 7.54199)
@@ -1025,15 +1026,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.454499, 0)
 [node name="Human" parent="Room4/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(-0.828354, 0, -0.560205, 0, 1, 0, 0.560205, 0, -0.828354, -68.6871, 13.4947, -39.5876)
 TurnSpeed = 1.0
-AI = null
 
 [node name="Human2" parent="Room4/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.306, 13.501, -28.5732)
-AI = null
 
 [node name="Human3" parent="Room4/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(-0.112995, 0, 0.993596, 0, 1, 0, -0.993596, 0, -0.112995, -55.1484, 13.4927, -24.7173)
-AI = null
 
 [node name="Room5" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_6354w")
@@ -1055,7 +1053,7 @@ operation = 2
 size = Vector3(2.10242, 2.73123, 2.64074)
 
 [node name="doorgltf" parent="Room5/CSGBox3D/CSGBox3D17" instance=ExtResource("9_qgheg")]
-transform = Transform3D(0.448929, 0, 0.893567, 0, 1, 0, -0.893567, 0, 0.448929, 1.0703, -0.93581, -1.2318)
+transform = Transform3D(-0.999261, 0, -0.0384226, 0, 1, 0, 0.0384226, 0, -0.999261, 0.895306, -0.93581, -1.13136)
 
 [node name="scaffold_stairsgltf" parent="Room5/CSGBox3D/CSGBox3D17" instance=ExtResource("10_bcmaf")]
 transform = Transform3D(-0.999855, 0, 0.0170336, 0, 0.540618, 0, -0.0170336, 0, -0.999855, 0, -2.44882, -2.14536)
@@ -1223,15 +1221,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.20708, 0)
 
 [node name="Human" parent="Room5/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(0.969016, 0, 0.246999, 0, 1, 0, -0.246999, 0, 0.969016, -3.64938, -4.79064, -29.0006)
-AI = null
 
 [node name="Human2" parent="Room5/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(-0.657376, 0, 0.753563, 0, 1, 0, -0.753564, 0, -0.657375, -17.4616, -4.71402, -34.9726)
-AI = null
 
 [node name="Human3" parent="Room5/Enemy" instance=ExtResource("13_k2jkp")]
 transform = Transform3D(0.119704, 0.0155673, -0.992688, 0.013558, 0.999758, 0.0173132, 0.992717, -0.0155313, 0.119464, -11.7387, -8.05615, -30.6185)
-AI = null
 
 [node name="Platforms" type="Node" parent="Room5"]
 

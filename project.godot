@@ -23,7 +23,7 @@ ResourceScriptDirectories=["res://"]
 
 config/name="Project Thief"
 run/main_scene="res://Scenes/Menus/MainMenu.tscn"
-config/features=PackedStringArray("4.0", "C#")
+config/features=PackedStringArray("4.1", "C#")
 config/icon="res://icon.png"
 
 [autoload]
@@ -153,7 +153,7 @@ project/assembly_name="Project Thief"
 
 [physics]
 
-3d/physics_engine="Bullet"
+3d/run_on_separate_thread=true
 3d/smooth_trimesh_collision=true
 common/enable_pause_aware_picking=true
 common/physics_interpolation=true
